@@ -1,10 +1,16 @@
 import React from 'react';
-import {StyledDiv} from './Home.styled';
+import {StyledGrid, StyledMain} from './Home.styled';
+import {Navbar} from '../Navbar/Navbar';
+import {HomeContainer} from './HomeContainer/HomeContainer';
 
 export const Home = () => {
     return (
-        <StyledDiv>
-            <h3>Good luck in developing Dragons Lending app!</h3>
-        </StyledDiv>
+        <StyledGrid>
+            <Navbar />
+            <StyledMain>
+                <HomeContainer title="Social lending" />
+                <HomeContainer title="Investments" />
+            </StyledMain>
+        </StyledGrid>
     );
 };
