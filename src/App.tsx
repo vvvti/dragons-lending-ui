@@ -1,14 +1,13 @@
 import React from 'react';
-import {css} from 'emotion';
+import {StylesProvider} from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import {Home} from './components/Home/Home';
 
 export const App = () => {
     return (
-        <header className={header}>
-            <h3>Good luck in developing Dragons Lending app!</h3>
-        </header>
+        <StylesProvider injectFirst>
+            <CssBaseline />
+            <Home />
+        </StylesProvider>
     );
 };
-
-const header = css({
-    color: '#1a1a1a',
-});
