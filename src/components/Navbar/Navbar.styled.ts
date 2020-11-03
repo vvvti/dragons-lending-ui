@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 
 export const StyledNavbar = styled.div`
     display: flex;
-    flex-basis: 100px;
+    height: 100px;
     align-items: center;
     justify-content: space-around;
     align-content: space-around;
@@ -34,7 +34,7 @@ export const StyledMenu = styled.div`
 `;
 
 export const LogoContainer = styled.div`
-    height: 100%;
+    height: 90%;
 `;
 
 export const Logo = styled.img`

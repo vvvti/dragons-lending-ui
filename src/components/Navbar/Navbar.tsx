@@ -11,7 +11,9 @@ export const Navbar = () => {
                     <StyledLogin to={ROUTES.HOME}>{<Logo src={dragonImage} alt="" />}</StyledLogin>
                 </LogoContainer>
             </StyledMenu>
-            <StyledTitle>Dragons lending</StyledTitle>
+            <StyledLogin to={ROUTES.HOME}>
+                <StyledTitle>Dragons lending</StyledTitle>
+            </StyledLogin>
             <StyledMenu>
                 <StyledLogin to={ROUTES.LOGIN}>Login</StyledLogin>
                 <StyledRegister to={ROUTES.REGISTER}>Register</StyledRegister>
