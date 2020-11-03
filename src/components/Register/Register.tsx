@@ -22,7 +22,7 @@ export const Register = () => {
                     console.log(values);
                 }}
             >
-                {({values, isValid, errors, handleBlur, touched}) => (
+                {({isValid, errors}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
                             <StyledAvatar color="primary">
@@ -34,7 +34,7 @@ export const Register = () => {
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
-                                        <Field label="Email Address" name="email" component={InputField} />
+                                        <Field label="Email Address" name="email" component={InputField} autoFocus />
                                         <ErrorMessage>{errors.email}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
