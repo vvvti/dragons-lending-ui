@@ -5,3 +5,8 @@ export interface RegisterFormValues {
     password: string;
     majority: boolean;
 }
+
+export interface LoginFormValues {
+    email: string;
+    password: string;
+}

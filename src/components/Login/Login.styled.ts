@@ -23,7 +23,7 @@ export const StyledForm = styled(Form)`
 export const StyledButton = styled(Button)`
     margin: 20px 0;
 `;
-export const StyledLoginPage = styled(NavLink)`
+export const StyledRegisterPage = styled(NavLink)`
     text-decoration: none;
     margin: 20px;
     color: hsl(207, 73%, 53%);

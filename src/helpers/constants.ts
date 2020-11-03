@@ -1,4 +1,4 @@
-import {RegisterFormValues} from './types';
+import {LoginFormValues, RegisterFormValues} from './types';
 
 export enum PAGETYPE {
     INVESTMENTS,
@@ -13,4 +13,9 @@ export const INITIAL_REGISTER_VALUES: RegisterFormValues = {
     email: '',
     password: '',
     majority: false,
+};
+
+export const INITIAL_LOGIN_VALUES: LoginFormValues = {
+    email: '',
+    password: '',
 };
