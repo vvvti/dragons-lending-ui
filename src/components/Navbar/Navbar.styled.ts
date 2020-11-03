@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {NavLink} from 'react-router-dom';
 
 export const StyledNavbar = styled.div`
     display: flex;
@@ -32,17 +33,24 @@ export const StyledMenu = styled.div`
     background-color: hsl(240, 2%, 16%);
 `;
 
-export const StyledLogin = styled.div`
+export const LogoContainer = styled.div`
+    height: 100%;
+`;
+
+export const Logo = styled.img`
+    height: 80px;
+`;
+
+export const StyledLogin = styled(NavLink)`
+    text-decoration: none;
+    color: hsl(0, 0%, 100%);
     margin: 20px;
     font-size: 16px;
 `;
 
-export const StyledSingUp = styled.div`
-    margin: 20px 20px 20px 0;
-    font-size: 16px;
+export const StyledRegister = styled(NavLink)`
+    text-decoration: none;
     color: hsl(0, 100%, 50%);
-`;
-
-export const Logo = styled.img`
-    height: 90px;
+    margin: 20px;
+    font-size: 16px;
 `;
