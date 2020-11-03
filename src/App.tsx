@@ -18,7 +18,6 @@ export const App = () => {
                     <Route exact path={ROUTES.LOGIN} component={Home} />
                     <Route exact path={ROUTES.REGISTER} component={Home} />
                 </Switch>
-                <Home />
             </Router>
         </StylesProvider>
     );
