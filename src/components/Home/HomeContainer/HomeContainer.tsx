@@ -1,23 +1,24 @@
 import React from 'react';
 import {Button} from '@material-ui/core';
-import {ButtonContainer, StyledContainer, StyledList, StyledTitle} from './HomeContainer.styled';
+import {ButtonContainer, StyledContainer, StyledExternalLink, StyledLink, StyledTitle} from './HomeContainer.styled';
+import {ROUTES} from '../../../helpers/routes';
+import {CALCULATOR, PAGETYPE} from '../../../helpers/constants';
 
 interface IProps {
-    title: string;
+    pageType: number;
 }
 
-export const HomeContainer: React.FC<IProps> = ({title}) => {
+export const HomeContainer: React.FC<IProps> = ({pageType}) => {
     return (
         <StyledContainer>
-            <StyledTitle>{title}</StyledTitle>
-            <StyledList>
-                <li>line1</li>
-                <li>line2</li>
-                <li>line3</li>
-            </StyledList>
+            <StyledTitle>{pageType === PAGETYPE.LOGIN ? 'Social Lending' : 'Investments'}</StyledTitle>
             <ButtonContainer>
                 <Button color="secondary" variant="contained" size="large">
-                    {title === 'Investments' ? 'Calculate' : 'Register'}
+                    {pageType === PAGETYPE.LOGIN ? (
+                        <StyledLink to={ROUTES.LOGIN}>Register</StyledLink>
+                    ) : (
+                        <StyledExternalLink href={CALCULATOR}>Calculate</StyledExternalLink>
+                    )}
                 </Button>
             </ButtonContainer>
         </StyledContainer>

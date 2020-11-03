@@ -12,5 +12,5 @@ export const StyledMain = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
-background-image: url("${tropical}");
+  background-image: url("${tropical}");
 `;
