@@ -3,20 +3,21 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {ErrorMessage, StyledAvatar, StyledButton, StyledForm, StyledLoginPage, StyledPaper} from './Register.styled';
+import {StyledAvatar, StyledButton, StyledForm, StyledPaper, StyledRegisterPage} from './Login.styled';
 import {Field, Formik} from 'formik';
-import {InputField} from '../InputField/InputField';
-import {INITIAL_REGISTER_VALUES} from '../../helpers/constants';
-import {validationSchema} from './Register.helpers';
+import {InputField} from './InputField/InputField';
+import {validationSchema} from './Login.helpers';
 import {Navbar} from '../Navbar/Navbar';
+import {INITIAL_LOGIN_VALUES} from '../../helpers/constants';
 import {ROUTES} from '../../helpers/routes';
+import {ErrorMessage} from '../Register/Register.styled';
 
-export const Register = () => {
+export const Login = () => {
     return (
         <>
             <Navbar />
             <Formik
-                initialValues={INITIAL_REGISTER_VALUES}
+                initialValues={INITIAL_LOGIN_VALUES}
                 validationSchema={validationSchema}
                 onSubmit={values => {
                     console.log(values);
@@ -29,7 +30,7 @@ export const Register = () => {
                                 <LockOutlinedIcon />
                             </StyledAvatar>
                             <Typography component="h1" variant="h5">
-                                Sign up
+                                Sign in
                             </Typography>
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
@@ -43,11 +44,11 @@ export const Register = () => {
                                     </Grid>
                                 </Grid>
                                 <StyledButton type="submit" fullWidth variant="contained" color="primary" disabled={!isValid}>
-                                    Register
+                                    Login
                                 </StyledButton>
                                 <Grid container justify="flex-end">
                                     <Grid item>
-                                        <StyledLoginPage to={ROUTES.LOGIN}>Already have an account? Sign in</StyledLoginPage>
+                                        <StyledRegisterPage to={ROUTES.REGISTER}>Don't have an account? Sign Up</StyledRegisterPage>
                                     </Grid>
                                 </Grid>
                                 {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
