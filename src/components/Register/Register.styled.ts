@@ -28,3 +28,7 @@ export const StyledLoginPage = styled(NavLink)`
     margin: 20px;
     color: hsl(207, 73%, 53%);
 `;
+export const ErrorMessage = styled.div`
+    color: hsl(0, 100%, 50%);
+    margin: 5px;
+`;

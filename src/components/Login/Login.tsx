@@ -10,6 +10,7 @@ import {validationSchema} from './Login.helpers';
 import {Navbar} from '../Navbar/Navbar';
 import {INITIAL_LOGIN_VALUES} from '../../helpers/constants';
 import {ROUTES} from '../../helpers/routes';
+import {ErrorMessage} from '../Register/Register.styled';
 
 export const Login = () => {
     return (
@@ -22,7 +23,7 @@ export const Login = () => {
                     console.log(values);
                 }}
             >
-                {({isValid}) => (
+                {({isValid, errors}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
                             <StyledAvatar color="primary">
@@ -35,9 +36,11 @@ export const Login = () => {
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
                                         <Field label="Email Address" name="email" component={InputField} autoFocus />
+                                        <ErrorMessage>{errors.email}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
                                         <Field label="Password" name="password" type="password" component={InputField} />
+                                        <ErrorMessage>{errors.password}</ErrorMessage>
                                     </Grid>
                                 </Grid>
                                 <StyledButton type="submit" fullWidth variant="contained" color="primary" disabled={!isValid}>

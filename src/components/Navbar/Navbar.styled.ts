@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 
 export const StyledNavbar = styled.div`
     display: flex;
-    height: 100px;
+    height: 80px;
     align-items: center;
     justify-content: space-around;
     align-content: space-around;
@@ -18,7 +18,7 @@ export const StyledTitle = styled.div`
     background-color: hsl(240, 2%, 16%);
     color: white;
     text-transform: uppercase;
-    font-size: 50px;
+    font-size: 46px;
     font-weight: bold;
 `;
 
@@ -38,7 +38,7 @@ export const LogoContainer = styled.div`
 `;
 
 export const Logo = styled.img`
-    height: 80px;
+    height: 70px;
 `;
 
 export const StyledLogin = styled(NavLink)`
