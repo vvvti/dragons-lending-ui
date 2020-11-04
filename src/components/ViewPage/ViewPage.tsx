@@ -1,11 +1,16 @@
 import React from 'react';
 import {Navbar} from '../Navbar/Navbar';
+import {PageContainer, PageWrapper, StatusContainer} from './ViewPage.styled';
+import {Loans} from '../Loans/Loans';
 
 export const ViewPage = () => {
     return (
-        <div>
+        <PageWrapper>
             <Navbar />
-            View Page
-        </div>
+            <PageContainer>
+                <StatusContainer>Status Bar</StatusContainer>
+                <Loans />
+            </PageContainer>
+        </PageWrapper>
     );
 };

@@ -18,8 +18,17 @@ export const StyledTitle = styled.div`
     background-color: hsl(240, 2%, 16%);
     color: white;
     text-transform: uppercase;
+    text-align: center;
     font-size: 46px;
     font-weight: bold;
+
+    @media (max-width: 1024px) {
+        font-size: 26px;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 18px;
+    }
 `;
 
 export const StyledMenu = styled.div`
@@ -31,6 +40,10 @@ export const StyledMenu = styled.div`
     color: white;
     text-transform: uppercase;
     background-color: hsl(240, 2%, 16%);
+
+    @media (max-width: 800px) {
+        flex-basis: 100px;
+    }
 `;
 
 export const LogoContainer = styled.div`
