@@ -15,7 +15,7 @@ export const HomeContainer: React.FC<IProps> = ({pageType}) => {
             <ButtonContainer>
                 <Button color="secondary" variant="contained" size="large">
                     {pageType === PAGETYPE.LOGIN ? (
-                        <StyledLink to={ROUTES.REGISTER}>Register</StyledLink>
+                        <StyledLink to={ROUTES.VIEWPAGE}>Check out</StyledLink>
                     ) : (
                         <StyledExternalLink href={CALCULATOR}>Calculate</StyledExternalLink>
                     )}

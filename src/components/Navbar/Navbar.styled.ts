@@ -34,7 +34,7 @@ export const StyledMenu = styled.div`
 `;
 
 export const LogoContainer = styled.div`
-    height: 90%;
+    height: 100%;
 `;
 
 export const Logo = styled.img`
