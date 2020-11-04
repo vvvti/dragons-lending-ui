@@ -8,6 +8,7 @@ import {ROUTES} from './helpers/routes';
 import {Register} from './components/Register/Register';
 import {Login} from './components/Login/Login';
 import {ViewPage} from './components/ViewPage/ViewPage';
+import {GlobalStyle} from './GlobalStyle';
 
 export const App = () => {
     const history = createBrowserHistory();
@@ -16,6 +17,7 @@ export const App = () => {
         <StylesProvider injectFirst>
             <Router history={history}>
                 <CssBaseline />
+                <GlobalStyle />
                 <Switch>
                     <Route exact path={ROUTES.HOME} component={Home} />
                     <Route exact path={ROUTES.LOGIN} component={Login} />

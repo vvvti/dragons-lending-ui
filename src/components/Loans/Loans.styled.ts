@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Avatar} from '@material-ui/core';
+import {Avatar, Button} from '@material-ui/core';
 
 export const GridView = styled.div`
     width: 80%;
@@ -36,4 +36,21 @@ export const StyledAvatar = styled(Avatar)`
     justify-self: center;
     width: 100px;
     height: 100px;
+`;
+export const StyledName = styled.div`
+    grid-area: name;
+    align-self: center;
+    justify-self: center;
+`;
+
+export const StyledButton = styled(Button)`
+    grid-area: button;
+    align-self: center;
+    justify-self: center;
+    width: 80%;
+`;
+
+export const Star = styled.img`
+    width: 24px;
+    margin: 0 5px;
 `;
