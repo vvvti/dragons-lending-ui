@@ -1,5 +1,18 @@
 import React from 'react';
-import {GridView, ItemContainer, Star, StyledAvatar, StyledButton, StyledName, Title} from './Loans.styled';
+import {
+    GridView,
+    ItemContainer,
+    Star,
+    StyledAvatar,
+    StyledButton,
+    StyledLoanDetails,
+    StyledRating,
+    StyledRatingDetails,
+    StyledSpan,
+    StyledTitle,
+    StyledVotes,
+    Title,
+} from './Loans.styled';
 import star from '../../assets/star.svg';
 
 export const Loans = () => {
@@ -8,10 +21,20 @@ export const Loans = () => {
             <Title>Active loan applications</Title>
             <ItemContainer>
                 <StyledAvatar>OW</StyledAvatar>
-                <StyledName>
+                <StyledRatingDetails>
                     <Star src={star} />
-                    4.4 62 Votes
-                </StyledName>
+                    <StyledRating>4.4</StyledRating>
+                    <StyledVotes>62 Votes</StyledVotes>
+                </StyledRatingDetails>
+                <StyledLoanDetails>
+                    <StyledTitle>Want to borrow</StyledTitle>
+                    <div>
+                        <StyledSpan>500 GBP</StyledSpan> for <StyledSpan>30 days</StyledSpan>
+                    </div>
+                    <div>
+                        <StyledSpan>7 %</StyledSpan> bonus <StyledSpan>30 GBP</StyledSpan>
+                    </div>
+                </StyledLoanDetails>
                 <StyledButton type="submit" fullWidth variant="contained" color="primary">
                     Details
                 </StyledButton>

@@ -37,10 +37,13 @@ export const StyledAvatar = styled(Avatar)`
     width: 100px;
     height: 100px;
 `;
-export const StyledName = styled.div`
+
+export const StyledRatingDetails = styled.div`
     grid-area: name;
     align-self: center;
     justify-self: center;
+    display: flex;
+    align-items: center;
 `;
 
 export const StyledButton = styled(Button)`
@@ -53,4 +56,26 @@ export const StyledButton = styled(Button)`
 export const Star = styled.img`
     width: 24px;
     margin: 0 5px;
+`;
+export const StyledVotes = styled.div`
+    color: grey;
+`;
+export const StyledRating = styled.div`
+    font-weight: bold;
+    margin-right: 10px;
+`;
+
+export const StyledLoanDetails = styled.div`
+    grid-area: details;
+    display: flex;
+    flex-direction: column;
+`;
+
+export const StyledSpan = styled.span`
+    color: darkblue;
+    font-size: 18px;
+`;
+
+export const StyledTitle = styled.h4`
+    margin: 10px 0;
 `;
