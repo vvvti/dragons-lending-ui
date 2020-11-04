@@ -9,7 +9,7 @@ export const PageContainer = styled.div`
 
 export const StatusContainer = styled.div`
     display: flex;
-    width: 60%;
+    width: 80%;
     height: 100px;
     align-items: center;
     justify-content: center;
