@@ -3,21 +3,20 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {StyledAvatar, StyledButton, StyledForm, StyledPaper, StyledRegisterPage} from './Login.styled';
+import {ErrorMessage, StyledAvatar, StyledButton, StyledForm, StyledLoginPage, StyledPaper} from './Registrationstyled';
 import {Field, Formik} from 'formik';
-import {InputField} from './InputField/InputField';
-import {validationSchema} from './Login.helpers';
+import {InputField} from '../InputField/InputField';
+import {INITIAL_REGISTER_VALUES} from '../../helpers/constants';
+import {validationSchema} from './Registration.helpers';
 import {Navbar} from '../Navbar/Navbar';
-import {INITIAL_LOGIN_VALUES} from '../../helpers/constants';
 import {ROUTES} from '../../helpers/routes';
-import {ErrorMessage} from '../Registration/Registrationstyled';
 
-export const Login = () => {
+export const Registration = () => {
     return (
         <>
             <Navbar />
             <Formik
-                initialValues={INITIAL_LOGIN_VALUES}
+                initialValues={INITIAL_REGISTER_VALUES}
                 validationSchema={validationSchema}
                 onSubmit={values => {
                     console.log(values);
@@ -30,12 +29,24 @@ export const Login = () => {
                                 <LockOutlinedIcon />
                             </StyledAvatar>
                             <Typography component="h1" variant="h5">
-                                Sign in
+                                Sign up
                             </Typography>
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
-                                        <Field label="Email Address" name="email" onBlur={handleBlur} component={InputField} autoFocus />
+                                        <Field label="User Name" name="username" component={InputField} onBlur={handleBlur} autoFocus />
+                                        <ErrorMessage>{touched.username && errors.username}</ErrorMessage>
+                                    </Grid>
+                                    <Grid item xs={12} sm={6}>
+                                        <Field label="First Name" name="firstName" component={InputField} onBlur={handleBlur} />
+                                        <ErrorMessage>{touched.firstName && errors.firstName}</ErrorMessage>
+                                    </Grid>
+                                    <Grid item xs={12} sm={6}>
+                                        <Field label="Last Name" name="lastName" onBlur={handleBlur} component={InputField} />
+                                        <ErrorMessage>{touched.lastName && errors.lastName}</ErrorMessage>
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <Field label="Email Address" name="email" component={InputField} onBlur={handleBlur} />
                                         <ErrorMessage>{touched.email && errors.email}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
@@ -43,19 +54,23 @@ export const Login = () => {
                                             label="Password"
                                             name="password"
                                             type="password"
-                                            onBlur={handleBlur}
                                             component={InputField}
+                                            onBlur={handleBlur}
                                         />
                                         <ErrorMessage>{touched.password && errors.password}</ErrorMessage>
                                     </Grid>
+                                    <Grid item xs={12}>
+                                        <Field label="Personal Id" name="personalId" component={InputField} onBlur={handleBlur} />
+                                        <ErrorMessage>{touched.personalId && errors.personalId}</ErrorMessage>
+                                    </Grid>
                                 </Grid>
                                 <StyledButton type="submit" fullWidth variant="contained" color="primary" disabled={!isValid}>
-                                    Login
+                                    Register
                                 </StyledButton>
                             </StyledForm>
                             <Grid container justify="flex-end">
                                 <Grid item>
-                                    <StyledRegisterPage to={ROUTES.REGISTER}>Don't have an account? Sign Up</StyledRegisterPage>
+                                    <StyledLoginPage to={ROUTES.LOGIN}>Already have an account? Sign in</StyledLoginPage>
                                 </Grid>
                             </Grid>
                             {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
