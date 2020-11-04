@@ -23,7 +23,7 @@ export const Login = () => {
                     console.log(values);
                 }}
             >
-                {({isValid, errors}) => (
+                {({isValid, errors, handleBlur, touched}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
                             <StyledAvatar color="primary">
@@ -35,12 +35,18 @@ export const Login = () => {
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
-                                        <Field label="Email Address" name="email" component={InputField} autoFocus />
-                                        <ErrorMessage>{errors.email}</ErrorMessage>
+                                        <Field label="Email Address" name="email" onBlur={handleBlur} component={InputField} autoFocus />
+                                        <ErrorMessage>{touched.email && errors.email}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
-                                        <Field label="Password" name="password" type="password" component={InputField} />
-                                        <ErrorMessage>{errors.password}</ErrorMessage>
+                                        <Field
+                                            label="Password"
+                                            name="password"
+                                            type="password"
+                                            onBlur={handleBlur}
+                                            component={InputField}
+                                        />
+                                        <ErrorMessage>{touched.password && errors.password}</ErrorMessage>
                                     </Grid>
                                 </Grid>
                                 <StyledButton type="submit" fullWidth variant="contained" color="primary" disabled={!isValid}>
