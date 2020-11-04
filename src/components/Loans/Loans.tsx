@@ -2,30 +2,37 @@ import React from 'react';
 import {
     GridView,
     ItemContainer,
-    Star,
     StyledAvatar,
     StyledButton,
+    StyledHeader,
     StyledLoanDetails,
-    StyledRating,
     StyledRatingDetails,
     StyledSpan,
     StyledTitle,
-    StyledVotes,
-    Title,
 } from './Loans.styled';
-import star from '../../assets/star.svg';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import Tooltip from '@material-ui/core/Tooltip';
+import {ROUTES} from '../../helpers/routes';
+import {NavLink} from 'react-router-dom';
 
 export const Loans = () => {
     return (
         <GridView>
-            <Title>Active loan applications</Title>
+            <StyledHeader>
+                <h1>Active loan applications</h1>
+                <NavLink to={ROUTES.LOGIN}>
+                    {' '}
+                    <Tooltip title="Add offer" aria-label="add">
+                        <Fab color="primary">
+                            <AddIcon />
+                        </Fab>
+                    </Tooltip>
+                </NavLink>
+            </StyledHeader>
             <ItemContainer>
                 <StyledAvatar>OW</StyledAvatar>
-                <StyledRatingDetails>
-                    <Star src={star} />
-                    <StyledRating>4.4</StyledRating>
-                    <StyledVotes>62 Votes</StyledVotes>
-                </StyledRatingDetails>
+                <StyledRatingDetails>Oskar123</StyledRatingDetails>
                 <StyledLoanDetails>
                     <StyledTitle>Want to borrow</StyledTitle>
                     <div>

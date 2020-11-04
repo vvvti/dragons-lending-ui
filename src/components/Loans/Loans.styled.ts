@@ -10,13 +10,6 @@ export const GridView = styled.div`
     position: relative;
 `;
 
-export const Title = styled.h1`
-    position: absolute;
-    top: 30px;
-    left: 10px;
-    width: 100%;
-`;
-
 export const ItemContainer = styled.div`
     display: grid;
     grid-template-columns: 200px 1fr;
@@ -50,16 +43,14 @@ export const StyledButton = styled(Button)`
     grid-area: button;
     align-self: center;
     justify-self: center;
-    width: 80%;
+    max-width: 160px;
 `;
 
 export const Star = styled.img`
     width: 24px;
     margin: 0 5px;
 `;
-export const StyledVotes = styled.div`
-    color: grey;
-`;
+
 export const StyledRating = styled.div`
     font-weight: bold;
     margin-right: 10px;
@@ -78,4 +69,15 @@ export const StyledSpan = styled.span`
 
 export const StyledTitle = styled.h4`
     margin: 10px 0;
+`;
+
+export const StyledHeader = styled.div`
+    position: absolute;
+    padding: 0 20px;
+    top: 30px;
+    left: 00px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `;
