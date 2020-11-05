@@ -13,7 +13,7 @@ import {
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import Tooltip from '@material-ui/core/Tooltip';
-import {ROUTES} from '../../helpers/routes';
+import {RoutesConst} from '../../../helpers/routesConst';
 import {NavLink} from 'react-router-dom';
 
 export const Loans = () => {
@@ -21,7 +21,7 @@ export const Loans = () => {
         <GridView>
             <StyledHeader>
                 <h1>Active loan applications</h1>
-                <NavLink to={ROUTES.LOGIN}>
+                <NavLink to={RoutesConst.LOGIN}>
                     {' '}
                     <Tooltip title="Add offer" aria-label="add">
                         <Fab color="primary">

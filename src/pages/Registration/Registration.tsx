@@ -5,11 +5,11 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import {ErrorMessage, StyledAvatar, StyledButton, StyledForm, StyledLoginPage, StyledPaper} from './Registrationstyled';
 import {Field, Formik} from 'formik';
-import {InputField} from '../InputField/InputField';
+import {InputField} from '../../components/InputField/InputField';
 import {INITIAL_REGISTER_VALUES} from '../../helpers/constants';
 import {validationSchema} from './Registration.helpers';
-import {Navbar} from '../Navbar/Navbar';
-import {ROUTES} from '../../helpers/routes';
+import {Navbar} from '../../components/Navbar/Navbar';
+import {RoutesConst} from '../../helpers/routesConst';
 
 export const Registration = () => {
     return (
@@ -22,7 +22,7 @@ export const Registration = () => {
                     console.log(values);
                 }}
             >
-                {({isValid, errors, handleBlur, touched}) => (
+                {({values, isValid, errors, handleBlur, touched}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
                             <StyledAvatar color="primary">
@@ -70,10 +70,10 @@ export const Registration = () => {
                             </StyledForm>
                             <Grid container justify="flex-end">
                                 <Grid item>
-                                    <StyledLoginPage to={ROUTES.LOGIN}>Already have an account? Sign in</StyledLoginPage>
+                                    <StyledLoginPage to={RoutesConst.LOGIN}>Already have an account? Sign in</StyledLoginPage>
                                 </Grid>
                             </Grid>
-                            {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
+                            <pre>{JSON.stringify(values, null, 2)}</pre>
                         </StyledPaper>
                     </Container>
                 )}

@@ -1,9 +1,9 @@
 import React from 'react';
-import {Navbar} from '../Navbar/Navbar';
-import {PageContainer, PageWrapper, StatusContainer} from './ViewPage.styled';
-import {Loans} from '../Loans/Loans';
+import {Navbar} from '../../components/Navbar/Navbar';
+import {PageContainer, PageWrapper, StatusContainer} from './LoanGrid.styled';
+import {Loans} from './Loans/Loans';
 
-export const ViewPage = () => {
+export const LoanGrid = () => {
     return (
         <PageWrapper>
             <Navbar />

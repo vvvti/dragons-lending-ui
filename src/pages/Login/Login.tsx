@@ -5,12 +5,12 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import {StyledAvatar, StyledButton, StyledForm, StyledPaper, StyledRegisterPage} from './Login.styled';
 import {Field, Formik} from 'formik';
-import {InputField} from './InputField/InputField';
 import {validationSchema} from './Login.helpers';
-import {Navbar} from '../Navbar/Navbar';
+import {Navbar} from '../../components/Navbar/Navbar';
 import {INITIAL_LOGIN_VALUES} from '../../helpers/constants';
-import {ROUTES} from '../../helpers/routes';
+import {RoutesConst} from '../../helpers/routesConst';
 import {ErrorMessage} from '../Registration/Registrationstyled';
+import {InputField} from '../../components/InputField/InputField';
 
 export const Login = () => {
     return (
@@ -55,7 +55,7 @@ export const Login = () => {
                             </StyledForm>
                             <Grid container justify="flex-end">
                                 <Grid item>
-                                    <StyledRegisterPage to={ROUTES.REGISTER}>Don't have an account? Sign Up</StyledRegisterPage>
+                                    <StyledRegisterPage to={RoutesConst.REGISTRATION}>Don't have an account? Sign Up</StyledRegisterPage>
                                 </Grid>
                             </Grid>
                             {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
