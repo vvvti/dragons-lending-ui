@@ -11,3 +11,11 @@ export interface LoginFormValues {
     email: string;
     password: string;
 }
+
+export interface CreateOfferFormValues {
+    initialValue: number;
+    monthlySaving: number;
+    savingPeriod: number;
+    annualProfit: number;
+    paymentFrequency: string;
+}
