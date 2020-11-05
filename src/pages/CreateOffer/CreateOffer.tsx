@@ -1,15 +1,13 @@
 import React from 'react';
 import {Navbar} from '../../components/Navbar/Navbar';
-import {PageContainer, PageWrapper, StatusContainer} from './LoanGrid.styled';
-import {LoanCard} from '../../components/LoanCard/LoanCard';
+import {PageContainer, PageWrapper, StatusContainer} from './CreateOffer.styled';
 
-export const LoanGrid = () => {
+export const CreateOffer = () => {
     return (
         <PageWrapper>
             <Navbar />
             <PageContainer>
                 <StatusContainer>Status Bar</StatusContainer>
-                <LoanCard />
             </PageContainer>
         </PageWrapper>
     );

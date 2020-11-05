@@ -3,13 +3,12 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {StyledAvatar, StyledButton, StyledForm, StyledPaper, StyledRegisterPage} from './Login.styled';
+import {ErrorMessage, StyledAvatar, StyledButton, StyledForm, StyledPaper, StyledRegisterPage} from './Login.styled';
 import {Field, Formik} from 'formik';
 import {validationSchema} from './Login.helpers';
 import {Navbar} from '../../components/Navbar/Navbar';
 import {INITIAL_LOGIN_VALUES} from '../../helpers/constants';
 import {RoutesConst} from '../../helpers/routesConst';
-import {ErrorMessage} from '../Registration/Registrationstyled';
 import {InputField} from '../../components/InputField/InputField';
 
 export const Login = () => {

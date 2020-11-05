@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyledGrid, StyledMain} from './Home.styled';
 import {Navbar} from '../../components/Navbar/Navbar';
-import {HomeContainer} from './HomeContainer/HomeContainer';
+import {SectionContainer} from '../../components/SectionContainer/SectionContainer';
 import {PAGETYPE} from '../../helpers/constants';
 
 export const Home = () => {
@@ -9,8 +9,8 @@ export const Home = () => {
         <StyledGrid>
             <Navbar />
             <StyledMain>
-                <HomeContainer pageType={PAGETYPE.LOGIN} />
-                <HomeContainer pageType={PAGETYPE.INVESTMENTS} />
+                <SectionContainer pageType={PAGETYPE.LOGIN} />
+                <SectionContainer pageType={PAGETYPE.INVESTMENTS} />
             </StyledMain>
         </StyledGrid>
     );

@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {ErrorMessage, StyledAvatar, StyledButton, StyledForm, StyledLoginPage, StyledPaper} from './Registrationstyled';
+import {ErrorMessage, StyledAvatar, StyledButton, StyledForm, StyledLoginPage, StyledPaper} from './Registration.styled';
 import {Field, Formik} from 'formik';
 import {InputField} from '../../components/InputField/InputField';
 import {INITIAL_REGISTER_VALUES} from '../../helpers/constants';
@@ -22,7 +22,7 @@ export const Registration = () => {
                     console.log(values);
                 }}
             >
-                {({values, isValid, errors, handleBlur, touched}) => (
+                {({isValid, errors, handleBlur, touched}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
                             <StyledAvatar color="primary">
@@ -73,7 +73,7 @@ export const Registration = () => {
                                     <StyledLoginPage to={RoutesConst.LOGIN}>Already have an account? Sign in</StyledLoginPage>
                                 </Grid>
                             </Grid>
-                            <pre>{JSON.stringify(values, null, 2)}</pre>
+                            {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                         </StyledPaper>
                     </Container>
                 )}

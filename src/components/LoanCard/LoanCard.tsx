@@ -9,20 +9,19 @@ import {
     StyledRatingDetails,
     StyledSpan,
     StyledTitle,
-} from './Loans.styled';
+} from './LoanCard.styled';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import Tooltip from '@material-ui/core/Tooltip';
-import {RoutesConst} from '../../../helpers/routesConst';
+import {RoutesConst} from '../../helpers/routesConst';
 import {NavLink} from 'react-router-dom';
 
-export const Loans = () => {
+export const LoanCard = () => {
     return (
         <GridView>
             <StyledHeader>
                 <h1>Active loan applications</h1>
-                <NavLink to={RoutesConst.LOGIN}>
-                    {' '}
+                <NavLink to={RoutesConst.CREATEOFFER}>
                     <Tooltip title="Add offer" aria-label="add">
                         <Fab color="primary">
                             <AddIcon />
