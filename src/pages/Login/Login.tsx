@@ -3,14 +3,13 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {StyledAvatar, StyledButton, StyledForm, StyledPaper, StyledRegisterPage} from './Login.styled';
+import {ErrorMessage, StyledAvatar, StyledButton, StyledForm, StyledPaper, StyledRegisterPage} from './Login.styled';
 import {Field, Formik} from 'formik';
-import {InputField} from './InputField/InputField';
 import {validationSchema} from './Login.helpers';
-import {Navbar} from '../Navbar/Navbar';
+import {Navbar} from '../../components/Navbar/Navbar';
 import {INITIAL_LOGIN_VALUES} from '../../helpers/constants';
-import {ROUTES} from '../../helpers/routes';
-import {ErrorMessage} from '../Register/Register.styled';
+import {RoutesConst} from '../../helpers/routesConst';
+import {InputField} from '../../components/InputField/InputField';
 
 export const Login = () => {
     return (
@@ -23,7 +22,7 @@ export const Login = () => {
                     console.log(values);
                 }}
             >
-                {({isValid, errors}) => (
+                {({isValid, errors, handleBlur, touched}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
                             <StyledAvatar color="primary">
@@ -35,24 +34,30 @@ export const Login = () => {
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
-                                        <Field label="Email Address" name="email" component={InputField} autoFocus />
-                                        <ErrorMessage>{errors.email}</ErrorMessage>
+                                        <Field label="Email Address" name="email" onBlur={handleBlur} component={InputField} autoFocus />
+                                        <ErrorMessage>{touched.email && errors.email}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
-                                        <Field label="Password" name="password" type="password" component={InputField} />
-                                        <ErrorMessage>{errors.password}</ErrorMessage>
+                                        <Field
+                                            label="Password"
+                                            name="password"
+                                            type="password"
+                                            onBlur={handleBlur}
+                                            component={InputField}
+                                        />
+                                        <ErrorMessage>{touched.password && errors.password}</ErrorMessage>
                                     </Grid>
                                 </Grid>
                                 <StyledButton type="submit" fullWidth variant="contained" color="primary" disabled={!isValid}>
                                     Login
                                 </StyledButton>
-                                <Grid container justify="flex-end">
-                                    <Grid item>
-                                        <StyledRegisterPage to={ROUTES.REGISTER}>Don't have an account? Sign Up</StyledRegisterPage>
-                                    </Grid>
-                                </Grid>
-                                {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                             </StyledForm>
+                            <Grid container justify="flex-end">
+                                <Grid item>
+                                    <StyledRegisterPage to={RoutesConst.REGISTRATION}>Don't have an account? Sign Up</StyledRegisterPage>
+                                </Grid>
+                            </Grid>
+                            {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                         </StyledPaper>
                     </Container>
                 )}

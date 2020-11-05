@@ -1,15 +1,13 @@
 import React from 'react';
-import {Navbar} from '../Navbar/Navbar';
-import {PageContainer, PageWrapper, StatusContainer} from './ViewPage.styled';
-import {Loans} from '../Loans/Loans';
+import {Navbar} from '../../components/Navbar/Navbar';
+import {PageContainer, PageWrapper, StatusContainer} from './CreateOffer.styled';
 
-export const ViewPage = () => {
+export const CreateOffer = () => {
     return (
         <PageWrapper>
             <Navbar />
             <PageContainer>
                 <StatusContainer>Status Bar</StatusContainer>
-                <Loans />
             </PageContainer>
         </PageWrapper>
     );
