@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Avatar, Button, TextField} from '@material-ui/core';
+import {Avatar, Button, Snackbar, TextField} from '@material-ui/core';
 
 export const GridView = styled.div`
     width: 80%;
@@ -78,4 +78,7 @@ export const StyledHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+`;
+export const StyledSnackbar = styled(Snackbar)`
+    color: red;
 `;

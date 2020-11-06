@@ -17,7 +17,25 @@ import Tooltip from '@material-ui/core/Tooltip';
 import {RoutesConst} from '../../helpers/routesConst';
 import {NavLink} from 'react-router-dom';
 
+import {Snackbar} from '@material-ui/core';
+import MuiAlert, {AlertProps} from '@material-ui/lab/Alert';
+
+function Alert(props: AlertProps) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 export const LoanCard = () => {
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+    const handleClose = (event: React.SyntheticEvent | React.MouseEvent, reason?: string) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
     return (
         <GridView>
             <StyledHeader>
@@ -43,10 +61,15 @@ export const LoanCard = () => {
                         <StyledSpan>7 %</StyledSpan> bonus <StyledSpan>30 GBP</StyledSpan>
                     </div>
                 </StyledLoanDetails>
-                <StyledButton type="submit" fullWidth variant="contained" color="primary">
+                <StyledButton type="submit" fullWidth variant="contained" color="primary" onClick={handleClick}>
                     Invest
                 </StyledButton>
             </ItemContainer>
+            <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success">
+                    Offer submitted!
+                </Alert>
+            </Snackbar>
             <ItemContainer>Item</ItemContainer>
             <ItemContainer>Item</ItemContainer>
             <ItemContainer>Item</ItemContainer>
