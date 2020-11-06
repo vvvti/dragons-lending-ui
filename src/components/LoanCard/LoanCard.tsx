@@ -6,8 +6,9 @@ import {
     StyledButton,
     StyledHeader,
     StyledLoanDetails,
-    StyledRatingDetails,
+    StyledPercentageField,
     StyledSpan,
+    StyledTextField,
     StyledTitle,
 } from './LoanCard.styled';
 import Fab from '@material-ui/core/Fab';
@@ -31,7 +32,8 @@ export const LoanCard = () => {
             </StyledHeader>
             <ItemContainer>
                 <StyledAvatar>OW</StyledAvatar>
-                <StyledRatingDetails>Oskar123</StyledRatingDetails>
+                <StyledTextField variant="outlined" label="Amount" size="small" />
+                <StyledPercentageField type="number" variant="outlined" label="%" size="small" />
                 <StyledLoanDetails>
                     <StyledTitle>Want to borrow</StyledTitle>
                     <div>
@@ -42,10 +44,9 @@ export const LoanCard = () => {
                     </div>
                 </StyledLoanDetails>
                 <StyledButton type="submit" fullWidth variant="contained" color="primary">
-                    Details
+                    Invest
                 </StyledButton>
             </ItemContainer>
-            <ItemContainer>Item</ItemContainer>
             <ItemContainer>Item</ItemContainer>
             <ItemContainer>Item</ItemContainer>
             <ItemContainer>Item</ItemContainer>

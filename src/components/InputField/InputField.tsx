@@ -2,7 +2,27 @@ import React from 'react';
 import {FieldProps} from 'formik';
 import {TextField} from '@material-ui/core';
 import {TextFieldProps} from '@material-ui/core/TextField/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
-export const InputField: React.FC<FieldProps & TextFieldProps> = ({field, label, type, autoFocus}) => {
-    return <TextField variant="outlined" type={type} required label={label} fullWidth autoFocus={autoFocus} {...field} />;
+export interface InputFieldProps {
+    prefix?: string;
+    size?: string;
+}
+
+export const InputField: React.FC<FieldProps & TextFieldProps & InputFieldProps> = ({size, prefix, field, label, type, autoFocus}) => {
+    return (
+        <TextField
+            variant="outlined"
+            type={type}
+            required
+            label={label}
+            size={size}
+            fullWidth
+            autoFocus={autoFocus}
+            InputProps={{
+                endAdornment: <InputAdornment position="end">{prefix}</InputAdornment>,
+            }}
+            {...field}
+        />
+    );
 };
