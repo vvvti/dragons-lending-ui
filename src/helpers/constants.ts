@@ -22,9 +22,9 @@ export const INITIAL_LOGIN_VALUES: LoginFormValues = {
 };
 
 export const INITIAL_CREATEOFFER_VALUES: CreateOfferFormValues = {
-    initialValue: 1000,
-    monthlySaving: 300,
-    savingPeriod: 6,
-    annualProfit: 3,
-    paymentFrequency: '1',
+    loanAmount: 500,
+    timePeriod: 12,
+    interestRate: 7.5,
+    paymentFrequency: 'monthly',
+    endDate: '',
 };

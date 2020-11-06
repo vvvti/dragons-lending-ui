@@ -31,7 +31,7 @@ export const Registration = () => {
                             <Typography component="h1" variant="h5">
                                 Sign up
                             </Typography>
-                            <StyledForm noValidate>
+                            <StyledForm>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
                                         <Field label="User Name" name="username" component={InputField} onBlur={handleBlur} autoFocus />

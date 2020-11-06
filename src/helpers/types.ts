@@ -13,9 +13,9 @@ export interface LoginFormValues {
 }
 
 export interface CreateOfferFormValues {
-    initialValue: number;
-    monthlySaving: number;
-    savingPeriod: number;
-    annualProfit: number;
+    loanAmount: number;
+    timePeriod: number;
+    interestRate: number;
     paymentFrequency: string;
+    endDate: string;
 }

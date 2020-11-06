@@ -1,5 +1,6 @@
 import {Form} from 'formik';
 import styled from 'styled-components';
+import {Button} from '@material-ui/core';
 
 export const StyledForm = styled(Form)`
     display: flex;
@@ -16,7 +17,7 @@ export const RadioGroup = styled.div`
 
 export const StyledInputWrapper = styled.div`
     display: grid;
-    grid-template-columns: minmax(300px, 1fr) 150px;
+    grid-template-columns: minmax(400px, 1fr) 130px;
     grid-column-gap: 100px;
 `;
 
@@ -40,4 +41,7 @@ export const PageWrapper = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+`;
+export const StyledButton = styled(Button)`
+    width: 125px;
 `;

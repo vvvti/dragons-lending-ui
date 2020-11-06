@@ -23,28 +23,40 @@ export const MARKSMONTHLY = [
 
 export const MARKSDURATION = [
     {
-        value: 2,
-        label: '2Y',
+        value: 1,
+        label: '1m',
     },
     {
-        value: 4,
-        label: '4Y',
+        value: 3,
+        label: '3m',
     },
     {
         value: 6,
-        label: '6Y',
+        label: '6m',
     },
     {
-        value: 8,
-        label: '8Y',
+        value: 9,
+        label: '8m',
     },
     {
-        value: 10,
-        label: '10Y',
+        value: 12,
+        label: '12m',
+    },
+    {
+        value: 24,
+        label: '24m',
+    },
+    {
+        value: 36,
+        label: '36m',
     },
 ];
 
 export const MARKSINITIAL = [
+    {
+        value: 100,
+        label: 100,
+    },
     {
         value: 500,
         label: 500,
