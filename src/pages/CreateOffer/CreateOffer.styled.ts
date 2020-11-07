@@ -11,10 +11,6 @@ export const StyledForm = styled(Form)`
     box-shadow: 0 4px 12px rgba(186, 199, 213, 0.5);
 `;
 
-export const RadioGroup = styled.div`
-    display: flex;
-`;
-
 export const StyledInputWrapper = styled.div`
     display: grid;
     grid-template-columns: minmax(400px, 1fr) 130px;
