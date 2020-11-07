@@ -67,3 +67,10 @@ export const StyledRegister = styled(NavLink)`
     margin: 20px;
     font-size: 16px;
 `;
+
+export const StyledRules = styled(NavLink)`
+    text-decoration: none;
+    color: hsl(0, 0%, 100%);
+    margin: 20px;
+    font-size: 16px;
+`;

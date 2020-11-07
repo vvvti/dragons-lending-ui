@@ -1,5 +1,4 @@
 import React from 'react';
-import {Navbar} from '../../components/Navbar/Navbar';
 import {ErrorMessage, FormContainer, PageWrapper, StyledButton, StyledForm, StyledInputWrapper} from './CreateOffer.styled';
 import {Field, Formik} from 'formik';
 import {MARKSDURATION, MARKSINITIAL, MARKSPROFIT} from '../../helpers/marks';
@@ -11,7 +10,6 @@ import {validationSchema} from './CreateOffer.helpers';
 export const CreateOffer = () => {
     return (
         <PageWrapper>
-            <Navbar />
             <Formik
                 initialValues={INITIAL_CREATEOFFER_VALUES}
                 validationSchema={validationSchema}
