@@ -12,6 +12,11 @@ export interface LoginFormValues {
     password: string;
 }
 
+export interface InvestFormValues {
+    investAmount: number | null;
+    investRate: number | null;
+}
+
 export interface CreateOfferFormValues {
     loanAmount: number;
     timePeriod: number;
