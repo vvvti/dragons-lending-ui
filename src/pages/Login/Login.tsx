@@ -6,7 +6,6 @@ import Container from '@material-ui/core/Container';
 import {ErrorMessage, StyledAvatar, StyledButton, StyledForm, StyledPaper, StyledRegisterPage} from './Login.styled';
 import {Field, Formik} from 'formik';
 import {validationSchema} from './Login.helpers';
-import {Navbar} from '../../components/Navbar/Navbar';
 import {INITIAL_LOGIN_VALUES} from '../../helpers/constants';
 import {RoutesConst} from '../../helpers/routesConst';
 import {InputField} from '../../components/InputField/InputField';
@@ -14,7 +13,6 @@ import {InputField} from '../../components/InputField/InputField';
 export const Login = () => {
     return (
         <>
-            <Navbar />
             <Formik
                 initialValues={INITIAL_LOGIN_VALUES}
                 validationSchema={validationSchema}

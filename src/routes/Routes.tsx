@@ -6,6 +6,7 @@ import {Registration} from '../pages/Registration/Registration';
 import {LoanGrid} from '../pages/LoanGrid/LoanGrid';
 import {RoutesConst} from '../helpers/routesConst';
 import {CreateOffer} from '../pages/CreateOffer/CreateOffer';
+import {Rules} from '../pages/Rules/Rules';
 
 export const Routes = () => {
     return (
@@ -15,6 +16,7 @@ export const Routes = () => {
             <Route exact path={RoutesConst.LOANGRID} component={LoanGrid} />
             <Route exact path={RoutesConst.LOGIN} component={Login} />
             <Route exact path={RoutesConst.REGISTRATION} component={Registration} />
+            <Route exact path={RoutesConst.RULES} component={Rules} />
         </Switch>
     );
 };

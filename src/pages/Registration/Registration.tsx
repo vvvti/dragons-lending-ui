@@ -8,13 +8,11 @@ import {Field, Formik} from 'formik';
 import {InputField} from '../../components/InputField/InputField';
 import {INITIAL_REGISTER_VALUES} from '../../helpers/constants';
 import {validationSchema} from './Registration.helpers';
-import {Navbar} from '../../components/Navbar/Navbar';
 import {RoutesConst} from '../../helpers/routesConst';
 
 export const Registration = () => {
     return (
         <>
-            <Navbar />
             <Formik
                 initialValues={INITIAL_REGISTER_VALUES}
                 validationSchema={validationSchema}
