@@ -18,8 +18,6 @@ export interface IProps {
 export const InvestForm: React.FC<IProps> = ({loanAmount, interestRate}) => {
     const [open, setOpen] = React.useState(false);
 
-    console.log('check', loanAmount, interestRate);
-
     const handleClick = () => {
         setOpen(true);
     };
