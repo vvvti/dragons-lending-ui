@@ -45,13 +45,21 @@ export const InvestForm = () => {
                         />
                     </StyledAmount>
                     <StyledPercentage>
-                        <Field size="small" type="number" label="%" name="investRate" onBlur={handleBlur} component={InputField} />
+                        <Field
+                            size="small"
+                            type="number"
+                            label="%"
+                            prefix=""
+                            name="investRate"
+                            onBlur={handleBlur}
+                            component={InputField}
+                        />
                     </StyledPercentage>
                     <StyledButton type="submit" variant="contained" color="primary" onClick={handleClick}>
                         Invest
                     </StyledButton>
                     <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-                        {isValid ? (
+                        {isValid && touched ? (
                             <Alert onClose={handleClose} severity="success">
                                 Offer submitted!
                             </Alert>
@@ -61,7 +69,6 @@ export const InvestForm = () => {
                             </Alert>
                         )}
                     </Snackbar>
-                    {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                 </StyledInvestForm>
             )}
         </Formik>

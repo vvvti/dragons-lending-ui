@@ -6,15 +6,19 @@ import {INITIAL_CREATEOFFER_VALUES} from '../../helpers/constants';
 import {InputField} from '../../components/InputField/InputField';
 import {Slider} from '@material-ui/core';
 import {validationSchema} from './CreateOffer.helpers';
+import {CreateOfferFormValues} from '../../helpers/types';
+import {useOffer} from '../../hooks/useOffer';
 
 export const CreateOffer = () => {
+    const {postOfferValues} = useOffer();
+
     return (
         <PageWrapper>
             <Formik
                 initialValues={INITIAL_CREATEOFFER_VALUES}
                 validationSchema={validationSchema}
-                onSubmit={values => {
-                    console.log(values);
+                onSubmit={async (values: CreateOfferFormValues) => {
+                    await postOfferValues(values);
                 }}
             >
                 {({values, isValid, setFieldValue, errors, handleBlur, touched}) => (
@@ -67,17 +71,6 @@ export const CreateOffer = () => {
                                 <ErrorMessage>{touched.timePeriod && errors.timePeriod}</ErrorMessage>
                             </StyledInputWrapper>
                         </FormContainer>
-                        {/*<FormContainer>*/}
-                        {/*    <h2>Payment frequency:</h2>*/}
-                        {/*    <StyledInputWrapper>*/}
-                        {/*        <RadioGroup>*/}
-                        {/*            <FrequencyRadio name="paymentFrequency" type="radio" value="monthly"*/}
-                        {/*                            label="monthly"/>*/}
-                        {/*            <FrequencyRadio name="paymentFrequency" type="radio" value="onetime"*/}
-                        {/*                            label="one-time payment"/>*/}
-                        {/*        </RadioGroup>*/}
-                        {/*    </StyledInputWrapper>*/}
-                        {/*</FormContainer>*/}
                         <FormContainer>
                             <h2>Interest rate:</h2>
                             <StyledInputWrapper>
@@ -105,8 +98,8 @@ export const CreateOffer = () => {
                         <FormContainer>
                             <h2>Offer expiry date:</h2>
                             <StyledInputWrapper>
-                                <Field type="date" name="endDate" component={InputField} onBlur={handleBlur} />
-                                <StyledButton type="submit" size="small" fullWidth variant="contained" color="primary" disabled={!isValid}>
+                                <Field type="date" name="endDate" component={InputField} prefix="" onBlur={handleBlur} />
+                                <StyledButton type="submit" size="small" variant="contained" color="primary" disabled={!isValid}>
                                     Create Offer
                                 </StyledButton>
                                 <ErrorMessage>{touched.endDate && errors.endDate}</ErrorMessage>

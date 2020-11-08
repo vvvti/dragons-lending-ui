@@ -32,19 +32,26 @@ export const Registration = () => {
                             <StyledForm>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
-                                        <Field label="User Name" name="username" component={InputField} onBlur={handleBlur} autoFocus />
+                                        <Field
+                                            label="User Name"
+                                            name="username"
+                                            component={InputField}
+                                            prefix=""
+                                            onBlur={handleBlur}
+                                            autoFocus
+                                        />
                                         <ErrorMessage>{touched.username && errors.username}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
-                                        <Field label="First Name" name="firstName" component={InputField} onBlur={handleBlur} />
+                                        <Field label="First Name" name="firstName" component={InputField} prefix="" onBlur={handleBlur} />
                                         <ErrorMessage>{touched.firstName && errors.firstName}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
-                                        <Field label="Last Name" name="lastName" onBlur={handleBlur} component={InputField} />
+                                        <Field label="Last Name" name="lastName" onBlur={handleBlur} prefix="" component={InputField} />
                                         <ErrorMessage>{touched.lastName && errors.lastName}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
-                                        <Field label="Email Address" name="email" component={InputField} onBlur={handleBlur} />
+                                        <Field label="Email Address" name="email" component={InputField} prefix="" onBlur={handleBlur} />
                                         <ErrorMessage>{touched.email && errors.email}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
@@ -54,11 +61,12 @@ export const Registration = () => {
                                             type="password"
                                             component={InputField}
                                             onBlur={handleBlur}
+                                            prefix=""
                                         />
                                         <ErrorMessage>{touched.password && errors.password}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
-                                        <Field label="Personal Id" name="personalId" component={InputField} onBlur={handleBlur} />
+                                        <Field label="Personal Id" name="personalId" prefix="" component={InputField} onBlur={handleBlur} />
                                         <ErrorMessage>{touched.personalId && errors.personalId}</ErrorMessage>
                                     </Grid>
                                 </Grid>
