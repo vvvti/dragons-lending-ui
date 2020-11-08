@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     GridView,
     ItemContainer,
@@ -14,8 +14,16 @@ import {InvestForm} from './InvestForm/InvestForm';
 import {Accordion, AccordionDetails, AccordionSummary, Typography} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {data} from './data';
+import {useFetchImages} from '../../hooks/useFetchImages';
 
 export const LoansGrid = () => {
+    const {cards, getImages} = useFetchImages();
+
+    console.log(cards);
+    useEffect(() => {
+        getImages();
+    }, [getImages]);
+
     return (
         <GridView>
             <LoansHeader />
