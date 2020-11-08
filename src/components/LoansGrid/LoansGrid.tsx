@@ -13,37 +13,15 @@ import {LoansHeader} from './LoansHeader/LoansHeader';
 import {InvestForm} from './InvestForm/InvestForm';
 import {Accordion, AccordionDetails, AccordionSummary, Typography} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {data} from './data';
 
 export const LoansGrid = () => {
-    const data = [
-        {
-            id: 1,
-            loanAmount: 1000,
-            timePeriod: 2,
-            interestRate: 7,
-            endDate: '2020-12-22',
-        },
-        {
-            id: 2,
-            loanAmount: 500,
-            timePeriod: 10,
-            interestRate: 7,
-            endDate: '2020-12-22',
-        },
-        {
-            id: 3,
-            loanAmount: 200,
-            timePeriod: 4,
-            interestRate: 6,
-            endDate: '2020-12-22',
-        },
-    ];
     return (
         <GridView>
             <LoansHeader />
-            {data.map(({loanAmount, timePeriod, interestRate}) => {
+            {data.map(({id, loanAmount, timePeriod, interestRate}) => {
                 return (
-                    <ItemContainer>
+                    <ItemContainer key={id}>
                         <StyledAvatar>Photo</StyledAvatar>
                         <StyledLoanDetails>
                             <StyledDaysLeft>
@@ -63,22 +41,13 @@ export const LoansGrid = () => {
                                     <Typography>Expand to Invest</Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                    <InvestForm />
+                                    <InvestForm loanAmount={loanAmount} interestRate={interestRate} />
                                 </AccordionDetails>
                             </Accordion>
                         </StyledAccordion>
                     </ItemContainer>
                 );
             })}
-
-            <ItemContainer>Item</ItemContainer>
-            <ItemContainer>Item</ItemContainer>
-            <ItemContainer>Item</ItemContainer>
-            <ItemContainer>Item</ItemContainer>
-            <ItemContainer>Item</ItemContainer>
-            <ItemContainer>Item</ItemContainer>
-            <ItemContainer>Item</ItemContainer>
-            <ItemContainer>Item</ItemContainer>
         </GridView>
     );
 };
