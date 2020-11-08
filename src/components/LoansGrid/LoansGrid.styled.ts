@@ -4,8 +4,8 @@ import {Avatar} from '@material-ui/core';
 export const GridView = styled.div`
     width: 80%;
     display: grid;
-    grid-gap: 15px;
-    padding: 100px 15px 15px 15px;
+    grid-gap: 60px;
+    padding: 120px 15px 15px 15px;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     position: relative;
 `;

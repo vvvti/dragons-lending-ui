@@ -13,7 +13,7 @@ export const INITIAL_REGISTER_VALUES: RegisterFormValues = {
     lastName: '',
     email: '',
     password: '',
-    personalId: null,
+    personalId: undefined,
 };
 
 export const INITIAL_LOGIN_VALUES: LoginFormValues = {
@@ -22,14 +22,13 @@ export const INITIAL_LOGIN_VALUES: LoginFormValues = {
 };
 
 export const INITIAL_INVEST_VALUES: InvestFormValues = {
-    investAmount: null,
-    investRate: null,
+    investAmount: 100,
+    investRate: 7,
 };
 
 export const INITIAL_CREATEOFFER_VALUES: CreateOfferFormValues = {
     loanAmount: 500,
     timePeriod: 12,
     interestRate: 7.5,
-    paymentFrequency: 'monthly',
-    endDate: '',
+    endDate: new Date(),
 };

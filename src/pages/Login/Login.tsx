@@ -32,7 +32,14 @@ export const Login = () => {
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
-                                        <Field label="Email Address" name="email" onBlur={handleBlur} component={InputField} autoFocus />
+                                        <Field
+                                            label="Email Address"
+                                            name="email"
+                                            onBlur={handleBlur}
+                                            prefix=""
+                                            component={InputField}
+                                            autoFocus
+                                        />
                                         <ErrorMessage>{touched.email && errors.email}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
@@ -40,6 +47,7 @@ export const Login = () => {
                                             label="Password"
                                             name="password"
                                             type="password"
+                                            prefix=""
                                             onBlur={handleBlur}
                                             component={InputField}
                                         />

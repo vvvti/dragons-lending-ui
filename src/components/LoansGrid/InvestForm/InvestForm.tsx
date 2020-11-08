@@ -3,7 +3,6 @@ import MuiAlert, {AlertProps} from '@material-ui/lab/Alert';
 import {validationSchema} from './InvestForm.helpers';
 import {Field, Formik} from 'formik';
 import {InputField} from '../../InputField/InputField';
-import {INITIAL_INVEST_VALUES} from '../../../helpers/constants';
 import {Snackbar} from '@material-ui/core';
 import {StyledAmount, StyledButton, StyledInvestForm, StyledPercentage} from './InvestForm.styled';
 
@@ -11,8 +10,15 @@ function Alert(props: AlertProps) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-export const InvestForm = () => {
+export interface IProps {
+    loanAmount: number;
+    interestRate: number;
+}
+
+export const InvestForm: React.FC<IProps> = ({loanAmount, interestRate}) => {
     const [open, setOpen] = React.useState(false);
+
+    console.log('check', loanAmount, interestRate);
 
     const handleClick = () => {
         setOpen(true);
@@ -25,13 +31,13 @@ export const InvestForm = () => {
     };
     return (
         <Formik
-            initialValues={INITIAL_INVEST_VALUES}
+            initialValues={{investAmount: loanAmount, investRate: interestRate}}
             validationSchema={validationSchema}
             onSubmit={values => {
                 console.log(values);
             }}
         >
-            {({isValid, handleBlur, touched}) => (
+            {({values, isValid, handleBlur, touched}) => (
                 <StyledInvestForm>
                     <StyledAmount>
                         <Field
@@ -45,13 +51,21 @@ export const InvestForm = () => {
                         />
                     </StyledAmount>
                     <StyledPercentage>
-                        <Field size="small" type="number" label="%" name="investRate" onBlur={handleBlur} component={InputField} />
+                        <Field
+                            size="small"
+                            type="number"
+                            label="%"
+                            prefix=""
+                            name="investRate"
+                            onBlur={handleBlur}
+                            component={InputField}
+                        />
                     </StyledPercentage>
                     <StyledButton type="submit" variant="contained" color="primary" onClick={handleClick}>
                         Invest
                     </StyledButton>
                     <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-                        {isValid ? (
+                        {isValid && touched ? (
                             <Alert onClose={handleClose} severity="success">
                                 Offer submitted!
                             </Alert>

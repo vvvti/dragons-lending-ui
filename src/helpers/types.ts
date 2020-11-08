@@ -4,7 +4,7 @@ export interface RegisterFormValues {
     lastName: string;
     email: string;
     password: string;
-    personalId: number | null;
+    personalId: number | undefined;
 }
 
 export interface LoginFormValues {
@@ -13,14 +13,13 @@ export interface LoginFormValues {
 }
 
 export interface InvestFormValues {
-    investAmount: number | null;
-    investRate: number | null;
+    investAmount: number | undefined;
+    investRate: number | undefined;
 }
 
 export interface CreateOfferFormValues {
     loanAmount: number;
     timePeriod: number;
     interestRate: number;
-    paymentFrequency: string;
-    endDate: string;
+    endDate: Date;
 }

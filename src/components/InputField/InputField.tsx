@@ -1,8 +1,7 @@
 import React from 'react';
 import {FieldProps} from 'formik';
-import {TextField} from '@material-ui/core';
+import {InputAdornment, TextField} from '@material-ui/core';
 import {TextFieldProps} from '@material-ui/core/TextField/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
 
 export interface InputFieldProps {
     prefix?: string;
