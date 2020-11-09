@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {
     GridView,
     ItemContainer,
     StyledAccordion,
     StyledAvatar,
     StyledDaysLeft,
+    StyledImage,
     StyledLoanDetails,
     StyledSpan,
     StyledTitle,
@@ -13,33 +14,30 @@ import {LoansHeader} from './LoansHeader/LoansHeader';
 import {InvestForm} from './InvestForm/InvestForm';
 import {Accordion, AccordionDetails, AccordionSummary, Typography} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import {data} from './data';
-import {useFetchImages} from '../../hooks/useFetchImages';
+import {data, images} from './data';
 
 export const LoansGrid = () => {
-    const {cards, getImages} = useFetchImages();
+    const newData = data.map(obj => ({...obj, url: images[obj.id]}));
 
-    console.log(cards);
-    useEffect(() => {
-        getImages();
-    }, [getImages]);
-
+    console.log(newData);
     return (
         <GridView>
             <LoansHeader />
-            {data.map(({id, loanAmount, timePeriod, interestRate}) => {
+            {newData.map(({id, loanAmount, url, endDate, timePeriod, interestRate}) => {
                 return (
                     <ItemContainer key={id}>
-                        <StyledAvatar>Photo</StyledAvatar>
+                        <StyledAvatar>
+                            <StyledImage src={url} alt="" />
+                        </StyledAvatar>
                         <StyledLoanDetails>
                             <StyledDaysLeft>
-                                Left: <StyledSpan>55 days</StyledSpan>
+                                Left: <StyledSpan>{endDate}</StyledSpan>
                             </StyledDaysLeft>
                             <StyledTitle>Want to borrow</StyledTitle>
                             <div>
-                                <StyledSpan>{loanAmount} GBP</StyledSpan> for <StyledSpan>{timePeriod * 30} days </StyledSpan>
+                                <StyledSpan>{loanAmount} GBP</StyledSpan> at <StyledSpan>{interestRate} %</StyledSpan>
                                 <div>
-                                    at <StyledSpan>{interestRate} %</StyledSpan> bonus <StyledSpan>{loanAmount * 0.1} GBP</StyledSpan>
+                                    for <StyledSpan>{timePeriod * 30} days </StyledSpan>
                                 </div>
                             </div>
                         </StyledLoanDetails>

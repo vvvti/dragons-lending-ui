@@ -55,3 +55,7 @@ export const StyledAccordion = styled.div`
 export const StyledDaysLeft = styled.div`
     text-align: right;
 `;
+
+export const StyledImage = styled.img`
+    width: 100%;
+`;
