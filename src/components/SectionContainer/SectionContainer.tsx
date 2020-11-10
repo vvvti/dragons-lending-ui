@@ -4,11 +4,11 @@ import {ButtonContainer, StyledContainer, StyledExternalLink, StyledLink, Styled
 import {CALCULATOR, PAGETYPE} from '../../helpers/constants';
 import {ROUTES} from '../../helpers/routes';
 
-interface IProps {
+interface SectionContainerProps {
     pageType: number;
 }
 
-export const SectionContainer: React.FC<IProps> = ({pageType}) => {
+export const SectionContainer: React.FC<SectionContainerProps> = ({pageType}) => {
     return (
         <StyledContainer>
             <StyledTitle>{pageType === PAGETYPE.LOGIN ? 'Social Lending' : 'Investments'}</StyledTitle>

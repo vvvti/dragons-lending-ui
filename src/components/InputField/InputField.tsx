@@ -6,12 +6,22 @@ import {TextFieldProps} from '@material-ui/core/TextField/TextField';
 export interface InputFieldProps {
     prefix?: string;
     size?: string;
+    ariaLabel?: string;
 }
 
-export const InputField: React.FC<FieldProps & TextFieldProps & InputFieldProps> = ({size, prefix, field, label, type, autoFocus}) => {
+export const InputField: React.FC<FieldProps & TextFieldProps & InputFieldProps> = ({
+    ariaLabel,
+    size,
+    prefix,
+    field,
+    label,
+    type,
+    autoFocus,
+}) => {
     return (
         <TextField
             variant="outlined"
+            aria-label={ariaLabel}
             type={type}
             required
             label={label}

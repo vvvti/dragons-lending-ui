@@ -38,6 +38,7 @@ export const CreateOffer = () => {
                                 />
                                 <Field
                                     type="number"
+                                    ariaLabel="Borrow"
                                     label="Borrow"
                                     name="loanAmount"
                                     component={InputField}
@@ -62,6 +63,7 @@ export const CreateOffer = () => {
                                 />
                                 <Field
                                     type="number"
+                                    ariaLabel="Period"
                                     label="Period"
                                     name="timePeriod"
                                     component={InputField}
@@ -86,6 +88,7 @@ export const CreateOffer = () => {
                                 />
                                 <Field
                                     type="number"
+                                    ariaLabel="Interests"
                                     label="Interests"
                                     name="interestRate"
                                     component={InputField}
@@ -98,15 +101,15 @@ export const CreateOffer = () => {
                         <FormContainer>
                             <h2>Offer expiry date:</h2>
                             <StyledInputWrapper>
-                                <Field type="date" name="endDate" component={InputField} prefix="" onBlur={handleBlur} />
-                                <StyledButton
-                                    type="submit"
-                                    size="small"
-                                    variant="contained"
-                                    color="primary"
-                                    disabled={!isValid}
-                                    data-testid={'create-button'}
-                                >
+                                <Field
+                                    type="date"
+                                    ariaLabel="expireDate"
+                                    name="endDate"
+                                    component={InputField}
+                                    prefix=""
+                                    onBlur={handleBlur}
+                                />
+                                <StyledButton type="submit" size="small" variant="contained" color="primary" disabled={!isValid}>
                                     Create Offer
                                 </StyledButton>
                                 <ErrorMessage>{touched.endDate && errors.endDate}</ErrorMessage>
