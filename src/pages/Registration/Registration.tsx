@@ -3,12 +3,13 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {ErrorMessage, StyledAvatar, StyledButton, StyledForm, StyledLoginPage, StyledPaper} from './Registration.styled';
+import {ErrorMessage, StyledAvatar, StyledButton, StyledForm, StyledLoginPage, StyledPaper, StyledText} from './Registration.styled';
 import {Field, Formik} from 'formik';
 import {InputField} from '../../components/InputField/InputField';
 import {INITIAL_REGISTER_VALUES} from '../../helpers/constants';
 import {validationSchema} from './Registration.helpers';
 import {RoutesConst} from '../../helpers/routesConst';
+import {DISCLAIMER} from '../../helpers/disclaimer';
 
 export const Registration = () => {
     return (
@@ -70,6 +71,7 @@ export const Registration = () => {
                                         <ErrorMessage>{touched.personalId && errors.personalId}</ErrorMessage>
                                     </Grid>
                                 </Grid>
+                                <StyledText>{DISCLAIMER}</StyledText>
                                 <StyledButton type="submit" fullWidth variant="contained" color="primary" disabled={!isValid}>
                                     Register
                                 </StyledButton>
