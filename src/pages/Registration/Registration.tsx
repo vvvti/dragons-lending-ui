@@ -8,7 +8,7 @@ import {Field, Formik} from 'formik';
 import {InputField} from '../../components/InputField/InputField';
 import {INITIAL_REGISTER_VALUES} from '../../helpers/constants';
 import {validationSchema} from './Registration.helpers';
-import {RoutesConst} from '../../helpers/routesConst';
+import {ROUTES} from '../../helpers/routes';
 import {DISCLAIMER} from '../../helpers/disclaimer';
 
 export const Registration = () => {
@@ -78,7 +78,7 @@ export const Registration = () => {
                             </StyledForm>
                             <Grid container justify="flex-end">
                                 <Grid item>
-                                    <StyledLoginPage to={RoutesConst.LOGIN}>Already have an account? Sign in</StyledLoginPage>
+                                    <StyledLoginPage to={ROUTES.LOGIN}>Already have an account? Sign in</StyledLoginPage>
                                 </Grid>
                             </Grid>
                             {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
