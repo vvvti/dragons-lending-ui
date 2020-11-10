@@ -32,3 +32,8 @@ export const ErrorMessage = styled.div`
     color: hsl(0, 100%, 50%);
     margin: 5px;
 `;
+
+export const StyledText = styled.p`
+    font-style: italic;
+    font-size: 9px;
+`;

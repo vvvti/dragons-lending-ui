@@ -6,7 +6,7 @@ export const About = () => {
         <StyledAbout>
             <StyledHeader>About Draco Social Landing Platform</StyledHeader>
             <p>
-                "Draco Social Lending is a project introducing the idea of ​​"social lending" to the Polish market. Simply put, our service
+                Draco Social Lending is a project introducing the idea of ​​"social lending" to the Polish market. Simply put, our service
                 allows for granting loans between individuals without the inter mediation of banks - offering customers speed, simplicity
                 and convenience. We believe that such projects are the future of banking. From the very beginning, banks have linked people
                 who have money (through deposits and other investment products of this type) with those who need it (by providing loans). It

@@ -43,7 +43,7 @@ export const StyledSpan = styled.span`
 `;
 
 export const StyledTitle = styled.h4`
-    margin: 0 0 10px 0;
+    margin: 5px 0;
 `;
 
 export const StyledAccordion = styled.div`
