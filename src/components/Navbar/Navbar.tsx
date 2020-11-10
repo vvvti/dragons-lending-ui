@@ -15,6 +15,7 @@ export const Navbar = () => {
                 <StyledTitle>Dragons lending</StyledTitle>
             </StyledLogin>
             <StyledMenu>
+                <StyledRules to={RoutesConst.ABOUT}>ABOUT</StyledRules>
                 <StyledRules to={RoutesConst.RULES}>RULES</StyledRules>
                 <StyledLogin to={RoutesConst.LOGIN}>Login</StyledLogin>
                 <StyledRegister to={RoutesConst.REGISTRATION}>Register</StyledRegister>
