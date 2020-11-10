@@ -99,7 +99,14 @@ export const CreateOffer = () => {
                             <h2>Offer expiry date:</h2>
                             <StyledInputWrapper>
                                 <Field type="date" name="endDate" component={InputField} prefix="" onBlur={handleBlur} />
-                                <StyledButton type="submit" size="small" variant="contained" color="primary" disabled={!isValid}>
+                                <StyledButton
+                                    type="submit"
+                                    size="small"
+                                    variant="contained"
+                                    color="primary"
+                                    disabled={!isValid}
+                                    data-testid={'create-button'}
+                                >
                                     Create Offer
                                 </StyledButton>
                                 <ErrorMessage>{touched.endDate && errors.endDate}</ErrorMessage>

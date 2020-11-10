@@ -23,11 +23,7 @@ export const StyledTitle = styled.div`
     font-weight: bold;
 
     @media (max-width: 1200px) {
-        font-size: 26px;
-    }
-
-    @media (max-width: 600px) {
-        font-size: 18px;
+        font-size: 24px;
     }
 `;
 
