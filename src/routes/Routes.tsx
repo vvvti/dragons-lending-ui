@@ -7,12 +7,14 @@ import {LoansPage} from '../pages/LoansPage/LoansPage';
 import {RoutesConst} from '../helpers/routesConst';
 import {CreateOffer} from '../pages/CreateOffer/CreateOffer';
 import {Rules} from '../pages/Rules/Rules';
+import {About} from '../pages/About/About';
 
 export const Routes = () => {
     return (
         <Switch>
             <Route exact path={RoutesConst.CREATEOFFER} component={CreateOffer} />
             <Route exact path={RoutesConst.HOME} component={Home} />
+            <Route exact path={RoutesConst.ABOUT} component={About} />
             <Route exact path={RoutesConst.LOANGRID} component={LoansPage} />
             <Route exact path={RoutesConst.LOGIN} component={Login} />
             <Route exact path={RoutesConst.REGISTRATION} component={Registration} />

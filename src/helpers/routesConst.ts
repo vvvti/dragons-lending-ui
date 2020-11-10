@@ -5,4 +5,5 @@ export enum RoutesConst {
     LOANGRID = '/loangrid',
     CREATEOFFER = '/createoffer',
     RULES = '/rules',
+    ABOUT = '/about',
 }
