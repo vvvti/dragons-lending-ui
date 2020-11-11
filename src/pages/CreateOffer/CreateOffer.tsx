@@ -14,7 +14,7 @@ export const CreateOffer = () => {
 
     return (
         <PageWrapper>
-            <Formik
+            <Formik<CreateOfferFormValues>
                 initialValues={INITIAL_CREATEOFFER_VALUES}
                 validationSchema={validationSchema}
                 onSubmit={async (values: CreateOfferFormValues) => {
@@ -33,7 +33,7 @@ export const CreateOffer = () => {
                                     step={500}
                                     valueLabelDisplay="auto"
                                     marks={MARKSINITIAL}
-                                    value={values.loanAmount}
+                                    value={Number(values.loanAmount)}
                                     onChange={(event, value) => setFieldValue('loanAmount', value)}
                                 />
                                 <Field
@@ -58,7 +58,7 @@ export const CreateOffer = () => {
                                     step={1}
                                     valueLabelDisplay="auto"
                                     marks={MARKSDURATION}
-                                    value={values.timePeriod}
+                                    value={Number(values.timePeriod)}
                                     onChange={(event, value) => setFieldValue('timePeriod', value)}
                                 />
                                 <Field
@@ -83,7 +83,7 @@ export const CreateOffer = () => {
                                     step={0.1}
                                     valueLabelDisplay="auto"
                                     marks={MARKSPROFIT}
-                                    value={values.interestRate}
+                                    value={Number(values.interestRate)}
                                     onChange={(event, value) => setFieldValue('interestRate', value)}
                                 />
                                 <Field
@@ -103,7 +103,7 @@ export const CreateOffer = () => {
                             <StyledInputWrapper>
                                 <Field
                                     type="date"
-                                    ariaLabel="expireDate"
+                                    ariaLabel="Offer expiry date"
                                     name="endDate"
                                     component={InputField}
                                     prefix=""

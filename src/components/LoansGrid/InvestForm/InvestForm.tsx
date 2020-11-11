@@ -5,17 +5,19 @@ import {Field, Formik} from 'formik';
 import {InputField} from '../../InputField/InputField';
 import {Snackbar} from '@material-ui/core';
 import {StyledAmount, StyledButton, StyledInvestForm, StyledPercentage} from './InvestForm.styled';
+import {ErrorMessage} from '../../../pages/Registration/Registration.styled';
+import {InvestFormValues} from '../../../helpers/types';
 
 function Alert(props: AlertProps) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-export interface IProps {
-    loanAmount: number;
-    interestRate: number;
+export interface InvestFormProps {
+    loanAmount?: number;
+    interestRate?: number;
 }
 
-export const InvestForm: React.FC<IProps> = ({loanAmount, interestRate}) => {
+export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}) => {
     const [open, setOpen] = React.useState(false);
 
     const handleClick = () => {
@@ -28,17 +30,18 @@ export const InvestForm: React.FC<IProps> = ({loanAmount, interestRate}) => {
         setOpen(false);
     };
     return (
-        <Formik
+        <Formik<InvestFormValues>
             initialValues={{investAmount: loanAmount, investRate: interestRate}}
             validationSchema={validationSchema}
             onSubmit={values => {
                 console.log(values);
             }}
         >
-            {({values, isValid, handleBlur, touched}) => (
+            {({errors, isValid, handleBlur, touched}) => (
                 <StyledInvestForm>
                     <StyledAmount>
                         <Field
+                            ariaLabel="Invest amount"
                             size="small"
                             type="number"
                             label="Amount"
@@ -48,8 +51,10 @@ export const InvestForm: React.FC<IProps> = ({loanAmount, interestRate}) => {
                             component={InputField}
                         />
                     </StyledAmount>
+                    <ErrorMessage>{touched.investAmount && errors.investAmount}</ErrorMessage>
                     <StyledPercentage>
                         <Field
+                            ariaLabel="Invest Rate"
                             size="small"
                             type="number"
                             label="%"
@@ -59,6 +64,7 @@ export const InvestForm: React.FC<IProps> = ({loanAmount, interestRate}) => {
                             component={InputField}
                         />
                     </StyledPercentage>
+                    <ErrorMessage>{touched.investRate && errors.investRate}</ErrorMessage>
                     <StyledButton type="submit" variant="contained" color="primary" onClick={handleClick}>
                         Invest
                     </StyledButton>

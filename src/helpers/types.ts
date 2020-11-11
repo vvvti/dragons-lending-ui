@@ -18,8 +18,8 @@ export interface InvestFormValues {
 }
 
 export interface CreateOfferFormValues {
-    loanAmount: number;
-    timePeriod: number;
-    interestRate: number;
-    endDate: Date;
+    loanAmount: number | '';
+    timePeriod: number | '';
+    interestRate: number | '';
+    endDate: string;
 }

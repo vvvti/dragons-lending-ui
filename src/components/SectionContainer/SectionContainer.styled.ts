@@ -20,6 +20,7 @@ export const ButtonContainer = styled.div`
 export const StyledTitle = styled.div`
     font-size: 40px;
     text-transform: uppercase;
+    text-align: center;
 `;
 
 export const StyledLink = styled(NavLink)`

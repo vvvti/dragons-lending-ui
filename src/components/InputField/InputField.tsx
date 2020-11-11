@@ -20,8 +20,8 @@ export const InputField: React.FC<FieldProps & TextFieldProps & InputFieldProps>
 }) => {
     return (
         <TextField
+            id={field.name}
             variant="outlined"
-            aria-label={ariaLabel}
             type={type}
             required
             label={label}
@@ -29,6 +29,10 @@ export const InputField: React.FC<FieldProps & TextFieldProps & InputFieldProps>
             fullWidth
             autoFocus={autoFocus}
             InputProps={{
+                inputProps: {
+                    // eslint-disable-next-line no-useless-computed-key
+                    ['aria-label']: ariaLabel,
+                },
                 endAdornment: <InputAdornment position="end">{prefix}</InputAdornment>,
             }}
             {...field}

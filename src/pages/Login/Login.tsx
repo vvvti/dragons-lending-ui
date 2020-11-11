@@ -9,11 +9,12 @@ import {validationSchema} from './Login.helpers';
 import {INITIAL_LOGIN_VALUES} from '../../helpers/constants';
 import {ROUTES} from '../../helpers/routes';
 import {InputField} from '../../components/InputField/InputField';
+import {LoginFormValues} from '../../helpers/types';
 
 export const Login = () => {
     return (
         <>
-            <Formik
+            <Formik<LoginFormValues>
                 initialValues={INITIAL_LOGIN_VALUES}
                 validationSchema={validationSchema}
                 onSubmit={values => {
@@ -33,6 +34,7 @@ export const Login = () => {
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
                                         <Field
+                                            ariaLabel="email"
                                             label="Email Address"
                                             name="email"
                                             onBlur={handleBlur}
@@ -44,6 +46,7 @@ export const Login = () => {
                                     </Grid>
                                     <Grid item xs={12}>
                                         <Field
+                                            ariaLabel="password"
                                             label="Password"
                                             name="password"
                                             type="password"

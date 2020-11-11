@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 import {axios} from '../../../src/api/rest/axios';
 import {mocked} from 'ts-jest/utils';
 import {getOffer, getOffersList, postOffer, putOffer} from '../../../src/api/createOfferApi';
@@ -26,7 +23,7 @@ describe('basketApi', () => {
             loanAmount: 500,
             timePeriod: 12,
             interestRate: 7.5,
-            endDate: new Date(),
+            endDate: '25-12-2021',
         };
 
         const request = await postOffer(data);
@@ -49,7 +46,7 @@ describe('basketApi', () => {
             loanAmount: 500,
             timePeriod: 12,
             interestRate: 7.5,
-            endDate: new Date(),
+            endDate: '25-12-2021',
         };
 
         const id = '3fa85f64-5717-4562-b3fc-2c963f66afa6';

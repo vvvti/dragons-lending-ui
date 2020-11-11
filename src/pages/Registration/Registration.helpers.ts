@@ -22,8 +22,8 @@ export const validationSchema = yup.object({
         .required('Field is required'),
     personalId: yup
         .number()
-        .typeError('Value must be a number email')
-        .moreThan(10000000000, 'You have to be 18 years or older')
+        .typeError('Value must be a number')
+        .moreThan(90000000000, 'Personal Id should have 11 characters')
         .lessThan(99999999999, 'Personal Id should have 11 characters')
         .required('Field is required'),
 });
