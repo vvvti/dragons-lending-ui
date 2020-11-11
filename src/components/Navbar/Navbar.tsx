@@ -1,20 +1,22 @@
 import React from 'react';
 import dragonImage from '../../assets/dragon-eye.png';
-import {Logo, StyledLogo, StyledMenu, StyledNavbar, StyledRules, StyledTitle} from './Navbar.styled';
+import {Logo, StyledLogo, StyledMenu, StyledNavbar, StyledNavLink, StyledTitle} from './Navbar.styled';
 import {ROUTES} from '../../helpers/routes';
 
-export const Navbar = () => {
+export const Navbar: React.FC = () => {
     return (
         <StyledNavbar data-testid={'main-navbar'}>
             <StyledLogo>
-                <StyledRules to={ROUTES.HOME}>{<Logo src={dragonImage} alt="" />}</StyledRules>
+                <StyledNavLink to={ROUTES.HOME}>{<Logo src={dragonImage} alt="" />}</StyledNavLink>
             </StyledLogo>
-            <StyledTitle to={ROUTES.HOME}>Dragons lending</StyledTitle>
+            <StyledNavLink to={ROUTES.HOME}>
+                <StyledTitle to={ROUTES.HOME}>Dragons lending</StyledTitle>
+            </StyledNavLink>
             <StyledMenu>
-                <StyledRules to={ROUTES.ABOUT}>ABOUT</StyledRules>
-                <StyledRules to={ROUTES.RULES}>RULES</StyledRules>
-                <StyledRules to={ROUTES.LOGIN}>Login</StyledRules>
-                <StyledRules to={ROUTES.REGISTRATION}>Register</StyledRules>
+                <StyledNavLink to={ROUTES.ABOUT}>ABOUT</StyledNavLink>
+                <StyledNavLink to={ROUTES.RULES}>RULES</StyledNavLink>
+                <StyledNavLink to={ROUTES.LOGIN}>Login</StyledNavLink>
+                <StyledNavLink to={ROUTES.REGISTRATION}>Register</StyledNavLink>
             </StyledMenu>
         </StyledNavbar>
     );
