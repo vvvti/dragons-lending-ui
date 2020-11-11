@@ -9,8 +9,10 @@ interface AuthContextValue {
 // this is overridden inside AuthContextProvider anyway
 const dummyValue = {
     isLoggedIn: false,
-    login: () => {},
-    logout: () => {},
+    login: () => {
+    },
+    logout: () => {
+    },
 };
 
 const AuthContext = React.createContext<AuthContextValue>(dummyValue);
@@ -34,7 +36,7 @@ export const AuthContextProvider: React.FC = ({children}) => {
         };
     }, [isLoggedIn, login, logout]);
 
-    return <AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>;
+    return (<AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>);
 };
 
 export function useAuthContext() {
