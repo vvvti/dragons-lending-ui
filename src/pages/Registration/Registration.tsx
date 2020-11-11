@@ -12,7 +12,7 @@ import {ROUTES} from '../../helpers/routes';
 import {DISCLAIMER} from '../../helpers/disclaimer';
 import {RegisterFormValues} from '../../helpers/types';
 
-export const Registration = () => {
+export const Registration: React.FC = () => {
     return (
         <>
             <Formik<RegisterFormValues>

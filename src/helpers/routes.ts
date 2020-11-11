@@ -7,4 +7,5 @@ export enum ROUTES {
     RULES = '/rules',
     ABOUT = '/about',
     CALCULATORPAGE = '/calculator',
+    PRIVACY = '/privacy',
 }

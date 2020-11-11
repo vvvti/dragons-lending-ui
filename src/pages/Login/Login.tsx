@@ -11,7 +11,7 @@ import {ROUTES} from '../../helpers/routes';
 import {InputField} from '../../components/InputField/InputField';
 import {LoginFormValues} from '../../helpers/types';
 
-export const Login = () => {
+export const Login: React.FC = () => {
     return (
         <>
             <Formik<LoginFormValues>

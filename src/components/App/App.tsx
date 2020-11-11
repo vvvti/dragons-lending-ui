@@ -7,7 +7,7 @@ import {Routes} from '../../routes/Routes';
 import {Navbar} from '../Navbar/Navbar';
 import {GlobalStyle} from '../../styles/GlobalStyle';
 
-export const App = () => {
+export const App: React.FC = () => {
     const history = createBrowserHistory();
 
     return (

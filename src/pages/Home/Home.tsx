@@ -3,7 +3,7 @@ import {StyledGrid, StyledMain} from './Home.styled';
 import {PAGETYPE} from '../../helpers/constants';
 import {SectionContainer} from './SectionContainer/SectionContainer';
 
-export const Home = () => {
+export const Home: React.FC = () => {
     return (
         <StyledGrid>
             <StyledMain>

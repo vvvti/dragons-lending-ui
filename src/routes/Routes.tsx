@@ -9,8 +9,9 @@ import {CreateOffer} from '../pages/CreateOffer/CreateOffer';
 import {Rules} from '../pages/Rules/Rules';
 import {About} from '../pages/About/About';
 import {CALCULATORURLPAGE} from '../helpers/constants';
+import {Privacy} from '../pages/Privacy/Privacy';
 
-export const Routes = () => {
+export const Routes: React.FC = () => {
     return (
         <Switch>
             <Route exact path={ROUTES.CREATEOFFER} component={CreateOffer} />
@@ -20,6 +21,7 @@ export const Routes = () => {
             <Route exact path={ROUTES.LOGIN} component={Login} />
             <Route exact path={ROUTES.REGISTRATION} component={Registration} />
             <Route exact path={ROUTES.RULES} component={Rules} />
+            <Route exact path={ROUTES.PRIVACY} component={Privacy} />
             <Route
                 exact
                 path={ROUTES.CALCULATORPAGE}
