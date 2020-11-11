@@ -20,7 +20,7 @@ export const LoansGrid: React.FC = () => {
     const newData = data.map(obj => ({...obj, url: images[obj.id]}));
 
     return (
-        <GridView>
+        <GridView data-testid={'grid-results'}>
             <LoansHeader />
             {newData.map(({id, loanAmount, url, endDate, timePeriod, interestRate}) => {
                 return (

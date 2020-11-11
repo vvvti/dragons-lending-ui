@@ -17,7 +17,7 @@ export const SectionContainer: React.FC<SectionContainerProps> = ({pageType}) =>
                     {pageType === PAGETYPE.LOGIN ? (
                         <StyledLink to={ROUTES.LOANGRID}>Check out</StyledLink>
                     ) : (
-                        <StyledExternalLink href={CALCULATOR}>Calculate</StyledExternalLink>
+                        <StyledExternalLink to={CALCULATOR}>Calculate</StyledExternalLink>
                     )}
                 </Button>
             </ButtonContainer>
