@@ -7,6 +7,8 @@ export const useOffer = () => {
     const [offerValues, setOfferValues] = useState<CreateOfferFormValues>(INITIAL_CREATEOFFER_VALUES);
 
     const postOfferValues = useCallback(async (values: CreateOfferFormValues) => {
+        console.log('postOfferValues', values);
+
         const response = await postOffer(values);
         setOfferValues(response.data);
     }, []);
