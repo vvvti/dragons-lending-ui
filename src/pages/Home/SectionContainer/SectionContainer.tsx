@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button} from '@material-ui/core';
 import {ButtonContainer, StyledContainer, StyledExternalLink, StyledLink, StyledTitle} from './SectionContainer.styled';
-import {CALCULATOR, PAGETYPE} from '../../../helpers/constants';
+import {PAGETYPE} from '../../../helpers/constants';
 import {ROUTES} from '../../../helpers/routes';
 
 interface SectionContainerProps {
@@ -17,7 +17,7 @@ export const SectionContainer: React.FC<SectionContainerProps> = ({pageType}) =>
                     {pageType === PAGETYPE.LOGIN ? (
                         <StyledLink to={ROUTES.LOANGRID}>Check out</StyledLink>
                     ) : (
-                        <StyledExternalLink to={CALCULATOR}>Calculate</StyledExternalLink>
+                        <StyledExternalLink to={ROUTES.CALCULATORPAGE}>Calculate</StyledExternalLink>
                     )}
                 </Button>
             </ButtonContainer>

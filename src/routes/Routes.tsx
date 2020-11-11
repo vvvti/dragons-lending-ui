@@ -8,6 +8,7 @@ import {ROUTES} from '../helpers/routes';
 import {CreateOffer} from '../pages/CreateOffer/CreateOffer';
 import {Rules} from '../pages/Rules/Rules';
 import {About} from '../pages/About/About';
+import {CALCULATORURLPAGE} from '../helpers/constants';
 
 export const Routes = () => {
     return (
@@ -19,6 +20,14 @@ export const Routes = () => {
             <Route exact path={ROUTES.LOGIN} component={Login} />
             <Route exact path={ROUTES.REGISTRATION} component={Registration} />
             <Route exact path={ROUTES.RULES} component={Rules} />
+            <Route
+                exact
+                path={ROUTES.CALCULATORPAGE}
+                component={() => {
+                    window.location.href = CALCULATORURLPAGE;
+                    return null;
+                }}
+            />
         </Switch>
     );
 };
