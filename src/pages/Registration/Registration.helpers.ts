@@ -21,9 +21,8 @@ export const validationSchema = yup.object({
         .min(8, 'Password should contain at last 8 character')
         .required('Field is required'),
     personalId: yup
-        .number()
-        .typeError('Value must be a number')
-        .moreThan(90000000000, 'Personal Id should have 11 characters')
-        .lessThan(99999999999, 'Personal Id should have 11 characters')
+        .string()
+        .typeError('Value must be a valid number')
+        .matches(/^\d{11}$/, 'Please enter a valid Personal Id')
         .required('Field is required'),
 });

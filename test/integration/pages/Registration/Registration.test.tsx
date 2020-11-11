@@ -28,9 +28,9 @@ describe('Registration', () => {
         userEvent.clear(passwordInput);
         await userEvent.type(passwordInput, 'password1234');
 
-        const personalId = screen.getByLabelText(/personal id/i);
+        const personalId = screen.getByLabelText(/Personal Id/i);
         userEvent.clear(personalId);
-        await userEvent.type(personalId, '860412994');
+        await userEvent.type(personalId, '');
 
         const submitButton = screen.getByRole('button', {name: /register/i});
 
@@ -88,9 +88,9 @@ describe('Registration', () => {
 
         const personalIdInput = screen.getByLabelText(/personal id/i);
         userEvent.clear(personalIdInput);
-        await userEvent.type(personalIdInput, '43434');
+        await userEvent.type(personalIdInput, '');
 
         fireEvent.blur(personalIdInput);
-        await screen.findByText('Personal Id should have 11 characters');
+        await screen.findByText('Field is required');
     });
 });

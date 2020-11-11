@@ -13,13 +13,4 @@ describe('<Home/>', () => {
         expect(history.entries).toHaveLength(2);
         expect(history.location.pathname).toEqual('/loangrid');
     });
-
-    test('renders / after click on calculate button ', async () => {
-        const {history} = renderWithRouter(<Home />);
-
-        userEvent.click(screen.getByRole('link', {name: /calculate/i}));
-
-        expect(history.entries).toHaveLength(1);
-        await expect(history.location.pathname).toEqual('/');
-    });
 });

@@ -1,45 +1,56 @@
 import React from 'react';
-import {screen, waitFor} from '@testing-library/react';
+import {fireEvent, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {InvestForm} from '../../../../../src/components/LoansGrid/InvestForm/InvestForm';
 import {renderWithRouter} from '../../../../_helpers/renderWithRouters';
 
 describe('Invest Form', () => {
-    test('submit button disabled on invalid values', async () => {
+    test('success message on submit correct values', async () => {
+        renderWithRouter(<InvestForm loanAmount={300} interestRate={5} />);
+
+        const investAmountInput = screen.getByLabelText(/invest amount/i);
+        userEvent.clear(investAmountInput);
+        await userEvent.type(investAmountInput, '300');
+
+        const investRateInput = screen.getByLabelText(/invest rate/i);
+        userEvent.clear(investRateInput);
+        await userEvent.type(investRateInput, '5');
+
+        fireEvent.blur(investAmountInput);
+
+        const submitButton = screen.getByRole('button', {name: /invest/i});
+        await userEvent.click(submitButton);
+
+        await screen.findByText('Offer submitted!');
+    });
+
+    test('invest amount should throw error on invalid values', async () => {
         renderWithRouter(<InvestForm />);
 
         const investAmountInput = screen.getByLabelText(/invest amount/i);
         userEvent.clear(investAmountInput);
-        await userEvent.type(investAmountInput, '-300');
+        await userEvent.type(investAmountInput, '30000000000000');
+
+        fireEvent.blur(investAmountInput);
+
+        const submitButton = screen.getByRole('button', {name: /invest/i});
+        await userEvent.click(submitButton);
+
+        await screen.findByText('You can select max 1 000 000');
+    });
+
+    test('invest rate should throw error on invalid values', async () => {
+        renderWithRouter(<InvestForm loanAmount={300} interestRate={5} />);
 
         const investRateInput = screen.getByLabelText(/invest rate/i);
         userEvent.clear(investRateInput);
-        await userEvent.type(investRateInput, '-5');
+        await userEvent.type(investRateInput, '120');
+
+        fireEvent.blur(investRateInput);
 
         const submitButton = screen.getByRole('button', {name: /invest/i});
+        await userEvent.click(submitButton);
 
-        await waitFor(() => {
-            expect(submitButton).toBeDisabled();
-        });
+        await screen.findByText('You can select max 100%');
     });
-    // test('invest rate should throw error on invalid values', async () => {
-    //     renderWithRouter(<Login/>);
-    //
-    //     const emailInput = screen.getByLabelText(/invest rate/i);
-    //     userEvent.clear(emailInput);
-    //     await userEvent.type(emailInput, 'test.pl');
-    //
-    //     fireEvent.blur(emailInput);
-    //     await screen.findByText('email must be a valid email');
-    // });
-    // test('password should throw error on invalid values', async () => {
-    //     renderWithRouter(<Login/>);
-    //
-    //     const passwordInput = screen.getByLabelText(/password/i);
-    //     userEvent.clear(passwordInput);
-    //     await userEvent.type(passwordInput, 'pass');
-    //
-    //     fireEvent.blur(passwordInput);
-    //     await screen.findByText('Password should contain at last 8 character');
-    // });
 });

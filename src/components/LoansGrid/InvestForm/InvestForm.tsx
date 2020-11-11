@@ -5,7 +5,6 @@ import {Field, Formik} from 'formik';
 import {InputField} from '../../InputField/InputField';
 import {Snackbar} from '@material-ui/core';
 import {StyledAmount, StyledButton, StyledInvestForm, StyledPercentage} from './InvestForm.styled';
-import {ErrorMessage} from '../../../pages/Registration/Registration.styled';
 import {InvestFormValues} from '../../../helpers/types';
 
 function Alert(props: AlertProps) {
@@ -31,7 +30,7 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}
     };
     return (
         <Formik<InvestFormValues>
-            initialValues={{investAmount: loanAmount, investRate: interestRate}}
+            initialValues={{investAmount: loanAmount || 0, investRate: interestRate || 0}}
             validationSchema={validationSchema}
             onSubmit={values => {
                 console.log(values);
@@ -51,7 +50,6 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}
                             component={InputField}
                         />
                     </StyledAmount>
-                    <ErrorMessage>{touched.investAmount && errors.investAmount}</ErrorMessage>
                     <StyledPercentage>
                         <Field
                             ariaLabel="Invest Rate"
@@ -64,7 +62,6 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}
                             component={InputField}
                         />
                     </StyledPercentage>
-                    <ErrorMessage>{touched.investRate && errors.investRate}</ErrorMessage>
                     <StyledButton type="submit" variant="contained" color="primary" onClick={handleClick}>
                         Invest
                     </StyledButton>
@@ -75,7 +72,7 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}
                             </Alert>
                         ) : (
                             <Alert onClose={handleClose} severity="error">
-                                Incorrect values, please enter a valid number!
+                                <div>{errors.investAmount || errors.investRate}</div>
                             </Alert>
                         )}
                     </Snackbar>
