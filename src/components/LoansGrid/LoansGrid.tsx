@@ -19,7 +19,6 @@ import {data, images} from './data';
 export const LoansGrid = () => {
     const newData = data.map(obj => ({...obj, url: images[obj.id]}));
 
-    console.log(newData);
     return (
         <GridView data-testid={'grid-results'}>
             <LoansHeader />
