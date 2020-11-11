@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyledGrid, StyledMain} from './Home.styled';
-import {SectionContainer} from '../../components/SectionContainer/SectionContainer';
 import {PAGETYPE} from '../../helpers/constants';
+import {SectionContainer} from './SectionContainer/SectionContainer';
 
 export const Home = () => {
     return (

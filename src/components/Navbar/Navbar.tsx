@@ -9,9 +9,7 @@ export const Navbar: React.FC = () => {
             <StyledLogo>
                 <StyledNavLink to={ROUTES.HOME}>{<Logo src={dragonImage} alt="" />}</StyledNavLink>
             </StyledLogo>
-            <StyledNavLink to={ROUTES.HOME}>
-                <StyledTitle to={ROUTES.HOME}>Dragons lending</StyledTitle>
-            </StyledNavLink>
+            <StyledTitle to={ROUTES.HOME}>Dragons lending</StyledTitle>
             <StyledMenu>
                 <StyledNavLink to={ROUTES.ABOUT}>ABOUT</StyledNavLink>
                 <StyledNavLink to={ROUTES.RULES}>RULES</StyledNavLink>

@@ -4,7 +4,7 @@ export interface RegisterFormValues {
     lastName: string;
     email: string;
     password: string;
-    personalId: number | undefined;
+    personalId: string;
 }
 
 export interface LoginFormValues {

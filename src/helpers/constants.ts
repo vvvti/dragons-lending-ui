@@ -13,7 +13,7 @@ export const INITIAL_REGISTER_VALUES: RegisterFormValues = {
     lastName: '',
     email: '',
     password: '',
-    personalId: undefined,
+    personalId: '',
 };
 
 export const INITIAL_LOGIN_VALUES: LoginFormValues = {
