@@ -16,11 +16,11 @@ import {Accordion, AccordionDetails, AccordionSummary, Typography} from '@materi
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {data, images} from './data';
 
-export const LoansGrid = () => {
+export const LoansGrid: React.FC = () => {
     const newData = data.map(obj => ({...obj, url: images[obj.id]}));
 
     return (
-        <GridView data-testid={'grid-results'}>
+        <GridView>
             <LoansHeader />
             {newData.map(({id, loanAmount, url, endDate, timePeriod, interestRate}) => {
                 return (

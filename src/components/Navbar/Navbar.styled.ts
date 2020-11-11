@@ -50,7 +50,7 @@ export const Logo = styled.img`
     height: 70px;
 `;
 
-export const StyledRules = styled(NavLink).attrs(() => ({
+export const StyledNavLink = styled(NavLink).attrs(() => ({
     activeClassName,
 }))`
     text-decoration: none;
