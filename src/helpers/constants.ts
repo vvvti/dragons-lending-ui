@@ -1,4 +1,4 @@
-import {CreateOfferFormValues, LoginFormValues, RegisterFormValues} from './types';
+import {CreateOfferFormValues, InvestFormValues, LoginFormValues, RegisterFormValues} from './types';
 
 export enum PAGETYPE {
     INVESTMENTS,
@@ -21,12 +21,14 @@ export const INITIAL_LOGIN_VALUES: LoginFormValues = {
     password: '',
 };
 
-// const ONE_DAY_IN_MILIS = 1000 * 60 * 60 * 24;
-// endDate: new Date(Date.now() + ONE_DAY_IN_MILIS).toISOString().slice(0, 10),
-
 export const INITIAL_CREATEOFFER_VALUES: CreateOfferFormValues = {
     loanAmount: 500,
     timePeriod: 12,
     interestRate: 7.5,
     endDate: '',
+};
+
+export const INITIAL_INVEST_VALUES: InvestFormValues = {
+    investAmount: 3,
+    investRate: 500,
 };

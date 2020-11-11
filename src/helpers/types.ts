@@ -13,8 +13,8 @@ export interface LoginFormValues {
 }
 
 export interface InvestFormValues {
-    investAmount: number | undefined;
-    investRate: number | undefined;
+    investAmount: number | '';
+    investRate: number | '';
 }
 
 export interface CreateOfferFormValues {
