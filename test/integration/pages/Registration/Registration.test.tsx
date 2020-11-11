@@ -30,7 +30,7 @@ describe('Registration', () => {
 
         const personalId = screen.getByLabelText(/Personal Id/i);
         userEvent.clear(personalId);
-        await userEvent.type(personalId, '');
+        await userEvent.type(personalId, '234');
 
         const submitButton = screen.getByRole('button', {name: /register/i});
 
@@ -88,9 +88,9 @@ describe('Registration', () => {
 
         const personalIdInput = screen.getByLabelText(/personal id/i);
         userEvent.clear(personalIdInput);
-        await userEvent.type(personalIdInput, '');
+        await userEvent.type(personalIdInput, '2345');
 
         fireEvent.blur(personalIdInput);
-        await screen.findByText('Field is required');
+        await screen.findByText('Please enter a valid Personal Id');
     });
 });

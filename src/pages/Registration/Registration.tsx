@@ -95,9 +95,9 @@ export const Registration = () => {
                                             ariaLabel="Personal Id"
                                             label="Personal Id"
                                             name="personalId"
+                                            onBlur={handleBlur}
                                             prefix=""
                                             component={InputField}
-                                            onBlur={handleBlur}
                                         />
                                         <ErrorMessage>{touched.personalId && errors.personalId}</ErrorMessage>
                                     </Grid>
