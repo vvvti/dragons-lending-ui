@@ -17,7 +17,7 @@ export const validationSchema = yup.object({
         .number()
         .typeError('Value must be a number')
         .required('Field is required')
-        .max(20, 'You can select max 100%')
+        .max(100, 'You can select max 100%')
         .moreThan(0, 'Amount must be 0 or higher'),
     endDate: yup.date().min(new Date(), 'Date must be later than today.'),
 });

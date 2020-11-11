@@ -21,9 +21,12 @@ export const INITIAL_LOGIN_VALUES: LoginFormValues = {
     password: '',
 };
 
+// const ONE_DAY_IN_MILIS = 1000 * 60 * 60 * 24;
+// endDate: new Date(Date.now() + ONE_DAY_IN_MILIS).toISOString().slice(0, 10),
+
 export const INITIAL_CREATEOFFER_VALUES: CreateOfferFormValues = {
     loanAmount: 500,
     timePeriod: 12,
     interestRate: 7.5,
-    endDate: new Date(),
+    endDate: '',
 };

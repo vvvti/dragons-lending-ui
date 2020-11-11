@@ -10,11 +10,12 @@ import {INITIAL_REGISTER_VALUES} from '../../helpers/constants';
 import {validationSchema} from './Registration.helpers';
 import {ROUTES} from '../../helpers/routes';
 import {DISCLAIMER} from '../../helpers/disclaimer';
+import {RegisterFormValues} from '../../helpers/types';
 
 export const Registration = () => {
     return (
         <>
-            <Formik
+            <Formik<RegisterFormValues>
                 initialValues={INITIAL_REGISTER_VALUES}
                 validationSchema={validationSchema}
                 onSubmit={values => {
@@ -34,6 +35,7 @@ export const Registration = () => {
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
                                         <Field
+                                            ariaLabel="User name"
                                             label="User Name"
                                             name="username"
                                             component={InputField}
@@ -44,19 +46,41 @@ export const Registration = () => {
                                         <ErrorMessage>{touched.username && errors.username}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
-                                        <Field label="First Name" name="firstName" component={InputField} prefix="" onBlur={handleBlur} />
+                                        <Field
+                                            ariaLabel="First name"
+                                            label="First Name"
+                                            name="firstName"
+                                            component={InputField}
+                                            prefix=""
+                                            onBlur={handleBlur}
+                                        />
                                         <ErrorMessage>{touched.firstName && errors.firstName}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
-                                        <Field label="Last Name" name="lastName" onBlur={handleBlur} prefix="" component={InputField} />
+                                        <Field
+                                            ariaLabel="Last name"
+                                            label="Last Name"
+                                            name="lastName"
+                                            onBlur={handleBlur}
+                                            prefix=""
+                                            component={InputField}
+                                        />
                                         <ErrorMessage>{touched.lastName && errors.lastName}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
-                                        <Field label="Email Address" name="email" component={InputField} prefix="" onBlur={handleBlur} />
+                                        <Field
+                                            ariaLabel="Email"
+                                            label="Email Address"
+                                            name="email"
+                                            component={InputField}
+                                            prefix=""
+                                            onBlur={handleBlur}
+                                        />
                                         <ErrorMessage>{touched.email && errors.email}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
                                         <Field
+                                            ariaLabel="Password"
                                             label="Password"
                                             name="password"
                                             type="password"
@@ -67,7 +91,14 @@ export const Registration = () => {
                                         <ErrorMessage>{touched.password && errors.password}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
-                                        <Field label="Personal Id" name="personalId" prefix="" component={InputField} onBlur={handleBlur} />
+                                        <Field
+                                            ariaLabel="Personal Id"
+                                            label="Personal Id"
+                                            name="personalId"
+                                            prefix=""
+                                            component={InputField}
+                                            onBlur={handleBlur}
+                                        />
                                         <ErrorMessage>{touched.personalId && errors.personalId}</ErrorMessage>
                                     </Grid>
                                 </Grid>

@@ -14,7 +14,7 @@ export const CreateOffer = () => {
 
     return (
         <PageWrapper>
-            <Formik
+            <Formik<CreateOfferFormValues>
                 initialValues={INITIAL_CREATEOFFER_VALUES}
                 validationSchema={validationSchema}
                 onSubmit={async (values: CreateOfferFormValues) => {
@@ -33,11 +33,12 @@ export const CreateOffer = () => {
                                     step={500}
                                     valueLabelDisplay="auto"
                                     marks={MARKSINITIAL}
-                                    value={values.loanAmount}
+                                    value={Number(values.loanAmount)}
                                     onChange={(event, value) => setFieldValue('loanAmount', value)}
                                 />
                                 <Field
                                     type="number"
+                                    ariaLabel="Borrow"
                                     label="Borrow"
                                     name="loanAmount"
                                     component={InputField}
@@ -57,11 +58,12 @@ export const CreateOffer = () => {
                                     step={1}
                                     valueLabelDisplay="auto"
                                     marks={MARKSDURATION}
-                                    value={values.timePeriod}
+                                    value={Number(values.timePeriod)}
                                     onChange={(event, value) => setFieldValue('timePeriod', value)}
                                 />
                                 <Field
                                     type="number"
+                                    ariaLabel="Period"
                                     label="Period"
                                     name="timePeriod"
                                     component={InputField}
@@ -81,11 +83,12 @@ export const CreateOffer = () => {
                                     step={0.1}
                                     valueLabelDisplay="auto"
                                     marks={MARKSPROFIT}
-                                    value={values.interestRate}
+                                    value={Number(values.interestRate)}
                                     onChange={(event, value) => setFieldValue('interestRate', value)}
                                 />
                                 <Field
                                     type="number"
+                                    ariaLabel="Interests"
                                     label="Interests"
                                     name="interestRate"
                                     component={InputField}
@@ -98,15 +101,15 @@ export const CreateOffer = () => {
                         <FormContainer>
                             <h2>Offer expiry date:</h2>
                             <StyledInputWrapper>
-                                <Field type="date" name="endDate" component={InputField} prefix="" onBlur={handleBlur} />
-                                <StyledButton
-                                    type="submit"
-                                    size="small"
-                                    variant="contained"
-                                    color="primary"
-                                    disabled={!isValid}
-                                    data-testid={'create-button'}
-                                >
+                                <Field
+                                    type="date"
+                                    ariaLabel="Offer expiry date"
+                                    name="endDate"
+                                    component={InputField}
+                                    prefix=""
+                                    onBlur={handleBlur}
+                                />
+                                <StyledButton type="submit" size="small" variant="contained" color="primary" disabled={!isValid}>
                                     Create Offer
                                 </StyledButton>
                                 <ErrorMessage>{touched.endDate && errors.endDate}</ErrorMessage>

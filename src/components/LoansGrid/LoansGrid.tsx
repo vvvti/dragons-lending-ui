@@ -21,7 +21,7 @@ export const LoansGrid = () => {
 
     console.log(newData);
     return (
-        <GridView>
+        <GridView data-testid={'grid-results'}>
             <LoansHeader />
             {newData.map(({id, loanAmount, url, endDate, timePeriod, interestRate}) => {
                 return (
