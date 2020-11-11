@@ -9,7 +9,7 @@ import {validationSchema} from './CreateOffer.helpers';
 import {CreateOfferFormValues} from '../../helpers/types';
 import {useOffer} from '../../hooks/useOffer';
 
-export const CreateOffer = () => {
+export const CreateOffer: React.FC = () => {
     const {postOfferValues} = useOffer();
 
     return (

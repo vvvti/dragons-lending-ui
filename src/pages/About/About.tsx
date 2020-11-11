@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyledAbout, StyledHeader} from './About.styled';
 
-export const About = () => {
+export const About: React.FC = () => {
     return (
         <StyledAbout>
             <StyledHeader>About Draco Social Landing Platform</StyledHeader>

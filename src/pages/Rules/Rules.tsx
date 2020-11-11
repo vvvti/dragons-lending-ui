@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyledRules, StyledHeader, StyledBold, StyledH3} from './Rules.styled';
 
-export const Rules = () => {
+export const Rules: React.FC = () => {
     return (
         <StyledRules>
             <StyledHeader>RULES AND REGULATIONS</StyledHeader>

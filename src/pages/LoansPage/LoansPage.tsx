@@ -3,7 +3,7 @@ import {PageContainer, PageWrapper, StatusContainer} from './LoansPage.styled';
 import {LoansGrid} from '../../components/LoansGrid/LoansGrid';
 import {AuthContextProvider} from '../../context/auth-context';
 
-export const LoansPage = () => {
+export const LoansPage: React.FC = () => {
     return (
         <AuthContextProvider>
             <PageWrapper>

@@ -13,6 +13,7 @@ export const Navbar: React.FC = () => {
             <StyledMenu>
                 <StyledNavLink to={ROUTES.ABOUT}>ABOUT</StyledNavLink>
                 <StyledNavLink to={ROUTES.RULES}>RULES</StyledNavLink>
+                <StyledNavLink to={ROUTES.PRIVACY}>PRIVACY</StyledNavLink>
                 <StyledNavLink to={ROUTES.LOGIN}>Login</StyledNavLink>
                 <StyledNavLink to={ROUTES.REGISTRATION}>Register</StyledNavLink>
             </StyledMenu>
