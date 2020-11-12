@@ -18,28 +18,19 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {InvestForm} from './InvestForm/InvestForm';
 
 export const LoansGrid: React.FC = () => {
-    const {filterOneMonth, filterUpTo, sortByAmount, sortByExpireDate, clearFilterArray, sortFilteredList} = useFilters();
+    const {filterOneMonth, sortByAmount, sortByExpireDate, sortFilteredList, isUpTo, isSortedByDuration, isSortedByAmount} = useFilters();
 
     return (
         <>
             <GridButton>
-                <Button variant="contained" color="primary" onClick={filterOneMonth}>
-                    one-month loans
-                </Button>
-                <Button variant="contained" color="primary" onClick={() => filterUpTo(500)}>
-                    loans up to 500 GBP
-                </Button>
-                <Button variant="contained" color="primary" onClick={() => filterUpTo(1000)}>
-                    loans up to 1000 GBP
-                </Button>
-                <Button variant="contained" color="primary" onClick={sortByAmount}>
+                <Button variant="contained" color={isSortedByAmount ? 'secondary' : 'primary'} onClick={sortByAmount}>
                     Sort by amount
                 </Button>
-                <Button variant="contained" color="primary" onClick={sortByExpireDate}>
-                    Sort by expire date
+                <Button variant="contained" color={isSortedByDuration ? 'secondary' : 'primary'} onClick={sortByExpireDate}>
+                    Sort by loan duration
                 </Button>
-                <Button variant="contained" color="primary" onClick={clearFilterArray}>
-                    Clear
+                <Button variant="contained" color={isUpTo ? 'primary' : 'secondary'} onClick={filterOneMonth}>
+                    Loans up to 500 USD
                 </Button>
             </GridButton>
             <GridView data-testid={'grid-results'}>
@@ -53,13 +44,14 @@ export const LoansGrid: React.FC = () => {
                                 </StyledAvatar>
                                 <StyledLoanDetails>
                                     <StyledDaysLeft>
-                                        Left: <StyledSpan>{endDate}</StyledSpan>
+                                        Expire on: <StyledSpan>{endDate}</StyledSpan>
                                     </StyledDaysLeft>
                                     <StyledTitle>Want to borrow</StyledTitle>
                                     <div>
                                         <StyledSpan>{loanAmount} GBP</StyledSpan> at <StyledSpan>{interestRate} %</StyledSpan>
                                         <div>
-                                            for <StyledSpan>{timePeriod} months </StyledSpan>
+                                            {' '}
+                                            for <StyledSpan>{timePeriod === 1 ? `${timePeriod} month` : `${timePeriod} months`}</StyledSpan>
                                         </div>
                                     </div>
                                 </StyledLoanDetails>

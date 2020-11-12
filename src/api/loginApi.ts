@@ -1,5 +1,6 @@
 import {axios} from './rest/axios';
+import {LoginFormValues} from '../helpers/types';
 
-export const getLoginValues = () => {
-    return axios.get(`/login`);
+export const getLoginValues = (values: LoginFormValues) => {
+    return axios.get(`/login`, {params: values});
 };

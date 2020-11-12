@@ -1,8 +1,8 @@
 import React from 'react';
 import {Button} from '@material-ui/core';
 import {ButtonContainer, StyledContainer, StyledExternalLink, StyledLink, StyledTitle} from './SectionContainer.styled';
-import {CALCULATORPAGE, PAGETYPE} from '../../../helpers/constants';
-import {ROUTES} from '../../../helpers/routes';
+import {ROUTES} from '../../helpers/routes';
+import {CALCULATORPAGE, PAGETYPE} from '../../helpers/constants';
 
 interface SectionContainerProps {
     pageType: number;
