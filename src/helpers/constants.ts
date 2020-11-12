@@ -5,7 +5,7 @@ export enum PAGETYPE {
     LOGIN,
 }
 
-export const CALCULATORURLPAGE = 'https://dragons-investments-ui.ersa-team.fintechchallenge.pl/';
+export const CALCULATORPAGE = 'https://dragons-investments-ui.ersa-team.fintechchallenge.pl/';
 
 export const INITIAL_REGISTER_VALUES: RegisterFormValues = {
     username: '',

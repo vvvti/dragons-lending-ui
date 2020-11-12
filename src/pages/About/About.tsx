@@ -1,11 +1,11 @@
 import React from 'react';
-import {StyledAbout, StyledHeader} from './About.styled';
+import {StyledAbout, StyledHeader, StyledParagraph, StyledWishes} from './About.styled';
 
 export const About: React.FC = () => {
     return (
         <StyledAbout>
             <StyledHeader>About Draco Social Landing Platform</StyledHeader>
-            <p>
+            <StyledParagraph>
                 Draco Social Lending is a project introducing the idea of ​​"social lending" to the Polish market. Simply put, our service
                 allows for granting loans between individuals without the inter mediation of banks - offering customers speed, simplicity
                 and convenience. We believe that such projects are the future of banking. From the very beginning, banks have linked people
@@ -22,10 +22,11 @@ export const About: React.FC = () => {
                 opportunity to meet the needs that banks have not satisfied so far. We hope that what is now a niche in the market will one
                 day become a very common service. After all, each of us has financial needs, but not everyone wants to meet them through an
                 intermediary such as a bank.
-            </p>
-
-            <p>With wishes of big money on the account,</p>
-            <p>Draco Social Lending team</p>
+            </StyledParagraph>
+            <StyledWishes>
+                <p>With wishes of big money on the account,</p>
+                <p>Draco Social Lending team</p>
+            </StyledWishes>
         </StyledAbout>
     );
 };

@@ -26,7 +26,7 @@ export const StyledTitle = styled(NavLink)`
     font-size: 46px;
     font-weight: bold;
 
-    @media (max-width: 1300px) {
+    @media (max-width: 1450px) {
         font-size: 24px;
     }
 `;
@@ -38,12 +38,12 @@ export const StyledMenu = styled.div`
     color: white;
     text-transform: uppercase;
     background-color: hsl(240, 2%, 16%);
-    margin-right: 100px;
+    padding: 0 50px;
 `;
 
 export const StyledLogo = styled.div`
     height: 100%;
-    margin: 0 150px;
+    margin: 0 200px;
 `;
 
 export const Logo = styled.img`

@@ -11,6 +11,7 @@ import {validationSchema} from './Registration.helpers';
 import {ROUTES} from '../../helpers/routes';
 import {DISCLAIMER} from '../../helpers/disclaimer';
 import {RegisterFormValues} from '../../helpers/types';
+import {CloseButton} from '../../components/CloseButton/CloseButton';
 
 export const Registration: React.FC = () => {
     return (
@@ -25,6 +26,7 @@ export const Registration: React.FC = () => {
                 {({isValid, errors, handleBlur, touched}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
+                            <CloseButton />
                             <StyledAvatar color="primary">
                                 <LockOutlinedIcon />
                             </StyledAvatar>
@@ -41,7 +43,6 @@ export const Registration: React.FC = () => {
                                             component={InputField}
                                             prefix=""
                                             onBlur={handleBlur}
-                                            autoFocus
                                         />
                                         <ErrorMessage>{touched.username && errors.username}</ErrorMessage>
                                     </Grid>

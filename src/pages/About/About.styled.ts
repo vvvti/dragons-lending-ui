@@ -10,3 +10,12 @@ export const StyledAbout = styled.div`
 export const StyledHeader = styled.h1`
     text-align: center;
 `;
+
+export const StyledParagraph = styled.p`
+    margin-top: 50px;
+    line-height: 200%;
+`;
+
+export const StyledWishes = styled.p`
+    margin-top: 100px;
+`;

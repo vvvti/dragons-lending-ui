@@ -91,6 +91,6 @@ describe('Registration', () => {
         await userEvent.type(personalIdInput, '2345');
 
         fireEvent.blur(personalIdInput);
-        await screen.findByText('Please enter a valid Personal Id');
+        await screen.findByText(/Please enter a valid Personal Id/i);
     });
 });

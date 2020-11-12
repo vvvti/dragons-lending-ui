@@ -27,7 +27,7 @@ export const StyledLink = styled(NavLink)`
     text-decoration: none;
     color: hsl(0, 0%, 100%);
 `;
-export const StyledExternalLink = styled(NavLink)`
+export const StyledExternalLink = styled.a`
     text-decoration: none;
     color: hsl(0, 0%, 100%);
 `;
