@@ -84,7 +84,7 @@ export const Registration: React.FC = () => {
                                             ariaLabel="Password"
                                             label="Password"
                                             name="password"
-                                            type="password"
+                                            type="current-password"
                                             component={InputField}
                                             onBlur={handleBlur}
                                             prefix=""

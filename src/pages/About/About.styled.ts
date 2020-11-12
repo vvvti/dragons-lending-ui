@@ -16,6 +16,6 @@ export const StyledParagraph = styled.p`
     line-height: 200%;
 `;
 
-export const StyledWishes = styled.p`
+export const StyledWishes = styled.div`
     margin-top: 100px;
 `;

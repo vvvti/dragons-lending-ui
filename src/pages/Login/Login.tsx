@@ -50,7 +50,7 @@ export const Login: React.FC = () => {
                                             ariaLabel="password"
                                             label="Password"
                                             name="password"
-                                            type="password"
+                                            type="current-password"
                                             prefix=""
                                             onBlur={handleBlur}
                                             component={InputField}
