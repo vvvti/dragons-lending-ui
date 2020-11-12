@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     GridView,
     ItemContainer,
@@ -15,8 +15,17 @@ import {InvestForm} from './InvestForm/InvestForm';
 import {Accordion, AccordionDetails, AccordionSummary, Typography} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {data, images} from './data';
+import {useOfferList} from '../../hooks/useOfferList';
 
 export const LoansGrid: React.FC = () => {
+    const {offerList, getOfferList} = useOfferList();
+
+    useEffect(() => {
+        getOfferList();
+    }, [getOfferList]);
+
+    console.log('getOfferList', offerList);
+
     const newData = data.map(obj => ({...obj, url: images[obj.id]}));
 
     return (
