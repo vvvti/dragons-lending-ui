@@ -30,7 +30,7 @@ export const LoansGrid: React.FC = () => {
                     Sort by loan duration
                 </Button>
                 <Button variant="contained" color={isUpTo ? 'primary' : 'secondary'} onClick={filterOneMonth}>
-                    Loans up to 500 USD
+                    Loans up to 500 GBP
                 </Button>
             </GridButton>
             <GridView data-testid={'grid-results'}>
