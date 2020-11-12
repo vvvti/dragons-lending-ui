@@ -58,6 +58,10 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
     font-size: 16px;
     margin: 20px 10px;
 
+    &:hover {
+        color: hsl(0, 100%, 50%);
+    }
+
     &.${activeClassName} {
         color: hsl(0, 100%, 50%);
     }
