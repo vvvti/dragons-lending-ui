@@ -47,7 +47,7 @@ export const StyledLogo = styled.div`
 `;
 
 export const Logo = styled.img`
-    height: 70px;
+    height: 100%;
 `;
 
 export const StyledNavLink = styled(NavLink).attrs(() => ({
