@@ -18,8 +18,19 @@ export interface InvestFormValues {
 }
 
 export interface CreateOfferFormValues {
-    loanAmount: number | '';
-    timePeriod: number | '';
+    loanAmount: number | '' | undefined;
+    timePeriod: number | '' | undefined;
     interestRate: number | '';
     endDate: string;
 }
+
+export interface OfferItem {
+    id: number;
+    loanAmount: number | '' | undefined;
+    timePeriod: number | '' | undefined;
+    interestRate: number | '';
+    endDate: string;
+    url: string;
+}
+
+export interface OfferItems extends Array<OfferItem> {}

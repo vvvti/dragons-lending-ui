@@ -12,8 +12,8 @@ function Alert(props: AlertProps) {
 }
 
 export interface InvestFormProps {
-    loanAmount?: number;
-    interestRate?: number;
+    loanAmount?: number | '' | undefined;
+    interestRate?: number | '' | undefined;
 }
 
 export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}) => {

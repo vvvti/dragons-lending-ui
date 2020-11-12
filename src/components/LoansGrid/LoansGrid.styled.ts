@@ -10,6 +10,16 @@ export const GridView = styled.div`
     position: relative;
 `;
 
+export const GridButton = styled.div`
+    width: 80%;
+    display: grid;
+    grid-row-gap: 10px;
+    grid-column-gap: 50px;
+    padding: 20px 15px 15px 15px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    position: relative;
+`;
+
 export const ItemContainer = styled.div`
     display: grid;
     grid-template-columns: 200px 1fr;
