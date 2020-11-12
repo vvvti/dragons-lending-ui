@@ -10,22 +10,22 @@ import {INITIAL_LOGIN_VALUES} from '../../helpers/constants';
 import {ROUTES} from '../../helpers/routes';
 import {InputField} from '../../components/InputField/InputField';
 import {LoginFormValues} from '../../helpers/types';
-import {CloseButton} from '../../components/CloseButton/CloseButton';
+import {useLogin} from '../../hooks/useLogin';
 
 export const Login: React.FC = () => {
+    const {getLogin} = useLogin();
     return (
         <>
             <Formik<LoginFormValues>
                 initialValues={INITIAL_LOGIN_VALUES}
                 validationSchema={validationSchema}
-                onSubmit={values => {
-                    console.log(values);
+                onSubmit={async (values: LoginFormValues) => {
+                    await getLogin(values);
                 }}
             >
                 {({isValid, errors, handleBlur, touched}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
-                            <CloseButton />
                             <StyledAvatar color="primary">
                                 <LockOutlinedIcon />
                             </StyledAvatar>
@@ -50,7 +50,7 @@ export const Login: React.FC = () => {
                                             ariaLabel="password"
                                             label="Password"
                                             name="password"
-                                            type="current-password"
+                                            type="password"
                                             prefix=""
                                             onBlur={handleBlur}
                                             component={InputField}

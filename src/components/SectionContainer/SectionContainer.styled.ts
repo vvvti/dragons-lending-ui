@@ -11,7 +11,7 @@ export const StyledContainer = styled.div`
     margin: 20px;
     padding: 20px;
     background-color: hsla(0, 0%, 0%, 0.8);
-    color: white;
+    color: hsl(0, 0%, 100%);
 `;
 export const ButtonContainer = styled.div`
     text-align: center;

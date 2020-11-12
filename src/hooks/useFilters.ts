@@ -4,57 +4,57 @@ import {data, images} from '../components/LoansGrid/data';
 
 export const useFilters = () => {
     const offerArray = data.map(obj => ({...obj, url: images[obj.id]}));
+
     const [sortFilteredList, setSortFilteredList] = useState<OfferItems>(offerArray);
-    const [isSorted, setIsSorted] = useState<boolean>(false);
+    const [isUpTo, stIsUpTo] = useState<boolean>(true);
+    const [isSortedByAmount, setIsSortedByAmount] = useState<boolean>(false);
+    const [isSortedByDuration, setIsSortedByDuration] = useState<boolean>(false);
 
     const filterOneMonth = () => {
         let filteredData = offerArray;
-        filteredData = filteredData.filter(data => data.timePeriod === 1);
-        setSortFilteredList(filteredData);
-    };
-
-    const filterUpTo = (loanValue: number) => {
-        let filteredData = offerArray;
-        filteredData = filteredData.filter(data => data.loanAmount < loanValue);
-        setSortFilteredList(filteredData);
-    };
-
-    const clearFilterArray = () => {
-        setSortFilteredList(offerArray);
+        if (isUpTo) {
+            filteredData = filteredData.filter(data => data.loanAmount < 500);
+            setSortFilteredList(filteredData);
+            stIsUpTo(!isUpTo);
+        } else {
+            setSortFilteredList(offerArray);
+            stIsUpTo(!isUpTo);
+        }
     };
 
     const sortByAmount = () => {
         let sortedUsers = sortFilteredList;
-        if (!isSorted) {
+        if (!isSortedByAmount) {
             sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) > Number(b.loanAmount) ? 1 : -1));
             setSortFilteredList(sortedUsers);
-            setIsSorted(true);
+            setIsSortedByAmount(true);
         } else {
             sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) < Number(b.loanAmount) ? 1 : -1));
             setSortFilteredList(sortedUsers);
-            setIsSorted(false);
+            setIsSortedByAmount(false);
         }
     };
 
     const sortByExpireDate = () => {
         let sortedUsers = sortFilteredList;
-        if (!isSorted) {
-            sortedUsers = sortedUsers.sort((a, b) => (Date.parse(a.endDate) > Date.parse(b.endDate) ? 1 : -1));
+        if (!isSortedByDuration) {
+            sortedUsers = sortedUsers.sort((a, b) => (Number(a.timePeriod) > Number(b.timePeriod) ? 1 : -1));
             setSortFilteredList(sortedUsers);
-            setIsSorted(true);
+            setIsSortedByDuration(true);
         } else {
-            sortedUsers = sortedUsers.sort((a, b) => (Date.parse(b.endDate) > Date.parse(a.endDate) ? 1 : -1));
+            sortedUsers = sortedUsers.sort((a, b) => (Number(a.timePeriod) < Number(b.timePeriod) ? 1 : -1));
             setSortFilteredList(sortedUsers);
-            setIsSorted(false);
+            setIsSortedByDuration(false);
         }
     };
 
     return {
         filterOneMonth,
-        filterUpTo,
         sortByAmount,
         sortByExpireDate,
-        clearFilterArray,
+        isUpTo: isUpTo,
+        isSortedByDuration,
+        isSortedByAmount,
         sortFilteredList,
     };
 };

@@ -20,7 +20,7 @@ export const StyledTitle = styled(NavLink)`
     align-items: center;
     justify-content: center;
     background-color: hsl(240, 2%, 16%);
-    color: white;
+    color: hsl(0, 0%, 100%);
     text-transform: uppercase;
     text-align: center;
     font-size: 46px;
@@ -35,7 +35,7 @@ export const StyledMenu = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: hsl(0, 0%, 100%);
     text-transform: uppercase;
     background-color: hsl(240, 2%, 16%);
     padding: 0 50px;

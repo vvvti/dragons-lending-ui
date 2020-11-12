@@ -48,12 +48,12 @@ export const StyledLoanDetails = styled.div`
 `;
 
 export const StyledSpan = styled.span`
-    color: darkblue;
+    color: hsl(240, 100%, 27%);
     font-size: 18px;
 `;
 
 export const StyledTitle = styled.h4`
-    margin: 5px 0;
+    margin: 10px 0 5px 0;
 `;
 
 export const StyledAccordion = styled.div`
