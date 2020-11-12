@@ -10,6 +10,7 @@ import {INITIAL_LOGIN_VALUES} from '../../helpers/constants';
 import {ROUTES} from '../../helpers/routes';
 import {InputField} from '../../components/InputField/InputField';
 import {LoginFormValues} from '../../helpers/types';
+import {CloseButton} from '../../components/CloseButton/CloseButton';
 
 export const Login: React.FC = () => {
     return (
@@ -24,6 +25,7 @@ export const Login: React.FC = () => {
                 {({isValid, errors, handleBlur, touched}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
+                            <CloseButton />
                             <StyledAvatar color="primary">
                                 <LockOutlinedIcon />
                             </StyledAvatar>
@@ -40,7 +42,6 @@ export const Login: React.FC = () => {
                                             onBlur={handleBlur}
                                             prefix=""
                                             component={InputField}
-                                            autoFocus
                                         />
                                         <ErrorMessage>{touched.email && errors.email}</ErrorMessage>
                                     </Grid>
@@ -49,7 +50,7 @@ export const Login: React.FC = () => {
                                             ariaLabel="password"
                                             label="Password"
                                             name="password"
-                                            type="password"
+                                            type="current-password"
                                             prefix=""
                                             onBlur={handleBlur}
                                             component={InputField}

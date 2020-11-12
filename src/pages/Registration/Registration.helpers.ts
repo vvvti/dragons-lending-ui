@@ -1,7 +1,10 @@
 import * as yup from 'yup';
 
 export const validationSchema = yup.object({
-    username: yup.string().typeError('Value must be your user name'),
+    username: yup
+        .string()
+        .typeError('Value must be your user name')
+        .required('Field is required'),
     firstName: yup
         .string()
         .typeError('Value must be your first name')
@@ -23,6 +26,6 @@ export const validationSchema = yup.object({
     personalId: yup
         .string()
         .typeError('Value must be a valid number')
-        .matches(/^\d{11}$/, 'Please enter a valid Personal Id')
+        .matches(/^\d{11}$/, 'Please enter a valid Personal Id (11 numbers)')
         .required('Field is required'),
 });

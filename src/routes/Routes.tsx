@@ -8,7 +8,7 @@ import {ROUTES} from '../helpers/routes';
 import {CreateOffer} from '../pages/CreateOffer/CreateOffer';
 import {Rules} from '../pages/Rules/Rules';
 import {About} from '../pages/About/About';
-import {CALCULATORURLPAGE} from '../helpers/constants';
+import {CALCULATORPAGE} from '../helpers/constants';
 import {Privacy} from '../pages/Privacy/Privacy';
 
 export const Routes: React.FC = () => {
@@ -26,7 +26,7 @@ export const Routes: React.FC = () => {
                 exact
                 path={ROUTES.CALCULATORPAGE}
                 component={() => {
-                    window.location.href = CALCULATORURLPAGE;
+                    window.location.href = CALCULATORPAGE;
                     return null;
                 }}
             />
