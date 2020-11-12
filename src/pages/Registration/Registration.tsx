@@ -11,15 +11,18 @@ import {validationSchema} from './Registration.helpers';
 import {ROUTES} from '../../helpers/routes';
 import {DISCLAIMER} from '../../helpers/disclaimer';
 import {RegisterFormValues} from '../../helpers/types';
+import {useRegister} from '../../hooks/useRegister';
 
 export const Registration: React.FC = () => {
+    const {registerValues, postRegister} = useRegister();
+    console.log('registerValues', registerValues);
     return (
         <>
             <Formik<RegisterFormValues>
                 initialValues={INITIAL_REGISTER_VALUES}
                 validationSchema={validationSchema}
-                onSubmit={values => {
-                    console.log(values);
+                onSubmit={async (values: RegisterFormValues) => {
+                    await postRegister(values);
                 }}
             >
                 {({isValid, errors, handleBlur, touched}) => (
@@ -88,17 +91,6 @@ export const Registration: React.FC = () => {
                                             prefix=""
                                         />
                                         <ErrorMessage>{touched.password && errors.password}</ErrorMessage>
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <Field
-                                            ariaLabel="Personal Id"
-                                            label="Personal Id"
-                                            name="personalId"
-                                            onBlur={handleBlur}
-                                            prefix=""
-                                            component={InputField}
-                                        />
-                                        <ErrorMessage>{touched.personalId && errors.personalId}</ErrorMessage>
                                     </Grid>
                                 </Grid>
                                 <StyledText>{DISCLAIMER}</StyledText>

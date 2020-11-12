@@ -28,10 +28,6 @@ describe('Registration', () => {
         userEvent.clear(passwordInput);
         await userEvent.type(passwordInput, 'password1234');
 
-        const personalId = screen.getByLabelText(/Personal Id/i);
-        userEvent.clear(personalId);
-        await userEvent.type(personalId, '234');
-
         const submitButton = screen.getByRole('button', {name: /register/i});
 
         await waitFor(() => {
@@ -81,16 +77,5 @@ describe('Registration', () => {
 
         fireEvent.blur(passwordInput);
         await screen.findByText('Password should contain at last 8 character');
-    });
-
-    test('personal should throw error on invalid values', async () => {
-        renderWithRouter(<Registration />);
-
-        const personalIdInput = screen.getByLabelText(/personal id/i);
-        userEvent.clear(personalIdInput);
-        await userEvent.type(personalIdInput, '2345');
-
-        fireEvent.blur(personalIdInput);
-        await screen.findByText(/Please enter a valid Personal Id/i);
     });
 });
