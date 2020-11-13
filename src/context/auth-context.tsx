@@ -27,18 +27,21 @@ export const AuthContextProvider: React.FC = ({children}) => {
     const [loginError, setLoginError] = useState('');
     const {goBack} = useBack();
 
-    const login = useCallback(async (values: LoginFormValues) => {
-        try {
-            const response = await postLoginValues(values);
-            console.log('loginResponse', response.headers);
-            setLoginError('');
-            setLoggedIn(true);
-            goBack();
-        } catch {
-            setLoginError('Please check your credentials');
-            setLoggedIn(false);
-        }
-    }, []);
+    const login = useCallback(
+        async (values: LoginFormValues) => {
+            try {
+                const response = await postLoginValues(values);
+                console.log('loginResponse', response.headers);
+                setLoginError('');
+                setLoggedIn(true);
+                goBack();
+            } catch {
+                setLoginError('Please check your credentials');
+                setLoggedIn(false);
+            }
+        },
+        [goBack],
+    );
 
     const logout = useCallback(() => {
         setLoggedIn(false);
