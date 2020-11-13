@@ -11,11 +11,9 @@ import {ROUTES} from '../../helpers/routes';
 import {InputField} from '../../components/InputField/InputField';
 import {LoginFormValues} from '../../helpers/types';
 import {useLogin} from '../../hooks/useLogin';
-import {useBack} from '../../hooks/useBack';
 
 export const Login: React.FC = () => {
     const {getLogin, loginError} = useLogin();
-    const {goBack} = useBack();
 
     return (
         <>
@@ -23,7 +21,6 @@ export const Login: React.FC = () => {
                 initialValues={INITIAL_LOGIN_VALUES}
                 validationSchema={validationSchema}
                 onSubmit={async (values: LoginFormValues) => {
-                    loginError && goBack();
                     await getLogin(values);
                 }}
             >

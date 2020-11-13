@@ -12,11 +12,9 @@ import {ROUTES} from '../../helpers/routes';
 import {DISCLAIMER} from '../../helpers/disclaimer';
 import {RegisterFormValues} from '../../helpers/types';
 import {useRegister} from '../../hooks/useRegister';
-import {useBack} from '../../hooks/useBack';
 
 export const Registration: React.FC = () => {
     const {registerValues, postRegister, registerError} = useRegister();
-    const {goBack} = useBack();
 
     console.log('registerValues', registerValues);
     return (
@@ -25,7 +23,6 @@ export const Registration: React.FC = () => {
                 initialValues={INITIAL_REGISTER_VALUES}
                 validationSchema={validationSchema}
                 onSubmit={async (values: RegisterFormValues) => {
-                    registerError && goBack();
                     await postRegister(values);
                 }}
             >
