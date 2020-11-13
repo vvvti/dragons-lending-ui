@@ -11,15 +11,19 @@ import {ROUTES} from '../../helpers/routes';
 import {InputField} from '../../components/InputField/InputField';
 import {LoginFormValues} from '../../helpers/types';
 import {useLogin} from '../../hooks/useLogin';
+import {useBack} from '../../hooks/useBack';
 
 export const Login: React.FC = () => {
     const {getLogin} = useLogin();
+    const {goBack} = useBack();
+
     return (
         <>
             <Formik<LoginFormValues>
                 initialValues={INITIAL_LOGIN_VALUES}
                 validationSchema={validationSchema}
                 onSubmit={async (values: LoginFormValues) => {
+                    goBack();
                     await getLogin(values);
                 }}
             >
