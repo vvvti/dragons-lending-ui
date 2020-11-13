@@ -10,6 +10,7 @@ import {Rules} from '../pages/Rules/Rules';
 import {About} from '../pages/About/About';
 import {CALCULATORPAGE} from '../helpers/constants';
 import {Privacy} from '../pages/Privacy/Privacy';
+import {Contact} from '../pages/Contact/Contact';
 
 export const Routes: React.FC = () => {
     return (
@@ -22,6 +23,7 @@ export const Routes: React.FC = () => {
             <Route exact path={ROUTES.REGISTRATION} component={Registration} />
             <Route exact path={ROUTES.RULES} component={Rules} />
             <Route exact path={ROUTES.PRIVACY} component={Privacy} />
+            <Route exact path={ROUTES.CONTACT} component={Contact} />
             <Route
                 exact
                 path={ROUTES.CALCULATORPAGE}

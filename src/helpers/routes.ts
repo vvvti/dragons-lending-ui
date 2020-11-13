@@ -8,4 +8,5 @@ export enum ROUTES {
     ABOUT = '/about',
     CALCULATORPAGE = '/calculator',
     PRIVACY = '/privacy',
+    CONTACT = '/contact',
 }

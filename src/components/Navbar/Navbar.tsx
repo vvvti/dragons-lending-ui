@@ -12,6 +12,7 @@ export const Navbar: React.FC = () => {
             <StyledTitle to={ROUTES.LOANGRID}>Dragons lending</StyledTitle>
             <StyledMenu>
                 <StyledNavLink to={ROUTES.ABOUT}>ABOUT</StyledNavLink>
+                <StyledNavLink to={ROUTES.CONTACT}>CONTACT</StyledNavLink>
                 <StyledNavLink to={ROUTES.RULES}>RULES</StyledNavLink>
                 <StyledNavLink to={ROUTES.PRIVACY}>PRIVACY</StyledNavLink>
                 <StyledNavLink to={ROUTES.LOGIN}>Login</StyledNavLink>
