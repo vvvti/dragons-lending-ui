@@ -6,7 +6,7 @@ export const StyledForm = styled(Form)`
     display: flex;
     flex-direction: column;
     margin: 50px auto;
-    padding: 50px;
+    padding: 30px;
     align-items: center;
     box-shadow: 0 4px 12px rgba(186, 199, 213, 0.5);
 `;
