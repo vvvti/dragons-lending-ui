@@ -1,6 +1,7 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 import {postLoginValues} from '../api/loginApi';
 import {LoginFormValues} from '../helpers/types';
+import {useBack} from '../hooks/useBack';
 
 interface AuthContextValue {
     isLoggedIn: boolean;
@@ -24,6 +25,7 @@ const AuthContext = React.createContext<AuthContextValue>(dummyValue);
 export const AuthContextProvider: React.FC = ({children}) => {
     const [isLoggedIn, setLoggedIn] = useState(false);
     const [loginError, setLoginError] = useState('');
+    const {goBack} = useBack();
 
     const login = useCallback(async (values: LoginFormValues) => {
         try {
@@ -31,6 +33,7 @@ export const AuthContextProvider: React.FC = ({children}) => {
             console.log('loginResponse', response.headers);
             setLoginError('');
             setLoggedIn(true);
+            goBack();
         } catch {
             setLoginError('Please check your credentials');
             setLoggedIn(false);
