@@ -11,11 +11,9 @@ import {ROUTES} from '../../helpers/routes';
 import {InputField} from '../../components/InputField/InputField';
 import {LoginFormValues} from '../../helpers/types';
 import {useLogin} from '../../hooks/useLogin';
-import {useBack} from '../../hooks/useBack';
 
 export const Login: React.FC = () => {
-    const {getLogin} = useLogin();
-    const {goBack} = useBack();
+    const {getLogin, loginError} = useLogin();
 
     return (
         <>
@@ -23,7 +21,6 @@ export const Login: React.FC = () => {
                 initialValues={INITIAL_LOGIN_VALUES}
                 validationSchema={validationSchema}
                 onSubmit={async (values: LoginFormValues) => {
-                    goBack();
                     await getLogin(values);
                 }}
             >
@@ -36,6 +33,7 @@ export const Login: React.FC = () => {
                             <Typography component="h1" variant="h5">
                                 Sign in
                             </Typography>
+                            <ErrorMessage>{loginError}</ErrorMessage>
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
