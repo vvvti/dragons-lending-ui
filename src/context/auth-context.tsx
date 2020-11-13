@@ -1,27 +1,40 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
+import {postLoginValues} from '../api/loginApi';
+import {LoginFormValues} from '../helpers/types';
 
 interface AuthContextValue {
     isLoggedIn: boolean;
-    login: () => void;
+    loginError: string;
+    login: (values: LoginFormValues) => void;
     logout: () => void;
 }
 
 // this is overridden inside AuthContextProvider anyway
 const dummyValue = {
     isLoggedIn: false,
+    loginError: '',
     login: () => {
+        console.warn('You have not provided AuthContextProvider and tried to use login function');
     },
-    logout: () => {
-    },
+    logout: () => {},
 };
 
 const AuthContext = React.createContext<AuthContextValue>(dummyValue);
 
 export const AuthContextProvider: React.FC = ({children}) => {
     const [isLoggedIn, setLoggedIn] = useState(false);
+    const [loginError, setLoginError] = useState('');
 
-    const login = useCallback(() => {
-        setLoggedIn(true);
+    const login = useCallback(async (values: LoginFormValues) => {
+        try {
+            const response = await postLoginValues(values);
+            console.log('loginResponse', response.headers);
+            setLoginError('');
+            setLoggedIn(true);
+        } catch {
+            setLoginError('Please check your credentials');
+            setLoggedIn(false);
+        }
     }, []);
 
     const logout = useCallback(() => {
@@ -33,10 +46,11 @@ export const AuthContextProvider: React.FC = ({children}) => {
             isLoggedIn,
             login,
             logout,
+            loginError,
         };
-    }, [isLoggedIn, login, logout]);
+    }, [isLoggedIn, login, logout, loginError]);
 
-    return (<AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>);
+    return <AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>;
 };
 
 export function useAuthContext() {

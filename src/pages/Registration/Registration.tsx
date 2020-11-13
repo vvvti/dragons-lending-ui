@@ -14,9 +14,8 @@ import {RegisterFormValues} from '../../helpers/types';
 import {useRegister} from '../../hooks/useRegister';
 
 export const Registration: React.FC = () => {
-    const {registerValues, postRegister, registerError} = useRegister();
+    const {postRegister, registerError} = useRegister();
 
-    console.log('registerValues', registerValues);
     return (
         <>
             <Formik<RegisterFormValues>

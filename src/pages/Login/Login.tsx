@@ -10,10 +10,10 @@ import {INITIAL_LOGIN_VALUES} from '../../helpers/constants';
 import {ROUTES} from '../../helpers/routes';
 import {InputField} from '../../components/InputField/InputField';
 import {LoginFormValues} from '../../helpers/types';
-import {useLogin} from '../../hooks/useLogin';
+import {useAuthContext} from '../../context/auth-context';
 
 export const Login: React.FC = () => {
-    const {getLogin, loginError} = useLogin();
+    const {login, loginError} = useAuthContext();
 
     return (
         <>
@@ -21,7 +21,7 @@ export const Login: React.FC = () => {
                 initialValues={INITIAL_LOGIN_VALUES}
                 validationSchema={validationSchema}
                 onSubmit={async (values: LoginFormValues) => {
-                    await getLogin(values);
+                    await login(values);
                 }}
             >
                 {({isValid, errors, handleBlur, touched}) => (
