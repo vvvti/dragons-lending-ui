@@ -8,6 +8,6 @@ describe('LoansPage', () => {
     it('renders component status bar', async () => {
         renderWithRouter(<LoansPage />);
 
-        expect(screen.getByText('Status Bar')).toBeInTheDocument();
+        expect(screen.getByText(/Active loan applications/i)).toBeInTheDocument();
     });
 });

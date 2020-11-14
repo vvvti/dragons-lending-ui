@@ -38,7 +38,7 @@ describe('CreateOffer', () => {
         await userEvent.type(loanAmountInput, '100000000');
 
         fireEvent.blur(loanAmountInput);
-        await screen.findByText('You can select max 1 000 000');
+        await screen.findByText(/You can select max/i);
     });
     test('time Period should throw error on invalid values', async () => {
         renderWithRouter(<CreateOffer />);

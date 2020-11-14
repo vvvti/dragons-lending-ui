@@ -6,6 +6,7 @@ import {InputField} from '../../InputField/InputField';
 import {Snackbar} from '@material-ui/core';
 import {StyledAmount, StyledButton, StyledInvestForm, StyledPercentage} from './InvestForm.styled';
 import {InvestFormValues} from '../../../helpers/types';
+import {useAuthContext} from '../../../context/auth-context';
 
 function Alert(props: AlertProps) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -18,6 +19,7 @@ export interface InvestFormProps {
 
 export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}) => {
     const [open, setOpen] = React.useState(false);
+    const {isLoggedIn} = useAuthContext();
 
     const handleClick = () => {
         setOpen(true);
@@ -62,7 +64,7 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}
                             component={InputField}
                         />
                     </StyledPercentage>
-                    <StyledButton type="submit" variant="contained" color="primary" onClick={handleClick}>
+                    <StyledButton type="submit" variant="contained" color="primary" onClick={handleClick} disabled={!isLoggedIn}>
                         Invest
                     </StyledButton>
                     <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>

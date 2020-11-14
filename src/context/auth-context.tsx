@@ -1,7 +1,7 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 import {postLoginValues} from '../api/loginApi';
 import {LoginFormValues} from '../helpers/types';
-import {useBack} from '../hooks/useBack';
+import {useToMain} from '../hooks/useToMain';
 
 interface AuthContextValue {
     isLoggedIn: boolean;
@@ -10,7 +10,6 @@ interface AuthContextValue {
     logout: () => void;
 }
 
-// this is overridden inside AuthContextProvider anyway
 const dummyValue = {
     isLoggedIn: false,
     loginError: '',
@@ -23,28 +22,33 @@ const dummyValue = {
 const AuthContext = React.createContext<AuthContextValue>(dummyValue);
 
 export const AuthContextProvider: React.FC = ({children}) => {
-    const [isLoggedIn, setLoggedIn] = useState(false);
+    const loginFromLocalStorage = localStorage.getItem('isLoggedIn') === 'true';
+
+    const [isLoggedIn, setLoggedIn] = useState(loginFromLocalStorage);
     const [loginError, setLoginError] = useState('');
-    const {goBack} = useBack();
+    const {goToMain} = useToMain();
 
     const login = useCallback(
         async (values: LoginFormValues) => {
             try {
                 const response = await postLoginValues(values);
-                console.log('loginResponse', response.headers);
                 setLoginError('');
+                localStorage.setItem('token', response.headers['x-authorization']);
+                localStorage.setItem('isLoggedIn', 'true');
                 setLoggedIn(true);
-                goBack();
+                goToMain();
             } catch {
                 setLoginError('Please check your credentials');
                 setLoggedIn(false);
+                localStorage.setItem('isLoggedIn', 'false');
             }
         },
-        [goBack],
+        [goToMain],
     );
 
     const logout = useCallback(() => {
         setLoggedIn(false);
+        localStorage.setItem('isLoggedIn', 'false');
     }, []);
 
     const memoizedValue = useMemo(() => {
