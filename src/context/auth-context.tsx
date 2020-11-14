@@ -8,7 +8,6 @@ interface AuthContextValue {
     loginError: string;
     login: (values: LoginFormValues) => void;
     logout: () => void;
-    setLoggedIn: any;
 }
 
 const dummyValue = {
@@ -18,13 +17,14 @@ const dummyValue = {
         console.warn('You have not provided AuthContextProvider and tried to use login function');
     },
     logout: () => {},
-    setLoggedIn: () => {},
 };
 
 const AuthContext = React.createContext<AuthContextValue>(dummyValue);
 
 export const AuthContextProvider: React.FC = ({children}) => {
-    const [isLoggedIn, setLoggedIn] = useState(false);
+    const loginFromLocalStorage = localStorage.getItem('isLoggedIn') === 'true';
+
+    const [isLoggedIn, setLoggedIn] = useState(loginFromLocalStorage);
     const [loginError, setLoginError] = useState('');
     const {goToMain} = useToMain();
 
@@ -32,13 +32,15 @@ export const AuthContextProvider: React.FC = ({children}) => {
         async (values: LoginFormValues) => {
             try {
                 const response = await postLoginValues(values);
-                console.log('loginResponse', response.headers);
                 setLoginError('');
+                localStorage.setItem('token', response.headers['x-authorization']);
+                localStorage.setItem('isLoggedIn', 'true');
                 setLoggedIn(true);
                 goToMain();
             } catch {
                 setLoginError('Please check your credentials');
                 setLoggedIn(false);
+                localStorage.setItem('isLoggedIn', 'false');
             }
         },
         [goToMain],
@@ -46,6 +48,7 @@ export const AuthContextProvider: React.FC = ({children}) => {
 
     const logout = useCallback(() => {
         setLoggedIn(false);
+        localStorage.setItem('isLoggedIn', 'false');
     }, []);
 
     const memoizedValue = useMemo(() => {
@@ -54,9 +57,8 @@ export const AuthContextProvider: React.FC = ({children}) => {
             login,
             logout,
             loginError,
-            setLoggedIn,
         };
-    }, [isLoggedIn, login, logout, loginError, setLoggedIn]);
+    }, [isLoggedIn, login, logout, loginError]);
 
     return <AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>;
 };

@@ -71,7 +71,9 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
 `;
 
 export const StyledButton = styled.button`
+    font-family: 'Poppins', sans-serif;
     background-color: hsl(240, 2%, 16%);
+    font-size: 16px;
     border: none;
     outline: none;
 `;
