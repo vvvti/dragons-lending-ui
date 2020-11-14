@@ -1,16 +1,16 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 import {postLoginValues} from '../api/loginApi';
 import {LoginFormValues} from '../helpers/types';
-import {useBack} from '../hooks/useBack';
+import {useToMain} from '../hooks/useToMain';
 
 interface AuthContextValue {
     isLoggedIn: boolean;
     loginError: string;
     login: (values: LoginFormValues) => void;
     logout: () => void;
+    setLoggedIn: any;
 }
 
-// this is overridden inside AuthContextProvider anyway
 const dummyValue = {
     isLoggedIn: false,
     loginError: '',
@@ -18,6 +18,7 @@ const dummyValue = {
         console.warn('You have not provided AuthContextProvider and tried to use login function');
     },
     logout: () => {},
+    setLoggedIn: () => {},
 };
 
 const AuthContext = React.createContext<AuthContextValue>(dummyValue);
@@ -25,7 +26,7 @@ const AuthContext = React.createContext<AuthContextValue>(dummyValue);
 export const AuthContextProvider: React.FC = ({children}) => {
     const [isLoggedIn, setLoggedIn] = useState(false);
     const [loginError, setLoginError] = useState('');
-    const {goBack} = useBack();
+    const {goToMain} = useToMain();
 
     const login = useCallback(
         async (values: LoginFormValues) => {
@@ -34,13 +35,13 @@ export const AuthContextProvider: React.FC = ({children}) => {
                 console.log('loginResponse', response.headers);
                 setLoginError('');
                 setLoggedIn(true);
-                goBack();
+                goToMain();
             } catch {
                 setLoginError('Please check your credentials');
                 setLoggedIn(false);
             }
         },
-        [goBack],
+        [goToMain],
     );
 
     const logout = useCallback(() => {
@@ -53,8 +54,9 @@ export const AuthContextProvider: React.FC = ({children}) => {
             login,
             logout,
             loginError,
+            setLoggedIn,
         };
-    }, [isLoggedIn, login, logout, loginError]);
+    }, [isLoggedIn, login, logout, loginError, setLoggedIn]);
 
     return <AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>;
 };

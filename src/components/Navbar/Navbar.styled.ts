@@ -15,7 +15,6 @@ export const StyledNavbar = styled.div`
 export const StyledTitle = styled(NavLink)`
     display: flex;
     flex-grow: 1;
-    flex-basis: 400px;
     text-decoration: none;
     align-items: center;
     justify-content: center;
@@ -26,9 +25,15 @@ export const StyledTitle = styled(NavLink)`
     font-size: 46px;
     font-weight: bold;
 
-    @media (max-width: 1450px) {
+    @media (max-width: 1200px) {
         font-size: 24px;
     }
+`;
+
+export const StyledLogoContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const StyledMenu = styled.div`
@@ -38,16 +43,12 @@ export const StyledMenu = styled.div`
     color: hsl(0, 0%, 100%);
     text-transform: uppercase;
     background-color: hsl(240, 2%, 16%);
-    padding: 0 50px;
-`;
-
-export const StyledLogo = styled.div`
-    height: 100%;
-    margin: 0 200px;
+    padding: 0 40px 0 20px;
 `;
 
 export const Logo = styled.img`
-    height: 100%;
+    height: 50px;
+    margin: 0 20px 0 20px;
 `;
 
 export const StyledNavLink = styled(NavLink).attrs(() => ({
@@ -57,6 +58,8 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
     color: hsl(0, 0%, 100%);
     font-size: 16px;
     margin: 20px 10px;
+    background-color: hsl(240, 2%, 16%);
+    text-transform: uppercase;
 
     &:hover {
         color: hsl(0, 100%, 50%);
@@ -65,4 +68,16 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
     &.${activeClassName} {
         color: hsl(0, 100%, 50%);
     }
+`;
+
+export const StyledButton = styled.button`
+    background-color: hsl(240, 2%, 16%);
+    border: none;
+    outline: none;
+`;
+
+export const StyledText = styled.span`
+    background-color: hsl(240, 2%, 16%);
+    color: hsl(0, 0%, 100%);
+    text-transform: uppercase;
 `;

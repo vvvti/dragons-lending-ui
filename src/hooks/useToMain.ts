@@ -1,14 +1,14 @@
 import {useHistory} from 'react-router';
 
-export const useBack = () => {
+export const useToMain = () => {
     const history = useHistory();
 
-    const goBack = () => {
+    const goToMain = () => {
         const location = {
             pathname: '/loangrid',
         };
         history.push(location);
     };
 
-    return {goBack};
+    return {goToMain};
 };

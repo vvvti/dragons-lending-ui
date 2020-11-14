@@ -1,9 +1,9 @@
 import React from 'react';
 import {StyledButton} from './CloseButton.styled';
-import {useBack} from '../../hooks/useBack';
+import {useToMain} from '../../hooks/useToMain';
 
 export const CloseButton = () => {
-    const {goBack} = useBack();
+    const {goToMain} = useToMain();
 
-    return <StyledButton onClick={goBack}>X</StyledButton>;
+    return <StyledButton onClick={goToMain}>X</StyledButton>;
 };

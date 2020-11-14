@@ -8,19 +8,10 @@ import {Slider} from '@material-ui/core';
 import {validationSchema} from './CreateOffer.helpers';
 import {CreateOfferFormValues} from '../../helpers/types';
 import {useOffer} from '../../hooks/useOffer';
-import {useHistory} from 'react-router';
 import {CloseButton} from '../../components/CloseButton/CloseButton';
 
 export const CreateOffer: React.FC = () => {
     const {postOfferValues} = useOffer();
-    const history = useHistory();
-
-    const goBack = () => {
-        const location = {
-            pathname: '/loangrid',
-        };
-        history.push(location);
-    };
 
     return (
         <PageWrapper>
@@ -28,7 +19,6 @@ export const CreateOffer: React.FC = () => {
                 initialValues={INITIAL_CREATEOFFER_VALUES}
                 validationSchema={validationSchema}
                 onSubmit={async (values: CreateOfferFormValues) => {
-                    goBack();
                     await postOfferValues(values);
                 }}
             >
