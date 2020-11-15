@@ -14,7 +14,7 @@ interface AuthContextValue {
 const dummyValue = {
     isLoggedIn: false,
     loginError: '',
-    tokenStorage: 'dd',
+    tokenStorage: '',
     login: () => {
         console.warn('You have not provided AuthContextProvider and tried to use login function');
     },
@@ -25,7 +25,7 @@ const AuthContext = React.createContext<AuthContextValue>(dummyValue);
 
 export const AuthContextProvider: React.FC = ({children}) => {
     const loginFromLocalStorage = localStorage.getItem('isLoggedIn') === 'true';
-    const tokenFromLocalStorage = JSON.stringify(localStorage.getItem('token'));
+    const tokenFromLocalStorage = localStorage.getItem('token') === null ? '' : JSON.stringify(localStorage.getItem('token'));
 
     const [isLoggedIn, setLoggedIn] = useState(loginFromLocalStorage);
     const [tokenStorage, setTokenStorage] = useState(tokenFromLocalStorage);
@@ -56,6 +56,7 @@ export const AuthContextProvider: React.FC = ({children}) => {
     const logout = useCallback(() => {
         setLoggedIn(false);
         localStorage.setItem('isLoggedIn', 'false');
+        localStorage.removeItem('token');
         setTokenStorage('');
     }, []);
 

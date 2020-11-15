@@ -5,18 +5,19 @@ import {ROUTES} from '../../helpers/routes';
 import {useAuthContext} from '../../context/auth-context';
 
 export const LoansPage: React.FC = () => {
-    const {tokenStorage} = useAuthContext();
-    console.log('LoansPage token', tokenStorage);
+    const {isLoggedIn} = useAuthContext();
 
     return (
         <PageWrapper>
             <PageContainer>
-                <StatusContainer>
-                    <StyledNavLink to={ROUTES.LOGIN}>
-                        <StyledText>Account</StyledText>
-                        <StyledAvatar />
-                    </StyledNavLink>
-                </StatusContainer>
+                {isLoggedIn && (
+                    <StatusContainer>
+                        <StyledNavLink to={ROUTES.LOGIN}>
+                            <StyledText>Account</StyledText>
+                            <StyledAvatar />
+                        </StyledNavLink>
+                    </StatusContainer>
+                )}
                 <LoansGrid />
             </PageContainer>
         </PageWrapper>

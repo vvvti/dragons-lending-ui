@@ -42,4 +42,5 @@ export const StyledNavLink = styled(NavLink)`
 
 export const StyledText = styled.div`
     align-self: center;
+    color: hsl(0, 0%, 0%);
 `;
