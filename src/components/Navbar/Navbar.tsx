@@ -20,15 +20,16 @@ export const Navbar: React.FC = () => {
                 <StyledTitle to={ROUTES.LOANGRID}>Dragons lending</StyledTitle>
             </StyledLogoContainer>
             <StyledMenu>
-                <StyledNavLink to={ROUTES.ABOUT}>ABOUT</StyledNavLink>
-                <StyledNavLink to={ROUTES.CONTACT}>CONTACT</StyledNavLink>
-                <StyledNavLink to={ROUTES.RULES}>RULES</StyledNavLink>
-                <StyledNavLink to={ROUTES.PRIVACY}>PRIVACY</StyledNavLink>
-                <StyledNavLink to={ROUTES.LOGIN} />
                 <StyledButton onClick={handleButtonClick}>
                     {isLoggedIn ? <StyledText>Logout</StyledText> : <StyledNavLink to={ROUTES.LOGIN}>Login</StyledNavLink>}
                 </StyledButton>
                 <StyledNavLink to={ROUTES.REGISTRATION}>Register</StyledNavLink>
+                <StyledNavLink to={ROUTES.ABOUT}>ABOUT</StyledNavLink>
+                <StyledNavLink to={ROUTES.CONTACT}>CONTACT</StyledNavLink>
+                <StyledNavLink to={ROUTES.RULES}>RULES</StyledNavLink>
+                <StyledNavLink to={ROUTES.PRIVACY}>PRIVACY</StyledNavLink>
+                {/*<StyledNavLink to={ROUTES.LOGIN}>Login</StyledNavLink>*/}
+                {/*<StyledButton onClick={handleButtonClick}>LOGOUT</StyledButton>*/}
             </StyledMenu>
         </StyledNavbar>
     );

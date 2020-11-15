@@ -6,6 +6,7 @@ import {useToMain} from '../hooks/useToMain';
 interface AuthContextValue {
     isLoggedIn: boolean;
     loginError: string;
+    tokenStorage: string;
     login: (values: LoginFormValues) => void;
     logout: () => void;
 }
@@ -13,6 +14,7 @@ interface AuthContextValue {
 const dummyValue = {
     isLoggedIn: false,
     loginError: '',
+    tokenStorage: 'dd',
     login: () => {
         console.warn('You have not provided AuthContextProvider and tried to use login function');
     },
@@ -23,8 +25,10 @@ const AuthContext = React.createContext<AuthContextValue>(dummyValue);
 
 export const AuthContextProvider: React.FC = ({children}) => {
     const loginFromLocalStorage = localStorage.getItem('isLoggedIn') === 'true';
+    const tokenFromLocalStorage = JSON.stringify(localStorage.getItem('token'));
 
     const [isLoggedIn, setLoggedIn] = useState(loginFromLocalStorage);
+    const [tokenStorage, setTokenStorage] = useState(tokenFromLocalStorage);
     const [loginError, setLoginError] = useState('');
     const {goToMain} = useToMain();
 
@@ -35,12 +39,15 @@ export const AuthContextProvider: React.FC = ({children}) => {
                 setLoginError('');
                 localStorage.setItem('token', response.headers['x-authorization']);
                 localStorage.setItem('isLoggedIn', 'true');
+                setTokenStorage(response.headers['x-authorization']);
+
                 setLoggedIn(true);
                 goToMain();
             } catch {
                 setLoginError('Please check your credentials');
                 setLoggedIn(false);
                 localStorage.setItem('isLoggedIn', 'false');
+                setTokenStorage('');
             }
         },
         [goToMain],
@@ -49,6 +56,7 @@ export const AuthContextProvider: React.FC = ({children}) => {
     const logout = useCallback(() => {
         setLoggedIn(false);
         localStorage.setItem('isLoggedIn', 'false');
+        setTokenStorage('');
     }, []);
 
     const memoizedValue = useMemo(() => {
@@ -57,8 +65,9 @@ export const AuthContextProvider: React.FC = ({children}) => {
             login,
             logout,
             loginError,
+            tokenStorage,
         };
-    }, [isLoggedIn, login, logout, loginError]);
+    }, [isLoggedIn, login, logout, loginError, tokenStorage]);
 
     return <AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>;
 };
