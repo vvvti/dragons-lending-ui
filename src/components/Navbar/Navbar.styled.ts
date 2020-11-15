@@ -76,6 +76,7 @@ export const StyledButton = styled.button`
     font-size: 16px;
     border: none;
     outline: none;
+    margin: 0;
 `;
 
 export const StyledText = styled.span`
