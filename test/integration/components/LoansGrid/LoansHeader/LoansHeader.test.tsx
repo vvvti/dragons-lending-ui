@@ -7,6 +7,6 @@ describe('LoansHeader', () => {
     it('renders component', async () => {
         renderWithRouter(<LoansHeader />);
 
-        expect(screen.getByRole('heading', {name: /active loan applications/i})).toBeInTheDocument();
+        expect(screen.getByRole('heading', {name: /active/i})).toBeInTheDocument();
     });
 });

@@ -27,7 +27,7 @@ export const ItemContainer = styled.div`
     width: 100%;
     height: 200px;
     padding: 10px;
-    box-shadow: 0 4px 12px rgba(186, 199, 213, 0.5);
+    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
     grid-template-areas:
         'image details'
         'invest invest';

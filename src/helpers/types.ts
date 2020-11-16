@@ -35,6 +35,6 @@ export interface OfferItem {
 export interface OfferItems extends Array<OfferItem> {}
 
 export interface tokenValues {
-    sub?: string;
-    exp?: number;
+    sub: string;
+    exp: number;
 }

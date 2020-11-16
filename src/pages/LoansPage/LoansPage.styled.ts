@@ -17,7 +17,7 @@ export const StatusContainer = styled.div`
     justify-content: flex-end;
     margin: 20px 0;
     padding: 0 20px;
-    //box-shadow: 0 4px 12px rgba(186, 199, 213, 0.5);
+    //box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
 `;
 
 export const PageWrapper = styled.div`

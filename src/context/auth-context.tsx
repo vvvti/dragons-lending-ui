@@ -1,7 +1,7 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 import {postLoginValues} from '../api/loginApi';
 import {LoginFormValues} from '../helpers/types';
-import {useToMain} from '../hooks/useToMain';
+import {useToMain} from '../hooks/useToPage';
 
 interface AuthContextValue {
     isLoggedIn: boolean;

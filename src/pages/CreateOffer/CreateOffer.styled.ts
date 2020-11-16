@@ -8,7 +8,7 @@ export const StyledForm = styled(Form)`
     margin: 50px auto;
     padding: 30px;
     align-items: center;
-    box-shadow: 0 4px 12px rgba(186, 199, 213, 0.5);
+    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
 `;
 
 export const StyledInputWrapper = styled.div`
