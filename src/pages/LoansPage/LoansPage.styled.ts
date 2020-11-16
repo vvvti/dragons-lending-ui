@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import {Avatar} from '@material-ui/core';
-import {NavLink} from 'react-router-dom';
 
 export const PageContainer = styled.div`
     flex-grow: 1;
@@ -24,20 +22,6 @@ export const PageWrapper = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-`;
-
-export const StyledAvatar = styled(Avatar)`
-    align-self: center;
-    justify-self: center;
-    width: 50px;
-    height: 50px;
-    margin-left: 20px;
-`;
-
-export const StyledNavLink = styled(NavLink)`
-    display: flex;
-    text-decoration: none;
-    font-size: 16px;
 `;
 
 export const StyledText = styled.div`

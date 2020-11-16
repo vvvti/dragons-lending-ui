@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
+import {Avatar} from '@material-ui/core';
 
 const activeClassName = 'active';
 
@@ -83,4 +84,12 @@ export const StyledText = styled.span`
     background-color: hsl(240, 2%, 16%);
     color: hsl(0, 0%, 100%);
     text-transform: uppercase;
+`;
+
+export const StyledAvatar = styled(Avatar)`
+    align-self: center;
+    justify-self: center;
+    width: 2em;
+    height: 2em;
+    margin-left: 20px;
 `;
