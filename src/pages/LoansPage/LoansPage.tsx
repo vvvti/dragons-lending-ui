@@ -18,7 +18,7 @@ export const LoansPage: React.FC = () => {
             <PageContainer>
                 {isLoggedIn && (
                     <StatusContainer>
-                        <StyledNavLink to={ROUTES.LOGIN}>
+                        <StyledNavLink to={ROUTES.USERACCOUNT}>
                             <StyledText>{tokenStorage && `Logged in as ${validToken.sub}`}</StyledText>
                             <StyledAvatar />
                         </StyledNavLink>
