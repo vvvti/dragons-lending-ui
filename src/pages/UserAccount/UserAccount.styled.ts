@@ -1,46 +1,58 @@
 import styled from 'styled-components';
-import {Avatar} from '@material-ui/core';
-import {NavLink} from 'react-router-dom';
+import {Button} from '@material-ui/core';
 
 export const PageContainer = styled.div`
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`;
-
-export const AccountContainer = styled.div`
     display: flex;
     width: 80%;
-    height: 50px;
+    margin: 0 auto;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+`;
+
+export const StyledContainer = styled.div`
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
     margin: 20px 0;
     padding: 0 20px;
-    box-shadow: 0 4px 12px rgba(186, 199, 213, 0.5);
+    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
 `;
 
-export const PageWrapper = styled.div`
+export const StyledTile = styled.div`
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    flex-basis: 300px;
+    height: 120px;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
 `;
 
-export const StyledAvatar = styled(Avatar)`
-    align-self: center;
-    justify-self: center;
-    width: 50px;
-    height: 50px;
-    margin-left: 20px;
-`;
-
-export const StyledNavLink = styled(NavLink)`
+export const StyledTileContainer = styled.div`
     display: flex;
-    text-decoration: none;
-    font-size: 16px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    margin: 40px 0;
 `;
 
-export const StyledText = styled.div`
-    align-self: center;
-    color: hsl(0, 0%, 0%);
+export const StyledButton = styled(Button)`
+    width: 125px;
+    height: 40px;
+    margin: 15px;
+`;
+
+export const StyledTitle = styled.span`
+    font-size: 26px;
+`;
+
+export const StyledTileTitle = styled.span`
+    border-bottom: 2px solid hsl(232, 54%, 41%);
+    font-size: 26px;
+    width: 90%;
+`;
+export const StyledDetailsText = styled.span`
+    font-size: 36px;
 `;
