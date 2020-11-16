@@ -5,9 +5,9 @@ import {LoansPage} from '../../../../src/pages/LoansPage/LoansPage';
 import {renderWithRouter} from '../../../_helpers/renderWithRouters';
 
 describe('LoansPage', () => {
-    it('renders component status bar', async () => {
+    it('renders component with active offers', async () => {
         renderWithRouter(<LoansPage />);
 
-        expect(screen.getByText(/Active loan applications/i)).toBeInTheDocument();
+        expect(screen.getByText(/active/i)).toBeInTheDocument();
     });
 });
