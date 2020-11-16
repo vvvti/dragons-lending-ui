@@ -8,13 +8,13 @@ export const LoansHeader: React.FC = () => {
 
     return (
         <StyledHeader>
-            <h1>Active loan applications</h1>
+            <h1>Active auctions</h1>
             {!isLoggedIn ? (
-                <div>Please login to create an offer</div>
+                <div>Please login to create an auction</div>
             ) : (
                 <div>
                     <StyledNavLink to={ROUTES.CREATEOFFER}>
-                        Add new loan <StyledButton color="primary">+</StyledButton>
+                        Add new auction <StyledButton color="primary">+</StyledButton>
                     </StyledNavLink>
                 </div>
             )}
