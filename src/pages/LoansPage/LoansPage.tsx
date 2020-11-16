@@ -1,7 +1,6 @@
 import React from 'react';
-import {PageContainer, PageWrapper, StatusContainer, StyledAvatar, StyledNavLink, StyledText} from './LoansPage.styled';
+import {PageContainer, PageWrapper, StatusContainer, StyledText} from './LoansPage.styled';
 import {LoansGrid} from '../../components/LoansGrid/LoansGrid';
-import {ROUTES} from '../../helpers/routes';
 import {useAuthContext} from '../../context/auth-context';
 import jwtDecode from 'jwt-decode';
 
@@ -18,10 +17,7 @@ export const LoansPage: React.FC = () => {
             <PageContainer>
                 {isLoggedIn && (
                     <StatusContainer>
-                        <StyledNavLink to={ROUTES.USERACCOUNT}>
-                            <StyledText>{tokenStorage && `Logged in as ${validToken.sub}`}</StyledText>
-                            <StyledAvatar />
-                        </StyledNavLink>
+                        <StyledText>{tokenStorage && `Logged in as ${validToken.sub}`}</StyledText>
                     </StatusContainer>
                 )}
                 <LoansGrid />
