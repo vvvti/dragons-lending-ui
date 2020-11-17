@@ -8,15 +8,18 @@ import {Slider} from '@material-ui/core';
 import {validationSchema} from './CreateOffer.helpers';
 import {CreateOfferFormValues} from '../../helpers/types';
 import {CloseButton} from '../../components/CloseButton/CloseButton';
+import {useOffer} from '../../hooks/useOffer';
 
 export const CreateOffer: React.FC = () => {
+    const {postNewOffer} = useOffer();
+
     return (
         <PageWrapper>
             <Formik<CreateOfferFormValues>
                 initialValues={INITIAL_CREATEOFFER_VALUES}
                 validationSchema={validationSchema}
-                onSubmit={values => {
-                    console.log(values);
+                onSubmit={async values => {
+                    await postNewOffer(values);
                 }}
             >
                 {({values, isValid, setFieldValue, errors, handleBlur, touched}) => (

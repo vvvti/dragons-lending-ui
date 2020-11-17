@@ -1,33 +1,54 @@
 import {useCallback, useState} from 'react';
 import {CreateOfferFormValues} from '../helpers/types';
 import {INITIAL_CREATEOFFER_VALUES} from '../helpers/constants';
-import {getOffersList, getOffersListWithoutToken} from '../api/auctionsApi';
+import {getOffersList, getOffersListWithoutToken, postOffer} from '../api/auctionsApi';
 import {useAuthContext} from '../context/auth-context';
 
 export const useOffer = () => {
     const [offersList, setOffersList] = useState<CreateOfferFormValues>(INITIAL_CREATEOFFER_VALUES);
-
     const {tokenStorage} = useAuthContext();
 
-    console.log('tokenStorage', tokenStorage);
-
-    const data = {
-        headers: {'x-authorization': tokenStorage},
-    };
-
     const getOffers = useCallback(async () => {
+        const data = {
+            headers: {'x-authorization': tokenStorage},
+        };
         if (tokenStorage) {
             const response = await getOffersList(data);
-            console.log('get offer list', response);
+
             setOffersList(response.data);
         } else {
             const response = await getOffersListWithoutToken();
             setOffersList(response.data);
         }
-    }, [tokenStorage, data]);
+    }, [tokenStorage]);
+
+    const postNewOffer = useCallback(
+        async values => {
+            const data = {
+                loanAmount: 100,
+                timePeriod: 1,
+                interestRate: 4,
+                endDate: '2022-11-17',
+            };
+            const head = {
+                headers: {'x-authorization': tokenStorage},
+            };
+
+            if (tokenStorage) {
+                const response = await postOffer(data, head);
+                console.log('auction created');
+                setOffersList(response.data);
+            } else {
+                const response = await getOffersListWithoutToken();
+                setOffersList(response.data);
+            }
+        },
+        [tokenStorage],
+    );
 
     return {
         offersList,
         getOffers,
+        postNewOffer,
     };
 };
