@@ -14,7 +14,6 @@ export const useOffer = () => {
         };
         if (tokenStorage) {
             const response = await getOffersList(data);
-
             setOffersList(response.data);
         } else {
             const response = await getOffersListWithoutToken();
@@ -24,19 +23,12 @@ export const useOffer = () => {
 
     const postNewOffer = useCallback(
         async values => {
-            const data = {
-                loanAmount: 100,
-                timePeriod: 1,
-                interestRate: 4,
-                endDate: '2022-11-17',
-            };
             const head = {
                 headers: {'x-authorization': tokenStorage},
             };
 
             if (tokenStorage) {
-                const response = await postOffer(data, head);
-                console.log('auction created');
+                const response = await postOffer(values, head);
                 setOffersList(response.data);
             } else {
                 const response = await getOffersListWithoutToken();

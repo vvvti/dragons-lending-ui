@@ -8,9 +8,9 @@ export const getOffersListWithoutToken = () => {
     return axios.get(`/auctions`);
 };
 
-export const postOffer = (data: any, header: any) => {
+export const postOffer = (data: any, values: any) => {
     console.log('data', data);
-    return axios.post(`/auctions`, data, header);
+    return axios.post(`/auctions`, data, values);
 };
 
 export const getOffer = (id: string) => {
