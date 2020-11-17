@@ -1,12 +1,14 @@
 import {useCallback, useState} from 'react';
 import {RegisterFormValues} from '../helpers/types';
 import {postRegisterValues} from '../api/registerApi';
-import {useToLogin} from './useToPage';
+import {useToMain} from './useToPage';
+import {useAuthContext} from '../context/auth-context';
 
 export const useRegister = () => {
     const [registerValues, setRegisterValues] = useState();
     const [registerError, setRegisterError] = useState('');
-    const {goToLogin} = useToLogin();
+    const {goToMain} = useToMain();
+    const {setLoggedIn} = useAuthContext();
 
     const postRegister = useCallback(
         async (values: RegisterFormValues) => {
@@ -14,12 +16,13 @@ export const useRegister = () => {
                 const response = await postRegisterValues(values);
                 setRegisterValues(response.data);
                 localStorage.setItem('isLoggedIn', 'true');
-                goToLogin();
+                setLoggedIn(true);
+                goToMain();
             } catch {
                 setRegisterError('Please insert another username and email address');
             }
         },
-        [goToLogin],
+        [goToMain, setLoggedIn],
     );
 
     return {

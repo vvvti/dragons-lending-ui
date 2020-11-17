@@ -9,6 +9,7 @@ interface AuthContextValue {
     tokenStorage: string;
     login: (values: LoginFormValues) => void;
     logout: () => void;
+    setLoggedIn: any;
 }
 
 const dummyValue = {
@@ -19,13 +20,14 @@ const dummyValue = {
         console.warn('You have not provided AuthContextProvider and tried to use login function');
     },
     logout: () => {},
+    setLoggedIn: () => {},
 };
 
 const AuthContext = React.createContext<AuthContextValue>(dummyValue);
 
 export const AuthContextProvider: React.FC = ({children}) => {
     const loginFromLocalStorage = localStorage.getItem('isLoggedIn') === 'true';
-    const tokenFromLocalStorage = localStorage.getItem('token') === null ? '' : JSON.stringify(localStorage.getItem('token'));
+    const tokenFromLocalStorage = localStorage.getItem('token') ?? '';
 
     const [isLoggedIn, setLoggedIn] = useState(loginFromLocalStorage);
     const [tokenStorage, setTokenStorage] = useState(tokenFromLocalStorage);
@@ -36,6 +38,7 @@ export const AuthContextProvider: React.FC = ({children}) => {
         async (values: LoginFormValues) => {
             try {
                 const response = await postLoginValues(values);
+                console.log('response', response);
                 setLoginError('');
                 localStorage.setItem('token', response.headers['x-authorization']);
                 localStorage.setItem('isLoggedIn', 'true');
@@ -67,8 +70,9 @@ export const AuthContextProvider: React.FC = ({children}) => {
             logout,
             loginError,
             tokenStorage,
+            setLoggedIn,
         };
-    }, [isLoggedIn, login, logout, loginError, tokenStorage]);
+    }, [isLoggedIn, login, logout, loginError, tokenStorage, setLoggedIn]);
 
     return <AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>;
 };
