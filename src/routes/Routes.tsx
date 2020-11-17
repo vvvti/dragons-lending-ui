@@ -12,6 +12,7 @@ import {CALCULATORPAGE} from '../helpers/constants';
 import {Privacy} from '../pages/Privacy/Privacy';
 import {Contact} from '../pages/Contact/Contact';
 import {UserAccount} from '../pages/UserAccount/UserAccount';
+import {NotFoundPage} from '../pages/NotFoundPage/NotFoundPage';
 
 export const Routes: React.FC = () => {
     return (
@@ -34,6 +35,9 @@ export const Routes: React.FC = () => {
                     return null;
                 }}
             />
+            <Route>
+                <NotFoundPage />
+            </Route>
         </Switch>
     );
 };
