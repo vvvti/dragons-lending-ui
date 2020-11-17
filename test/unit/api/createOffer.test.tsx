@@ -1,6 +1,6 @@
 import {axios} from '../../../src/api/rest/axios';
 import {mocked} from 'ts-jest/utils';
-import {getOffer, getOffersList, postOffer, putOffer} from '../../../src/api/createOfferApi';
+import {getOffer, getOffersList, postOffer, putOffer} from '../../../src/api/auctionsApi';
 
 jest.mock('../../../src/api/rest/axios');
 

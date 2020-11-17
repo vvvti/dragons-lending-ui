@@ -1,20 +1,33 @@
 import {useCallback, useState} from 'react';
-import {postOffer} from '../api/createOfferApi';
 import {CreateOfferFormValues} from '../helpers/types';
 import {INITIAL_CREATEOFFER_VALUES} from '../helpers/constants';
+import {getOffersList, getOffersListWithoutToken} from '../api/auctionsApi';
+import {useAuthContext} from '../context/auth-context';
 
 export const useOffer = () => {
-    const [offerValues, setOfferValues] = useState<CreateOfferFormValues>(INITIAL_CREATEOFFER_VALUES);
+    const [offersList, setOffersList] = useState<CreateOfferFormValues>(INITIAL_CREATEOFFER_VALUES);
 
-    const postOfferValues = useCallback(async (values: CreateOfferFormValues) => {
-        console.log('postOfferValues', values);
+    const {tokenStorage} = useAuthContext();
 
-        const response = await postOffer(values);
-        setOfferValues(response.data);
-    }, []);
+    console.log('tokenStorage', tokenStorage);
+
+    const data = {
+        headers: {'x-authorization': tokenStorage},
+    };
+
+    const getOffers = useCallback(async () => {
+        if (tokenStorage) {
+            const response = await getOffersList(data);
+            console.log('get offer list', response);
+            setOffersList(response.data);
+        } else {
+            const response = await getOffersListWithoutToken();
+            setOffersList(response.data);
+        }
+    }, [tokenStorage, data]);
 
     return {
-        offerValues,
-        postOfferValues,
+        offersList,
+        getOffers,
     };
 };

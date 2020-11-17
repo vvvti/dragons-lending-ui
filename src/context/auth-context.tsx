@@ -9,6 +9,7 @@ interface AuthContextValue {
     tokenStorage: string;
     login: (values: LoginFormValues) => void;
     logout: () => void;
+    setLoggedIn: any;
 }
 
 const dummyValue = {
@@ -19,6 +20,7 @@ const dummyValue = {
         console.warn('You have not provided AuthContextProvider and tried to use login function');
     },
     logout: () => {},
+    setLoggedIn: () => {},
 };
 
 const AuthContext = React.createContext<AuthContextValue>(dummyValue);
@@ -67,8 +69,9 @@ export const AuthContextProvider: React.FC = ({children}) => {
             logout,
             loginError,
             tokenStorage,
+            setLoggedIn,
         };
-    }, [isLoggedIn, login, logout, loginError, tokenStorage]);
+    }, [isLoggedIn, login, logout, loginError, tokenStorage, setLoggedIn]);
 
     return <AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>;
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     GridButton,
     GridView,
@@ -16,9 +16,15 @@ import {useFilters} from '../../hooks/useFilters';
 import {LoansHeader} from './LoansHeader/LoansHeader';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {InvestForm} from './InvestForm/InvestForm';
+import {useOffer} from '../../hooks/useOffer';
 
 export const LoansGrid: React.FC = () => {
     const {filterOneMonth, sortByAmount, sortByExpireDate, sortFilteredList, isUpTo, isSortedByDuration, isSortedByAmount} = useFilters();
+    const {getOffers} = useOffer();
+
+    useEffect(() => {
+        getOffers();
+    }, [getOffers]);
 
     return (
         <>
@@ -50,7 +56,6 @@ export const LoansGrid: React.FC = () => {
                                     <div>
                                         <StyledSpan>{loanAmount} GBP</StyledSpan> at <StyledSpan>{interestRate} %</StyledSpan>
                                         <div>
-                                            {' '}
                                             for <StyledSpan>{timePeriod === 1 ? `${timePeriod} month` : `${timePeriod} months`}</StyledSpan>
                                         </div>
                                     </div>
