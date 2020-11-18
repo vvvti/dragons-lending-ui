@@ -22,23 +22,21 @@ export const LoansGrid: React.FC = () => {
     const {filterOneMonth, sortByAmount, sortByExpireDate, isUpTo, isSortedByDuration, isSortedByAmount} = useFilters();
     const {getOffers, offersList} = useOffer();
 
-    let arr: any = [];
+    let urlArray: string[] = [];
 
     for (let i = 0; i < 100; i++) {
         if (i % 2) {
-            arr.push(`https://randomuser.me/api/portraits/men/${i}.jpg`);
+            urlArray.push(`https://randomuser.me/api/portraits/men/${i}.jpg`);
         } else {
-            arr.push(`https://randomuser.me/api/portraits/women/${i}.jpg`);
+            urlArray.push(`https://randomuser.me/api/portraits/women/${i}.jpg`);
         }
     }
 
-    const activeAuctions = offersList.map((obj, index) => ({...obj, url: arr[index]}));
+    const activeAuctions = offersList.map((obj, index) => ({...obj, url: urlArray[index]}));
 
     useEffect(() => {
         getOffers();
     }, [getOffers]);
-
-    console.log('offersList', offersList);
 
     return (
         <>
