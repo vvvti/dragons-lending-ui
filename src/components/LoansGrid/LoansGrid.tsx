@@ -17,14 +17,21 @@ import {LoansHeader} from './LoansHeader/LoansHeader';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {InvestForm} from './InvestForm/InvestForm';
 import {useOffer} from '../../hooks/useOffer';
+import {images} from './data';
 
 export const LoansGrid: React.FC = () => {
-    const {filterOneMonth, sortByAmount, sortByExpireDate, sortFilteredList, isUpTo, isSortedByDuration, isSortedByAmount} = useFilters();
-    const {getOffers} = useOffer();
+    const {filterOneMonth, sortByAmount, sortByExpireDate, isUpTo, isSortedByDuration, isSortedByAmount} = useFilters();
+    const {getOffers, offersList} = useOffer();
+
+    const activeAuctions = offersList.map((obj, index) => ({...obj, url: images[index]}));
+
+    console.log('activeAuctions', activeAuctions);
 
     useEffect(() => {
         getOffers();
     }, [getOffers]);
+
+    console.log('offersList', offersList);
 
     return (
         <>
@@ -41,8 +48,8 @@ export const LoansGrid: React.FC = () => {
             </GridButton>
             <GridView data-testid={'grid-results'}>
                 <LoansHeader />
-                {Number(sortFilteredList.length) ? (
-                    sortFilteredList.map(({id, loanAmount, url, endDate, timePeriod, interestRate}) => {
+                {Number(activeAuctions.length) ? (
+                    activeAuctions.map(({id, loanAmount, url, endDate, timePeriod, interestRate}) => {
                         return (
                             <ItemContainer key={id}>
                                 <StyledAvatar>
