@@ -5,9 +5,11 @@ import {
     ItemContainer,
     StyledAccordion,
     StyledAvatar,
+    StyledButton,
     StyledDaysLeft,
     StyledImage,
     StyledLoanDetails,
+    StyledPagination,
     StyledSpan,
     StyledTitle,
 } from './LoansGrid.styled';
@@ -17,14 +19,13 @@ import {LoansHeader} from './LoansHeader/LoansHeader';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {InvestForm} from './InvestForm/InvestForm';
 import {useOffer} from '../../hooks/useOffer';
-import {Pagination} from '@material-ui/lab';
 
 export const LoansGrid: React.FC = () => {
     const {filterOneMonth, sortByAmount, sortByExpireDate, isUpTo, isSortedByDuration, isSortedByAmount} = useFilters();
     const {getOffers, offersList} = useOffer();
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage, setPostsPerPage] = useState(10);
+    const postsPerPage = 10;
 
     let urlArray: string[] = [];
 
@@ -51,8 +52,6 @@ export const LoansGrid: React.FC = () => {
     for (let i = 1; i <= Math.ceil(activeAuctions.length / postsPerPage); i++) {
         pageNumbers.push(i);
     }
-
-    console.log('pageNumbers', pageNumbers);
 
     useEffect(() => {
         getOffers();
@@ -113,18 +112,13 @@ export const LoansGrid: React.FC = () => {
                     <div>No results</div>
                 )}
             </GridView>
-            <Pagination count={10} color="primary" />
-            <nav>
-                <ul className="pagination">
-                    {pageNumbers.map((number: any) => (
-                        <li key={number} className="page-item">
-                            <a onClick={() => paginate(number)} className="page-link">
-                                {number}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+            <StyledPagination>
+                {pageNumbers.map((number: any) => (
+                    <StyledButton key={number} onClick={() => paginate(number)}>
+                        {number}
+                    </StyledButton>
+                ))}
+            </StyledPagination>
         </>
     );
 };

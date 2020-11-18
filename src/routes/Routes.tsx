@@ -17,16 +17,16 @@ import {NotFoundPage} from '../pages/NotFoundPage/NotFoundPage';
 export const Routes: React.FC = () => {
     return (
         <Switch>
-            <Route exact path={ROUTES.CREATEOFFER} component={CreateOffer} />
+            <Route path={ROUTES.CREATEOFFER} component={CreateOffer} />
             <Route exact path={ROUTES.HOME} component={Home} />
-            <Route exact path={ROUTES.ABOUT} component={About} />
-            <Route exact path={ROUTES.LOANGRID} component={LoansPage} />
-            <Route exact path={ROUTES.LOGIN} component={Login} />
-            <Route exact path={ROUTES.REGISTRATION} component={Registration} />
-            <Route exact path={ROUTES.RULES} component={Rules} />
-            <Route exact path={ROUTES.PRIVACY} component={Privacy} />
-            <Route exact path={ROUTES.CONTACT} component={Contact} />
-            <Route exact path={ROUTES.USERACCOUNT} component={UserAccount} />
+            <Route path={ROUTES.ABOUT} component={About} />
+            <Route path={ROUTES.LOANGRID} component={LoansPage} />
+            <Route path={ROUTES.LOGIN} component={Login} />
+            <Route path={ROUTES.REGISTRATION} component={Registration} />
+            <Route path={ROUTES.RULES} component={Rules} />
+            <Route path={ROUTES.PRIVACY} component={Privacy} />
+            <Route path={ROUTES.CONTACT} component={Contact} />
+            <Route path={ROUTES.USERACCOUNT} component={UserAccount} />
             <Route
                 exact
                 path={ROUTES.CALCULATORPAGE}

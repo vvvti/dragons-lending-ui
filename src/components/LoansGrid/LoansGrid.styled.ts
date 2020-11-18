@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import {Avatar} from '@material-ui/core';
 
+const activeClassName = 'active';
+
 export const GridView = styled.div`
     width: 80%;
     display: grid;
@@ -68,4 +70,16 @@ export const StyledDaysLeft = styled.div`
 
 export const StyledImage = styled.img`
     width: 100%;
+`;
+
+export const StyledButton = styled.button`
+    font-size: 20px;
+    margin: 20px;
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 0%);
+    border: none;
+`;
+
+export const StyledPagination = styled.div`
+    display: flex;
 `;
