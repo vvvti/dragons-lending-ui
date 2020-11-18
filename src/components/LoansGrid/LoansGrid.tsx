@@ -17,15 +17,22 @@ import {LoansHeader} from './LoansHeader/LoansHeader';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {InvestForm} from './InvestForm/InvestForm';
 import {useOffer} from '../../hooks/useOffer';
-import {images} from './data';
 
 export const LoansGrid: React.FC = () => {
     const {filterOneMonth, sortByAmount, sortByExpireDate, isUpTo, isSortedByDuration, isSortedByAmount} = useFilters();
     const {getOffers, offersList} = useOffer();
 
-    const activeAuctions = offersList.map((obj, index) => ({...obj, url: images[index]}));
+    let arr: any = [];
 
-    console.log('activeAuctions', activeAuctions);
+    for (let i = 0; i < 100; i++) {
+        if (i % 2) {
+            arr.push(`https://randomuser.me/api/portraits/men/${i}.jpg`);
+        } else {
+            arr.push(`https://randomuser.me/api/portraits/women/${i}.jpg`);
+        }
+    }
+
+    const activeAuctions = offersList.map((obj, index) => ({...obj, url: arr[index]}));
 
     useEffect(() => {
         getOffers();
