@@ -1,47 +1,34 @@
-import {useState} from 'react';
 import {CreateOfferFormArray} from '../helpers/types';
-import {images} from '../components/LoansGrid/data';
-import {useOffer} from './useOffer';
+import {useMemo, useState} from 'react';
 
-export const useFilters = () => {
-    const {offersList} = useOffer();
-    const offerArray = offersList.map((obj: any) => ({...obj, url: images[obj.id]}));
+export const useFilters = (activeAuctions: CreateOfferFormArray) => {
+    const [filterConfig, setFilterConfig] = useState<any>({
+        sort: false,
+        filter: false,
+        active: false,
+    });
 
-    const [offersDisplayed, setOffersDisplayed] = useState<CreateOfferFormArray>(offerArray);
-    const [isUpTo500, setIsUpTo500] = useState<boolean>(true);
-    const [isSortedByAmount, setIsSortedByAmount] = useState<boolean>(false);
-
-    const filterOneMonth = () => {
-        let filteredData = offerArray;
-        if (isUpTo500) {
-            filteredData = filteredData.filter(data => data.loanAmount < 500);
-            setOffersDisplayed(filteredData);
-            setIsUpTo500(!isUpTo500);
-        } else {
-            setOffersDisplayed(offerArray);
-            setIsUpTo500(!isUpTo500);
-        }
-    };
-
-    const sortByAmount = (activeAuctions: CreateOfferFormArray) => {
+    const sortedItems = useMemo(() => {
         let sortedUsers = activeAuctions;
-        if (!isSortedByAmount) {
-            sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) > Number(b.loanAmount) ? 1 : -1));
-            setOffersDisplayed(sortedUsers);
-            setIsSortedByAmount(true);
-        } else {
-            sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) < Number(b.loanAmount) ? 1 : -1));
-            setOffersDisplayed(sortedUsers);
-            setIsSortedByAmount(false);
+        if (filterConfig.active) {
+            if (filterConfig.sort) {
+                sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) > Number(b.loanAmount) ? 1 : -1));
+            } else {
+                sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) < Number(b.loanAmount) ? 1 : -1));
+            }
+            if (filterConfig.filter) {
+                sortedUsers = sortedUsers.filter((data: any) => data.loanAmount < 500);
+            } else {
+                return sortedUsers;
+            }
+            return sortedUsers;
         }
-    };
+        return sortedUsers;
+    }, [activeAuctions, filterConfig]);
 
     return {
-        offersDisplayed,
-        filterOneMonth,
-        sortByAmount,
-        isUpTo: isUpTo500,
-        isSortedByAmount,
-        sortFilteredList: offersDisplayed,
+        sortedItems,
+        setFilterConfig,
+        filterConfig,
     };
 };

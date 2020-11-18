@@ -21,9 +21,12 @@ import {InvestForm} from './InvestForm/InvestForm';
 import {useOffer} from '../../hooks/useOffer';
 
 export const LoansGrid: React.FC = () => {
-    const {filterOneMonth, sortByAmount, isUpTo, isSortedByAmount} = useFilters();
     const {getOffers, offersList} = useOffer();
     const [currentPage, setCurrentPage] = useState(1);
+
+    useEffect(() => {
+        getOffers();
+    }, [getOffers]);
 
     const postsPerPage = 6;
 
@@ -38,30 +41,48 @@ export const LoansGrid: React.FC = () => {
     }
 
     const activeAuctions = offersList.map((obj, index) => ({...obj, url: urlArray[index]}));
+    console.log('activeAuctions', activeAuctions);
+    const {sortedItems, setFilterConfig, filterConfig} = useFilters(activeAuctions);
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = activeAuctions.slice(indexOfFirstPost, indexOfLastPost);
+    const currentPosts = sortedItems.slice(indexOfFirstPost, indexOfLastPost);
 
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
     const pageNumbers: any = [];
 
-    for (let i = 1; i <= Math.ceil(activeAuctions.length / postsPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(sortedItems.length / postsPerPage); i++) {
         pageNumbers.push(i);
     }
-
-    useEffect(() => {
-        getOffers();
-    }, [getOffers]);
 
     return (
         <>
             <GridButton>
-                <Button variant="contained" color={isSortedByAmount ? 'secondary' : 'primary'} onClick={() => sortByAmount(activeAuctions)}>
+                <Button
+                    variant="contained"
+                    color={!filterConfig.sort ? 'primary' : 'secondary'}
+                    onClick={() =>
+                        setFilterConfig((prevState: any) => ({
+                            ...prevState,
+                            sort: !prevState.sort,
+                            active: true,
+                        }))
+                    }
+                >
                     Sort by amount
                 </Button>
-                <Button variant="contained" color={isUpTo ? 'primary' : 'secondary'} onClick={filterOneMonth}>
+                <Button
+                    variant="contained"
+                    color={!filterConfig.filter ? 'primary' : 'secondary'}
+                    onClick={() =>
+                        setFilterConfig((prevState: any) => ({
+                            ...prevState,
+                            filter: !prevState.filter,
+                            active: true,
+                        }))
+                    }
+                >
                     Loans up to 500 GBP
                 </Button>
             </GridButton>
