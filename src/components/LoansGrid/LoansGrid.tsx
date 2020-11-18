@@ -62,7 +62,13 @@ export const LoansGrid: React.FC = () => {
                 <Button
                     variant="contained"
                     color={!filterConfig.sort ? 'primary' : 'secondary'}
-                    onClick={() => setFilterConfig((prevState: any) => ({...prevState, sort: !prevState.sort}))}
+                    onClick={() =>
+                        setFilterConfig((prevState: any) => ({
+                            ...prevState,
+                            sort: !prevState.sort,
+                            active: true,
+                        }))
+                    }
                 >
                     Sort by amount
                 </Button>
@@ -73,6 +79,7 @@ export const LoansGrid: React.FC = () => {
                         setFilterConfig((prevState: any) => ({
                             ...prevState,
                             filter: !prevState.filter,
+                            active: true,
                         }))
                     }
                 >
