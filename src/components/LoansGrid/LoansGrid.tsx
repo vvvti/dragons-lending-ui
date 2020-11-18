@@ -42,7 +42,7 @@ export const LoansGrid: React.FC = () => {
 
     const activeAuctions = offersList.map((obj, index) => ({...obj, url: urlArray[index]}));
     console.log('activeAuctions', activeAuctions);
-    const {sortedItems, setFilterConfig} = useFilters(activeAuctions);
+    const {sortedItems, setFilterConfig, filterConfig} = useFilters(activeAuctions);
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -59,10 +59,23 @@ export const LoansGrid: React.FC = () => {
     return (
         <>
             <GridButton>
-                <Button variant="contained" color="primary" onClick={() => setFilterConfig('sort')}>
+                <Button
+                    variant="contained"
+                    color={!filterConfig.sort ? 'primary' : 'secondary'}
+                    onClick={() => setFilterConfig((prevState: any) => ({...prevState, sort: !prevState.sort}))}
+                >
                     Sort by amount
                 </Button>
-                <Button variant="contained" color="primary" onClick={() => setFilterConfig('filter')}>
+                <Button
+                    variant="contained"
+                    color={!filterConfig.filter ? 'primary' : 'secondary'}
+                    onClick={() =>
+                        setFilterConfig((prevState: any) => ({
+                            ...prevState,
+                            filter: !prevState.filter,
+                        }))
+                    }
+                >
                     Loans up to 500 GBP
                 </Button>
             </GridButton>

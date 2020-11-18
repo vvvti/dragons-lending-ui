@@ -2,16 +2,19 @@ import {CreateOfferFormArray} from '../helpers/types';
 import {useMemo, useState} from 'react';
 
 export const useFilters = (activeAuctions: CreateOfferFormArray) => {
-    const [filterConfig, setFilterConfig] = useState<string>('inactive');
+    const [filterConfig, setFilterConfig] = useState<any>({
+        sort: false,
+        filter: false,
+    });
 
     const sortedItems = useMemo(() => {
         let sortedUsers = activeAuctions;
-        if (filterConfig === 'sort') {
+        if (filterConfig.sort) {
             sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) > Number(b.loanAmount) ? 1 : -1));
         } else {
             sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) < Number(b.loanAmount) ? 1 : -1));
         }
-        if (filterConfig === 'filter') {
+        if (filterConfig.filter) {
             sortedUsers = sortedUsers.filter((data: any) => data.loanAmount < 500);
         } else {
             return sortedUsers;
@@ -22,5 +25,6 @@ export const useFilters = (activeAuctions: CreateOfferFormArray) => {
     return {
         sortedItems,
         setFilterConfig,
+        filterConfig,
     };
 };
