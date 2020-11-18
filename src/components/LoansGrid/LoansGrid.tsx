@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     GridButton,
     GridView,
@@ -17,10 +17,14 @@ import {LoansHeader} from './LoansHeader/LoansHeader';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {InvestForm} from './InvestForm/InvestForm';
 import {useOffer} from '../../hooks/useOffer';
+import {Pagination} from '@material-ui/lab';
 
 export const LoansGrid: React.FC = () => {
     const {filterOneMonth, sortByAmount, sortByExpireDate, isUpTo, isSortedByDuration, isSortedByAmount} = useFilters();
     const {getOffers, offersList} = useOffer();
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(10);
 
     let urlArray: string[] = [];
 
@@ -33,6 +37,22 @@ export const LoansGrid: React.FC = () => {
     }
 
     const activeAuctions = offersList.map((obj, index) => ({...obj, url: urlArray[index]}));
+
+    // get current post
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = activeAuctions.slice(indexOfFirstPost, indexOfLastPost);
+
+    // Change page
+    const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+    const pageNumbers: any = [];
+
+    for (let i = 1; i <= Math.ceil(activeAuctions.length / postsPerPage); i++) {
+        pageNumbers.push(i);
+    }
+
+    console.log('pageNumbers', pageNumbers);
 
     useEffect(() => {
         getOffers();
@@ -53,8 +73,8 @@ export const LoansGrid: React.FC = () => {
             </GridButton>
             <GridView data-testid={'grid-results'}>
                 <LoansHeader />
-                {Number(activeAuctions.length) ? (
-                    activeAuctions.map(({id, loanAmount, url, endDate, timePeriod, interestRate}) => {
+                {Number(currentPosts.length) ? (
+                    currentPosts.map(({id, loanAmount, url, endDate, timePeriod, interestRate}) => {
                         return (
                             <ItemContainer key={id}>
                                 <StyledAvatar>
@@ -93,6 +113,18 @@ export const LoansGrid: React.FC = () => {
                     <div>No results</div>
                 )}
             </GridView>
+            <Pagination count={10} color="primary" />
+            <nav>
+                <ul className="pagination">
+                    {pageNumbers.map((number: any) => (
+                        <li key={number} className="page-item">
+                            <a onClick={() => paginate(number)} className="page-link">
+                                {number}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
         </>
     );
 };
