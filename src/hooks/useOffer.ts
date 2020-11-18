@@ -1,12 +1,12 @@
 import {useCallback, useState} from 'react';
-import {CreateOfferFormValues} from '../helpers/types';
-import {INITIAL_CREATEOFFER_VALUES} from '../helpers/constants';
+import {CreateOfferFormArray} from '../helpers/types';
 import {getOffersList, getOffersListWithoutToken, postOffer} from '../api/auctionsApi';
 import {useAuthContext} from '../context/auth-context';
 import {useToMain} from './useToPage';
+import {INITIAL_CREATEOFFER_ARRAY} from '../helpers/constants';
 
 export const useOffer = () => {
-    const [offersList, setOffersList] = useState<CreateOfferFormValues>(INITIAL_CREATEOFFER_VALUES);
+    const [offersList, setOffersList] = useState<CreateOfferFormArray>(INITIAL_CREATEOFFER_ARRAY);
     const {tokenStorage} = useAuthContext();
     const {goToMain} = useToMain();
 

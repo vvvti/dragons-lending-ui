@@ -1,15 +1,15 @@
 import {axios} from './rest/axios';
+import {CreateOfferFormArray} from '../helpers/types';
 
 export const getOffersList = (data: any) => {
-    return axios.get(`/auctions`, data);
+    return axios.get<CreateOfferFormArray>(`/auctions`, data);
 };
 
 export const getOffersListWithoutToken = () => {
-    return axios.get(`/auctions`);
+    return axios.get<CreateOfferFormArray>(`/auctions`);
 };
 
 export const postOffer = (data: any, values: any) => {
-    console.log('data', data);
     return axios.post(`/auctions`, data, values);
 };
 
