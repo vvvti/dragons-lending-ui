@@ -17,11 +17,9 @@ export const useOffer = () => {
         if (tokenStorage) {
             const response = await getOffersList(data);
             setOffersList(response.data);
-            console.log('Get auctions list with token', response.data);
         } else {
             const response = await getOffersListWithoutToken();
             setOffersList(response.data);
-            console.log('Get auctions list without token', response.data);
         }
     }, [tokenStorage]);
 
@@ -34,7 +32,6 @@ export const useOffer = () => {
             if (tokenStorage) {
                 const response = await postOffer(values, head);
                 setOffersList(response.data);
-                console.log('Auction submitted', response.data);
             } else {
                 const response = await getOffersListWithoutToken();
                 setOffersList(response.data);
