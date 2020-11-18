@@ -1,11 +1,13 @@
 import {useState} from 'react';
 import {OfferItems} from '../helpers/types';
-import {data, images} from '../components/LoansGrid/data';
+import {images} from '../components/LoansGrid/data';
+import {useOffer} from './useOffer';
 
 export const useFilters = () => {
-    const offerArray = data.map(obj => ({...obj, url: images[obj.id]}));
+    const {offersList} = useOffer();
+    const offerArray = offersList.map((obj: any) => ({...obj, url: images[obj.id]}));
 
-    const [offersList, setOffersList] = useState<OfferItems>(offerArray);
+    const [offersDisplayed, setOffersDisplayed] = useState<OfferItems>(offerArray);
     const [isUpTo500, setIsUpTo500] = useState<boolean>(true);
     const [isSortedByAmount, setIsSortedByAmount] = useState<boolean>(false);
     const [isSortedByDuration, setIsSortedByDuration] = useState<boolean>(false);
@@ -14,36 +16,36 @@ export const useFilters = () => {
         let filteredData = offerArray;
         if (isUpTo500) {
             filteredData = filteredData.filter(data => data.loanAmount < 500);
-            setOffersList(filteredData);
+            setOffersDisplayed(filteredData);
             setIsUpTo500(!isUpTo500);
         } else {
-            setOffersList(offerArray);
+            setOffersDisplayed(offerArray);
             setIsUpTo500(!isUpTo500);
         }
     };
 
     const sortByAmount = () => {
-        let sortedUsers = offersList;
+        let sortedUsers = offersDisplayed;
         if (!isSortedByAmount) {
             sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) > Number(b.loanAmount) ? 1 : -1));
-            setOffersList(sortedUsers);
+            setOffersDisplayed(sortedUsers);
             setIsSortedByAmount(true);
         } else {
             sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) < Number(b.loanAmount) ? 1 : -1));
-            setOffersList(sortedUsers);
+            setOffersDisplayed(sortedUsers);
             setIsSortedByAmount(false);
         }
     };
 
     const sortByExpireDate = () => {
-        let sortedUsers = offersList;
+        let sortedUsers = offersDisplayed;
         if (!isSortedByDuration) {
             sortedUsers = sortedUsers.sort((a, b) => (Number(a.timePeriod) > Number(b.timePeriod) ? 1 : -1));
-            setOffersList(sortedUsers);
+            setOffersDisplayed(sortedUsers);
             setIsSortedByDuration(true);
         } else {
             sortedUsers = sortedUsers.sort((a, b) => (Number(a.timePeriod) < Number(b.timePeriod) ? 1 : -1));
-            setOffersList(sortedUsers);
+            setOffersDisplayed(sortedUsers);
             setIsSortedByDuration(false);
         }
     };
@@ -55,6 +57,6 @@ export const useFilters = () => {
         isUpTo: isUpTo500,
         isSortedByDuration,
         isSortedByAmount,
-        sortFilteredList: offersList,
+        sortFilteredList: offersDisplayed,
     };
 };

@@ -19,8 +19,20 @@ import {InvestForm} from './InvestForm/InvestForm';
 import {useOffer} from '../../hooks/useOffer';
 
 export const LoansGrid: React.FC = () => {
-    const {filterOneMonth, sortByAmount, sortByExpireDate, sortFilteredList, isUpTo, isSortedByDuration, isSortedByAmount} = useFilters();
-    const {getOffers} = useOffer();
+    const {filterOneMonth, sortByAmount, sortByExpireDate, isUpTo, isSortedByDuration, isSortedByAmount} = useFilters();
+    const {getOffers, offersList} = useOffer();
+
+    let urlArray: string[] = [];
+
+    for (let i = 0; i < 100; i++) {
+        if (i % 2) {
+            urlArray.push(`https://randomuser.me/api/portraits/men/${i}.jpg`);
+        } else {
+            urlArray.push(`https://randomuser.me/api/portraits/women/${i}.jpg`);
+        }
+    }
+
+    const activeAuctions = offersList.map((obj, index) => ({...obj, url: urlArray[index]}));
 
     useEffect(() => {
         getOffers();
@@ -41,8 +53,8 @@ export const LoansGrid: React.FC = () => {
             </GridButton>
             <GridView data-testid={'grid-results'}>
                 <LoansHeader />
-                {Number(sortFilteredList.length) ? (
-                    sortFilteredList.map(({id, loanAmount, url, endDate, timePeriod, interestRate}) => {
+                {Number(activeAuctions.length) ? (
+                    activeAuctions.map(({id, loanAmount, url, endDate, timePeriod, interestRate}) => {
                         return (
                             <ItemContainer key={id}>
                                 <StyledAvatar>

@@ -17,11 +17,14 @@ export interface InvestFormValues {
 }
 
 export interface CreateOfferFormValues {
+    id: string;
     loanAmount: number | '' | undefined;
     timePeriod: number | '' | undefined;
     interestRate: number | '';
     endDate: string;
 }
+
+export interface CreateOfferFormArray extends Array<CreateOfferFormValues> {}
 
 export interface OfferItem {
     id: number;
