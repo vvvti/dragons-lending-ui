@@ -1,13 +1,15 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     GridButton,
     GridView,
     ItemContainer,
     StyledAccordion,
     StyledAvatar,
+    StyledButton,
     StyledDaysLeft,
     StyledImage,
     StyledLoanDetails,
+    StyledPagination,
     StyledSpan,
     StyledTitle,
 } from './LoansGrid.styled';
@@ -19,8 +21,11 @@ import {InvestForm} from './InvestForm/InvestForm';
 import {useOffer} from '../../hooks/useOffer';
 
 export const LoansGrid: React.FC = () => {
-    const {filterOneMonth, sortByAmount, sortByExpireDate, isUpTo, isSortedByDuration, isSortedByAmount} = useFilters();
+    const {filterOneMonth, sortByAmount, isUpTo, isSortedByAmount} = useFilters();
     const {getOffers, offersList} = useOffer();
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const postsPerPage = 6;
 
     let urlArray: string[] = [];
 
@@ -34,6 +39,18 @@ export const LoansGrid: React.FC = () => {
 
     const activeAuctions = offersList.map((obj, index) => ({...obj, url: urlArray[index]}));
 
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = activeAuctions.slice(indexOfFirstPost, indexOfLastPost);
+
+    const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+    const pageNumbers: any = [];
+
+    for (let i = 1; i <= Math.ceil(activeAuctions.length / postsPerPage); i++) {
+        pageNumbers.push(i);
+    }
+
     useEffect(() => {
         getOffers();
     }, [getOffers]);
@@ -41,11 +58,8 @@ export const LoansGrid: React.FC = () => {
     return (
         <>
             <GridButton>
-                <Button variant="contained" color={isSortedByAmount ? 'secondary' : 'primary'} onClick={sortByAmount}>
+                <Button variant="contained" color={isSortedByAmount ? 'secondary' : 'primary'} onClick={() => sortByAmount(activeAuctions)}>
                     Sort by amount
-                </Button>
-                <Button variant="contained" color={isSortedByDuration ? 'secondary' : 'primary'} onClick={sortByExpireDate}>
-                    Sort by loan duration
                 </Button>
                 <Button variant="contained" color={isUpTo ? 'primary' : 'secondary'} onClick={filterOneMonth}>
                     Loans up to 500 GBP
@@ -53,8 +67,8 @@ export const LoansGrid: React.FC = () => {
             </GridButton>
             <GridView data-testid={'grid-results'}>
                 <LoansHeader />
-                {Number(activeAuctions.length) ? (
-                    activeAuctions.map(({id, loanAmount, url, endDate, timePeriod, interestRate}) => {
+                {Number(currentPosts.length) ? (
+                    currentPosts.map(({id, loanAmount, url, endDate, timePeriod, interestRate}) => {
                         return (
                             <ItemContainer key={id}>
                                 <StyledAvatar>
@@ -93,6 +107,13 @@ export const LoansGrid: React.FC = () => {
                     <div>No results</div>
                 )}
             </GridView>
+            <StyledPagination>
+                {pageNumbers.map((number: any) => (
+                    <StyledButton key={number} onClick={() => paginate(number)}>
+                        {number}
+                    </StyledButton>
+                ))}
+            </StyledPagination>
         </>
     );
 };

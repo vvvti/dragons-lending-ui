@@ -16,7 +16,7 @@ export const GridButton = styled.div`
     grid-row-gap: 10px;
     grid-column-gap: 50px;
     padding: 20px 15px 15px 15px;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     position: relative;
 `;
 
@@ -68,4 +68,16 @@ export const StyledDaysLeft = styled.div`
 
 export const StyledImage = styled.img`
     width: 100%;
+`;
+
+export const StyledButton = styled.button`
+    font-size: 20px;
+    margin: 20px;
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 0%);
+    border: none;
+`;
+
+export const StyledPagination = styled.div`
+    display: flex;
 `;
