@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const PageContainer = styled.div`
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,7 +20,7 @@ export const StatusContainer = styled.div`
 export const PageWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 80vh;
 `;
 
 export const StyledText = styled.div`

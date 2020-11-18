@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {OfferItems} from '../helpers/types';
+import {CreateOfferFormArray} from '../helpers/types';
 import {images} from '../components/LoansGrid/data';
 import {useOffer} from './useOffer';
 
@@ -7,10 +7,9 @@ export const useFilters = () => {
     const {offersList} = useOffer();
     const offerArray = offersList.map((obj: any) => ({...obj, url: images[obj.id]}));
 
-    const [offersDisplayed, setOffersDisplayed] = useState<OfferItems>(offerArray);
+    const [offersDisplayed, setOffersDisplayed] = useState<CreateOfferFormArray>(offerArray);
     const [isUpTo500, setIsUpTo500] = useState<boolean>(true);
     const [isSortedByAmount, setIsSortedByAmount] = useState<boolean>(false);
-    const [isSortedByDuration, setIsSortedByDuration] = useState<boolean>(false);
 
     const filterOneMonth = () => {
         let filteredData = offerArray;
@@ -24,8 +23,8 @@ export const useFilters = () => {
         }
     };
 
-    const sortByAmount = () => {
-        let sortedUsers = offersDisplayed;
+    const sortByAmount = (activeAuctions: CreateOfferFormArray) => {
+        let sortedUsers = activeAuctions;
         if (!isSortedByAmount) {
             sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) > Number(b.loanAmount) ? 1 : -1));
             setOffersDisplayed(sortedUsers);
@@ -37,25 +36,11 @@ export const useFilters = () => {
         }
     };
 
-    const sortByExpireDate = () => {
-        let sortedUsers = offersDisplayed;
-        if (!isSortedByDuration) {
-            sortedUsers = sortedUsers.sort((a, b) => (Number(a.timePeriod) > Number(b.timePeriod) ? 1 : -1));
-            setOffersDisplayed(sortedUsers);
-            setIsSortedByDuration(true);
-        } else {
-            sortedUsers = sortedUsers.sort((a, b) => (Number(a.timePeriod) < Number(b.timePeriod) ? 1 : -1));
-            setOffersDisplayed(sortedUsers);
-            setIsSortedByDuration(false);
-        }
-    };
-
     return {
+        offersDisplayed,
         filterOneMonth,
         sortByAmount,
-        sortByExpireDate,
         isUpTo: isUpTo500,
-        isSortedByDuration,
         isSortedByAmount,
         sortFilteredList: offersDisplayed,
     };

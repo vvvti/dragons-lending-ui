@@ -22,6 +22,7 @@ export interface CreateOfferFormValues {
     timePeriod: number | '' | undefined;
     interestRate: number | '';
     endDate: string;
+    url?: string;
 }
 
 export interface CreateOfferFormArray extends Array<CreateOfferFormValues> {}
