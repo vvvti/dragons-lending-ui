@@ -1,24 +1,19 @@
 import {useState} from 'react';
 import {CreateOfferFormArray} from '../helpers/types';
-import {images} from '../components/LoansGrid/data';
-import {useOffer} from './useOffer';
 
-export const useFilters = () => {
-    const {offersList} = useOffer();
-    const offerArray = offersList.map((obj: any) => ({...obj, url: images[obj.id]}));
-
-    const [offersDisplayed, setOffersDisplayed] = useState<CreateOfferFormArray>(offerArray);
+export const useFilters = (activeAuctions: CreateOfferFormArray) => {
+    const [offersDisplayed, setOffersDisplayed] = useState<CreateOfferFormArray>(activeAuctions);
     const [isUpTo500, setIsUpTo500] = useState<boolean>(true);
     const [isSortedByAmount, setIsSortedByAmount] = useState<boolean>(false);
 
     const filterOneMonth = () => {
-        let filteredData = offerArray;
+        let filteredData = activeAuctions;
         if (isUpTo500) {
-            filteredData = filteredData.filter(data => data.loanAmount < 500);
+            filteredData = filteredData.filter((data: any) => data.loanAmount < 500);
             setOffersDisplayed(filteredData);
             setIsUpTo500(!isUpTo500);
         } else {
-            setOffersDisplayed(offerArray);
+            setOffersDisplayed(filteredData);
             setIsUpTo500(!isUpTo500);
         }
     };
