@@ -27,12 +27,16 @@ export const UserAccount: React.FC = () => {
                 <StyledBanking>
                     <StyledTitle>Account balance: 2 000 GBP</StyledTitle>
                     <div>
-                        <StyledButton type="submit" size="small" variant="contained" color="primary">
-                            Deposit
-                        </StyledButton>
-                        <StyledButton type="submit" size="small" variant="contained" color="primary">
-                            Withdraw
-                        </StyledButton>
+                        <StyledNavLink to={ROUTES.DEPOSIT}>
+                            <StyledButton type="submit" size="small" variant="contained" color="primary">
+                                Deposit
+                            </StyledButton>
+                        </StyledNavLink>
+                        <StyledNavLink to={ROUTES.WITHDRAWMONEY}>
+                            <StyledButton type="submit" size="small" variant="contained" color="primary">
+                                Withdrawal
+                            </StyledButton>
+                        </StyledNavLink>
                     </div>
                 </StyledBanking>
                 <StyledInvest>
