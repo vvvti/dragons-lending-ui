@@ -84,6 +84,10 @@ export const StyledText = styled.span`
     background-color: hsl(240, 2%, 16%);
     color: hsl(0, 0%, 100%);
     text-transform: uppercase;
+
+    &:hover {
+        color: hsl(0, 100%, 50%);
+    }
 `;
 
 export const StyledAvatar = styled(Avatar)`

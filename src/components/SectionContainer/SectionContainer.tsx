@@ -5,7 +5,7 @@ import {ROUTES} from '../../helpers/routes';
 import {CALCULATORPAGE, PAGETYPE} from '../../helpers/constants';
 
 interface SectionContainerProps {
-    pageType: number;
+    pageType: PAGETYPE;
 }
 
 export const SectionContainer: React.FC<SectionContainerProps> = ({pageType}) => {

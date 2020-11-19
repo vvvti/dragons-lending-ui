@@ -35,5 +35,3 @@ export interface OfferItem {
     endDate: string;
     url: string;
 }
-
-export interface OfferItems extends Array<OfferItem> {}

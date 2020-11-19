@@ -41,7 +41,7 @@ export const LoansGrid: React.FC = () => {
     }
 
     const activeAuctions = offersList.map((obj, index) => ({...obj, url: urlArray[index]}));
-    console.log('activeAuctions', activeAuctions);
+
     const {sortedItems, setFilterConfig, filterConfig} = useFilters(activeAuctions);
 
     const indexOfLastPost = currentPage * postsPerPage;
