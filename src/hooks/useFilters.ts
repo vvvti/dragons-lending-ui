@@ -1,7 +1,7 @@
-import {CreateOfferFormArray} from '../helpers/types';
+import {OffersArray} from '../helpers/types';
 import {useMemo, useState} from 'react';
 
-export const useFilters = (activeAuctions: CreateOfferFormArray) => {
+export const useFilters = (activeAuctions: OffersArray) => {
     const [filterConfig, setFilterConfig] = useState<any>({
         sort: false,
         filter: false,

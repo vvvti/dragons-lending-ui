@@ -1,5 +1,5 @@
 import {POSTSPERPAGE} from '../../helpers/constants';
-import {CreateOfferFormArray} from '../../helpers/types';
+import {OffersArray} from '../../helpers/types';
 
 export let urlArray: string[] = [];
 
@@ -11,7 +11,7 @@ for (let i = 0; i < 100; i++) {
     }
 }
 
-export const pages = (sortedItems: CreateOfferFormArray) => {
+export const pages = (sortedItems: OffersArray) => {
     const pageNumbers: any = [];
 
     for (let i = 1; i <= Math.ceil(sortedItems.length / POSTSPERPAGE); i++) {

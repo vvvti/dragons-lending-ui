@@ -38,7 +38,6 @@ export const LoansGrid: React.FC = () => {
     const currentPosts = sortedItems.slice(indexOfFirstPost, indexOfLastPost);
 
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
     const pageNumbers = pages(sortedItems);
 
     return (
