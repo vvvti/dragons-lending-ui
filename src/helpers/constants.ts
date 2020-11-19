@@ -1,4 +1,4 @@
-import {InvestFormValues, LoginFormValues, OfferValues, RegisterFormValues} from './types';
+import {InvestFormValues, LoginFormValues, OfferValues, RegisterFormValues, WithdrawMoney} from './types';
 
 export enum PAGETYPE {
     INVESTMENTS,
@@ -33,4 +33,8 @@ export const OFFER_VALUES: OfferValues = {
 export const INITIAL_INVEST_VALUES: InvestFormValues = {
     investAmount: 3,
     investRate: 500,
+};
+export const INITIAL_WITHDRAW_VALUES: WithdrawMoney = {
+    account: '',
+    amount: '',
 };

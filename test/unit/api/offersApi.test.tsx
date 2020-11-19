@@ -4,7 +4,7 @@ import {getOffer, getOffersList, postOffer} from '../../../src/api/offersApi';
 
 jest.mock('../../../src/api/rest/axios');
 
-describe('basketApi', () => {
+describe('offersApi', () => {
     beforeEach(() => {
         mocked(axios.post).mockResolvedValue('getMock');
     });

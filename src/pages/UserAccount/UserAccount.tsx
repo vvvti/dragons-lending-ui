@@ -10,6 +10,8 @@ import {
     StyledTitle,
 } from './UserAccount.styled';
 import {UserDataGrid} from '../../components/UserDataGrid/UserDataGrid';
+import {NavLink} from 'react-router-dom';
+import {ROUTES} from '../../helpers/routes';
 
 export const UserAccount: React.FC = () => {
     return (
@@ -20,9 +22,11 @@ export const UserAccount: React.FC = () => {
                     <StyledButton type="submit" size="small" variant="contained" color="primary">
                         Deposit
                     </StyledButton>
-                    <StyledButton type="submit" size="small" variant="contained" color="primary">
-                        Withdraw
-                    </StyledButton>
+                    <NavLink to={ROUTES.WITHDRAWMONEY}>
+                        <StyledButton type="submit" size="small" variant="contained" color="primary">
+                            Withdraw
+                        </StyledButton>
+                    </NavLink>
                 </div>
             </StyledContainer>
             <StyledTileContainer>

@@ -22,7 +22,7 @@ describe('Login', () => {
             expect(submitButton).toBeDisabled();
         });
     });
-    test('email should throw error on invalid values', async () => {
+    test('email should display error on invalid values', async () => {
         renderWithRouter(<Login />);
 
         const emailInput = screen.getByLabelText(/email/i);
@@ -32,7 +32,7 @@ describe('Login', () => {
         fireEvent.blur(emailInput);
         await screen.findByText('email must be a valid email');
     });
-    test('password should throw error on invalid values', async () => {
+    test('password should display error on invalid values', async () => {
         renderWithRouter(<Login />);
 
         const passwordInput = screen.getByLabelText(/password/i);
