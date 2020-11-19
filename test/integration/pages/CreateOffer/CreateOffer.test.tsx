@@ -30,7 +30,7 @@ describe('CreateOffer', () => {
         });
     });
 
-    test('loan amount should throw error on invalid values', async () => {
+    test('loan amount should display error on invalid values', async () => {
         renderWithRouter(<CreateOffer />);
 
         const loanAmountInput = screen.getByLabelText(/borrow/i);
@@ -40,7 +40,7 @@ describe('CreateOffer', () => {
         fireEvent.blur(loanAmountInput);
         await screen.findByText(/You can select max/i);
     });
-    test('time Period should throw error on invalid values', async () => {
+    test('time Period should display error on invalid values', async () => {
         renderWithRouter(<CreateOffer />);
 
         const timePeriodInput = screen.getByLabelText(/period/i);
@@ -50,7 +50,7 @@ describe('CreateOffer', () => {
         fireEvent.blur(timePeriodInput);
         await screen.findByText('You can select max 36 months');
     });
-    test('interest rate amount should throw error on invalid values', async () => {
+    test('interest rate amount should display error on invalid values', async () => {
         renderWithRouter(<CreateOffer />);
 
         const interestRateInput = screen.getByLabelText(/interests/i);

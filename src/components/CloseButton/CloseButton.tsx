@@ -1,9 +1,9 @@
 import React from 'react';
 import {StyledButton} from './CloseButton.styled';
-import {useToMain} from '../../hooks/useToPage';
+import {useToPage} from '../../hooks/useToPage';
 
 export const CloseButton = () => {
-    const {goToMain} = useToMain();
+    const {goToMain} = useToPage();
 
     return <StyledButton onClick={goToMain}>X</StyledButton>;
 };

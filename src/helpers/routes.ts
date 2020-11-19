@@ -9,4 +9,5 @@ export enum ROUTES {
     PRIVACY = '/privacy',
     CONTACT = '/contact',
     USERACCOUNT = '/userAccount',
+    WITHDRAWMONEY = '/withDrawMoney',
 }

@@ -26,3 +26,8 @@ export interface OfferValues {
 }
 
 export interface OffersArray extends Array<OfferValues> {}
+
+export interface WithdrawMoney {
+    account: number | '';
+    amount: number | '';
+}

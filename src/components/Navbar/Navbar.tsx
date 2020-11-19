@@ -2,6 +2,7 @@ import React from 'react';
 import dragonImage from '../../assets/dragon-eye.png';
 import {
     Logo,
+    StyledAccount,
     StyledAvatar,
     StyledButton,
     StyledLogoContainer,
@@ -35,14 +36,17 @@ export const Navbar: React.FC = () => {
                 <StyledNavLink to={ROUTES.RULES}>RULES</StyledNavLink>
                 <StyledNavLink to={ROUTES.PRIVACY}>PRIVACY</StyledNavLink>
 
-                <StyledButton onClick={handleButtonClick}>
-                    {isLoggedIn ? <StyledText>Logout</StyledText> : <StyledNavLink to={ROUTES.LOGIN}>Login</StyledNavLink>}
-                </StyledButton>
-
+                {isLoggedIn ? (
+                    <StyledButton onClick={handleButtonClick}>
+                        <StyledText>Logout</StyledText>
+                    </StyledButton>
+                ) : (
+                    <StyledNavLink to={ROUTES.LOGIN}>Login</StyledNavLink>
+                )}
                 {isLoggedIn && (
-                    <StyledNavLink to={ROUTES.USERACCOUNT}>
-                        <StyledAvatar />
-                    </StyledNavLink>
+                    <StyledAccount to={ROUTES.USERACCOUNT}>
+                        Account <StyledAvatar />
+                    </StyledAccount>
                 )}
             </StyledMenu>
         </StyledNavbar>
