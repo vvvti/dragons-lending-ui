@@ -1,18 +1,18 @@
 import {axios} from './rest/axios';
-import {OffersArray} from '../helpers/types';
+import {OffersArray, OfferValues} from '../helpers/types';
 
-export const getOffersList = (data: any) => {
-    return axios.get<OffersArray>(`/auctions`, data);
+export const getOffersList = (config: any) => {
+    return axios.get<OffersArray>(`/auctions?yours=true `, config);
 };
+
+// export const getOwnOffersList = (config: any) => {
+//     return axios.get<OffersArray>(`/auctions?yours=true `, config);
+// };
 
 export const getOffersListWithoutToken = () => {
-    return axios.get<OffersArray>(`/auctions`);
+    return axios.get<OffersArray>(`/auctions/public`);
 };
 
-export const postOffer = (data: any, values: any) => {
-    return axios.post(`/auctions`, data, values);
-};
-
-export const getOffer = (id: string) => {
-    return axios.get(`/auctions/${id}`);
+export const postOffer = (values: OfferValues, config: any) => {
+    return axios.post(`/auctions`, config, values);
 };

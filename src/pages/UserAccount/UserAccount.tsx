@@ -13,6 +13,8 @@ import {
     StyledHeader,
 } from './UserAccount.styled';
 import {UserDataGrid} from '../../components/UserDataGrid/UserDataGrid';
+import {ROUTES} from '../../helpers/routes';
+import {StyledNavLink} from '../Deposit/Deposit.styled';
 
 export const UserAccount: React.FC = () => {
     return (

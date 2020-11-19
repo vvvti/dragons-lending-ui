@@ -97,3 +97,25 @@ export const StyledAvatar = styled(Avatar)`
     height: 2em;
     margin-left: 20px;
 `;
+
+export const StyledAccount = styled(NavLink).attrs(() => ({
+    activeClassName,
+}))`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: hsl(0, 0%, 100%);
+    font-size: 16px;
+    margin: 20px 10px;
+    background-color: hsl(240, 2%, 16%);
+    text-transform: uppercase;
+
+    &:hover {
+        color: hsl(0, 100%, 50%);
+    }
+
+    &.${activeClassName} {
+        color: hsl(0, 100%, 50%);
+    }
+`;

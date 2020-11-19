@@ -1,7 +1,7 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 import {postLoginValues} from '../api/loginApi';
 import {LoginFormValues} from '../helpers/types';
-import {useToMain} from '../hooks/useToPage';
+import {useToPage} from '../hooks/useToPage';
 
 interface AuthContextValue {
     isLoggedIn: boolean;
@@ -30,7 +30,7 @@ export const AuthContextProvider: React.FC = ({children}) => {
     const [isLoggedIn, setLoggedIn] = useState(loginFromLocalStorage);
     const [tokenStorage, setTokenStorage] = useState(tokenFromLocalStorage);
     const [loginError, setLoginError] = useState('');
-    const {goToMain} = useToMain();
+    const {goToMain} = useToPage();
 
     const login = useCallback(
         async (values: LoginFormValues) => {

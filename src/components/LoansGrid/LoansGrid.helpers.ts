@@ -1,18 +1,21 @@
 import {POSTSPERPAGE} from '../../helpers/constants';
 import {OffersArray} from '../../helpers/types';
 
-export let urlArray: string[] = [];
+export const getImagesUrl = (offersList: OffersArray) => {
+    const urlArray: string[] = [];
 
-for (let i = 0; i < 100; i++) {
-    if (i % 2) {
-        urlArray.push(`https://randomuser.me/api/portraits/men/${i}.jpg`);
-    } else {
-        urlArray.push(`https://randomuser.me/api/portraits/women/${i}.jpg`);
+    for (let i = 0; i < offersList.length; i++) {
+        if (i % 2) {
+            urlArray.push(`https://randomuser.me/api/portraits/men/${i}.jpg`);
+        } else {
+            urlArray.push(`https://randomuser.me/api/portraits/women/${i}.jpg`);
+        }
     }
-}
+    return urlArray;
+};
 
-export const pages = (sortedItems: OffersArray) => {
-    const pageNumbers: any = [];
+export const getPageNumbers = (sortedItems: OffersArray) => {
+    const pageNumbers: number[] = [];
 
     for (let i = 1; i <= Math.ceil(sortedItems.length / POSTSPERPAGE); i++) {
         pageNumbers.push(i);

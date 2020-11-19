@@ -2,35 +2,48 @@ import {useCallback, useState} from 'react';
 import {OffersArray} from '../helpers/types';
 import {getOffersList, getOffersListWithoutToken, postOffer} from '../api/offersApi';
 import {useAuthContext} from '../context/auth-context';
-import {useToMain} from './useToPage';
+import {useToPage} from './useToPage';
 import {OFFER_VALUES} from '../helpers/constants';
 
 export const useOffer = () => {
     const [offersList, setOffersList] = useState<OffersArray>([OFFER_VALUES]);
     const {tokenStorage} = useAuthContext();
-    const {goToMain} = useToMain();
+    const {goToMain} = useToPage();
 
     const getOffers = useCallback(async () => {
-        const data = {
+        const config = {
             headers: {'x-authorization': tokenStorage},
         };
+
         if (tokenStorage) {
-            const response = await getOffersList(data);
+            const response = await getOffersList(config);
+            console.log('get offer login', response.data);
             setOffersList(response.data);
         } else {
             const response = await getOffersListWithoutToken();
+            console.log('get offer without login', response.data);
             setOffersList(response.data);
         }
     }, [tokenStorage]);
 
+    // const getOwnOffers = useCallback(async () => {
+    //     const config = {
+    //         headers: {'x-authorization': tokenStorage},
+    //     };
+    //
+    //     const response = await getOwnOffersList(config);
+    //     console.log("get own offer", response.data)
+    //     setOffersList(response.data);
+    //
+    // }, [tokenStorage]);
+
     const postNewOffer = useCallback(
         async values => {
-            const head = {
+            const config = {
                 headers: {'x-authorization': tokenStorage},
             };
-
             if (tokenStorage) {
-                const response = await postOffer(values, head);
+                const response = await postOffer(values, config);
                 setOffersList(response.data);
             } else {
                 const response = await getOffersListWithoutToken();

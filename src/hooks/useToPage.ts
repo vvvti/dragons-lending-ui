@@ -1,7 +1,7 @@
 import {useHistory} from 'react-router';
 import {ROUTES} from '../helpers/routes';
 
-export const useToMain = () => {
+export const useToPage = () => {
     const history = useHistory();
 
     const goToMain = () => {
@@ -11,12 +11,6 @@ export const useToMain = () => {
         history.push(location);
     };
 
-    return {goToMain};
-};
-
-export const useToLogin = () => {
-    const history = useHistory();
-
     const goToLogin = () => {
         const location = {
             pathname: ROUTES.LOGIN,
@@ -24,5 +18,39 @@ export const useToLogin = () => {
         history.push(location);
     };
 
-    return {goToLogin};
+    const goToUserAccount = () => {
+        const location = {
+            pathname: ROUTES.USERACCOUNT,
+        };
+        history.push(location);
+    };
+
+    return {goToMain, goToLogin, goToUserAccount};
 };
+
+// export const useToLogin = () => {
+//     const history = useHistory();
+//
+//     const goToLogin = () => {
+//         const location = {
+//             pathname: ROUTES.LOGIN,
+//         };
+//         history.push(location);
+//     };
+//
+//     return {goToLogin};
+// };
+//
+// export const useToUserAccount = () => {
+//     const history = useHistory();
+//
+//     const goToLogin = () => {
+//         const location = {
+//             pathname: ROUTES.USERACCOUNT,
+//         };
+//         history.push(location);
+//     };
+//
+//     return {goToLogin};
+// };
+//
