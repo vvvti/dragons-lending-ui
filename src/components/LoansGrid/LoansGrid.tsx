@@ -61,13 +61,14 @@ export const LoansGrid: React.FC = () => {
                 <Button
                     variant="contained"
                     color={!filterConfig.filter ? 'primary' : 'secondary'}
-                    onClick={() =>
+                    onClick={() => {
+                        setCurrentPage(1);
                         setFilterConfig((prevState: any) => ({
                             ...prevState,
                             filter: !prevState.filter,
                             active: true,
-                        }))
-                    }
+                        }));
+                    }}
                 >
                     Loans up to 500 GBP
                 </Button>
