@@ -16,9 +16,7 @@ const dummyValue = {
     isLoggedIn: false,
     loginError: '',
     tokenStorage: '',
-    login: () => {
-        console.warn('You have not provided AuthContextProvider and tried to use login function');
-    },
+    login: () => {},
     logout: () => {},
     setLoggedIn: () => {},
 };

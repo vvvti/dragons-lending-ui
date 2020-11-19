@@ -32,7 +32,7 @@ export const CreateOffer: React.FC = () => {
                                     name="slider"
                                     min={100}
                                     max={2500}
-                                    step={500}
+                                    step={100}
                                     valueLabelDisplay="auto"
                                     marks={MARKSINITIAL}
                                     value={Number(values.loanAmount)}

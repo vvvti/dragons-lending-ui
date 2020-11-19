@@ -24,16 +24,16 @@ export const INITIAL_CREATEOFFER_VALUES: CreateOfferFormValues = {
     id: '',
     loanAmount: 500,
     timePeriod: 12,
-    interestRate: 7.5,
+    interestRate: 7,
     endDate: '',
 };
 
 export const INITIAL_CREATEOFFER_ARRAY: CreateOfferFormArray = [
     {
         id: '',
-        loanAmount: 500,
-        timePeriod: 12,
-        interestRate: 7.5,
+        loanAmount: 100,
+        timePeriod: 1,
+        interestRate: 4,
         endDate: '',
     },
 ];
