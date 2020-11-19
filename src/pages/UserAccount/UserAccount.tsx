@@ -15,14 +15,28 @@ import {
 import {UserDataGrid} from '../../components/UserDataGrid/UserDataGrid';
 import {ROUTES} from '../../helpers/routes';
 import {StyledNavLink} from '../Deposit/Deposit.styled';
+import {useAuthContext} from '../../context/auth-context';
 
 export const UserAccount: React.FC = () => {
+    const {logout} = useAuthContext();
+
+    const handleButtonClick = () => {
+        logout();
+    };
     return (
         <PageContainer>
             <StyledGrid>
                 <StyledProfile>
                     <StyledAvatar />
                     <StyledTitle>Jan Kowalski</StyledTitle>
+                    <StyledButton onClick={handleButtonClick} size="small" variant="contained" color="primary">
+                        Logout
+                    </StyledButton>
+                    <StyledNavLink to={ROUTES.PRIVACY}>
+                        <StyledButton type="submit" size="small" variant="contained" color="primary">
+                            Privacy
+                        </StyledButton>
+                    </StyledNavLink>
                 </StyledProfile>
                 <StyledBanking>
                     <StyledTitle>Account balance: 2 000 GBP</StyledTitle>

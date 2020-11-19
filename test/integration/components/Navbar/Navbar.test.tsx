@@ -12,6 +12,6 @@ describe('Navbar', () => {
         expect(screen.getByRole('link', {name: /rules/i})).toBeInTheDocument();
         expect(screen.getByRole('link', {name: /login/i})).toBeInTheDocument();
         expect(screen.getByRole('link', {name: /contact/i})).toBeInTheDocument();
-        expect(screen.getByRole('link', {name: /privacy/i})).toBeInTheDocument();
+        expect(screen.getByRole('link', {name: /auctions/i})).toBeInTheDocument();
     });
 });
