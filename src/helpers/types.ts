@@ -17,7 +17,7 @@ export interface InvestFormValues {
 }
 
 export interface CreateOfferFormValues {
-    id: string;
+    id: number;
     loanAmount: number | '' | undefined;
     timePeriod: number | '' | undefined;
     interestRate: number | '';
@@ -35,3 +35,5 @@ export interface OfferItem {
     endDate: string;
     url: string;
 }
+
+export interface OfferArray extends Array<OfferItem> {}
