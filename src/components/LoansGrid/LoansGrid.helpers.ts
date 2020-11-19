@@ -15,7 +15,7 @@ export const getImagesUrl = (offersList: OffersArray) => {
 };
 
 export const getPageNumbers = (sortedItems: OffersArray) => {
-    const pageNumbers: any = [];
+    const pageNumbers: number[] = [];
 
     for (let i = 1; i <= Math.ceil(sortedItems.length / POSTSPERPAGE); i++) {
         pageNumbers.push(i);
