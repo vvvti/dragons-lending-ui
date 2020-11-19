@@ -3,8 +3,8 @@ import {ColDef, DataGrid} from '@material-ui/data-grid';
 import {StyledGrid} from './UserDataGrid.styled';
 
 const columns: ColDef[] = [
-    {field: 'id', headerName: 'ID', width: 100},
-    {field: 'user', headerName: 'User', width: 750},
+    {field: 'id', headerName: 'ID', width: 50},
+    {field: 'user', headerName: 'User', width: 250},
     {field: 'return', headerName: 'Return (%)', type: 'number', width: 150},
     {field: 'amount', headerName: 'Amount (GBP)', type: 'number', width: 150},
     {field: 'duration', headerName: 'Duration (months)', type: 'number', width: 150},
@@ -22,7 +22,7 @@ const rows = [
 export const UserDataGrid: React.FC = () => {
     return (
         <StyledGrid>
-            <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
+            <DataGrid rows={rows} columns={columns} pageSize={3} checkboxSelection />
         </StyledGrid>
     );
 };

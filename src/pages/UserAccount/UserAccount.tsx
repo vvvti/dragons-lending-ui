@@ -2,12 +2,15 @@ import React from 'react';
 import {
     PageContainer,
     StyledButton,
-    StyledContainer,
-    StyledDetailsText,
-    StyledTile,
-    StyledTileContainer,
+    StyledAvatar,
     StyledTileTitle,
     StyledTitle,
+    StyledGrid,
+    StyledProfile,
+    StyledBanking,
+    StyledInvest,
+    StyledLoan,
+    StyledHeader,
 } from './UserAccount.styled';
 import {UserDataGrid} from '../../components/UserDataGrid/UserDataGrid';
 import {ROUTES} from '../../helpers/routes';
@@ -16,38 +19,41 @@ import {StyledNavLink} from '../Deposit/Deposit.styled';
 export const UserAccount: React.FC = () => {
     return (
         <PageContainer>
-            <StyledContainer>
-                <StyledTitle>Summary</StyledTitle>
-                <div>
-                    <StyledNavLink to={ROUTES.DEPOSIT}>
-                        <StyledButton type="submit" size="small" variant="contained" color="primary">
-                            Deposit
-                        </StyledButton>
-                    </StyledNavLink>
-                    <StyledNavLink to={ROUTES.WITHDRAWMONEY}>
-                        <StyledButton type="submit" size="small" variant="contained" color="primary">
-                            Withdraw
-                        </StyledButton>
-                    </StyledNavLink>
-                </div>
-            </StyledContainer>
-            <StyledTileContainer>
-                <StyledTile>
-                    <StyledTileTitle>Invested capital</StyledTileTitle>
-                    <StyledDetailsText>400 GBP</StyledDetailsText>
-                </StyledTile>
-                <StyledTile>
-                    <StyledTileTitle>Borrowed capital</StyledTileTitle>
-                    <StyledDetailsText>250 GBP</StyledDetailsText>
-                </StyledTile>
-                <StyledTile>
-                    <StyledTileTitle>Average Return</StyledTileTitle>
-                    <StyledDetailsText>7%</StyledDetailsText>
-                </StyledTile>
-            </StyledTileContainer>
-            <StyledContainer>
-                <UserDataGrid />
-            </StyledContainer>
+            <StyledGrid>
+                <StyledProfile>
+                    <StyledAvatar />
+                    <StyledTitle>Jan Kowalski</StyledTitle>
+                </StyledProfile>
+                <StyledBanking>
+                    <StyledTitle>Account balance: 2 000 GBP</StyledTitle>
+                    <div>
+                        <StyledNavLink to={ROUTES.DEPOSIT}>
+                            <StyledButton type="submit" size="small" variant="contained" color="primary">
+                                Deposit
+                            </StyledButton>
+                        </StyledNavLink>
+                        <StyledNavLink to={ROUTES.WITHDRAWMONEY}>
+                            <StyledButton type="submit" size="small" variant="contained" color="primary">
+                                Withdrawal
+                            </StyledButton>
+                        </StyledNavLink>
+                    </div>
+                </StyledBanking>
+                <StyledInvest>
+                    <StyledHeader>
+                        <StyledTileTitle>Invested capital: 400 GBP</StyledTileTitle>
+                        <StyledTileTitle>Average return: 7%</StyledTileTitle>
+                    </StyledHeader>
+                    <UserDataGrid />
+                </StyledInvest>
+                <StyledLoan>
+                    <StyledHeader>
+                        <StyledTileTitle>Borrowed capital: 400 GBP</StyledTileTitle>
+                        <StyledTileTitle>Average intrest rate: 10%</StyledTileTitle>
+                    </StyledHeader>
+                    <UserDataGrid />
+                </StyledLoan>
+            </StyledGrid>
         </PageContainer>
     );
 };
