@@ -16,9 +16,7 @@ const dummyValue = {
     isLoggedIn: false,
     loginError: '',
     tokenStorage: '',
-    login: () => {
-        console.warn('You have not provided AuthContextProvider and tried to use login function');
-    },
+    login: () => {},
     logout: () => {},
     setLoggedIn: () => {},
 };
@@ -38,7 +36,6 @@ export const AuthContextProvider: React.FC = ({children}) => {
         async (values: LoginFormValues) => {
             try {
                 const response = await postLoginValues(values);
-                console.log('response', response);
                 setLoginError('');
                 localStorage.setItem('token', response.headers['x-authorization']);
                 localStorage.setItem('isLoggedIn', 'true');

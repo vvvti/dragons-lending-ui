@@ -12,9 +12,8 @@ export const StatusContainer = styled.div`
     height: 50px;
     align-items: center;
     justify-content: flex-end;
-    margin: 20px 0;
+    margin-top: 10px;
     padding: 0 20px;
-    //box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
 `;
 
 export const PageWrapper = styled.div`

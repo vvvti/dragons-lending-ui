@@ -2,6 +2,7 @@ import React from 'react';
 import dragonImage from '../../assets/dragon-eye.png';
 import {
     Logo,
+    StyledAvatar,
     StyledButton,
     StyledLogoContainer,
     StyledMenu,
@@ -9,7 +10,6 @@ import {
     StyledNavLink,
     StyledText,
     StyledTitle,
-    StyledAvatar,
 } from './Navbar.styled';
 import {ROUTES} from '../../helpers/routes';
 import {useAuthContext} from '../../context/auth-context';
@@ -34,16 +34,16 @@ export const Navbar: React.FC = () => {
                 <StyledNavLink to={ROUTES.CONTACT}>CONTACT</StyledNavLink>
                 <StyledNavLink to={ROUTES.RULES}>RULES</StyledNavLink>
                 <StyledNavLink to={ROUTES.PRIVACY}>PRIVACY</StyledNavLink>
+
                 <StyledButton onClick={handleButtonClick}>
                     {isLoggedIn ? <StyledText>Logout</StyledText> : <StyledNavLink to={ROUTES.LOGIN}>Login</StyledNavLink>}
                 </StyledButton>
+
                 {isLoggedIn && (
                     <StyledNavLink to={ROUTES.USERACCOUNT}>
                         <StyledAvatar />
                     </StyledNavLink>
                 )}
-                {/*<StyledNavLink to={ROUTES.LOGIN}>Login</StyledNavLink>*/}
-                {/*<StyledButton onClick={handleButtonClick}>LOGOUT</StyledButton>*/}
             </StyledMenu>
         </StyledNavbar>
     );

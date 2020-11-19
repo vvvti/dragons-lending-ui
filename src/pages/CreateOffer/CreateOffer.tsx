@@ -2,11 +2,11 @@ import React from 'react';
 import {ErrorMessage, FormContainer, PageWrapper, StyledButton, StyledForm, StyledInputWrapper} from './CreateOffer.styled';
 import {Field, Formik} from 'formik';
 import {MARKSDURATION, MARKSINITIAL, MARKSPROFIT} from '../../helpers/marks';
-import {INITIAL_CREATEOFFER_VALUES} from '../../helpers/constants';
+import {OFFER_VALUES} from '../../helpers/constants';
 import {InputField} from '../../components/InputField/InputField';
 import {Slider} from '@material-ui/core';
 import {validationSchema} from './CreateOffer.helpers';
-import {CreateOfferFormValues} from '../../helpers/types';
+import {OfferValues} from '../../helpers/types';
 import {CloseButton} from '../../components/CloseButton/CloseButton';
 import {useOffer} from '../../hooks/useOffer';
 
@@ -15,8 +15,8 @@ export const CreateOffer: React.FC = () => {
 
     return (
         <PageWrapper>
-            <Formik<CreateOfferFormValues>
-                initialValues={INITIAL_CREATEOFFER_VALUES}
+            <Formik<OfferValues>
+                initialValues={OFFER_VALUES}
                 validationSchema={validationSchema}
                 onSubmit={async values => {
                     await postNewOffer(values);
@@ -32,7 +32,7 @@ export const CreateOffer: React.FC = () => {
                                     name="slider"
                                     min={100}
                                     max={2500}
-                                    step={500}
+                                    step={100}
                                     valueLabelDisplay="auto"
                                     marks={MARKSINITIAL}
                                     value={Number(values.loanAmount)}

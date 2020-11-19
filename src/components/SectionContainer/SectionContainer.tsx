@@ -5,7 +5,7 @@ import {ROUTES} from '../../helpers/routes';
 import {CALCULATORPAGE, PAGETYPE} from '../../helpers/constants';
 
 interface SectionContainerProps {
-    pageType: number;
+    pageType: PAGETYPE;
 }
 
 export const SectionContainer: React.FC<SectionContainerProps> = ({pageType}) => {
@@ -13,13 +13,19 @@ export const SectionContainer: React.FC<SectionContainerProps> = ({pageType}) =>
         <StyledContainer>
             <StyledTitle>{pageType === PAGETYPE.LOGIN ? 'Social Lending' : 'Investments'}</StyledTitle>
             <ButtonContainer>
-                <Button color="secondary" variant="contained" size="large">
-                    {pageType === PAGETYPE.LOGIN ? (
-                        <StyledLink to={ROUTES.LOANGRID}>Check out</StyledLink>
-                    ) : (
-                        <StyledExternalLink href={CALCULATORPAGE}>Calculate</StyledExternalLink>
-                    )}
-                </Button>
+                {pageType === PAGETYPE.LOGIN ? (
+                    <StyledLink to={ROUTES.LOANGRID}>
+                        <Button color="secondary" variant="contained" size="large">
+                            Check out
+                        </Button>
+                    </StyledLink>
+                ) : (
+                    <StyledExternalLink href={CALCULATORPAGE}>
+                        <Button color="secondary" variant="contained" size="large">
+                            Calculate
+                        </Button>
+                    </StyledExternalLink>
+                )}
             </ButtonContainer>
         </StyledContainer>
     );

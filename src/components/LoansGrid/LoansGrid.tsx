@@ -19,6 +19,8 @@ import {LoansHeader} from './LoansHeader/LoansHeader';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {InvestForm} from './InvestForm/InvestForm';
 import {useOffer} from '../../hooks/useOffer';
+import {POSTSPERPAGE} from '../../helpers/constants';
+import {pages, urlArray} from './LoansGrid.helpers';
 
 export const LoansGrid: React.FC = () => {
     const {getOffers, offersList} = useOffer();
@@ -28,33 +30,15 @@ export const LoansGrid: React.FC = () => {
         getOffers();
     }, [getOffers]);
 
-    const postsPerPage = 6;
+    const activeOffers = offersList.map((obj, index) => ({...obj, url: urlArray[index]}));
+    const {sortedItems, setFilterConfig, filterConfig} = useFilters(activeOffers);
 
-    let urlArray: string[] = [];
-
-    for (let i = 0; i < 100; i++) {
-        if (i % 2) {
-            urlArray.push(`https://randomuser.me/api/portraits/men/${i}.jpg`);
-        } else {
-            urlArray.push(`https://randomuser.me/api/portraits/women/${i}.jpg`);
-        }
-    }
-
-    const activeAuctions = offersList.map((obj, index) => ({...obj, url: urlArray[index]}));
-    console.log('activeAuctions', activeAuctions);
-    const {sortedItems, setFilterConfig, filterConfig} = useFilters(activeAuctions);
-
-    const indexOfLastPost = currentPage * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const indexOfLastPost = currentPage * POSTSPERPAGE;
+    const indexOfFirstPost = indexOfLastPost - POSTSPERPAGE;
     const currentPosts = sortedItems.slice(indexOfFirstPost, indexOfLastPost);
 
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
-    const pageNumbers: any = [];
-
-    for (let i = 1; i <= Math.ceil(sortedItems.length / postsPerPage); i++) {
-        pageNumbers.push(i);
-    }
+    const pageNumbers = pages(sortedItems);
 
     return (
         <>

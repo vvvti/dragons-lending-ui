@@ -1,9 +1,11 @@
-import {CreateOfferFormArray, CreateOfferFormValues, InvestFormValues, LoginFormValues, RegisterFormValues} from './types';
+import {InvestFormValues, LoginFormValues, OfferValues, RegisterFormValues} from './types';
 
 export enum PAGETYPE {
     INVESTMENTS,
     LOGIN,
 }
+
+export const POSTSPERPAGE = 6;
 
 export const CALCULATORPAGE = 'https://dragons-investments-ui.ersa-team.uat.fintechchallenge.pl/';
 
@@ -20,23 +22,13 @@ export const INITIAL_LOGIN_VALUES: LoginFormValues = {
     password: '',
 };
 
-export const INITIAL_CREATEOFFER_VALUES: CreateOfferFormValues = {
+export const OFFER_VALUES: OfferValues = {
     id: '',
     loanAmount: 500,
     timePeriod: 12,
-    interestRate: 7.5,
+    interestRate: 7,
     endDate: '',
 };
-
-export const INITIAL_CREATEOFFER_ARRAY: CreateOfferFormArray = [
-    {
-        id: '',
-        loanAmount: 500,
-        timePeriod: 12,
-        interestRate: 7.5,
-        endDate: '',
-    },
-];
 
 export const INITIAL_INVEST_VALUES: InvestFormValues = {
     investAmount: 3,
