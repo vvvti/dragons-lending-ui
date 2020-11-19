@@ -6,7 +6,6 @@ export enum ROUTES {
     CREATEOFFER = '/createoffer',
     RULES = '/rules',
     ABOUT = '/about',
-    CALCULATORPAGE = '/calculator',
     PRIVACY = '/privacy',
     CONTACT = '/contact',
     USERACCOUNT = '/userAccount',

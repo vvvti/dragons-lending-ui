@@ -1,6 +1,6 @@
 import {useCallback, useState} from 'react';
 import {CreateOfferFormArray} from '../helpers/types';
-import {getOffersList, getOffersListWithoutToken, postOffer} from '../api/auctionsApi';
+import {getOffersList, getOffersListWithoutToken, postOffer} from '../api/offersApi';
 import {useAuthContext} from '../context/auth-context';
 import {useToMain} from './useToPage';
 import {INITIAL_CREATEOFFER_ARRAY} from '../helpers/constants';

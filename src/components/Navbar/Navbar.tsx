@@ -44,8 +44,6 @@ export const Navbar: React.FC = () => {
                         <StyledAvatar />
                     </StyledNavLink>
                 )}
-                {/*<StyledNavLink to={ROUTES.LOGIN}>Login</StyledNavLink>*/}
-                {/*<StyledButton onClick={handleButtonClick}>LOGOUT</StyledButton>*/}
             </StyledMenu>
         </StyledNavbar>
     );
