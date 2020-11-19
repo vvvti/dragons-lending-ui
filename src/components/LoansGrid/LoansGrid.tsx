@@ -20,7 +20,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {InvestForm} from './InvestForm/InvestForm';
 import {useOffer} from '../../hooks/useOffer';
 import {POSTSPERPAGE} from '../../helpers/constants';
-import {pages, urlArray} from './LoansGrid.helpers';
+import {getImagesUrl, getPageNumbers} from './LoansGrid.helpers';
 
 export const LoansGrid: React.FC = () => {
     const {getOffers, offersList} = useOffer();
@@ -30,6 +30,8 @@ export const LoansGrid: React.FC = () => {
         getOffers();
     }, [getOffers]);
 
+    const urlArray = getImagesUrl(offersList);
+
     const activeOffers = offersList.map((obj, index) => ({...obj, url: urlArray[index]}));
     const {sortedItems, setFilterConfig, filterConfig} = useFilters(activeOffers);
 
@@ -38,7 +40,7 @@ export const LoansGrid: React.FC = () => {
     const currentPosts = sortedItems.slice(indexOfFirstPost, indexOfLastPost);
 
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-    const pageNumbers = pages(sortedItems);
+    const pageNumbers = getPageNumbers(sortedItems);
 
     return (
         <>
