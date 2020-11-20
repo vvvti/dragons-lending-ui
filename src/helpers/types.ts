@@ -36,3 +36,8 @@ export interface Deposit {
     depositAccount: string | '';
     amount: number | '';
 }
+
+export interface SortValues {
+    sort: string | '';
+    active: boolean;
+}

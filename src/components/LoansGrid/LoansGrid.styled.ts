@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Avatar} from '@material-ui/core';
+import {Avatar, Button} from '@material-ui/core';
 
 export const GridView = styled.div`
     width: 80%;
@@ -70,14 +70,21 @@ export const StyledImage = styled.img`
     width: 100%;
 `;
 
-export const StyledButton = styled.button`
-    font-size: 20px;
-    margin: 20px;
-    background-color: hsl(0, 0%, 100%);
-    color: hsl(0, 0%, 0%);
+export const StyledButton = styled(Button)`
+    width: 200px;
+    height: 50px;
+    margin: 50px;
     border: none;
 `;
 
 export const StyledPagination = styled.div`
     display: flex;
+`;
+
+export const StyledPageNumber = styled.button`
+    font-size: 20px;
+    margin: 10px;
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 0%);
+    border: none;
 `;

@@ -9,11 +9,12 @@ import {
     StyledDaysLeft,
     StyledImage,
     StyledLoanDetails,
+    StyledPageNumber,
     StyledPagination,
     StyledSpan,
     StyledTitle,
 } from './LoansGrid.styled';
-import {Accordion, AccordionDetails, AccordionSummary, Button, Typography} from '@material-ui/core';
+import {Accordion, AccordionDetails, AccordionSummary, Typography} from '@material-ui/core';
 import {useFilters} from '../../hooks/useFilters';
 import {LoansHeader} from './LoansHeader/LoansHeader';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -25,6 +26,7 @@ import {getImagesUrl, getPageNumbers} from './LoansGrid.helpers';
 export const LoansGrid: React.FC = () => {
     const {getOffers, offersList} = useOffer();
     const [currentPage, setCurrentPage] = useState(1);
+    const [sortState, setSortState] = useState<string>('');
 
     useEffect(() => {
         getOffers();
@@ -42,23 +44,31 @@ export const LoansGrid: React.FC = () => {
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
     const pageNumbers = getPageNumbers(sortedItems);
 
+    const setDisplayedSorting = () => {
+        if (sortState === 'ascending') {
+            setSortState('descending');
+        }
+    };
+
     return (
         <>
             <GridButton>
-                <Button
+                <StyledButton
                     variant="contained"
-                    color={!filterConfig.sort ? 'primary' : 'secondary'}
-                    onClick={() =>
+                    color="primary"
+                    onClick={() => {
+                        setSortState('ascending');
+                        setDisplayedSorting();
                         setFilterConfig((prevState: any) => ({
                             ...prevState,
                             sort: !prevState.sort,
                             active: true,
-                        }))
-                    }
+                        }));
+                    }}
                 >
-                    Sort by amount
-                </Button>
-                <Button
+                    Sort by {sortState} amount
+                </StyledButton>
+                <StyledButton
                     variant="contained"
                     color={!filterConfig.filter ? 'primary' : 'secondary'}
                     onClick={() => {
@@ -71,7 +81,21 @@ export const LoansGrid: React.FC = () => {
                     }}
                 >
                     Loans up to 500 GBP
-                </Button>
+                </StyledButton>
+                <StyledButton
+                    variant="contained"
+                    color="primary"
+                    onClick={() => {
+                        setSortState('');
+                        setFilterConfig((prevState: any) => ({
+                            ...prevState,
+                            filter: false,
+                            active: false,
+                        }));
+                    }}
+                >
+                    Reset
+                </StyledButton>
             </GridButton>
             <GridView data-testid={'grid-results'}>
                 <LoansHeader />
@@ -117,9 +141,9 @@ export const LoansGrid: React.FC = () => {
             </GridView>
             <StyledPagination>
                 {pageNumbers.map((number: any) => (
-                    <StyledButton key={number} onClick={() => paginate(number)}>
+                    <StyledPageNumber key={number} onClick={() => paginate(number)}>
                         {number}
-                    </StyledButton>
+                    </StyledPageNumber>
                 ))}
             </StyledPagination>
         </>
