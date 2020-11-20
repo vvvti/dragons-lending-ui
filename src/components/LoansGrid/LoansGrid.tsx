@@ -55,7 +55,7 @@ export const LoansGrid: React.FC = () => {
             <GridButton>
                 <StyledButton
                     variant="contained"
-                    color="primary"
+                    color={!sortState ? 'primary' : 'secondary'}
                     onClick={() => {
                         setSortState('ascending');
                         setDisplayedSorting();
