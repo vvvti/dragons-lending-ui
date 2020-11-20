@@ -14,6 +14,7 @@ import {UserAccount} from '../pages/UserAccount/UserAccount';
 import {NotFoundPage} from '../pages/NotFoundPage/NotFoundPage';
 import {WithdrawMoney} from '../pages/WithdrawMoney/WithdrawMoney';
 import {Deposit} from '../pages/Deposit/Deposit';
+import {Repayment} from '../pages/Repayment/Repayment';
 
 export const Routes: React.FC = () => {
     return (
@@ -30,6 +31,7 @@ export const Routes: React.FC = () => {
             <Route path={ROUTES.USERACCOUNT} component={UserAccount} />
             <Route path={ROUTES.WITHDRAWMONEY} component={WithdrawMoney} />
             <Route path={ROUTES.DEPOSIT} component={Deposit} />
+            <Route path={ROUTES.USERHISTORY} component={Repayment} />
             <Route>
                 <NotFoundPage />
             </Route>

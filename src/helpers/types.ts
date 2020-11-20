@@ -31,3 +31,8 @@ export interface WithdrawMoney {
     account: number | '';
     amount: number | '';
 }
+
+export interface Deposit {
+    depositAccount: string | '';
+    amount: number | '';
+}
