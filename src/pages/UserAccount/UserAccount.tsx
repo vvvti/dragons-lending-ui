@@ -1,16 +1,16 @@
 import React from 'react';
 import {
     PageContainer,
-    StyledButton,
     StyledAvatar,
-    StyledTileTitle,
-    StyledTitle,
-    StyledGrid,
-    StyledProfile,
     StyledBanking,
+    StyledButton,
+    StyledGrid,
+    StyledHeader,
     StyledInvest,
     StyledLoan,
-    StyledHeader,
+    StyledProfile,
+    StyledTileTitle,
+    StyledTitle,
 } from './UserAccount.styled';
 import {UserDataGrid} from '../../components/UserDataGrid/UserDataGrid';
 import {ROUTES} from '../../helpers/routes';
@@ -63,7 +63,7 @@ export const UserAccount: React.FC = () => {
                 <StyledLoan>
                     <StyledHeader>
                         <StyledTileTitle>Borrowed capital: 400 GBP</StyledTileTitle>
-                        <StyledTileTitle>Average intrest rate: 10%</StyledTileTitle>
+                        <StyledTileTitle>Average interest rate: 10%</StyledTileTitle>
                     </StyledHeader>
                     <UserDataGrid />
                 </StyledLoan>

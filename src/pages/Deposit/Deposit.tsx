@@ -5,16 +5,16 @@ import Container from '@material-ui/core/Container';
 import {StyledButton, StyledColor, StyledForm, StyledPaper, StyledText, StyledTitle} from './Deposit.styled';
 import {Field, Formik} from 'formik';
 import {InputField} from '../../components/InputField/InputField';
-import {INITIAL_WITHDRAW_VALUES} from '../../helpers/constants';
 import {useToPage} from '../../hooks/useToPage';
 import {validationSchema} from './Deposit.helpers';
 import {ErrorMessage} from '../Login/Login.styled';
+import {INITIAL_DEPOSIT_VALUES} from '../../helpers/constants';
 
 export const Deposit: React.FC = () => {
     const {goToUserAccount} = useToPage();
     return (
         <>
-            <Formik initialValues={INITIAL_WITHDRAW_VALUES} validationSchema={validationSchema} onSubmit={goToUserAccount}>
+            <Formik initialValues={INITIAL_DEPOSIT_VALUES} validationSchema={validationSchema} onSubmit={goToUserAccount}>
                 {({isValid, handleBlur, touched, errors}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
@@ -35,7 +35,7 @@ export const Deposit: React.FC = () => {
                                             name="amount"
                                             type="number"
                                             autoFocus
-                                            prefix=""
+                                            prefix="GBP"
                                             onBlur={handleBlur}
                                             component={InputField}
                                         />
@@ -43,17 +43,16 @@ export const Deposit: React.FC = () => {
                                     </Grid>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <StyledText>From Account</StyledText>
+                                    <StyledText>To Account</StyledText>
                                     <Field
                                         ariaLabel="account"
                                         label="Account number"
-                                        name="account"
-                                        type="number"
+                                        name="depositAccount"
                                         onBlur={handleBlur}
                                         prefix=""
                                         component={InputField}
                                     />
-                                    <ErrorMessage>{touched.account && errors.account}</ErrorMessage>
+                                    <ErrorMessage>{touched.depositAccount && errors.depositAccount}</ErrorMessage>
                                 </Grid>
                                 <StyledButton type="submit" fullWidth variant="contained" color="primary" disabled={!isValid}>
                                     Add to your account

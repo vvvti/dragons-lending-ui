@@ -2,13 +2,14 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {StyledButton, StyledColor, StyledForm, StyledPaper, StyledText, StyledTitle} from './WithdrawMoney.styled';
+import {StyledButton, StyledForm, StyledPaper, StyledText} from './WithdrawMoney.styled';
 import {Field, Formik} from 'formik';
 import {InputField} from '../../components/InputField/InputField';
 import {INITIAL_WITHDRAW_VALUES} from '../../helpers/constants';
 import {useToPage} from '../../hooks/useToPage';
 import {validationSchema} from './WithdrawMoney.helpers';
 import {ErrorMessage} from '../Login/Login.styled';
+import withdraw from '../../assets/withdrawal.png';
 
 export const WithdrawMoney: React.FC = () => {
     const {goToUserAccount} = useToPage();
@@ -18,9 +19,7 @@ export const WithdrawMoney: React.FC = () => {
                 {({isValid, handleBlur, touched, errors}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
-                            <StyledTitle>
-                                HL <StyledColor>TECH</StyledColor>
-                            </StyledTitle>
+                            <img src={withdraw} alt="withdraw" />
                             <Typography component="h1" variant="h5">
                                 Withdraw Money
                             </Typography>
@@ -48,7 +47,7 @@ export const WithdrawMoney: React.FC = () => {
                                             label="GBP"
                                             name="amount"
                                             type="number"
-                                            prefix=""
+                                            prefix="GBP"
                                             onBlur={handleBlur}
                                             component={InputField}
                                         />
