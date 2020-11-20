@@ -1,7 +1,6 @@
 import React from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
 import {StyledGrid} from './UserDataGrid.styled';
-import Button from '@material-ui/core/Button';
 import {StyledNavLink} from '../../pages/Deposit/Deposit.styled';
 import {ROUTES} from '../../helpers/routes';
 import {StyledButton} from '../../pages/UserAccount/UserAccount.styled';
