@@ -19,6 +19,6 @@ describe('Home', () => {
         userEvent.click(screen.getByRole('link', {name: /check out/i}));
 
         expect(history.entries).toHaveLength(2);
-        expect(history.location.pathname).toEqual(ROUTES.O);
+        expect(history.location.pathname).toEqual(ROUTES.OFFERSGRID);
     });
 });
