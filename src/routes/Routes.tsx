@@ -3,7 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import {Home} from '../pages/Home/Home';
 import {Login} from '../pages/Login/Login';
 import {Registration} from '../pages/Registration/Registration';
-import {LoansPage} from '../pages/LoansPage/LoansPage';
+import {OffersPage} from '../pages/OffersPage/OffersPage';
 import {ROUTES} from '../helpers/routes';
 import {CreateOffer} from '../pages/CreateOffer/CreateOffer';
 import {Rules} from '../pages/Rules/Rules';
@@ -22,7 +22,7 @@ export const Routes: React.FC = () => {
             <Route path={ROUTES.CREATEOFFER} component={CreateOffer} />
             <Route exact path={ROUTES.HOME} component={Home} />
             <Route path={ROUTES.ABOUT} component={About} />
-            <Route path={ROUTES.LOANGRID} component={LoansPage} />
+            <Route path={ROUTES.OFFERSGRID} component={OffersPage} />
             <Route path={ROUTES.LOGIN} component={Login} />
             <Route path={ROUTES.REGISTRATION} component={Registration} />
             <Route path={ROUTES.RULES} component={Rules} />

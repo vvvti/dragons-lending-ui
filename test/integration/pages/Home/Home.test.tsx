@@ -13,12 +13,12 @@ describe('Home', () => {
         expect(screen.getByText(/investments/i)).toBeInTheDocument();
     });
 
-    test('renders /loangrid after click on checkout button ', async () => {
+    test('renders /offerGrid after click on checkout button ', async () => {
         const {history} = renderWithRouter(<Home />);
 
         userEvent.click(screen.getByRole('link', {name: /check out/i}));
 
         expect(history.entries).toHaveLength(2);
-        expect(history.location.pathname).toEqual(ROUTES.LOANGRID);
+        expect(history.location.pathname).toEqual(ROUTES.O);
     });
 });

@@ -1,15 +1,15 @@
 import React from 'react';
-import {StyledButton, StyledHeader, StyledNavLink} from './LoansHeader.styled';
+import {StyledButton, StyledHeader, StyledNavLink} from './OffersHeader.styled';
 import {ROUTES} from '../../../helpers/routes';
 import {useAuthContext} from '../../../context/auth-context';
 
-export const LoansHeader: React.FC = () => {
-    const {isLoggedIn} = useAuthContext();
+export const OffersHeader: React.FC = () => {
+    const {tokenStorage} = useAuthContext();
 
     return (
         <StyledHeader>
             <h1>Active auctions</h1>
-            {!isLoggedIn ? (
+            {!tokenStorage ? (
                 <div>Please login to create an auction</div>
             ) : (
                 <div>

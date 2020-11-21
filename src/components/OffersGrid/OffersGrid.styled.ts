@@ -28,9 +28,14 @@ export const ItemContainer = styled.div`
     height: 200px;
     padding: 10px;
     box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
+    transition: transform 0.1s;
     grid-template-areas:
         'image details'
         'invest invest';
+
+    &&:hover {
+        transform: scale(1.03);
+    }
 `;
 
 export const StyledAvatar = styled(Avatar)`
@@ -71,9 +76,8 @@ export const StyledImage = styled.img`
 `;
 
 export const StyledButton = styled(Button)`
-    width: 200px;
+    width: 220px;
     height: 50px;
-    margin: 50px;
     border: none;
 `;
 
@@ -83,7 +87,7 @@ export const StyledPagination = styled.div`
 
 export const StyledPageNumber = styled.button`
     font-size: 20px;
-    margin: 10px;
+    margin: 20px 10px;
     background-color: hsl(0, 0%, 100%);
     color: hsl(0, 0%, 0%);
     border: none;

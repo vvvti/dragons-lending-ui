@@ -3,10 +3,10 @@ import {OffersArray} from '../helpers/types';
 import {getOffersList, getOffersListWithoutToken, postOffer} from '../api/offersApi';
 import {useAuthContext} from '../context/auth-context';
 import {useToPage} from './useToPage';
-import {OFFER_VALUES} from '../helpers/constants';
 
 export const useOffer = () => {
-    const [offersList, setOffersList] = useState<OffersArray>([OFFER_VALUES]);
+    // const [offersList, setOffersList] = useState<OffersArray>([OFFER_VALUES]);
+    const [offersList, setOffersList] = useState<OffersArray>([]);
     const {tokenStorage} = useAuthContext();
     const {goToMain} = useToPage();
 

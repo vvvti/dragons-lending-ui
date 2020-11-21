@@ -14,7 +14,7 @@ export const SectionContainer: React.FC<SectionContainerProps> = ({pageType}) =>
             <StyledTitle>{pageType === PAGETYPE.LOGIN ? 'Social Lending' : 'Investments'}</StyledTitle>
             <ButtonContainer>
                 {pageType === PAGETYPE.LOGIN ? (
-                    <StyledLink to={ROUTES.LOANGRID}>
+                    <StyledLink to={ROUTES.OFFERSGRID}>
                         <Button color="secondary" variant="contained" size="large">
                             Check out
                         </Button>
