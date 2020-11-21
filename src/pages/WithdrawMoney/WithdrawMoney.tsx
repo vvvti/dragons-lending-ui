@@ -9,7 +9,7 @@ import {INITIAL_WITHDRAW_VALUES} from '../../helpers/constants';
 import {useToPage} from '../../hooks/useToPage';
 import {validationSchema} from './WithdrawMoney.helpers';
 import {ErrorMessage} from '../Login/Login.styled';
-import withdraw from '../../assets/withdrawal.png';
+import withdraw from '../../assets/withdrawal.svg';
 
 export const WithdrawMoney: React.FC = () => {
     const {goToUserAccount} = useToPage();

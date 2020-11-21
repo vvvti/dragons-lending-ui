@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Avatar} from '@material-ui/core';
+import {Avatar, Button} from '@material-ui/core';
 
 export const GridView = styled.div`
     width: 80%;
@@ -28,9 +28,14 @@ export const ItemContainer = styled.div`
     height: 200px;
     padding: 10px;
     box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
+    transition: transform 0.1s;
     grid-template-areas:
         'image details'
         'invest invest';
+
+    &&:hover {
+        transform: scale(1.03);
+    }
 `;
 
 export const StyledAvatar = styled(Avatar)`
@@ -70,14 +75,20 @@ export const StyledImage = styled.img`
     width: 100%;
 `;
 
-export const StyledButton = styled.button`
-    font-size: 20px;
-    margin: 20px;
-    background-color: hsl(0, 0%, 100%);
-    color: hsl(0, 0%, 0%);
+export const StyledButton = styled(Button)`
+    width: 220px;
+    height: 50px;
     border: none;
 `;
 
 export const StyledPagination = styled.div`
     display: flex;
+`;
+
+export const StyledPageNumber = styled.button`
+    font-size: 20px;
+    margin: 20px 10px;
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 0%);
+    border: none;
 `;

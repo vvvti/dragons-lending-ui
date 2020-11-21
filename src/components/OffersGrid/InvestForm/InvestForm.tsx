@@ -19,7 +19,7 @@ export interface InvestFormProps {
 
 export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}) => {
     const [open, setOpen] = React.useState(false);
-    const {isLoggedIn} = useAuthContext();
+    const {tokenStorage} = useAuthContext();
 
     const handleClick = () => {
         setOpen(true);
@@ -64,7 +64,7 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}
                             component={InputField}
                         />
                     </StyledPercentage>
-                    <StyledButton type="submit" variant="contained" color="primary" onClick={handleClick} disabled={!isLoggedIn}>
+                    <StyledButton type="submit" variant="contained" color="primary" onClick={handleClick} disabled={!tokenStorage}>
                         Invest
                     </StyledButton>
                     <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>

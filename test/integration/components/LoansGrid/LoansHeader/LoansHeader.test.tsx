@@ -1,11 +1,11 @@
 import React from 'react';
 import {screen} from '@testing-library/react';
-import {LoansHeader} from '../../../../../src/components/LoansGrid/LoansHeader/LoansHeader';
+import {OffersHeader} from '../../../../../src/components/OffersGrid/OffersHeader/OffersHeader';
 import {renderWithRouter} from '../../../../_helpers/renderWithRouters';
 
-describe('LoansHeader', () => {
+describe('OffersHeader', () => {
     it('renders component', async () => {
-        renderWithRouter(<LoansHeader />);
+        renderWithRouter(<OffersHeader />);
 
         expect(screen.getByRole('heading', {name: /active/i})).toBeInTheDocument();
     });

@@ -1,14 +1,14 @@
 import React from 'react';
-import {PageContainer, PageWrapper} from './LoansPage.styled';
-import {LoansGrid} from '../../components/LoansGrid/LoansGrid';
+import {PageContainer, PageWrapper} from './OffersPage.styled';
+import {OffersGrid} from '../../components/OffersGrid/OffersGrid';
 import {StatusContainer} from '../../components/Account/StatusContainer/StatusContainer';
 
-export const LoansPage: React.FC = () => {
+export const OffersPage: React.FC = () => {
     return (
         <PageWrapper>
             <PageContainer>
                 <StatusContainer />
-                <LoansGrid />
+                <OffersGrid />
             </PageContainer>
         </PageWrapper>
     );

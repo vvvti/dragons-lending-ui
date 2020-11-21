@@ -6,7 +6,7 @@ export const useToPage = () => {
 
     const goToMain = () => {
         const location = {
-            pathname: ROUTES.LOANGRID,
+            pathname: ROUTES.OFFERSGRID,
         };
         history.push(location);
     };

@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom';
 
 export const StyledHeader = styled.div`
     position: absolute;
-    padding: 0 20px;
+    padding: 0 10px;
     top: 20px;
     left: 0;
     width: 100%;
