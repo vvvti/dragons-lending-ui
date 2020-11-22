@@ -13,7 +13,7 @@ describe('Home', () => {
         expect(screen.getByText(/investments/i)).toBeInTheDocument();
     });
 
-    test('renders /offerGrid after click on checkout button ', async () => {
+    it('renders /offerGrid after click on checkout button ', async () => {
         const {history} = renderWithRouter(<Home />);
 
         userEvent.click(screen.getByRole('link', {name: /check out/i}));

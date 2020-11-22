@@ -33,7 +33,7 @@ export const useToPage = () => {
 //
 //     const goToLogin = () => {
 //         const location = {
-//             pathname: ROUTES.LOGIN,
+//             pathname: ROUTES.OFFERS,
 //         };
 //         history.push(location);
 //     };

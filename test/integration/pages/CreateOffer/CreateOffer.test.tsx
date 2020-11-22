@@ -5,9 +5,11 @@ import {renderWithRouter} from '../../../_helpers/renderWithRouters';
 import {CreateOffer} from '../../../../src/pages/CreateOffer/CreateOffer';
 
 describe('CreateOffer', () => {
-    test('submit button disabled on invalid values', async () => {
+    beforeEach(() => {
         renderWithRouter(<CreateOffer />);
+    });
 
+    it('submit button disabled on invalid values', async () => {
         const loanAmountInput = screen.getByLabelText(/borrow/i);
         userEvent.clear(loanAmountInput);
         await userEvent.type(loanAmountInput, '500');
@@ -30,9 +32,7 @@ describe('CreateOffer', () => {
         });
     });
 
-    test('loan amount should display error on invalid values', async () => {
-        renderWithRouter(<CreateOffer />);
-
+    it('loan amount should display error on invalid values', async () => {
         const loanAmountInput = screen.getByLabelText(/borrow/i);
         userEvent.clear(loanAmountInput);
         await userEvent.type(loanAmountInput, '100000000');
@@ -40,9 +40,7 @@ describe('CreateOffer', () => {
         fireEvent.blur(loanAmountInput);
         await screen.findByText(/You can select max/i);
     });
-    test('time Period should display error on invalid values', async () => {
-        renderWithRouter(<CreateOffer />);
-
+    it('time Period should display error on invalid values', async () => {
         const timePeriodInput = screen.getByLabelText(/period/i);
         userEvent.clear(timePeriodInput);
         await userEvent.type(timePeriodInput, '50');
@@ -50,9 +48,7 @@ describe('CreateOffer', () => {
         fireEvent.blur(timePeriodInput);
         await screen.findByText('You can select max 36 months');
     });
-    test('interest rate amount should display error on invalid values', async () => {
-        renderWithRouter(<CreateOffer />);
-
+    it('interest rate amount should display error on invalid values', async () => {
         const interestRateInput = screen.getByLabelText(/interests/i);
         userEvent.clear(interestRateInput);
         await userEvent.type(interestRateInput, '-77');

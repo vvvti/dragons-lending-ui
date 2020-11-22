@@ -3,7 +3,7 @@ import {renderWithRouter} from '../../../_helpers/renderWithRouters';
 import {screen} from '@testing-library/react';
 import {OffersGrid} from '../../../../src/components/OffersGrid/OffersGrid';
 
-describe('LoansGrid', () => {
+describe('OffersGrid', () => {
     it('renders component', async () => {
         renderWithRouter(<OffersGrid />);
 
