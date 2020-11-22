@@ -3,6 +3,7 @@ import Avatar from '@material-ui/core/Avatar';
 import {Button} from '@material-ui/core';
 import {Form} from 'formik';
 import {NavLink} from 'react-router-dom';
+import {colors} from '../../styles/theme';
 
 export const StyledPaper = styled.div`
     margin-top: 100px;
@@ -12,7 +13,7 @@ export const StyledPaper = styled.div`
 `;
 
 export const StyledAvatar = styled(Avatar)`
-    background-color: hsl(339, 100%, 43%);
+    background-color: ${colors.redBackground};
     margin: 10px 0;
 `;
 
@@ -26,10 +27,10 @@ export const StyledButton = styled(Button)`
 export const StyledLoginPage = styled(NavLink)`
     text-decoration: none;
     margin: 20px;
-    color: hsl(207, 73%, 53%);
+    color: ${colors.blue};
 `;
 export const ErrorMessage = styled.div`
-    color: hsl(0, 100%, 50%);
+    color: ${colors.red};
     margin: 5px;
 `;
 

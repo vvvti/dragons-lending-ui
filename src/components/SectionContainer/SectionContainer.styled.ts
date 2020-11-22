@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
+import {colors} from '../../styles/theme';
 
 export const StyledContainer = styled.div`
     display: flex;
@@ -10,8 +11,8 @@ export const StyledContainer = styled.div`
     height: 400px;
     margin: 20px;
     padding: 20px;
-    background-color: hsla(0, 0%, 0%, 0.8);
-    color: hsl(0, 0%, 100%);
+    background-color: ${colors.transparentBackground};
+    color: ${colors.white};
 `;
 export const ButtonContainer = styled.div`
     text-align: center;
@@ -25,9 +26,9 @@ export const StyledTitle = styled.div`
 
 export const StyledLink = styled(NavLink)`
     text-decoration: none;
-    color: hsl(0, 0%, 100%);
+    color: ${colors.white};
 `;
 export const StyledExternalLink = styled.a`
     text-decoration: none;
-    color: hsl(0, 0%, 100%);
+    color: ${colors.white};
 `;

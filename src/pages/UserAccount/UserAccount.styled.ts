@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import {Button} from '@material-ui/core';
-import {Avatar} from '@material-ui/core';
+import {Avatar, Button} from '@material-ui/core';
+import {colors} from '../../styles/theme';
 
 export const PageContainer = styled.div`
     width: 80%;
@@ -27,7 +27,7 @@ export const StyledProfile = styled.div`
     align-items: center;
     margin: 20px 0;
     padding: 20px 20px;
-    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
+    box-shadow: 0 4px 12px ${colors.boxShadow};
 `;
 export const StyledBanking = styled.div`
     grid-area: banking;
@@ -36,7 +36,7 @@ export const StyledBanking = styled.div`
     justify-content: space-between;
     margin-top: 20px;
     padding: 0 20px;
-    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
+    box-shadow: 0 4px 12px ${colors.boxShadow};
     height: 10vh;
 `;
 
@@ -47,7 +47,7 @@ export const StyledInvest = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 5px 5px;
-    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
+    box-shadow: 0 4px 12px ${colors.boxShadow};
     height: 34vh;
 `;
 
@@ -58,7 +58,7 @@ export const StyledLoan = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 5px 5px;
-    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
+    box-shadow: 0 4px 12px ${colors.boxShadow};
     height: 33vh;
 `;
 
@@ -69,7 +69,7 @@ export const StyledTile = styled.div`
     height: 120px;
     align-items: center;
     justify-content: space-around;
-    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
+    box-shadow: 0 4px 12px ${colors.boxShadow};
 `;
 
 export const StyledTileContainer = styled.div`
@@ -91,7 +91,7 @@ export const StyledTitle = styled.span`
 `;
 
 export const StyledTileTitle = styled.span`
-    border-bottom: 2px solid hsl(232, 54%, 41%);
+    border-bottom: 2px solid ${colors.darkblue};
     font-size: 16px;
 `;
 export const StyledDetailsText = styled.span`

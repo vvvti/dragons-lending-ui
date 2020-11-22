@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {Avatar, Button} from '@material-ui/core';
+import {colors} from '../../styles/theme';
 
 export const PageContainer = styled.div`
     width: 80%;
@@ -13,7 +14,7 @@ export const StyledProfile = styled.div`
     align-items: center;
     margin: 20px 0;
     padding: 20px 20px;
-    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
+    box-shadow: 0 4px 12px ${colors.boxShadow};
 `;
 export const StyledBanking = styled.div`
     display: flex;
@@ -21,7 +22,7 @@ export const StyledBanking = styled.div`
     justify-content: space-between;
     margin-top: 20px;
     padding: 0 20px;
-    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
+    box-shadow: 0 4px 12px ${colors.boxShadow};
     height: 10vh;
 `;
 
@@ -32,7 +33,7 @@ export const StyledInvest = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
+    box-shadow: 0 4px 12px ${colors.boxShadow};
     height: 40vh;
     margin-top: 50px;
 `;
@@ -44,7 +45,7 @@ export const StyledTile = styled.div`
     height: 120px;
     align-items: center;
     justify-content: space-around;
-    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
+    box-shadow: 0 4px 12px ${colors.boxShadow};
 `;
 
 export const StyledButton = styled(Button)`
@@ -58,7 +59,7 @@ export const StyledTitle = styled.span`
 `;
 
 export const StyledTileTitle = styled.span`
-    border-bottom: 2px solid hsl(232, 54%, 41%);
+    border-bottom: 2px solid ${colors.darkblue}
     font-size: 16px;
 `;
 export const StyledDetailsText = styled.span`

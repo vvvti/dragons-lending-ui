@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {Avatar, Button} from '@material-ui/core';
+import {colors} from '../../styles/theme';
 
 export const GridView = styled.div`
     width: 80%;
@@ -27,7 +28,7 @@ export const ItemContainer = styled.div`
     width: 100%;
     height: 200px;
     padding: 10px;
-    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
+    box-shadow: 0 4px 12px ${colors.boxShadow};
     transition: transform 0.1s;
     grid-template-areas:
         'image details'
@@ -53,7 +54,7 @@ export const StyledLoanDetails = styled.div`
 `;
 
 export const StyledSpan = styled.span`
-    color: hsl(240, 100%, 27%);
+    color: ${colors.darkblue};
     font-size: 18px;
 `;
 
@@ -88,7 +89,7 @@ export const StyledPagination = styled.div`
 export const StyledPageNumber = styled.button`
     font-size: 20px;
     margin: 20px 10px;
-    background-color: hsl(0, 0%, 100%);
-    color: hsl(0, 0%, 0%);
+    background-color: ${colors.white};
+    color: ${colors.black};
     border: none;
 `;
