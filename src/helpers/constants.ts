@@ -2,7 +2,7 @@ import {Deposit, InvestFormValues, LoginFormValues, OfferValues, RegisterFormVal
 
 export enum PAGETYPE {
     INVESTMENTS,
-    LOGIN,
+    OFFERS,
 }
 
 export const POSTSPERPAGE = 6;
