@@ -26,16 +26,16 @@ export const useOffer = () => {
         }
     }, [tokenStorage]);
 
-    // const getOwnOffers = useCallback(async () => {
-    //     const config = {
-    //         headers: {'x-authorization': tokenStorage},
-    //     };
-    //
-    //     const response = await getOwnOffersList(config);
-    //     console.log("get own offer", response.data)
-    //     setOffersList(response.data);
-    //
-    // }, [tokenStorage]);
+    const getOwnOffersList = useCallback(async () => {
+        const config = {
+            params: {yours: true},
+            headers: {'x-authorization': tokenStorage},
+        };
+
+        const response = await getOffersList(config);
+        console.log('get own offer', response.data);
+        setOffersList(response.data);
+    }, [tokenStorage]);
 
     const postNewOffer = useCallback(
         async values => {
@@ -58,5 +58,6 @@ export const useOffer = () => {
         offersList,
         getOffers,
         postNewOffer,
+        getOwnOffersList,
     };
 };
