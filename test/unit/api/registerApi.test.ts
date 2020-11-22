@@ -22,6 +22,7 @@ describe('registerApi', () => {
 
         const request = await postRegisterValues(values);
         expect(request.data).toEqual('getDataMock');
+        expect(axios.post).toHaveBeenCalledTimes(1);
         expect(axios.post).toHaveBeenCalledWith('/users/sign-up', values);
     });
 });

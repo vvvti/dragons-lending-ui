@@ -5,7 +5,7 @@ import {renderWithRouter} from '../../../_helpers/renderWithRouters';
 import {Login} from '../../../../src/pages/Login/Login';
 
 describe('Login', () => {
-    test('submit button disabled on invalid values', async () => {
+    it('submit button disabled on invalid values', async () => {
         renderWithRouter(<Login />);
 
         const emailInput = screen.getByLabelText(/email/i);
@@ -22,7 +22,7 @@ describe('Login', () => {
             expect(submitButton).toBeDisabled();
         });
     });
-    test('email should display error on invalid values', async () => {
+    it('email should display error on invalid values', async () => {
         renderWithRouter(<Login />);
 
         const emailInput = screen.getByLabelText(/email/i);
@@ -32,7 +32,7 @@ describe('Login', () => {
         fireEvent.blur(emailInput);
         await screen.findByText('email must be a valid email');
     });
-    test('password should display error on invalid values', async () => {
+    it('password should display error on invalid values', async () => {
         renderWithRouter(<Login />);
 
         const passwordInput = screen.getByLabelText(/password/i);

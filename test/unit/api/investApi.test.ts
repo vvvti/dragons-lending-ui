@@ -19,6 +19,7 @@ describe('investApi', () => {
 
         const request = await postValuesToInvest(values);
         expect(request.data).toEqual('getDataMock');
+        expect(axios.post).toHaveBeenCalledTimes(1);
         expect(axios.post).toHaveBeenCalledWith('/invest', values);
     });
 });

@@ -9,12 +9,12 @@ describe('offersApi', () => {
         mocked(axios.get).mockResolvedValue('getMock');
     });
 
-    it.skip('get calls request for own offers list and passes response', async () => {
+    it('get calls request for own offers list and passes response', async () => {
         mocked(axios.get).mockResolvedValue({data: 'getDataMock'});
 
         const config = {
-            params: {yours: true},
             headers: {'x-authorization': 'tokenStorage'},
+            params: {yours: true},
         };
 
         const request = await getOffersList(config);
@@ -28,7 +28,7 @@ describe('offersApi', () => {
 
         const request = await getOffersListWithoutToken();
         expect(request.data).toEqual('getDataMock');
-        expect(axios.get).toHaveBeenCalledTimes(1);
+        expect(axios.get).toHaveBeenCalledTimes(2);
         expect(axios.get).toHaveBeenCalledWith('/auctions/public');
     });
 

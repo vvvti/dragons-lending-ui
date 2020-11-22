@@ -5,7 +5,7 @@ import {fireEvent, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('Registration', () => {
-    test('submit button disabled on invalid values', async () => {
+    it('submit button disabled on invalid values', async () => {
         renderWithRouter(<Registration />);
 
         const userNameInput = screen.getByLabelText(/user name/i);
@@ -35,7 +35,7 @@ describe('Registration', () => {
         });
     });
 
-    test('first name should display error on invalid values', async () => {
+    it('first name should display error on invalid values', async () => {
         renderWithRouter(<Registration />);
 
         const firstNameInput = screen.getByLabelText(/first name/i);
@@ -46,7 +46,7 @@ describe('Registration', () => {
         await screen.findByText('Field is required');
     });
 
-    test('last name should display error on invalid values', async () => {
+    it('last name should display error on invalid values', async () => {
         renderWithRouter(<Registration />);
 
         const lastNameInput = screen.getByLabelText(/last name/i);
@@ -57,7 +57,7 @@ describe('Registration', () => {
         await screen.findByText('Field is required');
     });
 
-    test('email should display error on invalid values', async () => {
+    it('email should display error on invalid values', async () => {
         renderWithRouter(<Registration />);
 
         const emailInput = screen.getByLabelText(/email/i);
@@ -68,7 +68,7 @@ describe('Registration', () => {
         await screen.findByText('Field is required');
     });
 
-    test('password should display error on invalid values', async () => {
+    it('password should display error on invalid values', async () => {
         renderWithRouter(<Registration />);
 
         const passwordInput = screen.getByLabelText(/password/i);

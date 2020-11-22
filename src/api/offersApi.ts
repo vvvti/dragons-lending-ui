@@ -2,7 +2,7 @@ import {axios} from './rest/axios';
 import {OffersArray, OfferValues} from '../helpers/types';
 
 export const getOffersList = (config: any) => {
-    return axios.get<OffersArray>(`/auctions `, config);
+    return axios.get<OffersArray>(`/auctions`, config);
 };
 
 export const getOffersListWithoutToken = () => {

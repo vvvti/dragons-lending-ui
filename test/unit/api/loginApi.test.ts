@@ -19,6 +19,7 @@ describe('loginApi', () => {
 
         const request = await postLoginValues(values);
         expect(request.data).toEqual('getDataMock');
+        expect(axios.post).toHaveBeenCalledTimes(1);
         expect(axios.post).toHaveBeenCalledWith('/login', values);
     });
 });
