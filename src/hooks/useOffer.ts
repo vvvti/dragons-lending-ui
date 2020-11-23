@@ -43,10 +43,8 @@ export const useOffer = () => {
                 headers: {'x-authorization': tokenStorage},
             };
             if (tokenStorage) {
+                console.log('post action with values and token', values, tokenStorage);
                 const response = await postOffer(values, config);
-                setOffersList(response.data);
-            } else {
-                const response = await getOffersListWithoutToken();
                 setOffersList(response.data);
             }
             goToMain();

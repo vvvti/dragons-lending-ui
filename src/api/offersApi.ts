@@ -10,7 +10,7 @@ export const getOffersListWithoutToken = () => {
 };
 
 export const postOffer = (values: OfferValues, config: any) => {
-    return axios.post(`/auctions`, config, values);
+    return axios.post(`/auctions`, values, config);
 };
 
 //   return axios.get<OffersArray>(`/auctions?yours=true `, config);

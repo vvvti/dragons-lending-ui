@@ -37,7 +37,17 @@ export interface Deposit {
     amount: number | '';
 }
 
-export interface SortValues {
-    sort: string | '';
-    active: boolean;
+export interface DepositAmount {
+    fromAccountNumber: string;
+    amount: number;
+}
+
+export interface AccountBalance {
+    balance: number;
+    availableFunds: number;
+}
+
+export interface WithdrawnAmount {
+    requestedAccountNumber: number;
+    amount: number;
 }
