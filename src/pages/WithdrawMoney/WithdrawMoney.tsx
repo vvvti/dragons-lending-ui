@@ -6,16 +6,26 @@ import {StyledButton, StyledForm, StyledPaper, StyledText} from './WithdrawMoney
 import {Field, Formik} from 'formik';
 import {InputField} from '../../components/InputField/InputField';
 import {INITIAL_WITHDRAW_VALUES} from '../../helpers/constants';
-import {useToPage} from '../../hooks/useToPage';
 import {validationSchema} from './WithdrawMoney.helpers';
 import {ErrorMessage} from '../Login/Login.styled';
 import withdraw from '../../assets/withdrawal.png';
+import {useAccountBalance} from '../../hooks/useAccountBalance';
+import {WithdrawnAmount} from '../../helpers/types';
 
 export const WithdrawMoney: React.FC = () => {
-    const {goToUserAccount} = useToPage();
+    const {withdrawAmount, postWithdrawAmount} = useAccountBalance();
+
+    console.log('withdrawAmount up', withdrawAmount);
+
     return (
         <>
-            <Formik initialValues={INITIAL_WITHDRAW_VALUES} validationSchema={validationSchema} onSubmit={goToUserAccount}>
+            <Formik
+                initialValues={INITIAL_WITHDRAW_VALUES}
+                validationSchema={validationSchema}
+                onSubmit={async (values: WithdrawnAmount) => {
+                    await postWithdrawAmount(values);
+                }}
+            >
                 {({isValid, handleBlur, touched, errors}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
@@ -31,14 +41,13 @@ export const WithdrawMoney: React.FC = () => {
                                         <Field
                                             ariaLabel="account"
                                             label="Account number"
-                                            name="account"
-                                            type="number"
+                                            name="requestedAccountNumber"
                                             autoFocus
                                             onBlur={handleBlur}
                                             prefix=""
                                             component={InputField}
                                         />
-                                        <ErrorMessage>{touched.account && errors.account}</ErrorMessage>
+                                        <ErrorMessage>{touched.requestedAccountNumber && errors.requestedAccountNumber}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
                                         <StyledText>Amount</StyledText>

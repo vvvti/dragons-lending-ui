@@ -5,25 +5,29 @@ import Container from '@material-ui/core/Container';
 import {StyledButton, StyledColor, StyledForm, StyledPaper, StyledText, StyledTitle} from './Deposit.styled';
 import {Field, Formik} from 'formik';
 import {InputField} from '../../components/InputField/InputField';
-import {useToPage} from '../../hooks/useToPage';
 import {validationSchema} from './Deposit.helpers';
 import {ErrorMessage} from '../Login/Login.styled';
 import {INITIAL_DEPOSIT_VALUES} from '../../helpers/constants';
 import {useAccountBalance} from '../../hooks/useAccountBalance';
+import {DepositAmount} from '../../helpers/types';
 
 export const Deposit: React.FC = () => {
-    const {goToUserAccount} = useToPage();
-    const {accountBalance, postDepositAmount} = useAccountBalance();
-
+    const {postDepositAmount, getAccountValue, accountBalance} = useAccountBalance();
     useEffect(() => {
-        postDepositAmount();
-    }, [postDepositAmount]);
+        getAccountValue();
+    }, [getAccountValue]);
 
     console.log('accountBalance up', accountBalance);
 
     return (
         <>
-            <Formik initialValues={INITIAL_DEPOSIT_VALUES} validationSchema={validationSchema} onSubmit={goToUserAccount}>
+            <Formik
+                initialValues={INITIAL_DEPOSIT_VALUES}
+                validationSchema={validationSchema}
+                onSubmit={async (values: DepositAmount) => {
+                    await postDepositAmount(values);
+                }}
+            >
                 {({isValid, handleBlur, touched, errors}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
