@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {Button} from '@material-ui/core';
 import {NavLink} from 'react-router-dom';
+import {colors} from '../../../styles/theme';
 
 export const StyledHeader = styled.div`
     position: absolute;
@@ -19,5 +20,5 @@ export const StyledButton = styled(Button)`
 
 export const StyledNavLink = styled(NavLink)`
     text-decoration: none;
-    color: hsl(0, 0%, 50%);
+    color: ${colors.gray};
 `;

@@ -50,6 +50,6 @@ describe('offersApi', () => {
         const request = await postOffer(values, config);
         expect(request.data).toEqual('getDataMock');
         expect(axios.post).toHaveBeenCalledTimes(1);
-        expect(axios.post).toHaveBeenCalledWith('/auctions', config, values);
+        expect(axios.post).toHaveBeenCalledWith('/auctions', values, config);
     });
 });

@@ -1,6 +1,7 @@
 import {Form} from 'formik';
 import styled from 'styled-components';
 import {Button} from '@material-ui/core';
+import {colors} from '../../styles/theme';
 
 export const StyledForm = styled(Form)`
     display: flex;
@@ -8,7 +9,7 @@ export const StyledForm = styled(Form)`
     margin: 50px auto;
     padding: 30px;
     align-items: center;
-    box-shadow: 0 4px 12px hsla(211, 24%, 78%, 0.5);
+    box-shadow: 0 4px 12px ${colors.boxShadow};
 `;
 
 export const StyledInputWrapper = styled.div`
@@ -26,7 +27,7 @@ export const FormContainer = styled.div`
 `;
 
 export const ErrorMessage = styled.div`
-    color: hsl(0, 100%, 50%);
+    color: ${colors.red};
 `;
 
 export const CurrencyTitle = styled.h2`

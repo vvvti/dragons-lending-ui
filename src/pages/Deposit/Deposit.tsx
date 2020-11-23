@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
@@ -9,9 +9,18 @@ import {useToPage} from '../../hooks/useToPage';
 import {validationSchema} from './Deposit.helpers';
 import {ErrorMessage} from '../Login/Login.styled';
 import {INITIAL_DEPOSIT_VALUES} from '../../helpers/constants';
+import {useAccountBalance} from '../../hooks/useAccountBalance';
 
 export const Deposit: React.FC = () => {
     const {goToUserAccount} = useToPage();
+    const {accountBalance, postDepositAmount} = useAccountBalance();
+
+    useEffect(() => {
+        postDepositAmount();
+    }, [postDepositAmount]);
+
+    console.log('accountBalance up', accountBalance);
+
     return (
         <>
             <Formik initialValues={INITIAL_DEPOSIT_VALUES} validationSchema={validationSchema} onSubmit={goToUserAccount}>
@@ -47,12 +56,12 @@ export const Deposit: React.FC = () => {
                                     <Field
                                         ariaLabel="account"
                                         label="Account number"
-                                        name="depositAccount"
+                                        name="fromAccountNumber"
                                         onBlur={handleBlur}
                                         prefix=""
                                         component={InputField}
                                     />
-                                    <ErrorMessage>{touched.depositAccount && errors.depositAccount}</ErrorMessage>
+                                    <ErrorMessage>{touched.fromAccountNumber && errors.fromAccountNumber}</ErrorMessage>
                                 </Grid>
                                 <StyledButton type="submit" fullWidth variant="contained" color="primary" disabled={!isValid}>
                                     Add to your account

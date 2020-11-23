@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {colors} from '../../../styles/theme';
 
 export const StyledStatus = styled.div`
     display: flex;
@@ -12,5 +13,5 @@ export const StyledStatus = styled.div`
 
 export const StyledText = styled.div`
     align-self: center;
-    color: hsl(0, 0%, 0%);
+    color: ${colors.black};
 `;
