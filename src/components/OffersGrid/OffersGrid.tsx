@@ -112,7 +112,7 @@ export const OffersGrid: React.FC = () => {
                                 </StyledAvatar>
                                 <StyledLoanDetails>
                                     <StyledDaysLeft>
-                                        Expire on: <StyledSpan>{endDate}</StyledSpan>
+                                        Expire on: <StyledSpan>{`${endDate[2]}-${endDate[1]}-${endDate[0]}`}</StyledSpan>
                                     </StyledDaysLeft>
                                     <StyledTitle>Want to borrow</StyledTitle>
                                     <div>

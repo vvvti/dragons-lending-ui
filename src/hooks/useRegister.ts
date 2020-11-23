@@ -12,9 +12,7 @@ export const useRegister = () => {
         async (values: RegisterFormValues) => {
             try {
                 const response = await postRegisterValues(values);
-                console.log(response.headers);
                 setRegisterValues(response.data);
-                localStorage.setItem('token', response.headers['x-authorization']);
                 goToMain();
             } catch {
                 setRegisterError('Please insert another username and email address');

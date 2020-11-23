@@ -19,30 +19,36 @@ export const useAccountBalance = () => {
             const response = await getAccountBalance(config);
             setAccountBalance(response.data);
         }
-    }, []);
+    }, [tokenStorage]);
 
-    const postDepositAmount = useCallback(async values => {
-        const config = {
-            headers: {'x-authorization': tokenStorage},
-        };
+    const postDepositAmount = useCallback(
+        async values => {
+            const config = {
+                headers: {'x-authorization': tokenStorage},
+            };
 
-        if (tokenStorage) {
-            console.log('authorization', values, tokenStorage);
-            const response = await postDeposit(values, config);
+            if (tokenStorage) {
+                console.log('authorization', values, tokenStorage);
+                const response = await postDeposit(values, config);
 
-            setDepositAmount(response.data);
-        }
-    }, []);
+                setDepositAmount(response.data);
+            }
+        },
+        [tokenStorage],
+    );
 
-    const postWithdrawAmount = useCallback(async values => {
-        const config = {
-            headers: {'x-authorization': tokenStorage},
-        };
+    const postWithdrawAmount = useCallback(
+        async values => {
+            const config = {
+                headers: {'x-authorization': tokenStorage},
+            };
 
-        console.log('postWithdraw', values, config);
-        const response = await postWithdraw(values, config);
-        setWithdrawAmount(response.data);
-    }, []);
+            console.log('postWithdraw', values, config);
+            const response = await postWithdraw(values, config);
+            setWithdrawAmount(response.data);
+        },
+        [tokenStorage],
+    );
 
     return {
         withdrawAmount,
