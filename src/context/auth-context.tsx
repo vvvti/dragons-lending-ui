@@ -45,6 +45,7 @@ export const AuthContextProvider: React.FC = ({children}) => {
     const logout = useCallback(() => {
         localStorage.removeItem('token');
         setTokenStorage('');
+        goToMain();
     }, []);
 
     const memoizedValue = useMemo(() => {

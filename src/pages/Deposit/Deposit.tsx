@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
@@ -12,12 +12,7 @@ import {useAccountBalance} from '../../hooks/useAccountBalance';
 import {DepositAmount} from '../../helpers/types';
 
 export const Deposit: React.FC = () => {
-    const {postDepositAmount, getAccountValue, accountBalance} = useAccountBalance();
-    useEffect(() => {
-        getAccountValue();
-    }, [getAccountValue]);
-
-    console.log('accountBalance up', accountBalance);
+    const {postDepositAmount} = useAccountBalance();
 
     return (
         <>

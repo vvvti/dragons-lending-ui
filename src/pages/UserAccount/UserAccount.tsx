@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     PageContainer,
     StyledAvatar,
@@ -16,9 +16,15 @@ import {UserDataGrid} from '../../components/UserDataGrid/UserDataGrid';
 import {ROUTES} from '../../helpers/routes';
 import {StyledNavLink} from '../Deposit/Deposit.styled';
 import {useAuthContext} from '../../context/auth-context';
+import {useAccountBalance} from '../../hooks/useAccountBalance';
 
 export const UserAccount: React.FC = () => {
+    const {getAccountValue, accountBalance} = useAccountBalance();
     const {logout} = useAuthContext();
+
+    useEffect(() => {
+        getAccountValue();
+    }, [getAccountValue]);
 
     const handleButtonClick = () => {
         logout();
@@ -39,7 +45,7 @@ export const UserAccount: React.FC = () => {
                     </StyledNavLink>
                 </StyledProfile>
                 <StyledBanking>
-                    <StyledTitle>Account balance: 2 000 GBP</StyledTitle>
+                    <StyledTitle>Account balance: {accountBalance.balance}</StyledTitle>
                     <div>
                         <StyledNavLink to={ROUTES.DEPOSIT}>
                             <StyledButton type="submit" size="small" variant="contained" color="primary">
