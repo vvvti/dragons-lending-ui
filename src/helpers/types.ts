@@ -27,19 +27,9 @@ export interface OfferValues {
 
 export interface OffersArray extends Array<OfferValues> {}
 
-export interface WithdrawMoney {
-    account: number | '';
-    amount: number | '';
-}
-
-export interface Deposit {
-    depositAccount: string | '';
-    amount: number | '';
-}
-
 export interface DepositAmount {
     fromAccountNumber: string;
-    amount: number;
+    amount: number | '';
 }
 
 export interface AccountBalance {
@@ -48,6 +38,6 @@ export interface AccountBalance {
 }
 
 export interface WithdrawnAmount {
-    requestedAccountNumber: number;
-    amount: number;
+    requestedAccountNumber: string;
+    amount: number | '';
 }

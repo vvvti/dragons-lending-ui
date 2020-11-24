@@ -1,34 +1,36 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import {StyledButton, StyledColor, StyledForm, StyledPaper, StyledText, StyledTitle} from './Deposit.styled';
 import {Field, Formik} from 'formik';
 import {InputField} from '../../components/InputField/InputField';
-import {useToPage} from '../../hooks/useToPage';
 import {validationSchema} from './Deposit.helpers';
 import {ErrorMessage} from '../Login/Login.styled';
 import {INITIAL_DEPOSIT_VALUES} from '../../helpers/constants';
 import {useAccountBalance} from '../../hooks/useAccountBalance';
+import {DepositAmount} from '../../helpers/types';
+import {useToPage} from '../../hooks/useToPage';
 
 export const Deposit: React.FC = () => {
+    const {postDepositAmount} = useAccountBalance();
     const {goToUserAccount} = useToPage();
-    const {accountBalance, postDepositAmount} = useAccountBalance();
-
-    useEffect(() => {
-        postDepositAmount();
-    }, [postDepositAmount]);
-
-    console.log('accountBalance up', accountBalance);
 
     return (
         <>
-            <Formik initialValues={INITIAL_DEPOSIT_VALUES} validationSchema={validationSchema} onSubmit={goToUserAccount}>
+            <Formik
+                initialValues={INITIAL_DEPOSIT_VALUES}
+                validationSchema={validationSchema}
+                onSubmit={async (values: DepositAmount) => {
+                    await postDepositAmount(values);
+                    goToUserAccount();
+                }}
+            >
                 {({isValid, handleBlur, touched, errors}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
                             <StyledTitle>
-                                HL <StyledColor>TECH</StyledColor>
+                                Hargreaves <StyledColor>Lansdown</StyledColor>
                             </StyledTitle>
                             <Typography component="h1" variant="h5">
                                 Deposit Money

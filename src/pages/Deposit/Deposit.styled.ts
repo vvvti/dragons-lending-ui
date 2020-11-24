@@ -34,8 +34,9 @@ export const StyledText = styled.div`
     margin: 10px 0;
 `;
 export const StyledTitle = styled.div`
-    font-size: 100px;
+    font-size: 32px;
     margin: 10px 0;
+    font-weight: 900;
 `;
 
 export const StyledColor = styled.span`

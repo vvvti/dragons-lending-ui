@@ -4,7 +4,8 @@ import {useAuthContext} from '../../../context/auth-context';
 import jwtDecode from 'jwt-decode';
 
 export const StatusContainer: React.FC = () => {
-    const {tokenStorage} = useAuthContext();
+    const {tokenStorage, setTokenStorage} = useAuthContext();
+
     let validToken: any;
 
     if (tokenStorage) {
@@ -16,9 +17,10 @@ export const StatusContainer: React.FC = () => {
             const {exp} = validToken;
             if (Date.now() >= exp * 1000) {
                 localStorage.removeItem('token');
+                setTokenStorage('');
             }
         }
-    }, [validToken]);
+    }, [validToken, setTokenStorage]);
 
     return (
         <StyledStatus>
