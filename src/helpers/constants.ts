@@ -35,12 +35,12 @@ export const INITIAL_INVEST_VALUES: InvestFormValues = {
     investRate: 500,
 };
 export const INITIAL_WITHDRAW_VALUES: WithdrawnAmount = {
-    requestedAccountNumber: 'GB 12 0000 4000 4567 1322 5564 8990',
+    requestedAccountNumber: 'f6dbf26d-b274-47b5-8bbf-71d26da467f8',
     amount: 0,
 };
 
 export const INITIAL_DEPOSIT_VALUES: DepositAmount = {
-    fromAccountNumber: 'GB 12 0000 4000 4567 1322 5564 8990',
+    fromAccountNumber: 'f6dbf26d-b274-47b5-8bbf-71d26da467f8',
     amount: 0,
 };
 
