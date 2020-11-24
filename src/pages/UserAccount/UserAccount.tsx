@@ -15,12 +15,13 @@ import {
     StyledTileTitle,
     StyledTitle,
 } from './UserAccount.styled';
-import {UserDataGrid} from '../../components/UserDataGrid/UserDataGrid';
+import {OffersGrid} from '../../components/UserDataGrid/OffersGrid/OffersGrid';
 import {ROUTES} from '../../helpers/routes';
 import {StyledNavLink} from '../Deposit/Deposit.styled';
 import {useAuthContext} from '../../context/auth-context';
 import {useAccountBalance} from '../../hooks/useAccountBalance';
 import {CURRENCY} from '../../helpers/constants';
+import {AuctionsGrid} from '../../components/UserDataGrid/AuctionsGrid/AuctionsGrid';
 
 export const UserAccount: React.FC = () => {
     const {getAccountValue, accountBalance} = useAccountBalance();
@@ -87,13 +88,13 @@ export const UserAccount: React.FC = () => {
                     <StyledHeader>
                         <StyledTileTitle>Offers</StyledTileTitle>
                     </StyledHeader>
-                    <UserDataGrid />
+                    <OffersGrid />
                 </StyledInvest>
                 <StyledLoan>
                     <StyledHeader>
                         <StyledTileTitle>Auctions</StyledTileTitle>
                     </StyledHeader>
-                    <UserDataGrid />
+                    <AuctionsGrid />
                 </StyledLoan>
             </StyledGrid>
         </PageContainer>

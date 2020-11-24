@@ -7,6 +7,7 @@ import {useToPage} from './useToPage';
 export const useOffer = () => {
     // const [offersList, setOffersList] = useState<OffersArray>([OFFER_VALUES]);
     const [offersList, setOffersList] = useState<OffersArray>([]);
+    const [ownOfferList, setOwnOfferList] = useState([]);
     const {tokenStorage} = useAuthContext();
     const {goToMain} = useToPage();
 
@@ -34,7 +35,7 @@ export const useOffer = () => {
 
         const response = await getOffersList(config);
         console.log('get own offer', response.data);
-        setOffersList(response.data);
+        setOwnOfferList(response.data);
     }, [tokenStorage]);
 
     const postNewOffer = useCallback(
@@ -42,6 +43,7 @@ export const useOffer = () => {
             const config = {
                 headers: {'x-authorization': tokenStorage},
             };
+
             if (tokenStorage) {
                 console.log('post action with values and token', values, tokenStorage);
                 const response = await postOffer(values, config);
@@ -57,5 +59,6 @@ export const useOffer = () => {
         getOffers,
         postNewOffer,
         getOwnOffersList,
+        ownOfferList,
     };
 };
