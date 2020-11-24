@@ -32,11 +32,13 @@ export const OFFER_VALUES: OfferValues = {
     timePeriod: 12,
     interestRate: 7,
     endDate: '',
+    username: '',
 };
 
 export const INITIAL_INVEST_VALUES: InvestFormValues = {
-    investAmount: 3,
-    investRate: 500,
+    offerAmount: 500,
+    interestRate: 3,
+    auctionId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
 };
 export const INITIAL_WITHDRAW_VALUES: WithdrawnAmount = {
     requestedAccountNumber: '',
