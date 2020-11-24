@@ -1,4 +1,13 @@
-import {AccountBalance, DepositAmount, InvestFormValues, LoginFormValues, OfferValues, RegisterFormValues, WithdrawnAmount} from './types';
+import {
+    AccountBalance,
+    DepositAmount,
+    InvestFormValues,
+    LoginFormValues,
+    OfferValues,
+    RegisterFormValues,
+    userValues,
+    WithdrawnAmount,
+} from './types';
 
 export enum PAGETYPE {
     INVESTMENTS,
@@ -53,4 +62,12 @@ export const INITIAL_DEPOSIT_VALUES: DepositAmount = {
 export const INITIAL_ACCOUNT_BALANCE: AccountBalance = {
     balance: 0,
     availableFunds: 0,
+};
+
+export const USERDEFAULT: userValues = {
+    email: '',
+    firstName: '',
+    id: '',
+    lastName: '',
+    username: 'string',
 };

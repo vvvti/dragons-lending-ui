@@ -10,29 +10,11 @@ export const AuctionsGrid: React.FC = () => {
         getOwnOffersList();
     }, [getOwnOffersList]);
 
-    console.log('ownOfferList up ', ownOfferList);
-
     const columns: ColDef[] = [
-        {field: 'username', headerName: 'User', width: 250},
+        {field: 'username', headerName: 'User', width: 500},
+        {field: 'timePeriod', headerName: 'Duration (months)', type: 'number', width: 150},
         {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 150},
         {field: 'loanAmount', headerName: 'Amount (GBP)', type: 'number', width: 150},
-        // {field: 'calculation', headerName: 'Duration (months)', type: 'number', width: 150},
-        // {
-        //     field: '',
-        //     headerName: 'Button',
-        //     sortable: false,
-        //     width: 300,
-        //     disableClickEventBubbling: true,
-        //     renderCell: () => {
-        //         return (
-        //             <StyledNavLink to={ROUTES.USERHISTORY}>
-        //                 <StyledButton type="submit" size="small" variant="contained" color="primary">
-        //                     History
-        //                 </StyledButton>
-        //             </StyledNavLink>
-        //         );
-        //     },
-        // },
     ];
 
     const rows = ownOfferList;
@@ -43,3 +25,21 @@ export const AuctionsGrid: React.FC = () => {
         </StyledContainer>
     );
 };
+
+// {field: 'calculation', headerName: 'Duration (months)', type: 'number', width: 150},
+// {
+//     field: '',
+//     headerName: 'Button',
+//     sortable: false,
+//     width: 300,
+//     disableClickEventBubbling: true,
+//     renderCell: () => {
+//         return (
+//             <StyledNavLink to={ROUTES.USERHISTORY}>
+//                 <StyledButton type="submit" size="small" variant="contained" color="primary">
+//                     History
+//                 </StyledButton>
+//             </StyledNavLink>
+//         );
+//     },
+// },

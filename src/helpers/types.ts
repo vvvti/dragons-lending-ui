@@ -57,3 +57,11 @@ export interface Proposals {
 }
 
 export interface ProposalsArray extends Array<Proposals> {}
+
+export interface userValues {
+    email: string;
+    firstName: string;
+    id: string;
+    lastName: string;
+    username: string;
+}
