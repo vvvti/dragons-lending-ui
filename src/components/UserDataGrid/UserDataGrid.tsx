@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
-import {StyledGrid} from './UserDataGrid.styled';
 import {useProposals} from '../../hooks/useProposals';
+import {StyledContainer} from './UserDataGrid.styled';
 
 const columns: ColDef[] = [
     {field: 'id', headerName: 'ID', width: 50},
@@ -46,8 +46,8 @@ export const UserDataGrid: React.FC = () => {
     console.log('proposalsList up', proposalsList);
 
     return (
-        <StyledGrid>
+        <StyledContainer>
             <DataGrid rows={rows} columns={columns} pageSize={3} checkboxSelection />
-        </StyledGrid>
+        </StyledContainer>
     );
 };

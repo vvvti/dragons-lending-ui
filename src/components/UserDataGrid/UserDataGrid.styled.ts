@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledGrid = styled.div`
-    height: 90%;
-    width: 98%;
+export const StyledContainer = styled.div`
+    min-height: 300px;
+    width: 95%;
 `;
