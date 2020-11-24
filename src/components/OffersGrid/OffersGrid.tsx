@@ -133,7 +133,7 @@ export const OffersGrid: React.FC = () => {
                                             <Typography>Expand to Invest</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                            <InvestForm loanAmount={loanAmount} interestRate={interestRate} />
+                                            <InvestForm loanAmount={loanAmount} interestRate={interestRate} auctionId={id} />
                                         </AccordionDetails>
                                     </Accordion>
                                 </StyledAccordion>

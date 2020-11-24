@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {Button} from '@material-ui/core';
+import {Form} from 'formik';
 
 export const StyledButton = styled(Button)`
     grid-area: button;
@@ -7,7 +8,7 @@ export const StyledButton = styled(Button)`
     justify-self: center;
 `;
 
-export const StyledInvestForm = styled.div`
+export const StyledInvestForm = styled(Form)`
     grid-area: invest;
     display: flex;
     flex-direction: row-reverse;

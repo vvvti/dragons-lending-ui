@@ -112,7 +112,7 @@ export const StyledAvatar = styled(Avatar)`
 export const StyledSummary = styled.div`
     display: flex;
     flex-direction: column;
-    flex-basis: 280px;
+    flex-basis: 300px;
 `;
 
 export const StyledSummaryNumber = styled(NumberFormat)`
