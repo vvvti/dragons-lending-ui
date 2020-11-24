@@ -40,5 +40,5 @@ export const PageWrapper = styled.div`
     min-height: 100vh;
 `;
 export const StyledButton = styled(Button)`
-    width: 125px;
+    width: 190px;
 `;
