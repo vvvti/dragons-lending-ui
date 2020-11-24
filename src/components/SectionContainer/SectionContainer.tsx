@@ -1,6 +1,5 @@
 import React from 'react';
-import {Button} from '@material-ui/core';
-import {ButtonContainer, StyledContainer, StyledExternalLink, StyledLink, StyledTitle} from './SectionContainer.styled';
+import {ButtonContainer, StyledContainer, StyledExternalLink, StyledLink, StyledTitle, StyledButton} from './SectionContainer.styled';
 import {ROUTES} from '../../helpers/routes';
 import {CALCULATORPAGE, PAGETYPE} from '../../helpers/constants';
 
@@ -15,15 +14,15 @@ export const SectionContainer: React.FC<SectionContainerProps> = ({pageType}) =>
             <ButtonContainer>
                 {pageType === PAGETYPE.OFFERS ? (
                     <StyledLink to={ROUTES.OFFERSGRID}>
-                        <Button color="secondary" variant="contained" size="large">
+                        <StyledButton variant="contained" size="large">
                             Check out
-                        </Button>
+                        </StyledButton>
                     </StyledLink>
                 ) : (
                     <StyledExternalLink href={CALCULATORPAGE}>
-                        <Button color="secondary" variant="contained" size="large">
+                        <StyledButton variant="contained" size="large">
                             Calculate
-                        </Button>
+                        </StyledButton>
                     </StyledExternalLink>
                 )}
             </ButtonContainer>
