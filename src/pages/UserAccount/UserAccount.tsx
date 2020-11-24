@@ -4,11 +4,14 @@ import {
     StyledAvatar,
     StyledBanking,
     StyledButton,
+    StyledContainer,
     StyledGrid,
     StyledHeader,
     StyledInvest,
     StyledLoan,
     StyledProfile,
+    StyledSummary,
+    StyledSummaryNumber,
     StyledTileTitle,
     StyledTitle,
 } from './UserAccount.styled';
@@ -17,6 +20,7 @@ import {ROUTES} from '../../helpers/routes';
 import {StyledNavLink} from '../Deposit/Deposit.styled';
 import {useAuthContext} from '../../context/auth-context';
 import {useAccountBalance} from '../../hooks/useAccountBalance';
+import {CURRENCY} from '../../helpers/constants';
 
 export const UserAccount: React.FC = () => {
     const {getAccountValue, accountBalance} = useAccountBalance();
@@ -45,8 +49,27 @@ export const UserAccount: React.FC = () => {
                     </StyledNavLink>
                 </StyledProfile>
                 <StyledBanking>
-                    <StyledTitle>Account balance: {accountBalance.balance}</StyledTitle>
-                    <StyledTitle>Available Funds: {accountBalance.availableFunds}</StyledTitle>
+                    <StyledSummary>
+                        <StyledContainer>
+                            <StyledTitle>Account balance:</StyledTitle>
+                            <StyledSummaryNumber
+                                value={accountBalance.balance}
+                                displayType={'text'}
+                                thousandSeparator={true}
+                                prefix={CURRENCY.GBP}
+                            />
+                        </StyledContainer>
+                        <StyledContainer>
+                            <StyledTitle>Available funds: </StyledTitle>
+
+                            <StyledSummaryNumber
+                                value={accountBalance.availableFunds}
+                                displayType={'text'}
+                                thousandSeparator={true}
+                                prefix={CURRENCY.GBP}
+                            />
+                        </StyledContainer>
+                    </StyledSummary>
                     <div>
                         <StyledNavLink to={ROUTES.DEPOSIT}>
                             <StyledButton type="submit" size="small" variant="contained" color="primary">

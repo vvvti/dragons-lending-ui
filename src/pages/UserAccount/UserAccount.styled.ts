@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {Avatar, Button} from '@material-ui/core';
 import {colors} from '../../styles/theme';
+import NumberFormat from 'react-number-format';
 
 export const PageContainer = styled.div`
     width: 80%;
@@ -80,6 +81,7 @@ export const StyledButton = styled(Button)`
 
 export const StyledTitle = styled.span`
     font-size: 20px;
+    margin: 5px 0;
 `;
 
 export const StyledTileTitle = styled.span`
@@ -105,4 +107,21 @@ export const StyledAvatar = styled(Avatar)`
     width: 8em;
     height: 8em;
     margin-bottom: 20px;
+`;
+
+export const StyledSummary = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-basis: 280px;
+`;
+
+export const StyledSummaryNumber = styled(NumberFormat)`
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: 900;
+`;
+
+export const StyledContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
 `;

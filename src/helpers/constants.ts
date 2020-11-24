@@ -5,6 +5,10 @@ export enum PAGETYPE {
     OFFERS,
 }
 
+export enum CURRENCY {
+    GBP = '£',
+}
+
 export const POSTSPERPAGE = 6;
 
 export const CALCULATORPAGE = 'https://dragons-investments-ui.ersa-team.uat.fintechchallenge.pl/';
