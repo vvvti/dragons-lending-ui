@@ -27,7 +27,7 @@ export const Deposit: React.FC = () => {
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
                             <StyledTitle>
-                                HL <StyledColor>TECH</StyledColor>
+                                Hargreaves <StyledColor>Lansdown</StyledColor>
                             </StyledTitle>
                             <Typography component="h1" variant="h5">
                                 Deposit Money

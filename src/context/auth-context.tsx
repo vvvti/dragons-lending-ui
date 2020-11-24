@@ -46,7 +46,7 @@ export const AuthContextProvider: React.FC = ({children}) => {
         localStorage.removeItem('token');
         setTokenStorage('');
         goToMain();
-    }, []);
+    }, [goToMain]);
 
     const memoizedValue = useMemo(() => {
         return {

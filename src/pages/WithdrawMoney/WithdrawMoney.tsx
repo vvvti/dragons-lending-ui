@@ -26,7 +26,7 @@ export const WithdrawMoney: React.FC = () => {
                     await postWithdrawAmount(values);
                 }}
             >
-                {({isValid, handleBlur, touched, errors}) => (
+                {({values, isValid, handleBlur, touched, errors}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
                             <img src={withdraw} alt="withdraw" />
@@ -67,7 +67,7 @@ export const WithdrawMoney: React.FC = () => {
                                     Execute
                                 </StyledButton>
                             </StyledForm>
-                            {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
+                            <pre>{JSON.stringify(values, null, 2)}</pre>
                         </StyledPaper>
                     </Container>
                 )}
