@@ -10,9 +10,11 @@ import {ErrorMessage} from '../Login/Login.styled';
 import {INITIAL_DEPOSIT_VALUES} from '../../helpers/constants';
 import {useAccountBalance} from '../../hooks/useAccountBalance';
 import {DepositAmount} from '../../helpers/types';
+import {useToPage} from '../../hooks/useToPage';
 
 export const Deposit: React.FC = () => {
     const {postDepositAmount} = useAccountBalance();
+    const {goToUserAccount} = useToPage();
 
     return (
         <>
@@ -21,6 +23,7 @@ export const Deposit: React.FC = () => {
                 validationSchema={validationSchema}
                 onSubmit={async (values: DepositAmount) => {
                     await postDepositAmount(values);
+                    goToUserAccount();
                 }}
             >
                 {({isValid, handleBlur, touched, errors}) => (

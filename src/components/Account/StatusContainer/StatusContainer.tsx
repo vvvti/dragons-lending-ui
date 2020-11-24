@@ -14,7 +14,7 @@ export const StatusContainer: React.FC = () => {
 
     if (validToken) {
         const {exp} = validToken;
-        if (Date.now() >= exp) {
+        if (Date.now() >= exp * 1000) {
             localStorage.removeItem('token');
             setTokenStorage('');
         }

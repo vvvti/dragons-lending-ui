@@ -46,6 +46,7 @@ export const UserAccount: React.FC = () => {
                 </StyledProfile>
                 <StyledBanking>
                     <StyledTitle>Account balance: {accountBalance.balance}</StyledTitle>
+                    <StyledTitle>Available Funds: {accountBalance.availableFunds}</StyledTitle>
                     <div>
                         <StyledNavLink to={ROUTES.DEPOSIT}>
                             <StyledButton type="submit" size="small" variant="contained" color="primary">

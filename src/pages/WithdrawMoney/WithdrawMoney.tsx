@@ -11,9 +11,11 @@ import {ErrorMessage} from '../Login/Login.styled';
 import withdraw from '../../assets/withdrawal.png';
 import {useAccountBalance} from '../../hooks/useAccountBalance';
 import {WithdrawnAmount} from '../../helpers/types';
+import {useToPage} from '../../hooks/useToPage';
 
 export const WithdrawMoney: React.FC = () => {
     const {withdrawAmount, postWithdrawAmount} = useAccountBalance();
+    const {goToUserAccount} = useToPage();
 
     console.log('withdrawAmount up', withdrawAmount);
 
@@ -24,6 +26,7 @@ export const WithdrawMoney: React.FC = () => {
                 validationSchema={validationSchema}
                 onSubmit={async (values: WithdrawnAmount) => {
                     await postWithdrawAmount(values);
+                    goToUserAccount();
                 }}
             >
                 {({values, isValid, handleBlur, touched, errors}) => (
