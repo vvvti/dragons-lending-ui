@@ -26,7 +26,7 @@ export const Deposit: React.FC = () => {
                     goToUserAccount();
                 }}
             >
-                {({isValid, handleBlur, touched, errors}) => (
+                {({values, isValid, handleBlur, touched, errors}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
                             <StyledTitle>
@@ -39,31 +39,31 @@ export const Deposit: React.FC = () => {
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
+                                        <StyledText>From Account</StyledText>
+                                        <Field
+                                            ariaLabel="account"
+                                            label="Account ID"
+                                            name="fromAccountNumber"
+                                            autoFocus
+                                            onBlur={handleBlur}
+                                            prefix=""
+                                            component={InputField}
+                                        />
+                                        <ErrorMessage>{touched.fromAccountNumber && errors.fromAccountNumber}</ErrorMessage>
+                                    </Grid>
+                                    <Grid item xs={12}>
                                         <StyledText>Amount</StyledText>
                                         <Field
                                             ariaLabel="amount"
                                             label="GBP"
                                             name="amount"
                                             type="number"
-                                            autoFocus
-                                            prefix="GBP"
+                                            prefix=""
                                             onBlur={handleBlur}
                                             component={InputField}
                                         />
                                         <ErrorMessage>{touched.amount && errors.amount}</ErrorMessage>
                                     </Grid>
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <StyledText>To Account</StyledText>
-                                    <Field
-                                        ariaLabel="account"
-                                        label="Account number"
-                                        name="fromAccountNumber"
-                                        onBlur={handleBlur}
-                                        prefix=""
-                                        component={InputField}
-                                    />
-                                    <ErrorMessage>{touched.fromAccountNumber && errors.fromAccountNumber}</ErrorMessage>
                                 </Grid>
                                 <StyledButton type="submit" fullWidth variant="contained" color="primary" disabled={!isValid}>
                                     Add to your account

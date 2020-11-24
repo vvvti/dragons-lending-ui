@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {StyledButton, StyledForm, StyledPaper, StyledText, StyledTextField} from './WithdrawMoney.styled';
+import {StyledButton, StyledForm, StyledPaper, StyledText} from './WithdrawMoney.styled';
 import {Field, Formik} from 'formik';
 import {InputField} from '../../components/InputField/InputField';
 import {INITIAL_WITHDRAW_VALUES} from '../../helpers/constants';
@@ -14,12 +14,8 @@ import {WithdrawnAmount} from '../../helpers/types';
 import {useToPage} from '../../hooks/useToPage';
 
 export const WithdrawMoney: React.FC = () => {
-    const {withdrawAmount, postWithdrawAmount} = useAccountBalance();
+    const {postWithdrawAmount} = useAccountBalance();
     const {goToUserAccount} = useToPage();
-
-    console.log('withdrawAmount up', withdrawAmount);
-
-    const accountNumber = 'GB 00';
 
     return (
         <>
@@ -31,7 +27,7 @@ export const WithdrawMoney: React.FC = () => {
                     goToUserAccount();
                 }}
             >
-                {({values, isValid, handleBlur, touched, errors}) => (
+                {({isValid, handleBlur, touched, errors}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
                             <img src={withdraw} alt="withdraw" />
@@ -42,13 +38,17 @@ export const WithdrawMoney: React.FC = () => {
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
-                                        <StyledText>To Account</StyledText>
-                                        <StyledTextField
-                                            id="outlined-basic"
-                                            label="Account number*"
-                                            variant="outlined"
-                                            value={accountNumber}
+                                        <StyledText>From Account</StyledText>
+                                        <Field
+                                            ariaLabel="account"
+                                            label="Account number"
+                                            name="requestedAccountNumber"
+                                            autoFocus
+                                            onBlur={handleBlur}
+                                            prefix=""
+                                            component={InputField}
                                         />
+                                        <ErrorMessage>{touched.requestedAccountNumber && errors.requestedAccountNumber}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
                                         <StyledText>Amount</StyledText>
@@ -68,7 +68,7 @@ export const WithdrawMoney: React.FC = () => {
                                     Execute
                                 </StyledButton>
                             </StyledForm>
-                            <pre>{JSON.stringify(values, null, 2)}</pre>
+                            {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                         </StyledPaper>
                     </Container>
                 )}

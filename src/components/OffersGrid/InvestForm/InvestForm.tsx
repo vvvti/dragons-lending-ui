@@ -38,7 +38,7 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}
                 console.log(values);
             }}
         >
-            {({errors, isValid, handleBlur, touched}) => (
+            {({errors, isValid, handleBlur, isSubmitting, touched}) => (
                 <StyledInvestForm>
                     <StyledAmount>
                         <Field
@@ -64,7 +64,13 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}
                             component={InputField}
                         />
                     </StyledPercentage>
-                    <StyledButton type="submit" variant="contained" color="primary" onClick={handleClick} disabled={!tokenStorage}>
+                    <StyledButton
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                        onClick={handleClick}
+                        disabled={!tokenStorage || isSubmitting}
+                    >
                         Invest
                     </StyledButton>
                     <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>

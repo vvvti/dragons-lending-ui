@@ -62,15 +62,13 @@ export const UserAccount: React.FC = () => {
                 </StyledBanking>
                 <StyledInvest>
                     <StyledHeader>
-                        <StyledTileTitle>Invested capital: 400 GBP</StyledTileTitle>
-                        <StyledTileTitle>Average return: 7%</StyledTileTitle>
+                        <StyledTileTitle>Offers</StyledTileTitle>
                     </StyledHeader>
                     <UserDataGrid />
                 </StyledInvest>
                 <StyledLoan>
                     <StyledHeader>
-                        <StyledTileTitle>Borrowed capital: 400 GBP</StyledTileTitle>
-                        <StyledTileTitle>Average interest rate: 10%</StyledTileTitle>
+                        <StyledTileTitle>Auctions</StyledTileTitle>
                     </StyledHeader>
                     <UserDataGrid />
                 </StyledLoan>
