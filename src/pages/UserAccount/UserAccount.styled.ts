@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {Avatar, Button} from '@material-ui/core';
 import {colors} from '../../styles/theme';
+import NumberFormat from 'react-number-format';
 
 export const PageContainer = styled.div`
     width: 80%;
@@ -17,7 +18,7 @@ export const StyledGrid = styled.div`
         'profile loan loan loan'
         'profile loan loan loan';
     grid-template-columns: repeat(4, 1fr);
-    height: 90vh;
+    min-height: 90vh;
 `;
 
 export const StyledProfile = styled.div`
@@ -25,7 +26,7 @@ export const StyledProfile = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px 0;
+    margin-top: 20px;
     padding: 20px 20px;
     box-shadow: 0 4px 12px ${colors.boxShadow};
 `;
@@ -48,7 +49,7 @@ export const StyledInvest = styled.div`
     justify-content: space-between;
     padding: 5px 5px;
     box-shadow: 0 4px 12px ${colors.boxShadow};
-    height: 34vh;
+    min-height: 30vh;
 `;
 
 export const StyledLoan = styled.div`
@@ -59,7 +60,7 @@ export const StyledLoan = styled.div`
     justify-content: space-between;
     padding: 5px 5px;
     box-shadow: 0 4px 12px ${colors.boxShadow};
-    height: 33vh;
+    min-height: 30vh;
 `;
 
 export const StyledTile = styled.div`
@@ -72,14 +73,6 @@ export const StyledTile = styled.div`
     box-shadow: 0 4px 12px ${colors.boxShadow};
 `;
 
-export const StyledTileContainer = styled.div`
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-around;
-    margin: 40px 0;
-`;
-
 export const StyledButton = styled(Button)`
     width: 125px;
     height: 40px;
@@ -88,11 +81,14 @@ export const StyledButton = styled(Button)`
 
 export const StyledTitle = styled.span`
     font-size: 20px;
+    margin: 5px 0;
 `;
 
 export const StyledTileTitle = styled.span`
     border-bottom: 2px solid ${colors.darkblue};
-    font-size: 16px;
+    font-size: 24px;
+    font-weight: 900;
+    margin: 10px 0;
 `;
 export const StyledDetailsText = styled.span`
     font-size: 36px;
@@ -111,4 +107,21 @@ export const StyledAvatar = styled(Avatar)`
     width: 8em;
     height: 8em;
     margin-bottom: 20px;
+`;
+
+export const StyledSummary = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-basis: 280px;
+`;
+
+export const StyledSummaryNumber = styled(NumberFormat)`
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: 900;
+`;
+
+export const StyledContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
 `;

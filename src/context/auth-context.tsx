@@ -2,6 +2,7 @@ import React, {useCallback, useContext, useMemo, useState} from 'react';
 import {postLoginValues} from '../api/loginApi';
 import {LoginFormValues} from '../helpers/types';
 import {useToPage} from '../hooks/useToPage';
+import jwtDecode from 'jwt-decode';
 
 interface AuthContextValue {
     loginError: string;
@@ -27,6 +28,17 @@ export const AuthContextProvider: React.FC = ({children}) => {
     const [tokenStorage, setTokenStorage] = useState(tokenFromLocalStorage);
     const [loginError, setLoginError] = useState('');
     const {goToMain} = useToPage();
+    let validToken: any;
+
+    if (tokenStorage) {
+        validToken = jwtDecode(tokenStorage);
+        const {exp} = validToken;
+        if (Date.now() >= exp * 1000) {
+            localStorage.removeItem('token');
+            setTokenStorage('');
+            goToMain();
+        }
+    }
 
     const login = useCallback(
         async (values: LoginFormValues) => {

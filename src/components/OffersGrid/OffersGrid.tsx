@@ -22,6 +22,7 @@ import {InvestForm} from './InvestForm/InvestForm';
 import {useOffer} from '../../hooks/useOffer';
 import {POSTSPERPAGE} from '../../helpers/constants';
 import {getImagesUrl, getPageNumbers} from './OffersGrid.helpers';
+import {Loading} from '../Loading/Loading';
 
 export const OffersGrid: React.FC = () => {
     const {getOffers, offersList} = useOffer();
@@ -140,7 +141,7 @@ export const OffersGrid: React.FC = () => {
                         );
                     })
                 ) : (
-                    <div>No results</div>
+                    <Loading />
                 )}
             </GridView>
             <StyledPagination>

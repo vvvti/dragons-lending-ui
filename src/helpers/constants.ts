@@ -5,6 +5,10 @@ export enum PAGETYPE {
     OFFERS,
 }
 
+export enum CURRENCY {
+    GBP = '£',
+}
+
 export const POSTSPERPAGE = 6;
 
 export const CALCULATORPAGE = 'https://dragons-investments-ui.ersa-team.uat.fintechchallenge.pl/';
@@ -35,12 +39,12 @@ export const INITIAL_INVEST_VALUES: InvestFormValues = {
     investRate: 500,
 };
 export const INITIAL_WITHDRAW_VALUES: WithdrawnAmount = {
-    requestedAccountNumber: 'f6dbf26d-b274-47b5-8bbf-71d26da467f8',
+    requestedAccountNumber: '',
     amount: '',
 };
 
 export const INITIAL_DEPOSIT_VALUES: DepositAmount = {
-    fromAccountNumber: 'f6dbf26d-b274-47b5-8bbf-71d26da467f8',
+    fromAccountNumber: '',
     amount: '',
 };
 
