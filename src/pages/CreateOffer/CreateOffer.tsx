@@ -111,8 +111,8 @@ export const CreateOffer: React.FC = () => {
                                     prefix=""
                                     onBlur={handleBlur}
                                 />
-                                <StyledButton type="submit" size="small" variant="contained" color="primary" disabled={!isValid}>
-                                    Create Offer
+                                <StyledButton type="submit" variant="contained" color="primary" disabled={!isValid}>
+                                    Create an auction
                                 </StyledButton>
                                 <ErrorMessage>{touched.endDate && errors.endDate}</ErrorMessage>
                             </StyledInputWrapper>

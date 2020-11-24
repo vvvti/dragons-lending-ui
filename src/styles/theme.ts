@@ -10,6 +10,9 @@ export const colors = {
     redBackground: 'hsl(339, 100%, 43%)',
     boxShadow: 'hsla(211, 24%, 78%, 0.5)',
     transparentBackground: 'hsla(0, 0%, 0%, 0.8)',
+    subPagesBackground: '#0c1f37',
+    dragonOrange: '#fcac4c',
+    dragonRed: '#fc2424',
 };
 
 export const defaultBorderRadius = '5px';

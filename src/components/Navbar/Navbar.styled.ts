@@ -42,22 +42,23 @@ export const StyledMenu = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: ${colors.white};
+    color: ${colors.dragonOrange};
     text-transform: uppercase;
     background-color: ${colors.grayBackground};
-    padding: 0 40px 0 20px;
+    padding: 0 0 0 20px;
 `;
 
 export const Logo = styled.img`
-    height: 50px;
-    margin: 0 20px 0 20px;
+    height: 70px;
+
+    // margin: 0 20px 0 20px;
 `;
 
 export const StyledNavLink = styled(NavLink).attrs(() => ({
     activeClassName,
 }))`
     text-decoration: none;
-    color: ${colors.white};
+    color: ${colors.dragonOrange};
     font-size: 16px;
     margin: 20px 10px;
     background-color: ${colors.grayBackground};
@@ -78,6 +79,8 @@ export const StyledAvatar = styled(Avatar)`
     width: 2em;
     height: 2em;
     margin-left: 20px;
+    color: ${colors.dragonRed};
+    background-color: ${colors.dragonOrange};
 `;
 
 export const StyledAccount = styled(NavLink).attrs(() => ({
@@ -87,17 +90,17 @@ export const StyledAccount = styled(NavLink).attrs(() => ({
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: ${colors.white};
+    color: ${colors.dragonOrange};
     font-size: 16px;
-    margin: 20px 10px;
+    margin: 20px 0;
     background-color: ${colors.grayBackground};
     text-transform: uppercase;
 
     &:hover {
-        color: ${colors.red};
+        color: ${colors.dragonRed};
     }
 
     &.${activeClassName} {
-        color: ${colors.red};
+        color: ${colors.dragonRed};
     }
 `;

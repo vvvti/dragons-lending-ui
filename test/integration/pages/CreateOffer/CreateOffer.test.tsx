@@ -25,7 +25,7 @@ describe('CreateOffer', () => {
         const endDateInput = screen.getByLabelText(/Offer expiry date/i);
         await fireEvent.change(endDateInput, '12-25-2019');
 
-        const submitButton = screen.getByRole('button', {name: /create offer/i});
+        const submitButton = screen.getByRole('button', {name: /create an auction/i});
 
         await waitFor(() => {
             expect(submitButton).toBeDisabled();
