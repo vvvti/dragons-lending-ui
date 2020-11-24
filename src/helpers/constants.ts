@@ -36,12 +36,12 @@ export const INITIAL_INVEST_VALUES: InvestFormValues = {
 };
 export const INITIAL_WITHDRAW_VALUES: WithdrawnAmount = {
     requestedAccountNumber: 'f6dbf26d-b274-47b5-8bbf-71d26da467f8',
-    amount: 0,
+    amount: '',
 };
 
 export const INITIAL_DEPOSIT_VALUES: DepositAmount = {
     fromAccountNumber: 'f6dbf26d-b274-47b5-8bbf-71d26da467f8',
-    amount: 0,
+    amount: '',
 };
 
 export const INITIAL_ACCOUNT_BALANCE: AccountBalance = {

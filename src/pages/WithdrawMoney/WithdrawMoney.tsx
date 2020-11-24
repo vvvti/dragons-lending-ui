@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {StyledButton, StyledForm, StyledPaper, StyledText} from './WithdrawMoney.styled';
+import {StyledButton, StyledForm, StyledPaper, StyledText, StyledTextField} from './WithdrawMoney.styled';
 import {Field, Formik} from 'formik';
 import {InputField} from '../../components/InputField/InputField';
 import {INITIAL_WITHDRAW_VALUES} from '../../helpers/constants';
@@ -18,6 +18,8 @@ export const WithdrawMoney: React.FC = () => {
     const {goToUserAccount} = useToPage();
 
     console.log('withdrawAmount up', withdrawAmount);
+
+    const accountNumber = 'GB 00';
 
     return (
         <>
@@ -41,16 +43,12 @@ export const WithdrawMoney: React.FC = () => {
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
                                         <StyledText>To Account</StyledText>
-                                        <Field
-                                            ariaLabel="account"
-                                            label="Account number"
-                                            name="requestedAccountNumber"
-                                            autoFocus
-                                            onBlur={handleBlur}
-                                            prefix=""
-                                            component={InputField}
+                                        <StyledTextField
+                                            id="outlined-basic"
+                                            label="Account number*"
+                                            variant="outlined"
+                                            value={accountNumber}
                                         />
-                                        <ErrorMessage>{touched.requestedAccountNumber && errors.requestedAccountNumber}</ErrorMessage>
                                     </Grid>
                                     <Grid item xs={12}>
                                         <StyledText>Amount</StyledText>
@@ -59,7 +57,7 @@ export const WithdrawMoney: React.FC = () => {
                                             label="GBP"
                                             name="amount"
                                             type="number"
-                                            prefix="GBP"
+                                            prefix=""
                                             onBlur={handleBlur}
                                             component={InputField}
                                         />
