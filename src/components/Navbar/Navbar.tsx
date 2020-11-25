@@ -13,10 +13,10 @@ export const Navbar: React.FC = () => {
                 <StyledNavLink to={ROUTES.HOME}>{<Logo src={dragonImage} alt="" />}</StyledNavLink>
             </StyledLogoContainer>
             <StyledMenu>
-                <StyledNavLink to={ROUTES.ABOUT}>ABOUT</StyledNavLink>
                 <StyledNavLink to={ROUTES.OFFERSGRID}>AUCTIONS</StyledNavLink>
                 <StyledNavLink to={ROUTES.CONTACT}>CONTACT</StyledNavLink>
                 <StyledNavLink to={ROUTES.RULES}>RULES</StyledNavLink>
+                <StyledNavLink to={ROUTES.ABOUT}>ABOUT</StyledNavLink>
 
                 {tokenStorage ? (
                     <StyledAccount to={ROUTES.USERACCOUNT}>
