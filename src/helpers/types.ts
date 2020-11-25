@@ -44,14 +44,18 @@ export interface WithdrawnAmount {
     amount: number | '';
 }
 
+export interface Calculation {
+    finalValue: number;
+    periodValue: number;
+}
+
+export interface CalculationArray extends Array<Calculation> {}
+
 export interface Proposals {
     id: string;
     offerAmount: number;
     interestRate: number;
-    calculation: {
-        finalValue: number;
-        periodValue: number;
-    };
+    calculation: Calculation;
     userId: string;
     username: string;
 }
