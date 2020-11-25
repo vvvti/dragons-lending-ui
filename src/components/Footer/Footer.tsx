@@ -1,6 +1,5 @@
 import React from 'react';
-import {StyledFooter} from './Footer.styled';
-import {StyledListElement, StyledFooterContainer, StyledHeader, StyledNavLink, StyledExternalLink} from './Footer.styled';
+import {StyledExternalLink, StyledFooter, StyledFooterContainer, StyledHeader, StyledListElement, StyledNavLink} from './Footer.styled';
 import {ROUTES} from '../../helpers/routes';
 import {CALCULATORPAGE, FACEBOOK, LINKEDIN, TWITTER} from '../../helpers/constants';
 
@@ -10,6 +9,14 @@ export const Footer: React.FC = () => {
             <StyledFooterContainer>
                 <div>
                     <StyledHeader>DRAGONS LENDING</StyledHeader>
+                    <ul>
+                        <StyledNavLink to={ROUTES.RULES}>
+                            <StyledListElement>Rules</StyledListElement>
+                        </StyledNavLink>
+                        <StyledNavLink to={ROUTES.PRIVACY}>
+                            <StyledListElement>Privacy</StyledListElement>
+                        </StyledNavLink>
+                    </ul>
                 </div>
                 <div>
                     <StyledHeader>Company</StyledHeader>
@@ -19,12 +26,6 @@ export const Footer: React.FC = () => {
                         </StyledNavLink>
                         <StyledNavLink to={ROUTES.ABOUT}>
                             <StyledListElement>About</StyledListElement>
-                        </StyledNavLink>
-                        <StyledNavLink to={ROUTES.RULES}>
-                            <StyledListElement>Rules</StyledListElement>
-                        </StyledNavLink>
-                        <StyledNavLink to={ROUTES.PRIVACY}>
-                            <StyledListElement>Privacy</StyledListElement>
                         </StyledNavLink>
                         <StyledNavLink to={ROUTES.CONTACT}>
                             <StyledListElement>Contact</StyledListElement>

@@ -9,6 +9,7 @@ export const StyledPaper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 63vh;
 `;
 
 export const StyledLogo = styled.div`

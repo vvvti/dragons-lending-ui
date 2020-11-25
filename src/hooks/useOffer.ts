@@ -7,7 +7,7 @@ import {useToPage} from './useToPage';
 export const useOffer = () => {
     // const [offersList, setOffersList] = useState<OffersArray>([OFFER_VALUES]);
     const [offersList, setOffersList] = useState<OffersArray>([]);
-    const [ownOfferList, setOwnOfferList] = useState([]);
+    const [ownOfferList, setOwnOfferList] = useState<OffersArray>([]);
     const {tokenStorage} = useAuthContext();
     const {goToMain} = useToPage();
 

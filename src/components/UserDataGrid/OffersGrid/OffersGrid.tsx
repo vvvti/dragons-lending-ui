@@ -10,35 +10,41 @@ export const OffersGrid: React.FC = () => {
         getProposals();
     }, [getProposals]);
 
+    const rowsData = proposalsList.map(obj => ({
+        ...obj,
+        finalValue: obj.calculation.finalValue.toFixed(2),
+        periodValue: obj.calculation.periodValue,
+        idValue: obj.id.substring(0, 8),
+    }));
+
     const columns: ColDef[] = [
-        {field: 'username', headerName: 'User', width: 650},
+        {field: 'idValue', headerName: 'Auction ID', width: 300},
+        {field: 'periodValue', headerName: 'Period Value ', type: 'number', width: 150},
         {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 150},
         {field: 'offerAmount', headerName: 'Amount (GBP)', type: 'number', width: 150},
+        {field: 'finalValue', headerName: 'Final Value(GBP)', type: 'number', width: 150},
+        // {
+        //     field: '',
+        //     headerName: '',
+        //     sortable: false,
+        //     width: 120,
+        //     disableClickEventBubbling: true,
+        //     renderCell: () => {
+        //         return (
+        //             <Button type="submit" size="small" variant="contained" color="secondary"
+        //                     onClick={deleteProposals}>
+        //                 Remove
+        //             </Button>
+        //         );
+        //     },
+        // },
     ];
-
-    const rows = proposalsList;
 
     return (
         <StyledContainer>
-            <DataGrid rows={rows} columns={columns} pageSize={3} checkboxSelection />
+            <DataGrid rows={rowsData} columns={columns} pageSize={3} checkboxSelection />
         </StyledContainer>
     );
 };
 
 // {field: 'calculation', headerName: 'Duration (months)', type: 'number', width: 150},
-// {
-//     field: '',
-//     headerName: 'Button',
-//     sortable: false,
-//     width: 300,
-//     disableClickEventBubbling: true,
-//     renderCell: () => {
-//         return (
-//             <StyledNavLink to={ROUTES.USERHISTORY}>
-//                 <StyledButton type="submit" size="small" variant="contained" color="primary">
-//                     History
-//                 </StyledButton>
-//             </StyledNavLink>
-//         );
-//     },
-// },

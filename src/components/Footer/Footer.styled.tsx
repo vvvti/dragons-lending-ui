@@ -20,7 +20,7 @@ export const StyledListElement = styled.li`
     text-decoration: none;
     list-style: none;
     font-size: 12px;
-    margin-left -40px;
+    margin-left: -40px;
 `;
 
 export const StyledHeader = styled.h6`

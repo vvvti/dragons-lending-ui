@@ -11,17 +11,20 @@ export const AuctionsGrid: React.FC = () => {
     }, [getOwnOffersList]);
 
     const columns: ColDef[] = [
-        {field: 'username', headerName: 'User', width: 500},
+        {field: 'idValue', headerName: 'Auction ID', width: 500},
         {field: 'timePeriod', headerName: 'Duration (months)', type: 'number', width: 150},
         {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 150},
         {field: 'loanAmount', headerName: 'Amount (GBP)', type: 'number', width: 150},
     ];
 
-    const rows = ownOfferList;
+    const rowsData = ownOfferList.map((obj, index) => ({
+        ...obj,
+        idValue: obj.id.substring(0, 8),
+    }));
 
     return (
         <StyledContainer>
-            <DataGrid rows={rows} columns={columns} pageSize={3} checkboxSelection />
+            <DataGrid rows={rowsData} columns={columns} pageSize={3} checkboxSelection />
         </StyledContainer>
     );
 };

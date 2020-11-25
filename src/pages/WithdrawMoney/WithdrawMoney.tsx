@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {StyledButton, StyledForm, StyledPaper, StyledText} from './WithdrawMoney.styled';
+import {StyledButton, StyledErrorMessage, StyledForm, StyledPaper, StyledText} from './WithdrawMoney.styled';
 import {Field, Formik} from 'formik';
 import {InputField} from '../../components/InputField/InputField';
 import {INITIAL_WITHDRAW_VALUES} from '../../helpers/constants';
@@ -11,11 +11,9 @@ import {ErrorMessage} from '../Login/Login.styled';
 import withdraw from '../../assets/withdrawal.png';
 import {useAccountBalance} from '../../hooks/useAccountBalance';
 import {WithdrawnAmount} from '../../helpers/types';
-import {useToPage} from '../../hooks/useToPage';
 
 export const WithdrawMoney: React.FC = () => {
-    const {postWithdrawAmount} = useAccountBalance();
-    const {goToUserAccount} = useToPage();
+    const {postWithdrawAmount, errorMessage} = useAccountBalance();
 
     return (
         <>
@@ -24,7 +22,6 @@ export const WithdrawMoney: React.FC = () => {
                 validationSchema={validationSchema}
                 onSubmit={async (values: WithdrawnAmount) => {
                     await postWithdrawAmount(values);
-                    goToUserAccount();
                 }}
             >
                 {({isValid, handleBlur, touched, errors}) => (
@@ -34,7 +31,7 @@ export const WithdrawMoney: React.FC = () => {
                             <Typography component="h1" variant="h5">
                                 Withdraw Money
                             </Typography>
-
+                            <StyledErrorMessage>{errorMessage}</StyledErrorMessage>
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>

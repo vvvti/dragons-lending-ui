@@ -8,3 +8,7 @@ export const getProposalsList = (config: any) => {
 export const postProposalsList = (values: InvestFormValues, config: any) => {
     return axios.post(`/offers`, values, config);
 };
+
+export const deleteProposalItem = (id: string, config: any) => {
+    return axios.delete(`/offers/${id}`, config);
+};

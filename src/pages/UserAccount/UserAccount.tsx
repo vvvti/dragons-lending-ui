@@ -10,11 +10,13 @@ import {
     StyledInvest,
     StyledLoan,
     StyledProfile,
+    StyledProfileText,
     StyledSummary,
     StyledSummaryNumber,
     StyledTileTitle,
     StyledTitle,
-    StyledProfileText,
+    StyledUserDetails,
+    StyledUserName,
 } from './UserAccount.styled';
 import {OffersGrid} from '../../components/UserDataGrid/OffersGrid/OffersGrid';
 import {ROUTES} from '../../helpers/routes';
@@ -36,8 +38,6 @@ export const UserAccount: React.FC = () => {
         getUserDetails();
     }, [getAccountValue, getUserDetails]);
 
-    console.log('userDetails up', userDetails);
-
     const handleButtonClick = () => {
         logout();
     };
@@ -46,11 +46,13 @@ export const UserAccount: React.FC = () => {
             <StyledGrid>
                 <StyledProfile>
                     <StyledAvatar />
-                    <StyledProfileText>
-                        {userDetails.firstName} {userDetails.lastName}
-                    </StyledProfileText>
-                    <StyledProfileText>{userDetails.email}</StyledProfileText>
-                    <StyledProfileText>username: {userDetails.username}</StyledProfileText>
+                    <StyledUserDetails>
+                        <StyledUserName>
+                            {userDetails.firstName} {userDetails.lastName}
+                        </StyledUserName>
+                        <StyledProfileText>{userDetails.email}</StyledProfileText>
+                        <StyledProfileText>username: {userDetails.username}</StyledProfileText>
+                    </StyledUserDetails>
                     <StyledButton onClick={handleButtonClick} size="small" variant="contained" color="primary">
                         Logout
                     </StyledButton>
