@@ -35,19 +35,6 @@ export const WithdrawMoney: React.FC = () => {
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
-                                        <StyledText>From Account</StyledText>
-                                        <Field
-                                            ariaLabel="account"
-                                            label="Account number"
-                                            name="requestedAccountNumber"
-                                            autoFocus
-                                            onBlur={handleBlur}
-                                            prefix=""
-                                            component={InputField}
-                                        />
-                                        <ErrorMessage>{touched.requestedAccountNumber && errors.requestedAccountNumber}</ErrorMessage>
-                                    </Grid>
-                                    <Grid item xs={12}>
                                         <StyledText>Amount</StyledText>
                                         <Field
                                             ariaLabel="amount"
@@ -55,10 +42,23 @@ export const WithdrawMoney: React.FC = () => {
                                             name="amount"
                                             type="number"
                                             prefix=""
+                                            autoFocus
                                             onBlur={handleBlur}
                                             component={InputField}
                                         />
                                         <ErrorMessage>{touched.amount && errors.amount}</ErrorMessage>
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <StyledText>To Account</StyledText>
+                                        <Field
+                                            ariaLabel="account"
+                                            label="Account number"
+                                            name="requestedAccountNumber"
+                                            onBlur={handleBlur}
+                                            prefix=""
+                                            component={InputField}
+                                        />
+                                        <ErrorMessage>{touched.requestedAccountNumber && errors.requestedAccountNumber}</ErrorMessage>
                                     </Grid>
                                 </Grid>
                                 <StyledButton type="submit" fullWidth variant="contained" color="primary" disabled={!isValid}>

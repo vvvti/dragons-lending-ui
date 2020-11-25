@@ -18,11 +18,12 @@ export const OffersGrid: React.FC = () => {
     }));
 
     const columns: ColDef[] = [
-        {field: 'idValue', headerName: 'Auction ID', width: 300},
-        {field: 'periodValue', headerName: 'Period Value ', type: 'number', width: 150},
+        {field: 'idValue', headerName: 'Auction ID', width: 450},
+        // {field: 'periodValue', headerName: 'Period Value ', type: 'number', width: 150},
         {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 150},
         {field: 'offerAmount', headerName: 'Amount (GBP)', type: 'number', width: 150},
         {field: 'finalValue', headerName: 'Final Value(GBP)', type: 'number', width: 150},
+
         // {
         //     field: '',
         //     headerName: '',
