@@ -1,20 +1,22 @@
 import styled from 'styled-components';
-import Avatar from '@material-ui/core/Avatar';
 import {Button} from '@material-ui/core';
 import {Form} from 'formik';
 import {NavLink} from 'react-router-dom';
 import {colors} from '../../styles/theme';
 
 export const StyledPaper = styled.div`
-    margin-top: 100px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
 `;
 
-export const StyledAvatar = styled(Avatar)`
-    background-color: ${colors.redBackground};
+export const StyledLogo = styled.div`
     margin: 10px 0;
+`;
+
+export const Logo = styled.img`
+    height: 70px;
 `;
 
 export const StyledForm = styled(Form)`

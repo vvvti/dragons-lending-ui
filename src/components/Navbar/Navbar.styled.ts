@@ -50,8 +50,6 @@ export const StyledMenu = styled.div`
 
 export const Logo = styled.img`
     height: 70px;
-
-    // margin: 0 20px 0 20px;
 `;
 
 export const StyledNavLink = styled(NavLink).attrs(() => ({

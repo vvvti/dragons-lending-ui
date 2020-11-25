@@ -1,9 +1,9 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {ErrorMessage, StyledAvatar, StyledButton, StyledForm, StyledPaper, StyledRegisterPage} from './Login.styled';
+import {ErrorMessage, StyledLogo, Logo, StyledButton, StyledForm, StyledPaper, StyledRegisterPage} from './Login.styled';
 import {Field, Formik} from 'formik';
 import {validationSchema} from './Login.helpers';
 import {INITIAL_LOGIN_VALUES} from '../../helpers/constants';
@@ -11,6 +11,7 @@ import {ROUTES} from '../../helpers/routes';
 import {InputField} from '../../components/InputField/InputField';
 import {LoginFormValues} from '../../helpers/types';
 import {useAuthContext} from '../../context/auth-context';
+import dragonLogo from '../../assets/dragon_solo.png';
 
 export const Login: React.FC = () => {
     const {login, loginError} = useAuthContext();
@@ -27,9 +28,9 @@ export const Login: React.FC = () => {
                 {({isValid, errors, handleBlur, touched}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
-                            <StyledAvatar color="primary">
-                                <LockOutlinedIcon />
-                            </StyledAvatar>
+                            <StyledLogo>
+                                <Logo src={dragonLogo} alt="" />
+                            </StyledLogo>
                             <Typography component="h1" variant="h5">
                                 Sign in
                             </Typography>

@@ -13,7 +13,7 @@ export const StyledAbout = styled.div`
     text-align: justify;
     text-justify: inter-word;
     color: white;
-    height: 80vh;
+    height: 95vh;
 `;
 export const StyledHeader = styled.h1`
     text-align: center;

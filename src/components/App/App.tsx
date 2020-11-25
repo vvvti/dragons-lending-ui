@@ -6,6 +6,7 @@ import {Routes} from '../../routes/Routes';
 import {Navbar} from '../Navbar/Navbar';
 import {GlobalStyle} from '../../styles/GlobalStyle';
 import {AuthContextProvider} from '../../context/auth-context';
+import {Footer} from '../Footer/Footer';
 
 export const App: React.FC = () => {
     return (
@@ -16,6 +17,7 @@ export const App: React.FC = () => {
                     <GlobalStyle />
                     <Navbar />
                     <Routes />
+                    <Footer />
                 </AuthContextProvider>
             </BrowserRouter>
         </StylesProvider>

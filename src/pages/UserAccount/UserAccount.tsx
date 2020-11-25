@@ -14,6 +14,7 @@ import {
     StyledSummaryNumber,
     StyledTileTitle,
     StyledTitle,
+    StyledProfileText,
 } from './UserAccount.styled';
 import {OffersGrid} from '../../components/UserDataGrid/OffersGrid/OffersGrid';
 import {ROUTES} from '../../helpers/routes';
@@ -45,7 +46,11 @@ export const UserAccount: React.FC = () => {
             <StyledGrid>
                 <StyledProfile>
                     <StyledAvatar />
-                    <StyledTitle>{userDetails.firstName}</StyledTitle>
+                    <StyledProfileText>
+                        {userDetails.firstName} {userDetails.lastName}
+                    </StyledProfileText>
+                    <StyledProfileText>{userDetails.email}</StyledProfileText>
+                    <StyledProfileText>username: {userDetails.username}</StyledProfileText>
                     <StyledButton onClick={handleButtonClick} size="small" variant="contained" color="primary">
                         Logout
                     </StyledButton>

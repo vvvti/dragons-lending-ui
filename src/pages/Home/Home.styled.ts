@@ -4,7 +4,7 @@ import tropical from '../../assets/tropical.jpg';
 export const StyledGrid = styled.div`
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 80vh;
 `;
 
 export const StyledMain = styled.main`
