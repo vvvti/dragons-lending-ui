@@ -10,11 +10,9 @@ import {ErrorMessage} from '../Login/Login.styled';
 import {INITIAL_DEPOSIT_VALUES} from '../../helpers/constants';
 import {useAccountBalance} from '../../hooks/useAccountBalance';
 import {DepositAmount} from '../../helpers/types';
-import {useToPage} from '../../hooks/useToPage';
 
 export const Deposit: React.FC = () => {
-    const {postDepositAmount} = useAccountBalance();
-    const {goToUserAccount} = useToPage();
+    const {postDepositAmount, errorMessage} = useAccountBalance();
 
     return (
         <>
@@ -23,7 +21,6 @@ export const Deposit: React.FC = () => {
                 validationSchema={validationSchema}
                 onSubmit={async (values: DepositAmount) => {
                     await postDepositAmount(values);
-                    goToUserAccount();
                 }}
             >
                 {({values, isValid, handleBlur, touched, errors}) => (
@@ -35,7 +32,7 @@ export const Deposit: React.FC = () => {
                             <Typography component="h1" variant="h5">
                                 Deposit Money
                             </Typography>
-
+                            {errorMessage}
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>

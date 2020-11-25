@@ -10,11 +10,11 @@ import {
     StyledInvest,
     StyledLoan,
     StyledProfile,
+    StyledProfileText,
     StyledSummary,
     StyledSummaryNumber,
     StyledTileTitle,
     StyledTitle,
-    StyledProfileText,
 } from './UserAccount.styled';
 import {OffersGrid} from '../../components/UserDataGrid/OffersGrid/OffersGrid';
 import {ROUTES} from '../../helpers/routes';
@@ -35,8 +35,6 @@ export const UserAccount: React.FC = () => {
         getAccountValue();
         getUserDetails();
     }, [getAccountValue, getUserDetails]);
-
-    console.log('userDetails up', userDetails);
 
     const handleButtonClick = () => {
         logout();

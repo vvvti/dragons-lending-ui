@@ -14,7 +14,7 @@ import {WithdrawnAmount} from '../../helpers/types';
 import {useToPage} from '../../hooks/useToPage';
 
 export const WithdrawMoney: React.FC = () => {
-    const {postWithdrawAmount} = useAccountBalance();
+    const {postWithdrawAmount, errorMessage} = useAccountBalance();
     const {goToUserAccount} = useToPage();
 
     return (
@@ -24,7 +24,6 @@ export const WithdrawMoney: React.FC = () => {
                 validationSchema={validationSchema}
                 onSubmit={async (values: WithdrawnAmount) => {
                     await postWithdrawAmount(values);
-                    goToUserAccount();
                 }}
             >
                 {({isValid, handleBlur, touched, errors}) => (
@@ -34,7 +33,7 @@ export const WithdrawMoney: React.FC = () => {
                             <Typography component="h1" variant="h5">
                                 Withdraw Money
                             </Typography>
-
+                            {errorMessage}
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
