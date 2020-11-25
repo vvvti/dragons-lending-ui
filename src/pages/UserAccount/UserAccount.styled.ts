@@ -126,6 +126,18 @@ export const StyledContainer = styled.div`
     justify-content: space-between;
 `;
 
-export const StyledProfileText = styled.span`
+export const StyledProfileText = styled.div`
     font-size: 14px;
+    margin: 2px 0;
+`;
+
+export const StyledUserDetails = styled.div`
+    margin: 10px 0 20px;
+    text-align: center;
+`;
+
+export const StyledUserName = styled.div`
+    font-size: 24px;
+    font-weight: 900;
+    margin: 10px 0;
 `;

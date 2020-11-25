@@ -10,6 +10,7 @@ export const StyledPaper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 59vh;
 `;
 
 export const StyledAvatar = styled(Avatar)`

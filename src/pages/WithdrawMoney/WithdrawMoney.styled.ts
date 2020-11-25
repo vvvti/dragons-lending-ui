@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Button, TextField} from '@material-ui/core';
+import {Button} from '@material-ui/core';
 import {Form} from 'formik';
 import {NavLink} from 'react-router-dom';
 import {colors} from '../../styles/theme';
@@ -9,6 +9,7 @@ export const StyledPaper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 59vh;
 `;
 
 export const StyledForm = styled(Form)`
@@ -36,6 +37,6 @@ export const StyledColor = styled.span`
     color: ${colors.marine};
 `;
 
-export const StyledTextField = styled(TextField)`
-    width: 100%;
+export const StyledErrorMessage = styled.span`
+    color: ${colors.red};
 `;
