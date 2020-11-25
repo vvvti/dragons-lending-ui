@@ -1,24 +1,41 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     PageContainer,
     StyledAvatar,
     StyledBanking,
     StyledButton,
+    StyledContainer,
     StyledGrid,
     StyledHeader,
     StyledInvest,
     StyledLoan,
     StyledProfile,
+    StyledSummary,
+    StyledSummaryNumber,
     StyledTileTitle,
     StyledTitle,
 } from './UserAccount.styled';
-import {UserDataGrid} from '../../components/UserDataGrid/UserDataGrid';
+import {OffersGrid} from '../../components/UserDataGrid/OffersGrid/OffersGrid';
 import {ROUTES} from '../../helpers/routes';
 import {StyledNavLink} from '../Deposit/Deposit.styled';
 import {useAuthContext} from '../../context/auth-context';
+import {useAccountBalance} from '../../hooks/useAccountBalance';
+import {CURRENCY} from '../../helpers/constants';
+import {AuctionsGrid} from '../../components/UserDataGrid/AuctionsGrid/AuctionsGrid';
+import {useUser} from '../../hooks/useUser';
 
 export const UserAccount: React.FC = () => {
+    const {getAccountValue, accountBalance} = useAccountBalance();
     const {logout} = useAuthContext();
+
+    const {userDetails, getUserDetails} = useUser();
+
+    useEffect(() => {
+        getAccountValue();
+        getUserDetails();
+    }, [getAccountValue, getUserDetails]);
+
+    console.log('userDetails up', userDetails);
 
     const handleButtonClick = () => {
         logout();
@@ -28,7 +45,7 @@ export const UserAccount: React.FC = () => {
             <StyledGrid>
                 <StyledProfile>
                     <StyledAvatar />
-                    <StyledTitle>Jan Kowalski</StyledTitle>
+                    <StyledTitle>{userDetails.firstName}</StyledTitle>
                     <StyledButton onClick={handleButtonClick} size="small" variant="contained" color="primary">
                         Logout
                     </StyledButton>
@@ -39,7 +56,27 @@ export const UserAccount: React.FC = () => {
                     </StyledNavLink>
                 </StyledProfile>
                 <StyledBanking>
-                    <StyledTitle>Account balance: 2 000 GBP</StyledTitle>
+                    <StyledSummary>
+                        <StyledContainer>
+                            <StyledTitle>Account balance:</StyledTitle>
+                            <StyledSummaryNumber
+                                value={accountBalance.balance}
+                                displayType={'text'}
+                                thousandSeparator={true}
+                                prefix={CURRENCY.GBP}
+                            />
+                        </StyledContainer>
+                        <StyledContainer>
+                            <StyledTitle>Available funds: </StyledTitle>
+
+                            <StyledSummaryNumber
+                                value={accountBalance.availableFunds}
+                                displayType={'text'}
+                                thousandSeparator={true}
+                                prefix={CURRENCY.GBP}
+                            />
+                        </StyledContainer>
+                    </StyledSummary>
                     <div>
                         <StyledNavLink to={ROUTES.DEPOSIT}>
                             <StyledButton type="submit" size="small" variant="contained" color="primary">
@@ -55,17 +92,15 @@ export const UserAccount: React.FC = () => {
                 </StyledBanking>
                 <StyledInvest>
                     <StyledHeader>
-                        <StyledTileTitle>Invested capital: 400 GBP</StyledTileTitle>
-                        <StyledTileTitle>Average return: 7%</StyledTileTitle>
+                        <StyledTileTitle>Offers</StyledTileTitle>
                     </StyledHeader>
-                    <UserDataGrid />
+                    <OffersGrid />
                 </StyledInvest>
                 <StyledLoan>
                     <StyledHeader>
-                        <StyledTileTitle>Borrowed capital: 400 GBP</StyledTileTitle>
-                        <StyledTileTitle>Average interest rate: 10%</StyledTileTitle>
+                        <StyledTileTitle>Auctions</StyledTileTitle>
                     </StyledHeader>
-                    <UserDataGrid />
+                    <AuctionsGrid />
                 </StyledLoan>
             </StyledGrid>
         </PageContainer>

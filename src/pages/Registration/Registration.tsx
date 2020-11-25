@@ -9,12 +9,14 @@ import {INITIAL_REGISTER_VALUES} from '../../helpers/constants';
 import {validationSchema} from './Registration.helpers';
 import {ROUTES} from '../../helpers/routes';
 import {DISCLAIMER} from '../../helpers/disclaimer';
-import {RegisterFormValues} from '../../helpers/types';
+import {LoginFormValues, RegisterFormValues} from '../../helpers/types';
 import {useRegister} from '../../hooks/useRegister';
 import dragonLogo from '../../assets/dragon_solo.png';
+import {useAuthContext} from '../../context/auth-context';
 
 export const Registration: React.FC = () => {
     const {postRegister, registerError} = useRegister();
+    const {login} = useAuthContext();
 
     return (
         <>
@@ -23,6 +25,12 @@ export const Registration: React.FC = () => {
                 validationSchema={validationSchema}
                 onSubmit={async (values: RegisterFormValues) => {
                     await postRegister(values);
+
+                    const loginValues: LoginFormValues = {
+                        email: values.email,
+                        password: values.password,
+                    };
+                    login(loginValues);
                 }}
             >
                 {({isValid, errors, handleBlur, touched}) => (

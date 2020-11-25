@@ -1,10 +1,6 @@
 import * as yup from 'yup';
 
 export const validationSchema = yup.object({
-    account: yup
-        .number()
-        .typeError('Value must be a number')
-        .required('Field is required'),
     amount: yup
         .number()
         .typeError('Value must be a number')

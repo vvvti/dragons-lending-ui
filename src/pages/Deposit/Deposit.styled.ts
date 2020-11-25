@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Avatar from '@material-ui/core/Avatar';
-import {Button} from '@material-ui/core';
+import {Button, TextField} from '@material-ui/core';
 import {Form} from 'formik';
 import {NavLink} from 'react-router-dom';
 import {colors} from '../../styles/theme';
@@ -34,8 +34,9 @@ export const StyledText = styled.div`
     margin: 10px 0;
 `;
 export const StyledTitle = styled.div`
-    font-size: 100px;
+    font-size: 32px;
     margin: 10px 0;
+    font-weight: 900;
 `;
 
 export const StyledColor = styled.span`
@@ -43,4 +44,7 @@ export const StyledColor = styled.span`
 `;
 export const StyledNavLink = styled(NavLink)`
     text-decoration: none;
+`;
+export const StyledTextField = styled(TextField)`
+    width: 100%;
 `;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MuiAlert, {AlertProps} from '@material-ui/lab/Alert';
 import {validationSchema} from './InvestForm.helpers';
 import {Field, Formik} from 'formik';
@@ -7,6 +7,7 @@ import {Snackbar} from '@material-ui/core';
 import {StyledAmount, StyledButton, StyledInvestForm, StyledPercentage} from './InvestForm.styled';
 import {InvestFormValues} from '../../../helpers/types';
 import {useAuthContext} from '../../../context/auth-context';
+import {useProposals} from '../../../hooks/useProposals';
 
 function Alert(props: AlertProps) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -15,11 +16,13 @@ function Alert(props: AlertProps) {
 export interface InvestFormProps {
     loanAmount?: number | '' | undefined;
     interestRate?: number | '' | undefined;
+    auctionId?: string | '';
 }
 
-export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}) => {
-    const [open, setOpen] = React.useState(false);
+export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate, auctionId}) => {
+    const [open, setOpen] = useState(false);
     const {tokenStorage} = useAuthContext();
+    const {postProposals} = useProposals();
 
     const handleClick = () => {
         setOpen(true);
@@ -32,13 +35,18 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}
     };
     return (
         <Formik<InvestFormValues>
-            initialValues={{investAmount: loanAmount || 0, investRate: interestRate || 0}}
+            initialValues={{
+                offerAmount: loanAmount || 0,
+                interestRate: interestRate || 0,
+                auctionId: auctionId || '',
+            }}
             validationSchema={validationSchema}
-            onSubmit={values => {
-                console.log(values);
+            onSubmit={async (values: InvestFormValues) => {
+                console.log('dziala');
+                await postProposals(values);
             }}
         >
-            {({errors, isValid, handleBlur, touched}) => (
+            {({errors, isValid, handleBlur, isSubmitting, touched}) => (
                 <StyledInvestForm>
                     <StyledAmount>
                         <Field
@@ -46,7 +54,7 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}
                             size="small"
                             type="number"
                             label="Amount"
-                            name="investAmount"
+                            name="offerAmount"
                             onBlur={handleBlur}
                             prefix="GBP"
                             component={InputField}
@@ -59,12 +67,18 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}
                             type="number"
                             label="%"
                             prefix=""
-                            name="investRate"
+                            name="interestRate"
                             onBlur={handleBlur}
                             component={InputField}
                         />
                     </StyledPercentage>
-                    <StyledButton type="submit" variant="contained" color="primary" onClick={handleClick} disabled={!tokenStorage}>
+                    <StyledButton
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                        onClick={handleClick}
+                        disabled={!tokenStorage || isSubmitting}
+                    >
                         Invest
                     </StyledButton>
                     <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
@@ -74,7 +88,7 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate}
                             </Alert>
                         ) : (
                             <Alert onClose={handleClose} severity="error">
-                                <div>{errors.investAmount || errors.investRate}</div>
+                                <div>{errors.offerAmount || errors.interestRate}</div>
                             </Alert>
                         )}
                     </Snackbar>

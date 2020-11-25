@@ -1,14 +1,14 @@
 import {axios} from './rest/axios';
-import {AccountBalance, DepositAmount, WithdrawnAmount} from '../helpers/types';
+import {DepositAmount, WithdrawnAmount} from '../helpers/types';
 
-export const getAccountBalance = () => {
-    return axios.get<AccountBalance>(`/account/self`);
+export const getAccountBalance = (config: any) => {
+    return axios.get(`/account/self`, config);
 };
 
-export const postWithdraw = () => {
-    return axios.post<WithdrawnAmount>(`/account/withdraw`);
+export const postWithdraw = (values: WithdrawnAmount, config: any) => {
+    return axios.post(`/account/withdraw`, values, config);
 };
 
-export const postDeposit = () => {
-    return axios.post<DepositAmount>(`/paymentplatform/deposit`);
+export const postDeposit = (values: DepositAmount, config: any) => {
+    return axios.post(`/paymentplatform/deposit`, values, config);
 };

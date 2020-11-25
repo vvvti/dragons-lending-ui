@@ -1,13 +1,13 @@
 import * as yup from 'yup';
 
 export const validationSchema = yup.object({
-    investAmount: yup
+    offerAmount: yup
         .number()
         .typeError('Value must be a number')
         .required('Field is required')
         .moreThan(0, 'Amount must be 0 or higher')
         .max(10000, 'You can select max 10 000'),
-    investRate: yup
+    interestRate: yup
         .number()
         .typeError('Value must be a number')
         .required('Field is required')

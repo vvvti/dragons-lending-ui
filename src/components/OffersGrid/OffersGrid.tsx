@@ -22,6 +22,7 @@ import {InvestForm} from './InvestForm/InvestForm';
 import {useOffer} from '../../hooks/useOffer';
 import {POSTSPERPAGE} from '../../helpers/constants';
 import {getImagesUrl, getPageNumbers} from './OffersGrid.helpers';
+import {Loading} from '../Loading/Loading';
 
 export const OffersGrid: React.FC = () => {
     const {getOffers, offersList} = useOffer();
@@ -112,7 +113,7 @@ export const OffersGrid: React.FC = () => {
                                 </StyledAvatar>
                                 <StyledLoanDetails>
                                     <StyledDaysLeft>
-                                        Expire on: <StyledSpan>{endDate}</StyledSpan>
+                                        Expire on: <StyledSpan>{`${endDate[2]}-${endDate[1]}-${endDate[0]}`}</StyledSpan>
                                     </StyledDaysLeft>
                                     <StyledTitle>Want to borrow</StyledTitle>
                                     <div>
@@ -132,7 +133,7 @@ export const OffersGrid: React.FC = () => {
                                             <Typography>Expand to Invest</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                            <InvestForm loanAmount={loanAmount} interestRate={interestRate} />
+                                            <InvestForm loanAmount={loanAmount} interestRate={interestRate} auctionId={id} />
                                         </AccordionDetails>
                                     </Accordion>
                                 </StyledAccordion>
@@ -140,7 +141,7 @@ export const OffersGrid: React.FC = () => {
                         );
                     })
                 ) : (
-                    <div>No results</div>
+                    <Loading />
                 )}
             </GridView>
             <StyledPagination>
