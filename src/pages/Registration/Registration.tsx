@@ -1,9 +1,8 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {ErrorMessage, StyledAvatar, StyledButton, StyledForm, StyledLoginPage, StyledPaper, StyledText} from './Registration.styled';
+import {ErrorMessage, StyledLogo, Logo, StyledButton, StyledForm, StyledLoginPage, StyledPaper, StyledText} from './Registration.styled';
 import {Field, Formik} from 'formik';
 import {InputField} from '../../components/InputField/InputField';
 import {INITIAL_REGISTER_VALUES} from '../../helpers/constants';
@@ -12,6 +11,7 @@ import {ROUTES} from '../../helpers/routes';
 import {DISCLAIMER} from '../../helpers/disclaimer';
 import {RegisterFormValues} from '../../helpers/types';
 import {useRegister} from '../../hooks/useRegister';
+import dragonLogo from '../../assets/dragon_solo.png';
 
 export const Registration: React.FC = () => {
     const {postRegister, registerError} = useRegister();
@@ -28,9 +28,9 @@ export const Registration: React.FC = () => {
                 {({isValid, errors, handleBlur, touched}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
-                            <StyledAvatar color="primary">
-                                <LockOutlinedIcon />
-                            </StyledAvatar>
+                            <StyledLogo>
+                                <Logo src={dragonLogo} alt="" />
+                            </StyledLogo>
                             <Typography component="h1" variant="h5">
                                 Sign up
                             </Typography>
