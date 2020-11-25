@@ -125,3 +125,7 @@ export const StyledContainer = styled.div`
     display: flex;
     justify-content: space-between;
 `;
+
+export const StyledProfileText = styled.span`
+    font-size: 14px;
+`;
