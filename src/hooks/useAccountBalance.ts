@@ -41,7 +41,7 @@ export const useAccountBalance = () => {
                 }
             }
         },
-        [tokenStorage],
+        [tokenStorage, goToUserAccount],
     );
 
     const postWithdrawAmount = useCallback(
@@ -60,7 +60,7 @@ export const useAccountBalance = () => {
                 }
             }
         },
-        [tokenStorage],
+        [tokenStorage, goToUserAccount],
     );
 
     return {
