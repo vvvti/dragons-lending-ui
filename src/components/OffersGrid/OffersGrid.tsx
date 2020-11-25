@@ -5,6 +5,7 @@ import {
     ItemContainer,
     StyledAccordion,
     StyledAvatar,
+    StyledAvatarContainer,
     StyledButton,
     StyledDaysLeft,
     StyledImage,
@@ -105,12 +106,15 @@ export const OffersGrid: React.FC = () => {
             <GridView data-testid={'grid-results'}>
                 <OffersHeader />
                 {Number(currentPosts.length) ? (
-                    currentPosts.map(({id, loanAmount, url, endDate, timePeriod, interestRate}) => {
+                    currentPosts.map(({id, loanAmount, url, endDate, timePeriod, interestRate, username}) => {
                         return (
                             <ItemContainer key={id}>
-                                <StyledAvatar>
-                                    <StyledImage src={url} alt="" />
-                                </StyledAvatar>
+                                <StyledAvatarContainer>
+                                    <StyledAvatar>
+                                        <StyledImage src={url} alt="" />
+                                    </StyledAvatar>
+                                    {username}
+                                </StyledAvatarContainer>
                                 <StyledLoanDetails>
                                     <StyledDaysLeft>
                                         Expire on: <StyledSpan>{`${endDate[2]}-${endDate[1]}-${endDate[0]}`}</StyledSpan>

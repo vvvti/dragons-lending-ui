@@ -93,3 +93,10 @@ export const StyledPageNumber = styled.button`
     color: ${colors.black};
     border: none;
 `;
+
+export const StyledAvatarContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
