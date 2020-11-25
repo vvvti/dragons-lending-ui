@@ -12,8 +12,14 @@ export const StyledContainer = styled.div`
     height: 400px;
     margin: 20px;
     padding: 20px;
+    transition: transform 0.1s;
+
     background-color: ${colors.transparentBackground};
     color: ${colors.white};
+
+    &&:hover {
+        transform: scale(1.03);
+    }
 `;
 export const ButtonContainer = styled.div`
     text-align: center;
