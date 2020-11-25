@@ -21,6 +21,9 @@ export enum CURRENCY {
 export const POSTSPERPAGE = 6;
 
 export const CALCULATORPAGE = 'https://dragons-investments-ui.ersa-team.uat.fintechchallenge.pl/';
+export const FACEBOOK = 'https://facebook.com';
+export const TWITTER = 'https://twitter.com';
+export const LINKEDIN = 'https://linkedin.com';
 
 export const INITIAL_REGISTER_VALUES: RegisterFormValues = {
     username: '',
