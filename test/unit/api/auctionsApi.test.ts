@@ -41,6 +41,7 @@ describe('auctionsApi', () => {
             timePeriod: 6,
             interestRate: 7,
             endDate: '25-12-2022',
+            username: 'Max',
         };
 
         const config = {

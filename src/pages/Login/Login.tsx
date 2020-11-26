@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {ErrorMessage, StyledLogo, Logo, StyledButton, StyledForm, StyledPaper, StyledRegisterPage} from './Login.styled';
+import {ErrorMessage, Logo, StyledButton, StyledForm, StyledLogo, StyledPaper, StyledRegisterPage} from './Login.styled';
 import {Field, Formik} from 'formik';
 import {validationSchema} from './Login.helpers';
 import {INITIAL_LOGIN_VALUES} from '../../helpers/constants';
@@ -20,8 +20,8 @@ export const Login: React.FC = () => {
             <Formik<LoginFormValues>
                 initialValues={INITIAL_LOGIN_VALUES}
                 validationSchema={validationSchema}
-                onSubmit={async (values: LoginFormValues) => {
-                    await login(values);
+                onSubmit={(values: LoginFormValues) => {
+                    login(values);
                 }}
             >
                 {({isValid, errors, handleBlur, touched}) => (

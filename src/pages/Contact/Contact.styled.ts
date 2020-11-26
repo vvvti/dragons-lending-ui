@@ -3,6 +3,7 @@ import {colors} from '../../styles/theme';
 
 export const StyledContainer = styled.div`
     margin: 0;
+    min-height: 80vh;
     background-color: ${colors.subPagesBackground};
 `;
 
