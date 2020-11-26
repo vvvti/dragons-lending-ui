@@ -86,7 +86,7 @@ export const AuctionsGrid: React.FC = () => {
                 ''
             )}
             <AuctionsDetails currentAuctions={currentAuctions} />
-            <Pagination postsPerPage={POSTSPERPAGE} totalPosts={auctionsList.length} paginate={paginate} />
+            <Pagination postsPerPage={POSTSPERPAGE} totalPosts={sortedItems.length} paginate={paginate} />
         </>
     );
 };
