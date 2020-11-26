@@ -1,7 +1,13 @@
 import styled from 'styled-components';
+import {colors} from '../../styles/theme';
+
+export const StyledContainer = styled.div`
+    margin: 0;
+    background-color: ${colors.subPagesBackground};
+`;
 
 export const StyledContact = styled.div`
-    margin: 2em auto;
+    margin: auto;
     max-width: 50%;
     padding: 1em 1.5em;
     text-align: justify;
