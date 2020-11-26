@@ -5,6 +5,7 @@ import {useAuctions} from '../../hooks/useAuctions';
 import {POSTSPERPAGE} from '../../helpers/constants';
 import {getImagesUrl, getPageNumbers} from './AuctionsGrid.helpers';
 import {AuctionsDetails} from './AuctionsDetails/AuctionsDetails';
+import {filterValues} from '../../helpers/types';
 
 export const AuctionsGrid: React.FC = () => {
     const {getAuctions, auctionsList} = useAuctions();
@@ -43,7 +44,7 @@ export const AuctionsGrid: React.FC = () => {
                         onClick={() => {
                             setSortState('ascending');
                             setDisplayedSorting();
-                            setFilterConfig((prevState: any) => ({
+                            setFilterConfig((prevState: filterValues) => ({
                                 ...prevState,
                                 sort: !prevState.sort,
                                 active: true,
@@ -57,7 +58,7 @@ export const AuctionsGrid: React.FC = () => {
                         color={!filterConfig.filter ? 'primary' : 'secondary'}
                         onClick={() => {
                             setCurrentPage(1);
-                            setFilterConfig((prevState: any) => ({
+                            setFilterConfig((prevState: filterValues) => ({
                                 ...prevState,
                                 filter: !prevState.filter,
                                 active: true,
