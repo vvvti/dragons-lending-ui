@@ -1,6 +1,5 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import {ErrorMessage, StyledLogo, Logo, StyledButton, StyledForm, StyledPaper, StyledRegisterPage} from './Login.styled';

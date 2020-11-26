@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
         <StyledFooter>
             <StyledFooterContainer>
                 <div>
-                    <StyledHeader>DRAGONS LENDING</StyledHeader>
+                    <StyledHeader>dragons lending</StyledHeader>
                     <ul>
                         <StyledNavLink to={ROUTES.RULES}>
                             <StyledListElement>Rules</StyledListElement>

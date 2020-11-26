@@ -13,17 +13,17 @@ export const Navbar: React.FC = () => {
                 <StyledNavLink to={ROUTES.HOME}>{<Logo src={dragonImage} alt="" />}</StyledNavLink>
             </StyledLogoContainer>
             <StyledMenu>
-                <StyledNavLink to={ROUTES.OFFERSGRID}>AUCTIONS</StyledNavLink>
-                <StyledNavLink to={ROUTES.CONTACT}>CONTACT</StyledNavLink>
-                <StyledNavLink to={ROUTES.RULES}>RULES</StyledNavLink>
-                <StyledNavLink to={ROUTES.ABOUT}>ABOUT</StyledNavLink>
+                <StyledNavLink to={ROUTES.OFFERSGRID}>auctions</StyledNavLink>
+                <StyledNavLink to={ROUTES.CONTACT}>contact</StyledNavLink>
+                <StyledNavLink to={ROUTES.RULES}>rules</StyledNavLink>
+                <StyledNavLink to={ROUTES.ABOUT}>about</StyledNavLink>
 
                 {tokenStorage ? (
                     <StyledAccount to={ROUTES.USERACCOUNT}>
                         Account <StyledAvatar />
                     </StyledAccount>
                 ) : (
-                    <StyledNavLink to={ROUTES.LOGIN}>Login</StyledNavLink>
+                    <StyledNavLink to={ROUTES.LOGIN}>login</StyledNavLink>
                 )}
             </StyledMenu>
         </StyledNavbar>

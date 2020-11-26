@@ -1,14 +1,28 @@
 import styled from 'styled-components';
+import {colors} from '../../styles/theme';
+import {NavLink} from 'react-router-dom';
 
 export const StyledContainer = styled.div`
-    margin: 50px auto;
-    justify-content: space-around;
-    flex-shrink: 0;
-    max-width: 90%;
-    min-width: 1000px;
-    font-family: 'lato';
+    margin: 0;
     padding: 1em 2em;
     text-align: center;
-    text-size: 2em;
     font-size: 1.5em;
+    min-height: 75vh;
+    background-color: ${colors.subPagesBackground};
+    color: white;
+`;
+export const StyledH1 = styled.h1`
+    font-size: 5em;
+    color: white;
+`;
+
+export const StyledNavLink = styled(NavLink)`
+    text-decoration: none;
+    color: ${colors.dragonOrange};
+    text-transform: uppercase;
+    font-size: 1.5em;
+
+    &:hover {
+        color: ${colors.red};
+    }
 `;

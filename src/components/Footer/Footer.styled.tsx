@@ -26,6 +26,7 @@ export const StyledListElement = styled.li`
 export const StyledHeader = styled.h6`
     font-size: 12px;
     margin-bottom: 0;
+    text-transform: uppercase;
 `;
 
 export const StyledNavLink = styled(NavLink)`
