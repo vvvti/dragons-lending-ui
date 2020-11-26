@@ -1,26 +1,26 @@
 import {useHistory} from 'react-router';
-import {ROUTES} from '../helpers/routes';
+import {AUTHROUTES, NONAUTHROUTES} from '../helpers/routes';
 
 export const useToPage = () => {
     const history = useHistory();
 
     const goToMain = () => {
         const location = {
-            pathname: ROUTES.OFFERSGRID,
+            pathname: NONAUTHROUTES.OFFERSGRID,
         };
         history.push(location);
     };
 
     const goToLogin = () => {
         const location = {
-            pathname: ROUTES.LOGIN,
+            pathname: NONAUTHROUTES.LOGIN,
         };
         history.push(location);
     };
 
     const goToUserAccount = () => {
         const location = {
-            pathname: ROUTES.USERACCOUNT,
+            pathname: AUTHROUTES.USERACCOUNT,
         };
         history.push(location);
     };
