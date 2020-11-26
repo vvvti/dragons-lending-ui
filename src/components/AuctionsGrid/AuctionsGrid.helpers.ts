@@ -1,4 +1,3 @@
-import {POSTSPERPAGE} from '../../helpers/constants';
 import {AuctionValues} from '../../helpers/types';
 
 export const getImagesUrl = (auctionsList: AuctionValues[]) => {
@@ -12,14 +11,4 @@ export const getImagesUrl = (auctionsList: AuctionValues[]) => {
         }
     }
     return urlArray;
-};
-
-export const getPageNumbers = (sortedItems: AuctionValues[]) => {
-    const pageNumbers: number[] = [];
-
-    for (let i = 1; i <= Math.ceil(sortedItems.length / POSTSPERPAGE); i++) {
-        pageNumbers.push(i);
-    }
-
-    return pageNumbers;
 };

@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {GridButton, StyledButton, StyledPageNumber, StyledPagination} from './AuciotnsGrid.styled';
+import {GridButton, StyledButton} from './AuciotnsGrid.styled';
 import {useFilters} from '../../hooks/useFilters';
 import {useAuctions} from '../../hooks/useAuctions';
 import {POSTSPERPAGE} from '../../helpers/constants';
-import {getImagesUrl, getPageNumbers} from './AuctionsGrid.helpers';
+import {getImagesUrl} from './AuctionsGrid.helpers';
 import {AuctionsDetails} from './AuctionsDetails/AuctionsDetails';
 import {filterValues} from '../../helpers/types';
+import {Pagination} from '../Pagination/Pagination';
 
 export const AuctionsGrid: React.FC = () => {
     const {getAuctions, auctionsList} = useAuctions();
@@ -26,7 +27,6 @@ export const AuctionsGrid: React.FC = () => {
     const currentAuctions = sortedItems.slice(indexOfFirstPost, indexOfLastPost);
 
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-    const pageNumbers = getPageNumbers(sortedItems);
 
     const setDisplayedSorting = () => {
         if (sortState === 'ascending') {
@@ -86,13 +86,7 @@ export const AuctionsGrid: React.FC = () => {
                 ''
             )}
             <AuctionsDetails currentAuctions={currentAuctions} />
-            <StyledPagination>
-                {pageNumbers.map((number: any) => (
-                    <StyledPageNumber key={number} onClick={() => paginate(number)}>
-                        {number}
-                    </StyledPageNumber>
-                ))}
-            </StyledPagination>
+            <Pagination postsPerPage={POSTSPERPAGE} totalPosts={auctionsList.length} paginate={paginate} />
         </>
     );
 };
