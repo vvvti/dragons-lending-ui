@@ -14,8 +14,8 @@ function Alert(props: AlertProps) {
 }
 
 export interface InvestFormProps {
-    loanAmount?: number | '' | undefined;
-    interestRate?: number | '' | undefined;
+    loanAmount?: number | '';
+    interestRate?: number | '';
     auctionId?: string | '';
 }
 
