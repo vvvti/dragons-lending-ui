@@ -7,7 +7,7 @@ import {Field, Formik} from 'formik';
 import {InputField} from '../../components/InputField/InputField';
 import {INITIAL_REGISTER_VALUES} from '../../helpers/constants';
 import {validationSchema} from './Registration.helpers';
-import {ROUTES} from '../../helpers/routes';
+import {NONAUTHROUTES} from '../../helpers/routes';
 import {DISCLAIMER} from '../../helpers/disclaimer';
 import {LoginFormValues, RegisterFormValues} from '../../helpers/types';
 import {useRegister} from '../../hooks/useRegister';
@@ -109,7 +109,7 @@ export const Registration: React.FC = () => {
                             </StyledForm>
                             <Grid container justify="flex-end">
                                 <Grid item>
-                                    <StyledLoginPage to={ROUTES.LOGIN}>Already have an account? Sign in</StyledLoginPage>
+                                    <StyledLoginPage to={NONAUTHROUTES.LOGIN}>Already have an account? Sign in</StyledLoginPage>
                                 </Grid>
                             </Grid>
                             {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}

@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyledExternalLink, StyledFooter, StyledFooterContainer, StyledHeader, StyledListElement, StyledNavLink} from './Footer.styled';
-import {ROUTES} from '../../helpers/routes';
+import {NONAUTHROUTES} from '../../helpers/routes';
 import {CALCULATORPAGE, FACEBOOK, LINKEDIN, TWITTER} from '../../helpers/constants';
 
 export const Footer: React.FC = () => {
@@ -10,10 +10,10 @@ export const Footer: React.FC = () => {
                 <div>
                     <StyledHeader>dragons lending</StyledHeader>
                     <ul>
-                        <StyledNavLink to={ROUTES.RULES}>
+                        <StyledNavLink to={NONAUTHROUTES.RULES}>
                             <StyledListElement>Rules</StyledListElement>
                         </StyledNavLink>
-                        <StyledNavLink to={ROUTES.PRIVACY}>
+                        <StyledNavLink to={NONAUTHROUTES.PRIVACY}>
                             <StyledListElement>Privacy</StyledListElement>
                         </StyledNavLink>
                     </ul>
@@ -21,13 +21,13 @@ export const Footer: React.FC = () => {
                 <div>
                     <StyledHeader>Company</StyledHeader>
                     <ul>
-                        <StyledNavLink to={ROUTES.HOME}>
+                        <StyledNavLink to={NONAUTHROUTES.HOME}>
                             <StyledListElement>Home</StyledListElement>
                         </StyledNavLink>
-                        <StyledNavLink to={ROUTES.ABOUT}>
+                        <StyledNavLink to={NONAUTHROUTES.ABOUT}>
                             <StyledListElement>About</StyledListElement>
                         </StyledNavLink>
-                        <StyledNavLink to={ROUTES.CONTACT}>
+                        <StyledNavLink to={NONAUTHROUTES.CONTACT}>
                             <StyledListElement>Contact</StyledListElement>
                         </StyledNavLink>
                     </ul>
@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
                 <div>
                     <StyledHeader>Invest</StyledHeader>
                     <ul>
-                        <StyledNavLink to={ROUTES.OFFERSGRID}>
+                        <StyledNavLink to={NONAUTHROUTES.OFFERSGRID}>
                             <StyledListElement>Social Lending</StyledListElement>
                         </StyledNavLink>
                         <StyledExternalLink href={CALCULATORPAGE}>

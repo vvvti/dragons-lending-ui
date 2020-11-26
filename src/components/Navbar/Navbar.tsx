@@ -1,7 +1,7 @@
 import React from 'react';
 import dragonImage from '../../assets/dragon_logo.png';
 import {Logo, StyledAccount, StyledAvatar, StyledLogoContainer, StyledMenu, StyledNavbar, StyledNavLink} from './Navbar.styled';
-import {ROUTES} from '../../helpers/routes';
+import {AUTHROUTES, NONAUTHROUTES} from '../../helpers/routes';
 import {useAuthContext} from '../../context/auth-context';
 
 export const Navbar: React.FC = () => {
@@ -10,20 +10,20 @@ export const Navbar: React.FC = () => {
     return (
         <StyledNavbar data-testid={'main-navbar'}>
             <StyledLogoContainer>
-                <StyledNavLink to={ROUTES.HOME}>{<Logo src={dragonImage} alt="" />}</StyledNavLink>
+                <StyledNavLink to={NONAUTHROUTES.HOME}>{<Logo src={dragonImage} alt="" />}</StyledNavLink>
             </StyledLogoContainer>
             <StyledMenu>
-                <StyledNavLink to={ROUTES.OFFERSGRID}>auctions</StyledNavLink>
-                <StyledNavLink to={ROUTES.CONTACT}>contact</StyledNavLink>
-                <StyledNavLink to={ROUTES.RULES}>rules</StyledNavLink>
-                <StyledNavLink to={ROUTES.ABOUT}>about</StyledNavLink>
+                <StyledNavLink to={NONAUTHROUTES.OFFERSGRID}>auctions</StyledNavLink>
+                <StyledNavLink to={NONAUTHROUTES.CONTACT}>contact</StyledNavLink>
+                <StyledNavLink to={NONAUTHROUTES.RULES}>rules</StyledNavLink>
+                <StyledNavLink to={NONAUTHROUTES.ABOUT}>about</StyledNavLink>
 
                 {tokenStorage ? (
-                    <StyledAccount to={ROUTES.USERACCOUNT}>
+                    <StyledAccount to={AUTHROUTES.USERACCOUNT}>
                         Account <StyledAvatar />
                     </StyledAccount>
                 ) : (
-                    <StyledNavLink to={ROUTES.LOGIN}>login</StyledNavLink>
+                    <StyledNavLink to={NONAUTHROUTES.LOGIN}>login</StyledNavLink>
                 )}
             </StyledMenu>
         </StyledNavbar>

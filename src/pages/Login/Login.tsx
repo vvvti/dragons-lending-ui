@@ -6,7 +6,7 @@ import {ErrorMessage, StyledLogo, Logo, StyledButton, StyledForm, StyledPaper, S
 import {Field, Formik} from 'formik';
 import {validationSchema} from './Login.helpers';
 import {INITIAL_LOGIN_VALUES} from '../../helpers/constants';
-import {ROUTES} from '../../helpers/routes';
+import {NONAUTHROUTES} from '../../helpers/routes';
 import {InputField} from '../../components/InputField/InputField';
 import {LoginFormValues} from '../../helpers/types';
 import {useAuthContext} from '../../context/auth-context';
@@ -66,7 +66,7 @@ export const Login: React.FC = () => {
                             </StyledForm>
                             <Grid container justify="flex-end">
                                 <Grid item>
-                                    <StyledRegisterPage to={ROUTES.REGISTRATION}>Don't have an account? Sign Up</StyledRegisterPage>
+                                    <StyledRegisterPage to={NONAUTHROUTES.REGISTRATION}>Don't have an account? Sign Up</StyledRegisterPage>
                                 </Grid>
                             </Grid>
                             {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}

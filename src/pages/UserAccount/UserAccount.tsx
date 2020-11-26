@@ -19,7 +19,7 @@ import {
     StyledUserName,
 } from './UserAccount.styled';
 import {OffersGrid} from '../../components/UserDataGrid/OffersGrid/OffersGrid';
-import {ROUTES} from '../../helpers/routes';
+import {AUTHROUTES, NONAUTHROUTES} from '../../helpers/routes';
 import {StyledNavLink} from '../Deposit/Deposit.styled';
 import {useAuthContext} from '../../context/auth-context';
 import {useAccountBalance} from '../../hooks/useAccountBalance';
@@ -56,7 +56,7 @@ export const UserAccount: React.FC = () => {
                     <StyledButton onClick={handleButtonClick} size="small" variant="contained" color="primary">
                         Logout
                     </StyledButton>
-                    <StyledNavLink to={ROUTES.PRIVACY}>
+                    <StyledNavLink to={NONAUTHROUTES.PRIVACY}>
                         <StyledButton type="submit" size="small" variant="contained" color="primary">
                             Privacy
                         </StyledButton>
@@ -85,12 +85,12 @@ export const UserAccount: React.FC = () => {
                         </StyledContainer>
                     </StyledSummary>
                     <div>
-                        <StyledNavLink to={ROUTES.DEPOSIT}>
+                        <StyledNavLink to={AUTHROUTES.DEPOSIT}>
                             <StyledButton type="submit" size="small" variant="contained" color="primary">
                                 Deposit
                             </StyledButton>
                         </StyledNavLink>
-                        <StyledNavLink to={ROUTES.WITHDRAWMONEY}>
+                        <StyledNavLink to={AUTHROUTES.WITHDRAWMONEY}>
                             <StyledButton type="submit" size="small" variant="contained" color="primary">
                                 Withdrawal
                             </StyledButton>
