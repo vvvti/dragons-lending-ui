@@ -11,7 +11,7 @@ export const StyledFooterContainer = styled.div`
 `;
 
 export const StyledFooter = styled.div`
-    background-color: hsl(240, 2%, 16%);
+    background-color: ${colors.darkblue};
     width: 100%;
     color: ${colors.dragonOrange};
 `;

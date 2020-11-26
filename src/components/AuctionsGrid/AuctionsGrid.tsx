@@ -1,29 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {
-    GridButton,
-    GridView,
-    ItemContainer,
-    StyledAccordion,
-    StyledAvatar,
-    StyledAvatarContainer,
-    StyledButton,
-    StyledDaysLeft,
-    StyledImage,
-    StyledLoanDetails,
-    StyledPageNumber,
-    StyledPagination,
-    StyledSpan,
-    StyledTitle,
-} from './AuciotnsGrid.styled';
-import {Accordion, AccordionDetails, AccordionSummary, Typography} from '@material-ui/core';
+import {GridButton, StyledButton, StyledPageNumber, StyledPagination} from './AuciotnsGrid.styled';
 import {useFilters} from '../../hooks/useFilters';
-import {AuctionsHeader} from './AuctionsHeader/AuctionsHeader';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import {InvestForm} from './InvestForm/InvestForm';
 import {useAuctions} from '../../hooks/useAuctions';
 import {POSTSPERPAGE} from '../../helpers/constants';
 import {getImagesUrl, getPageNumbers} from './AuctionsGrid.helpers';
-import {Loading} from '../Loading/Loading';
+import {AuctionsDetails} from './AuctionsDetails/AuctionsDetails';
 
 export const AuctionsGrid: React.FC = () => {
     const {getAuctions, auctionsList} = useAuctions();
@@ -103,51 +84,7 @@ export const AuctionsGrid: React.FC = () => {
             ) : (
                 ''
             )}
-            <GridView data-testid={'grid-results'}>
-                <AuctionsHeader />
-                {Number(currentPosts.length) ? (
-                    currentPosts.map(({id, loanAmount, url, endDate, timePeriod, interestRate, username}) => {
-                        return (
-                            <ItemContainer key={id}>
-                                <StyledAvatarContainer>
-                                    <StyledAvatar>
-                                        <StyledImage src={url} alt="" />
-                                    </StyledAvatar>
-                                    {username}
-                                </StyledAvatarContainer>
-                                <StyledLoanDetails>
-                                    <StyledDaysLeft>
-                                        Expire on: <StyledSpan>{`${endDate[2]}-${endDate[1]}-${endDate[0]}`}</StyledSpan>
-                                    </StyledDaysLeft>
-                                    <StyledTitle>Want to borrow</StyledTitle>
-                                    <div>
-                                        <StyledSpan>{loanAmount} GBP</StyledSpan> at <StyledSpan>{interestRate} %</StyledSpan>
-                                        <div>
-                                            for <StyledSpan>{timePeriod === 1 ? `${timePeriod} month` : `${timePeriod} months`}</StyledSpan>
-                                        </div>
-                                    </div>
-                                </StyledLoanDetails>
-                                <StyledAccordion>
-                                    <Accordion>
-                                        <AccordionSummary
-                                            expandIcon={<ExpandMoreIcon />}
-                                            aria-controls="panel1a-content"
-                                            id="panel1a-header"
-                                        >
-                                            <Typography>Expand to Invest</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                            <InvestForm loanAmount={loanAmount} interestRate={interestRate} auctionId={id} />
-                                        </AccordionDetails>
-                                    </Accordion>
-                                </StyledAccordion>
-                            </ItemContainer>
-                        );
-                    })
-                ) : (
-                    <Loading />
-                )}
-            </GridView>
+            <AuctionsDetails currentPosts={currentPosts} />
             <StyledPagination>
                 {pageNumbers.map((number: any) => (
                     <StyledPageNumber key={number} onClick={() => paginate(number)}>
