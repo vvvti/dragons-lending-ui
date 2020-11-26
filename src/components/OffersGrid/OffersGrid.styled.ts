@@ -95,6 +95,7 @@ export const StyledPageNumber = styled.button`
 `;
 
 export const StyledAvatarContainer = styled.div`
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
