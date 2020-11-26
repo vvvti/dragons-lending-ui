@@ -72,5 +72,5 @@ export const USERDEFAULT: userValues = {
     firstName: '',
     id: '',
     lastName: '',
-    username: 'string',
+    username: '',
 };

@@ -2,16 +2,7 @@ import styled from 'styled-components';
 import {Avatar, Button} from '@material-ui/core';
 import {colors} from '../../styles/theme';
 
-export const GridView = styled.div`
-    width: 80%;
-    display: grid;
-    grid-gap: 70px;
-    padding: 100px 15px 15px 15px;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    position: relative;
-`;
-
-export const GridButton = styled.div`
+export const ButtonsGrid = styled.div`
     width: 80%;
     display: grid;
     grid-row-gap: 10px;

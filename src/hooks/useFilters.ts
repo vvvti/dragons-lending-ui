@@ -17,7 +17,7 @@ export const useFilters = (activeAuctions: AuctionValues[]) => {
                 sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) < Number(b.loanAmount) ? 1 : -1));
             }
             if (filterConfig.filter) {
-                sortedUsers = sortedUsers.filter((data: AuctionValues) => data.loanAmount <= 500);
+                sortedUsers = sortedUsers.filter(({loanAmount}) => loanAmount <= 500);
             } else {
                 return sortedUsers;
             }
