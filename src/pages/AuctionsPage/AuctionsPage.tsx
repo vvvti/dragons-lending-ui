@@ -1,7 +1,7 @@
 import React from 'react';
 import {PageContainer, PageWrapper} from './AuctionsPage.styled';
 import {AuctionsGrid} from '../../components/AuctionsGrid/AuctionsGrid';
-import {StatusContainer} from '../../components/Account/StatusContainer/StatusContainer';
+import {StatusContainer} from '../../components/StatusContainer/StatusContainer';
 
 export const AuctionsPage: React.FC = () => {
     return (

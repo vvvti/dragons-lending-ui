@@ -72,3 +72,7 @@ export interface AuthRouteProps {
     path: string;
     exact?: boolean;
 }
+
+export interface configType {
+    headers: {'x-authorization': string};
+}

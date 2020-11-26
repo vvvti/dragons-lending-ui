@@ -22,7 +22,7 @@ export const AuctionsGrid: React.FC = () => {
 
     const indexOfLastPost = currentPage * POSTSPERPAGE;
     const indexOfFirstPost = indexOfLastPost - POSTSPERPAGE;
-    const currentPosts = sortedItems.slice(indexOfFirstPost, indexOfLastPost);
+    const currentAuctions = sortedItems.slice(indexOfFirstPost, indexOfLastPost);
 
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
     const pageNumbers = getPageNumbers(sortedItems);
@@ -84,7 +84,7 @@ export const AuctionsGrid: React.FC = () => {
             ) : (
                 ''
             )}
-            <AuctionsDetails currentPosts={currentPosts} />
+            <AuctionsDetails currentAuctions={currentAuctions} />
             <StyledPagination>
                 {pageNumbers.map((number: any) => (
                     <StyledPageNumber key={number} onClick={() => paginate(number)}>

@@ -18,12 +18,12 @@ import {Loading} from '../../Loading/Loading';
 import {GridView} from '../AuciotnsGrid.styled';
 import {AuctionsHeader} from '../AuctionsHeader/AuctionsHeader';
 
-export const AuctionsDetails: React.FC<{currentPosts: AuctionValues[]}> = ({currentPosts}) => {
+export const AuctionsDetails: React.FC<{currentAuctions: AuctionValues[]}> = ({currentAuctions}) => {
     return (
         <GridView data-testid={'grid-results'}>
             <AuctionsHeader />
-            {Number(currentPosts.length) ? (
-                currentPosts.map(({id, loanAmount, url, endDate, timePeriod, interestRate, username}) => {
+            {Number(currentAuctions.length) ? (
+                currentAuctions.map(({id, loanAmount, url, endDate, timePeriod, interestRate, username}) => {
                     return (
                         <ItemContainer key={id}>
                             <StyledAvatarContainer>

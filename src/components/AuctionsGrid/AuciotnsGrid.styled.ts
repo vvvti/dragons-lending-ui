@@ -29,29 +29,8 @@ export const StyledAvatar = styled(Avatar)`
     height: 100px;
 `;
 
-export const StyledLoanDetails = styled.div`
-    grid-area: details;
-    display: flex;
-    flex-direction: column;
-`;
-
-export const StyledSpan = styled.span`
-    color: ${colors.darkblue};
-    font-size: 18px;
-`;
-
 export const StyledTitle = styled.h4`
     margin: 10px 0 5px 0;
-`;
-
-export const StyledAccordion = styled.div`
-    grid-area: invest;
-    width: 100%;
-    margin-top: 20px;
-`;
-
-export const StyledDaysLeft = styled.div`
-    text-align: right;
 `;
 
 export const StyledImage = styled.img`
