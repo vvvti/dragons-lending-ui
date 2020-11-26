@@ -16,7 +16,6 @@ export const useUser = () => {
         if (tokenStorage) {
             const response = await getUserValues(config);
             setUserDetails(response.data);
-            console.log('getUserValues', response.data);
         }
     }, [tokenStorage]);
 

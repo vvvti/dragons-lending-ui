@@ -1,8 +1,10 @@
 import React from 'react';
 
+// TODO: Can't pass currentPosts props with TS
+
 export const AuctionsDetails: React.FC = () => {
     return (
-        <div>Hello</div>
+        <div>AuctionsDetails</div>
         // {Number(currentPosts.length) ? (
         //     currentPosts.map(({id, loanAmount, url, endDate, timePeriod, interestRate, username}) => {
         //         return (

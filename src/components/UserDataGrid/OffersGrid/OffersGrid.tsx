@@ -1,16 +1,16 @@
 import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
-import {useProposals} from '../../../hooks/useProposals';
+import {useOffers} from '../../../hooks/useOffers';
 import {StyledContainer} from './OffersGrid.styled';
 
 export const OffersGrid: React.FC = () => {
-    const {proposalsList, getProposals} = useProposals();
+    const {offersList, getOffers} = useOffers();
 
     useEffect(() => {
-        getProposals();
-    }, [getProposals]);
+        getOffers();
+    }, [getOffers]);
 
-    const rowsData = proposalsList.map((obj: any) => ({
+    const rowsData = offersList.map((obj: any) => ({
         ...obj,
         finalValue: obj.calculation.finalValue.toFixed(2),
         periodValue: obj.calculation.periodValue,

@@ -50,7 +50,7 @@ export interface Calculation {
     periodValue: number;
 }
 
-export interface Proposals {
+export interface Offers {
     id: string;
     offerAmount: number;
     interestRate: number;

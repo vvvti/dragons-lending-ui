@@ -41,7 +41,6 @@ export const useAuctions = () => {
             };
 
             if (tokenStorage) {
-                console.log('post action with values and token', values, tokenStorage);
                 const response = await postAuction(values, config);
                 setAuctionsList(response.data);
             }
