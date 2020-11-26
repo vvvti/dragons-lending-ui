@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import {renderWithRouter} from '../../../_helpers/renderWithRouters';
 import {Deposit} from '../../../../src/pages/Deposit/Deposit';
 
-describe.skip('Deposit', () => {
+describe('Deposit', () => {
     beforeEach(() => {
         renderWithRouter(<Deposit />);
     });

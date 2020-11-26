@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {Avatar, Button} from '@material-ui/core';
-import {colors} from '../../styles/theme';
+import {colors} from '../../../styles/theme';
 
 export const GridView = styled.div`
     width: 80%;
@@ -8,16 +8,6 @@ export const GridView = styled.div`
     grid-gap: 70px;
     padding: 100px 15px 15px 15px;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    position: relative;
-`;
-
-export const GridButton = styled.div`
-    width: 80%;
-    display: grid;
-    grid-row-gap: 10px;
-    grid-column-gap: 50px;
-    padding: 20px 0 0 15px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     position: relative;
 `;
 
@@ -81,11 +71,6 @@ export const StyledButton = styled(Button)`
     height: 50px;
     border: none;
 `;
-
-export const StyledPagination = styled.div`
-    display: flex;
-`;
-
 export const StyledPageNumber = styled.button`
     font-size: 20px;
     margin: 20px 10px;

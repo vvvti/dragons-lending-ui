@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyledStatus, StyledText} from './StatusContainer.styled';
-import {useAuthContext} from '../../../context/auth-context';
+import {useAuthContext} from '../../context/auth-context';
 import jwtDecode from 'jwt-decode';
 
 export const StatusContainer: React.FC = () => {

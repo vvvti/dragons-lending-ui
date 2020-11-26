@@ -1,6 +1,6 @@
 import React from 'react';
 import {screen} from '@testing-library/react';
-import {InvestForm} from '../../../../../src/components/OffersGrid/InvestForm/InvestForm';
+import {InvestForm} from '../../../../../src/components/AuctionsGrid/InvestForm/InvestForm';
 import {renderWithRouter} from '../../../../_helpers/renderWithRouters';
 
 describe('Invest Form', () => {

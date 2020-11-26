@@ -1,11 +1,11 @@
 import React from 'react';
 import {renderWithRouter} from '../../../_helpers/renderWithRouters';
 import {screen} from '@testing-library/react';
-import {OffersGrid} from '../../../../src/components/OffersGrid/OffersGrid';
+import {AuctionsGrid} from '../../../../src/components/AuctionsGrid/AuctionsGrid';
 
-describe('OffersGrid', () => {
+describe('AuctionsGrid', () => {
     it('renders component', async () => {
-        renderWithRouter(<OffersGrid />);
+        renderWithRouter(<AuctionsGrid />);
 
         expect(screen.getByTestId('grid-results')).toBeInTheDocument();
     });

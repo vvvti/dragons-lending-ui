@@ -19,6 +19,7 @@ export const StyledGrid = styled.div`
         'profile loan loan loan';
     grid-template-columns: repeat(4, 1fr);
     min-height: 90vh;
+    margin: 20px 0;
 `;
 
 export const StyledProfile = styled.div`
@@ -36,9 +37,9 @@ export const StyledBanking = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
-    padding: 0 20px;
+    padding: 20px;
     box-shadow: 0 4px 12px ${colors.boxShadow};
-    height: 10vh;
+    min-height: 10vh;
 `;
 
 export const StyledInvest = styled.div`

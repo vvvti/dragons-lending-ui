@@ -1,25 +1,25 @@
 import React from 'react';
-import {ErrorMessage, FormContainer, PageWrapper, StyledButton, StyledForm, StyledInputWrapper} from './CreateOffer.styled';
+import {ErrorMessage, FormContainer, PageWrapper, StyledButton, StyledForm, StyledInputWrapper} from './CreateAuction.styled';
 import {Field, Formik} from 'formik';
 import {MARKSDURATION, MARKSINITIAL, MARKSPROFIT} from '../../helpers/marks';
-import {OFFER_VALUES} from '../../helpers/constants';
+import {AUCTION_VALUES} from '../../helpers/constants';
 import {InputField} from '../../components/InputField/InputField';
 import {Slider} from '@material-ui/core';
-import {validationSchema} from './CreateOffer.helpers';
-import {OfferValues} from '../../helpers/types';
+import {validationSchema} from './CreateAuction.helpers';
+import {AuctionValues} from '../../helpers/types';
 import {CloseButton} from '../../components/CloseButton/CloseButton';
-import {useOffer} from '../../hooks/useOffer';
+import {useAuctions} from '../../hooks/useAuctions';
 
-export const CreateOffer: React.FC = () => {
-    const {postNewOffer} = useOffer();
+export const CreateAuction: React.FC = () => {
+    const {postNewAuction} = useAuctions();
 
     return (
         <PageWrapper>
-            <Formik<OfferValues>
-                initialValues={OFFER_VALUES}
+            <Formik<AuctionValues>
+                initialValues={AUCTION_VALUES}
                 validationSchema={validationSchema}
                 onSubmit={async values => {
-                    await postNewOffer(values);
+                    await postNewAuction(values);
                 }}
             >
                 {({values, isValid, setFieldValue, errors, handleBlur, touched}) => (
@@ -101,11 +101,11 @@ export const CreateOffer: React.FC = () => {
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
-                            <h2>Offer expiry date:</h2>
+                            <h2>Auction expiry date:</h2>
                             <StyledInputWrapper>
                                 <Field
                                     type="date"
-                                    ariaLabel="Offer expiry date"
+                                    ariaLabel="Auction expiry date"
                                     name="endDate"
                                     component={InputField}
                                     prefix=""

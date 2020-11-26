@@ -33,7 +33,7 @@ describe('WithdrawMoney', () => {
         await screen.findByText(/you can select max/i);
     });
 
-    it.skip('account should display error on missing input', async () => {
+    it('account should display error on missing input', async () => {
         const accountInput = screen.getByLabelText(/account/i);
         userEvent.clear(accountInput);
         await userEvent.type(accountInput, '');

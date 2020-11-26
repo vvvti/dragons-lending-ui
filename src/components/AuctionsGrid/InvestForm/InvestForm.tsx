@@ -7,7 +7,7 @@ import {Snackbar} from '@material-ui/core';
 import {StyledAmount, StyledButton, StyledInvestForm, StyledPercentage} from './InvestForm.styled';
 import {InvestFormValues} from '../../../helpers/types';
 import {useAuthContext} from '../../../context/auth-context';
-import {useProposals} from '../../../hooks/useProposals';
+import {useOffers} from '../../../hooks/useOffers';
 
 function Alert(props: AlertProps) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -22,7 +22,7 @@ export interface InvestFormProps {
 export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate, auctionId}) => {
     const [open, setOpen] = useState(false);
     const {tokenStorage} = useAuthContext();
-    const {postProposals} = useProposals();
+    const {postOffers} = useOffers();
 
     const handleClick = () => {
         setOpen(true);
@@ -42,8 +42,7 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate,
             }}
             validationSchema={validationSchema}
             onSubmit={async (values: InvestFormValues) => {
-                console.log('dziala');
-                await postProposals(values);
+                await postOffers(values);
             }}
         >
             {({errors, isValid, handleBlur, isSubmitting, touched}) => (

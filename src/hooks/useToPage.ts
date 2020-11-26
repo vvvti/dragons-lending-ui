@@ -6,7 +6,7 @@ export const useToPage = () => {
 
     const goToMain = () => {
         const location = {
-            pathname: NONAUTHROUTES.OFFERSGRID,
+            pathname: NONAUTHROUTES.AUCTIONSGRID,
         };
         history.push(location);
     };
@@ -27,30 +27,3 @@ export const useToPage = () => {
 
     return {goToMain, goToLogin, goToUserAccount};
 };
-
-// export const useToLogin = () => {
-//     const history = useHistory();
-//
-//     const goToLogin = () => {
-//         const location = {
-//             pathname: ROUTES.OFFERS,
-//         };
-//         history.push(location);
-//     };
-//
-//     return {goToLogin};
-// };
-//
-// export const useToUserAccount = () => {
-//     const history = useHistory();
-//
-//     const goToLogin = () => {
-//         const location = {
-//             pathname: ROUTES.USERACCOUNT,
-//         };
-//         history.push(location);
-//     };
-//
-//     return {goToLogin};
-// };
-//

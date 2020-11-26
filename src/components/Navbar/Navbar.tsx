@@ -13,7 +13,7 @@ export const Navbar: React.FC = () => {
                 <StyledNavLink to={NONAUTHROUTES.HOME}>{<Logo src={dragonImage} alt="" />}</StyledNavLink>
             </StyledLogoContainer>
             <StyledMenu>
-                <StyledNavLink to={NONAUTHROUTES.OFFERSGRID}>auctions</StyledNavLink>
+                <StyledNavLink to={NONAUTHROUTES.AUCTIONSGRID}>auctions</StyledNavLink>
                 <StyledNavLink to={NONAUTHROUTES.CONTACT}>contact</StyledNavLink>
                 <StyledNavLink to={NONAUTHROUTES.RULES}>rules</StyledNavLink>
                 <StyledNavLink to={NONAUTHROUTES.ABOUT}>about</StyledNavLink>

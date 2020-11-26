@@ -47,7 +47,6 @@ export const AuthContextProvider: React.FC = ({children}) => {
         async (values: LoginFormValues) => {
             try {
                 const response = await postLoginValues(values);
-                console.log('set user', response);
                 setUser(response.data);
                 setLoginError('');
                 localStorage.setItem('token', response.headers['x-authorization']);

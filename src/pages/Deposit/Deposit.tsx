@@ -10,6 +10,7 @@ import {ErrorMessage} from '../Login/Login.styled';
 import {INITIAL_DEPOSIT_VALUES} from '../../helpers/constants';
 import {useAccountBalance} from '../../hooks/useAccountBalance';
 import {DepositAmount} from '../../helpers/types';
+import {StyledErrorMessage} from '../WithdrawMoney/WithdrawMoney.styled';
 
 export const Deposit: React.FC = () => {
     const {postDepositAmount, errorMessage} = useAccountBalance();
@@ -32,7 +33,7 @@ export const Deposit: React.FC = () => {
                             <Typography component="h1" variant="h5">
                                 Deposit Money
                             </Typography>
-                            {errorMessage}
+                            <StyledErrorMessage> {errorMessage}</StyledErrorMessage>
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>

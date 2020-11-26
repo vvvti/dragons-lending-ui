@@ -7,7 +7,7 @@ export const Home: React.FC = () => {
     return (
         <StyledGrid>
             <StyledMain>
-                <SectionContainer pageType={PAGETYPE.OFFERS} />
+                <SectionContainer pageType={PAGETYPE.AUCTIONS} />
                 <SectionContainer pageType={PAGETYPE.INVESTMENTS} />
             </StyledMain>
         </StyledGrid>

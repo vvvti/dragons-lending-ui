@@ -1,5 +1,5 @@
 export enum AUTHROUTES {
-    CREATEOFFER = '/createOffer',
+    CREATEAUCTION = '/createAuction',
     USERACCOUNT = '/userAccount',
     WITHDRAWMONEY = '/withdrawMoney',
     DEPOSIT = '/deposit',
@@ -10,7 +10,7 @@ export enum NONAUTHROUTES {
     HOME = '/',
     LOGIN = '/login',
     REGISTRATION = '/registration',
-    OFFERSGRID = '/offersGrid',
+    AUCTIONSGRID = '/auctions',
     RULES = '/rules',
     ABOUT = '/about',
     PRIVACY = '/privacy',

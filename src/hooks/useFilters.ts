@@ -1,8 +1,8 @@
-import {OffersArray} from '../helpers/types';
+import {AuctionValues, filterValues} from '../helpers/types';
 import {useMemo, useState} from 'react';
 
-export const useFilters = (activeAuctions: OffersArray) => {
-    const [filterConfig, setFilterConfig] = useState<any>({
+export const useFilters = (activeAuctions: AuctionValues[]) => {
+    const [filterConfig, setFilterConfig] = useState<filterValues>({
         sort: false,
         filter: false,
         active: false,
@@ -17,7 +17,7 @@ export const useFilters = (activeAuctions: OffersArray) => {
                 sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) < Number(b.loanAmount) ? 1 : -1));
             }
             if (filterConfig.filter) {
-                sortedUsers = sortedUsers.filter((data: any) => data.loanAmount <= 500);
+                sortedUsers = sortedUsers.filter((data: AuctionValues) => data.loanAmount <= 500);
             } else {
                 return sortedUsers;
             }

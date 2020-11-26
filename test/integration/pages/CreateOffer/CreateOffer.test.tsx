@@ -2,11 +2,11 @@ import {fireEvent, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import {renderWithRouter} from '../../../_helpers/renderWithRouters';
-import {CreateOffer} from '../../../../src/pages/CreateOffer/CreateOffer';
+import {CreateAuction} from '../../../../src/pages/CreateAuction/CreateAuction';
 
-describe('CreateOffer', () => {
+describe('CreateAuction', () => {
     beforeEach(() => {
-        renderWithRouter(<CreateOffer />);
+        renderWithRouter(<CreateAuction />);
     });
 
     it('submit button disabled on invalid values', async () => {
@@ -22,7 +22,7 @@ describe('CreateOffer', () => {
         userEvent.clear(interestRateInput);
         await userEvent.type(interestRateInput, '-77');
 
-        const endDateInput = screen.getByLabelText(/Offer expiry date/i);
+        const endDateInput = screen.getByLabelText(/Auction expiry date/i);
         await fireEvent.change(endDateInput, '12-25-2019');
 
         const submitButton = screen.getByRole('button', {name: /create an auction/i});

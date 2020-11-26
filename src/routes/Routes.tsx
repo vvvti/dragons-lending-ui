@@ -3,9 +3,9 @@ import {Route, Switch} from 'react-router-dom';
 import {Home} from '../pages/Home/Home';
 import {Login} from '../pages/Login/Login';
 import {Registration} from '../pages/Registration/Registration';
-import {OffersPage} from '../pages/OffersPage/OffersPage';
+import {AuctionsPage} from '../pages/AuctionsPage/AuctionsPage';
 import {AUTHROUTES, NONAUTHROUTES} from '../helpers/routes';
-import {CreateOffer} from '../pages/CreateOffer/CreateOffer';
+import {CreateAuction} from '../pages/CreateAuction/CreateAuction';
 import {Rules} from '../pages/Rules/Rules';
 import {About} from '../pages/About/About';
 import {Privacy} from '../pages/Privacy/Privacy';
@@ -20,10 +20,10 @@ import {AuthRoute} from '../components/AuthRoute/AuthRoute';
 export const Routes: React.FC = () => {
     return (
         <Switch>
-            <AuthRoute path={AUTHROUTES.CREATEOFFER} Component={CreateOffer} />
+            <AuthRoute path={AUTHROUTES.CREATEAUCTION} Component={CreateAuction} />
             <Route exact path={NONAUTHROUTES.HOME} component={Home} />
             <Route path={NONAUTHROUTES.ABOUT} component={About} />
-            <Route path={NONAUTHROUTES.OFFERSGRID} component={OffersPage} />
+            <Route path={NONAUTHROUTES.AUCTIONSGRID} component={AuctionsPage} />
             <Route path={NONAUTHROUTES.LOGIN} component={Login} />
             <Route path={NONAUTHROUTES.REGISTRATION} component={Registration} />
             <Route path={NONAUTHROUTES.RULES} component={Rules} />

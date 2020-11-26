@@ -1,18 +1,14 @@
 import {axios} from './rest/axios';
-import {OfferValues} from '../helpers/types';
+import {configType, InvestFormValues} from '../helpers/types';
 
-export const getOffersList = (config: any) => {
-    return axios.get(`/auctions`, config);
+export const getOffersList = (config: configType) => {
+    return axios.get(`/offers/user`, config);
 };
 
-export const getOffersListWithoutToken = () => {
-    return axios.get(`/auctions/public`);
+export const postOffersList = (values: InvestFormValues, config: configType) => {
+    return axios.post(`/offers`, values, config);
 };
 
-export const postOffer = (values: OfferValues, config: any) => {
-    return axios.post(`/auctions`, values, config);
-};
-
-export const getOwnOffersList = (config: any) => {
-    return axios.get(`/auctions`, config);
+export const deleteOfferItem = (id: string, config: configType) => {
+    return axios.delete(`/offers/${id}`, config);
 };
