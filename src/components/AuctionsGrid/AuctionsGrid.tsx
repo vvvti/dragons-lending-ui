@@ -14,30 +14,30 @@ import {
     StyledPagination,
     StyledSpan,
     StyledTitle,
-} from './OffersGrid.styled';
+} from './AuciotnsGrid.styled';
 import {Accordion, AccordionDetails, AccordionSummary, Typography} from '@material-ui/core';
 import {useFilters} from '../../hooks/useFilters';
-import {OffersHeader} from './OffersHeader/OffersHeader';
+import {AuctionsHeader} from './AuctionsHeader/AuctionsHeader';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {InvestForm} from './InvestForm/InvestForm';
-import {useOffer} from '../../hooks/useOffer';
+import {useAuctions} from '../../hooks/useAuctions';
 import {POSTSPERPAGE} from '../../helpers/constants';
-import {getImagesUrl, getPageNumbers} from './OffersGrid.helpers';
+import {getImagesUrl, getPageNumbers} from './AuctionsGrid.helpers';
 import {Loading} from '../Loading/Loading';
 
-export const OffersGrid: React.FC = () => {
-    const {getOffers, offersList} = useOffer();
+export const AuctionsGrid: React.FC = () => {
+    const {getAuctions, auctionsList} = useAuctions();
     const [currentPage, setCurrentPage] = useState(1);
     const [sortState, setSortState] = useState<string>('');
 
     useEffect(() => {
-        getOffers();
-    }, [getOffers]);
+        getAuctions();
+    }, [getAuctions]);
 
-    const urlArray = getImagesUrl(offersList);
+    const urlArray = getImagesUrl(auctionsList);
 
-    const activeOffers = offersList.map((obj, index) => ({...obj, url: urlArray[index]}));
-    const {sortedItems, setFilterConfig, filterConfig} = useFilters(activeOffers);
+    const activeAuctions = auctionsList.map((obj, index) => ({...obj, url: urlArray[index]}));
+    const {sortedItems, setFilterConfig, filterConfig} = useFilters(activeAuctions);
 
     const indexOfLastPost = currentPage * POSTSPERPAGE;
     const indexOfFirstPost = indexOfLastPost - POSTSPERPAGE;
@@ -54,7 +54,7 @@ export const OffersGrid: React.FC = () => {
 
     return (
         <>
-            {Number(offersList.length) ? (
+            {Number(auctionsList.length) ? (
                 <GridButton>
                     <StyledButton
                         variant="contained"
@@ -104,7 +104,7 @@ export const OffersGrid: React.FC = () => {
                 ''
             )}
             <GridView data-testid={'grid-results'}>
-                <OffersHeader />
+                <AuctionsHeader />
                 {Number(currentPosts.length) ? (
                     currentPosts.map(({id, loanAmount, url, endDate, timePeriod, interestRate, username}) => {
                         return (

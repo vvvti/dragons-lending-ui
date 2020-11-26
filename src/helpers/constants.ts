@@ -1,9 +1,9 @@
 import {
     AccountBalance,
+    AuctionValues,
     DepositAmount,
     InvestFormValues,
     LoginFormValues,
-    OfferValues,
     RegisterFormValues,
     userValues,
     WithdrawnAmount,
@@ -11,7 +11,7 @@ import {
 
 export enum PAGETYPE {
     INVESTMENTS,
-    OFFERS,
+    AUCTIONS,
 }
 
 export enum CURRENCY {
@@ -38,7 +38,7 @@ export const INITIAL_LOGIN_VALUES: LoginFormValues = {
     password: '',
 };
 
-export const OFFER_VALUES: OfferValues = {
+export const AUCTION_VALUES: AuctionValues = {
     id: '',
     loanAmount: 500,
     timePeriod: 12,

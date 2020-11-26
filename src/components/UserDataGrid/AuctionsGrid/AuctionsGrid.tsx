@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
 import {StyledContainer} from './AuctionsGrid.styled';
-import {useOffer} from '../../../hooks/useOffer';
+import {useAuctions} from '../../../hooks/useAuctions';
 
 export const AuctionsGrid: React.FC = () => {
-    const {getOwnOffersList, ownOfferList} = useOffer();
+    const {getOwnAuctionsList, ownAuctionsList} = useAuctions();
 
     useEffect(() => {
-        getOwnOffersList();
-    }, [getOwnOffersList]);
+        getOwnAuctionsList();
+    }, [getOwnAuctionsList]);
 
     const columns: ColDef[] = [
         {field: 'idValue', headerName: 'Auction ID', width: 500},
@@ -17,7 +17,7 @@ export const AuctionsGrid: React.FC = () => {
         {field: 'loanAmount', headerName: 'Amount (GBP)', type: 'number', width: 150},
     ];
 
-    const rowsData = ownOfferList.map((obj, index) => ({
+    const rowsData = ownAuctionsList.map((obj: any) => ({
         ...obj,
         idValue: obj.id.substring(0, 8),
     }));

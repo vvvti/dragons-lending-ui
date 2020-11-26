@@ -13,12 +13,12 @@ describe('Home', () => {
         expect(screen.getByText(/investments/i)).toBeInTheDocument();
     });
 
-    it('renders /offerGrid after click on checkout button ', async () => {
+    it('renders /auctionGrid after click on checkout button ', async () => {
         const {history} = renderWithRouter(<Home />);
 
         userEvent.click(screen.getByRole('link', {name: /check out/i}));
 
         expect(history.entries).toHaveLength(2);
-        expect(history.location.pathname).toEqual(NONAUTHROUTES.OFFERSGRID);
+        expect(history.location.pathname).toEqual(NONAUTHROUTES.AUCTIONSGRID);
     });
 });

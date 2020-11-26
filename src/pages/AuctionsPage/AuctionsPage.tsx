@@ -1,14 +1,14 @@
 import React from 'react';
-import {PageContainer, PageWrapper} from './OffersPage.styled';
-import {OffersGrid} from '../../components/OffersGrid/OffersGrid';
+import {PageContainer, PageWrapper} from './AuctionsPage.styled';
+import {AuctionsGrid} from '../../components/AuctionsGrid/AuctionsGrid';
 import {StatusContainer} from '../../components/Account/StatusContainer/StatusContainer';
 
-export const OffersPage: React.FC = () => {
+export const AuctionsPage: React.FC = () => {
     return (
         <PageWrapper>
             <PageContainer>
                 <StatusContainer />
-                <OffersGrid />
+                <AuctionsGrid />
             </PageContainer>
         </PageWrapper>
     );

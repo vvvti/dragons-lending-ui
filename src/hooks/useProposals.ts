@@ -1,10 +1,10 @@
 import {useCallback, useState} from 'react';
-import {ProposalsArray} from '../helpers/types';
 import {useAuthContext} from '../context/auth-context';
 import {deleteProposalItem, getProposalsList, postProposalsList} from '../api/proposals';
+import {Proposals} from '../helpers/types';
 
 export const useProposals = () => {
-    const [proposalsList, setProposalsList] = useState<ProposalsArray>([]);
+    const [proposalsList, setProposalsList] = useState<Proposals[]>([]);
     const {tokenStorage} = useAuthContext();
 
     const getProposals = useCallback(async () => {

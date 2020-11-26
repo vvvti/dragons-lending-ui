@@ -10,7 +10,7 @@ export const OffersGrid: React.FC = () => {
         getProposals();
     }, [getProposals]);
 
-    const rowsData = proposalsList.map(obj => ({
+    const rowsData = proposalsList.map((obj: any) => ({
         ...obj,
         finalValue: obj.calculation.finalValue.toFixed(2),
         periodValue: obj.calculation.periodValue,
@@ -19,26 +19,9 @@ export const OffersGrid: React.FC = () => {
 
     const columns: ColDef[] = [
         {field: 'idValue', headerName: 'Auction ID', width: 450},
-        // {field: 'periodValue', headerName: 'Period Value ', type: 'number', width: 150},
         {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 150},
         {field: 'offerAmount', headerName: 'Amount (GBP)', type: 'number', width: 150},
         {field: 'finalValue', headerName: 'Final Value(GBP)', type: 'number', width: 150},
-
-        // {
-        //     field: '',
-        //     headerName: '',
-        //     sortable: false,
-        //     width: 120,
-        //     disableClickEventBubbling: true,
-        //     renderCell: () => {
-        //         return (
-        //             <Button type="submit" size="small" variant="contained" color="secondary"
-        //                     onClick={deleteProposals}>
-        //                 Remove
-        //             </Button>
-        //         );
-        //     },
-        // },
     ];
 
     return (
@@ -47,5 +30,3 @@ export const OffersGrid: React.FC = () => {
         </StyledContainer>
     );
 };
-
-// {field: 'calculation', headerName: 'Duration (months)', type: 'number', width: 150},

@@ -42,7 +42,6 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate,
             }}
             validationSchema={validationSchema}
             onSubmit={async (values: InvestFormValues) => {
-                console.log('dziala');
                 await postProposals(values);
             }}
         >

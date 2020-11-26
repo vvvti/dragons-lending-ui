@@ -1,3 +1,4 @@
+import React from 'react';
 import {RouteComponentProps} from 'react-router-dom';
 
 export interface RegisterFormValues {
@@ -19,7 +20,7 @@ export interface InvestFormValues {
     auctionId: string;
 }
 
-export interface OfferValues {
+export interface AuctionValues {
     id: string;
     loanAmount: number | '';
     timePeriod: number | '';
@@ -28,8 +29,6 @@ export interface OfferValues {
     username: string;
     url?: string;
 }
-
-export interface OffersArray extends Array<OfferValues> {}
 
 export interface DepositAmount {
     fromAccountNumber: string;
@@ -51,8 +50,6 @@ export interface Calculation {
     periodValue: number;
 }
 
-export interface CalculationArray extends Array<Calculation> {}
-
 export interface Proposals {
     id: string;
     offerAmount: number;
@@ -62,8 +59,6 @@ export interface Proposals {
     username: string;
 }
 
-export interface ProposalsArray extends Array<Proposals> {}
-
 export interface userValues {
     email: string;
     firstName: string;
@@ -71,6 +66,7 @@ export interface userValues {
     lastName: string;
     username: string;
 }
+
 export interface AuthRouteProps {
     Component: React.FC<RouteComponentProps>;
     path: string;

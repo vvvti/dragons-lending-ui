@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
                 <div>
                     <StyledHeader>Invest</StyledHeader>
                     <ul>
-                        <StyledNavLink to={NONAUTHROUTES.OFFERSGRID}>
+                        <StyledNavLink to={NONAUTHROUTES.AUCTIONSGRID}>
                             <StyledListElement>Social Lending</StyledListElement>
                         </StyledNavLink>
                         <StyledExternalLink href={CALCULATORPAGE}>

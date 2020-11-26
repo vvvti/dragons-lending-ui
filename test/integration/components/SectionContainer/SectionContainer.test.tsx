@@ -5,8 +5,8 @@ import {SectionContainer} from '../../../../src/components/SectionContainer/Sect
 import {PAGETYPE} from '../../../../src/helpers/constants';
 
 describe('SectionContainer', () => {
-    it('renders offers component', async () => {
-        renderWithRouter(<SectionContainer pageType={PAGETYPE.OFFERS} />);
+    it('renders Auctions component', async () => {
+        renderWithRouter(<SectionContainer pageType={PAGETYPE.AUCTIONS} />);
 
         expect(screen.getByText(/check out/i)).toBeInTheDocument();
     });

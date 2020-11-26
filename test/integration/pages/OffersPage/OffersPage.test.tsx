@@ -1,12 +1,12 @@
 import React from 'react';
 import {screen} from '@testing-library/react';
 
-import {OffersPage} from '../../../../src/pages/OffersPage/OffersPage';
+import {AuctionsPage} from '../../../../src/pages/AuctionsPage/AuctionsPage';
 import {renderWithRouter} from '../../../_helpers/renderWithRouters';
 
-describe('OffersPage', () => {
-    it('renders component with active offers', async () => {
-        renderWithRouter(<OffersPage />);
+describe('AuctionsPage', () => {
+    it('renders component with active auctions', async () => {
+        renderWithRouter(<AuctionsPage />);
 
         expect(screen.getByText(/active/i)).toBeInTheDocument();
     });
