@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    GridView,
     ItemContainer,
     StyledAccordion,
     StyledAvatar,
@@ -15,7 +16,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {AuctionValues} from '../../../helpers/types';
 import {InvestForm} from '../InvestForm/InvestForm';
 import {Loading} from '../../Loading/Loading';
-import {GridView} from '../AuciotnsGrid.styled';
 import {AuctionsHeader} from '../AuctionsHeader/AuctionsHeader';
 
 export const AuctionsDetails: React.FC<{currentAuctions: AuctionValues[]}> = ({currentAuctions}) => {

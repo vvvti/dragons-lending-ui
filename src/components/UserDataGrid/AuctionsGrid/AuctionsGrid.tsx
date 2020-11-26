@@ -29,6 +29,7 @@ export const AuctionsGrid: React.FC = () => {
     );
 };
 
+//TODO: Add button after backend implementation
 // {field: 'calculation', headerName: 'Duration (months)', type: 'number', width: 150},
 // {
 //     field: '',

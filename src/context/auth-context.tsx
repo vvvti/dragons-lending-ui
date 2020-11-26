@@ -10,7 +10,6 @@ interface AuthContextValue {
     login: (values: LoginFormValues) => void;
     logout: () => void;
     setTokenStorage: any;
-    user: any;
 }
 
 const dummyValue = {
@@ -19,7 +18,6 @@ const dummyValue = {
     login: () => {},
     logout: () => {},
     setTokenStorage: () => {},
-    user: '',
 };
 
 const AuthContext = React.createContext<AuthContextValue>(dummyValue);
@@ -29,7 +27,6 @@ export const AuthContextProvider: React.FC = ({children}) => {
 
     const [tokenStorage, setTokenStorage] = useState(tokenFromLocalStorage);
     const [loginError, setLoginError] = useState('');
-    const [user, setUser] = useState('');
     const {goToMain} = useToPage();
     let validToken: any;
 
@@ -47,7 +44,7 @@ export const AuthContextProvider: React.FC = ({children}) => {
         async (values: LoginFormValues) => {
             try {
                 const response = await postLoginValues(values);
-                setUser(response.data);
+                console.log();
                 setLoginError('');
                 localStorage.setItem('token', response.headers['x-authorization']);
                 setTokenStorage(response.headers['x-authorization']);
@@ -73,9 +70,8 @@ export const AuthContextProvider: React.FC = ({children}) => {
             loginError,
             tokenStorage,
             setTokenStorage,
-            user,
         };
-    }, [login, logout, loginError, tokenStorage, setTokenStorage, user]);
+    }, [login, logout, loginError, tokenStorage, setTokenStorage]);
 
     return <AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>;
 };

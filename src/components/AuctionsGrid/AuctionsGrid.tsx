@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {GridButton, StyledButton} from './AuciotnsGrid.styled';
+import {ButtonsGrid, StyledButton} from './AuciotnsGrid.styled';
 import {useFilters} from '../../hooks/useFilters';
 import {useAuctions} from '../../hooks/useAuctions';
 import {POSTSPERPAGE} from '../../helpers/constants';
@@ -37,7 +37,7 @@ export const AuctionsGrid: React.FC = () => {
     return (
         <>
             {Number(auctionsList.length) ? (
-                <GridButton>
+                <ButtonsGrid>
                     <StyledButton
                         variant="contained"
                         color={!sortState ? 'primary' : 'secondary'}
@@ -81,7 +81,7 @@ export const AuctionsGrid: React.FC = () => {
                     >
                         Reset
                     </StyledButton>
-                </GridButton>
+                </ButtonsGrid>
             ) : (
                 ''
             )}
