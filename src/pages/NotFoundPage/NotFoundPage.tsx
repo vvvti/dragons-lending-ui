@@ -1,14 +1,15 @@
 import React from 'react';
 import {ROUTES} from '../../helpers/routes';
-import {StyledContainer} from './NotFoundPage.styled';
-import {Link} from 'react-router-dom';
+import {StyledContainer, StyledH1} from './NotFoundPage.styled';
+import {StyledNavLink} from './NotFoundPage.styled';
 
 export const NotFoundPage: React.FC = () => {
     return (
         <StyledContainer>
-            Maybe this page moved? Got deleted? Is hiding out in quarantine? Never existed in the first place?
+            <StyledH1>404</StyledH1>
+            <p>Maybe this page moved? Got deleted? Is hiding out in quarantine? Never existed in the first place?</p>
             <p>
-                Let's go <Link to={ROUTES.HOME}>HOME</Link> and try from there.
+                Let's go <StyledNavLink to={ROUTES.HOME}> home</StyledNavLink> and try from there.
             </p>
         </StyledContainer>
     );
