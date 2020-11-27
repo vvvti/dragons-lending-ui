@@ -1,6 +1,6 @@
 ## PROJECT DESCRIPTION
 
-Draco Social Lending is a project introducing the idea of ​​"social lending" to the Polish market. Simply put, our service allows for granting loans between individuals without the inter mediation of banks - offering customers speed, simplicity and convenience. We believe that such projects are the future of banking. From the very beginning, banks have linked people who have money (through deposits and other investment products of this type) with those who need it (by providing loans). It is only in recent years, with the development of the Internet and mobile phones, that this status quo may change for the first time. In order to connect people who need money with those who have it, you no longer need a bank - it is enough to use modern technologies, i.e. websites and applications for mobile phones. This is an analogous situation to the changes that have taken place in trade - bazaars and shops have partially replaced auction sites and online stores. The lack of "physicality" in both commerce and banking simply has many undeniable advantages. How do we want to function? What are our goals? Well, we believe that we have a unique opportunity to improve and simplify the transfer of money between people.
+Draco Social Lending is a project introducing the idea of "social lending" to the Polish market. Simply put, our service allows for granting loans between individuals without the inter mediation of banks - offering customers speed, simplicity and convenience. We believe that such projects are the future of banking. From the very beginning, banks have linked people who have money (through deposits and other investment products of this type) with those who need it (by providing loans). It is only in recent years, with the development of the Internet and mobile phones, that this status quo may change for the first time. In order to connect people who need money with those who have it, you no longer need a bank - it is enough to use modern technologies, i.e. websites and applications for mobile phones. This is an analogous situation to the changes that have taken place in trade - bazaars and shops have partially replaced auction sites and online stores. The lack of "physicality" in both commerce and banking simply has many undeniable advantages. How do we want to function? What are our goals? Well, we believe that we have a unique opportunity to improve and simplify the transfer of money between people.
 
 ## LIVE
 
@@ -21,32 +21,64 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 -   [React hooks](https://reactjs.org/docs/hooks-intro.html)
 -   [Jest](https://jestjs.io/docs/en/getting-started.html)
 -   [React testing library](https://testing-library.com/docs/react-testing-library/intro)
--   [Emotion](https://emotion.sh/docs/introduction)
 -   [Material-ui](https://material-ui.com/)
 -   [Axios](https://github.com/axios/axios)
 -   [Formik](https://formik.org/)
 
-## Available Scripts
+## Architecture
 
-In the project directory, you can run:
+### React-Router
 
-### `yarn start`
+React Router is a powerful routing library built on top of React that adds new screens and flows to your application incredibly quickly, all while keeping the URL in sync with what's being displayed on the page.
+React router allows to write and read from browser's url which makes it perfect place for context-like store of an application state. This leads us to render applications according to the url which is a key for further debugging (user may copy an url address not saying what actions been taken before) and SEO optimisation to name a few.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+All routes are gathered in `src/helpers/routes.ts` file.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Custom hooks
 
-### `yarn test`
+React Hooks are in-built functions that allow React developers to use state and lifecycle methods inside functional components, they also work together with existing code, so they can easily be adopted into a codebase.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+All hooks are gathered in `src/hooks` folder.
 
-### `yarn build`
+### Context API
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The React Context API is a way for a React app to effectively produce global variables that can be passed around. This is the alternative to "prop drilling" or moving props from grandparent to child to parent.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+The interesting part of this pattern is that the custom hook returns same data no matter if it's called by top component or the one that resides at very low end of components tree. It makes the url a context-like source of information for our application.
+
+Context API is stored in `src/context` folder.
+
+## Setup
+
+These instructions will get you a copy of the project up and running on your local machine.
+
+### Installing and running
+
+To run this project, install it locally using npm:
+
+```
+$ npm install
+$ npm start
+```
+
+To launch the test runner in the interactive watch mode:
+
+```
+$ npm test
+```
+
+### Testing credentials
+
+To access to full functionality of the application you have to register or use below credential when login:
+
+`e-mail:` example@example.com
+<br />
+`password:` example@2020
+
+To deposit or withdraw to app account, you can use
+
+`account-id:` eaab8795-6f5d-4bd3-ab34-ac0cf0c889b6
+
+## Demo
+
+![usage gif](https://github.com/oskarwoj/FinTech/blob/main/lending-demo.gif?raw=true)
