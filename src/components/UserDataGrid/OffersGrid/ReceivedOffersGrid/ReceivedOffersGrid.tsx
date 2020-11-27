@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
 import {useOffers} from '../../../../hooks/useOffers';
-import {StyledButton, StyledContainer} from './MyOffersGrid.styled';
+import {StyledButton, StyledContainer} from './ReceivedOffersGrid.styled';
 
-export const MyOffersGrid: React.FC = () => {
-    const {offersList, getOffers, deleteOffer} = useOffers();
+export const ReceivedOffersGrid: React.FC = () => {
+    const {offersList, getOffers} = useOffers();
 
     useEffect(() => {
         getOffers();
@@ -18,8 +18,8 @@ export const MyOffersGrid: React.FC = () => {
     }));
 
     const columns: ColDef[] = [
-        {field: 'idValue', headerName: 'My Offers', width: 350},
-        {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 200},
+        {field: 'idValue', headerName: 'Received Offers ID', width: 400},
+        {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 150},
         {field: 'offerAmount', headerName: 'Amount (GBP)', type: 'number', width: 200},
         {field: 'finalValue', headerName: 'Final Value(GBP)', type: 'number', width: 247},
         {
@@ -28,10 +28,10 @@ export const MyOffersGrid: React.FC = () => {
             sortable: false,
             width: 100,
             disableClickEventBubbling: true,
-            renderCell: ({data}) => {
+            renderCell: () => {
                 return (
-                    <StyledButton onClick={() => deleteOffer(data.id)} type="submit" size="small" variant="contained" color="primary">
-                        Remove
+                    <StyledButton type="submit" size="small" variant="contained" color="primary">
+                        Accept
                     </StyledButton>
                 );
             },

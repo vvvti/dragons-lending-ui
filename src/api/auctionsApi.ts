@@ -12,3 +12,6 @@ export const getAuctionsListWithoutToken = () => {
 export const postAuction = (values: AuctionValues, config: configType) => {
     return axios.post(`/auctions`, values, config);
 };
+export const deleteAuctionItem = (id: string, config: configType) => {
+    return axios.delete(`/offers/${id}`, config);
+};

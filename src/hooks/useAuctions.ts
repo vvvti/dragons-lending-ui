@@ -1,6 +1,6 @@
 import {useCallback, useState} from 'react';
 import {AuctionValues} from '../helpers/types';
-import {getAuctionsList, getAuctionsListWithoutToken, postAuction} from '../api/auctionsApi';
+import {deleteAuctionItem, getAuctionsList, getAuctionsListWithoutToken, postAuction} from '../api/auctionsApi';
 import {useAuthContext} from '../context/auth-context';
 import {useToPage} from './useToPage';
 
@@ -49,11 +49,27 @@ export const useAuctions = () => {
         [tokenStorage, goToMain],
     );
 
+    const deleteAuction = useCallback(
+        async (id: any) => {
+            const config = {
+                headers: {'x-authorization': tokenStorage},
+            };
+            console.log('id hook', id);
+
+            if (tokenStorage) {
+                const response = await deleteAuctionItem(id, config);
+                setAuctionsList(response.data);
+            }
+        },
+        [tokenStorage],
+    );
+
     return {
         auctionsList,
         getAuctions,
         postNewAuction,
         getOwnAuctionsList,
         ownAuctionsList,
+        deleteAuction,
     };
 };

@@ -40,8 +40,6 @@ export const useOffers = () => {
             };
             console.log('id hook', id);
 
-            // const id = '700d3b8a-7264-44e9-aa9f-0231a65516ac';
-
             if (tokenStorage) {
                 const response = await deleteOfferItem(id, config);
                 setOffersList(response.data);

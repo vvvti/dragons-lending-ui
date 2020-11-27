@@ -1,6 +1,6 @@
 import React from 'react';
 import {PageContainer, StyledBanking, StyledInvest, StyledTitle} from './Repayment.styled';
-import {MyOffersGrid} from '../../components/UserDataGrid/OffersGrid/MyOffersGrid/MyOffersGrid';
+import {SubmittedOffersGrid} from '../../components/UserDataGrid/OffersGrid/SubmittedOffersGrid/SubmittedOffersGrid';
 
 export const Repayment: React.FC = () => {
     return (
@@ -9,7 +9,7 @@ export const Repayment: React.FC = () => {
                 <StyledTitle>Repayment schedule</StyledTitle>
             </StyledBanking>
             <StyledInvest>
-                <MyOffersGrid />
+                <SubmittedOffersGrid />
             </StyledInvest>
         </PageContainer>
     );

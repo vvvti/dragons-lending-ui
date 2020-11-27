@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {StyledButton, StyledContainer, StyledGrid, StyledGridContainer} from './DataBoard.styled';
 import {DATAGRIDTYPE} from '../../helpers/constants';
-import {MyOffersGrid} from '../UserDataGrid/OffersGrid/MyOffersGrid/MyOffersGrid';
+import {SubmittedOffersGrid} from '../UserDataGrid/OffersGrid/SubmittedOffersGrid/SubmittedOffersGrid';
 import {AuctionsGrid} from '../UserDataGrid/AuctionsGrid/AuctionsGrid';
-import {UsersOffersGrid} from '../UserDataGrid/OffersGrid/UsersOffersGrid/UsersOffersGrid';
+import {ReceivedOffersGrid} from '../UserDataGrid/OffersGrid/ReceivedOffersGrid/ReceivedOffersGrid';
 
 export const DataBoard: React.FC = () => {
     const [dataGrid, setDataGrid] = useState<DATAGRIDTYPE>(DATAGRIDTYPE.OFFERS);
@@ -19,12 +19,12 @@ export const DataBoard: React.FC = () => {
             <StyledGrid>
                 {dataGrid === DATAGRIDTYPE.OFFERS && (
                     <>
-                        <MyOffersGrid />
-                        <UsersOffersGrid />
+                        <SubmittedOffersGrid />
+                        <ReceivedOffersGrid />
                     </>
                 )}
                 {dataGrid === DATAGRIDTYPE.AUCTIONS && <AuctionsGrid />}
-                {dataGrid === DATAGRIDTYPE.LOANS && <MyOffersGrid />}
+                {dataGrid === DATAGRIDTYPE.LOANS && <SubmittedOffersGrid />}
                 {dataGrid === DATAGRIDTYPE.REPAYMENT && <AuctionsGrid />}
             </StyledGrid>
         </StyledGridContainer>
