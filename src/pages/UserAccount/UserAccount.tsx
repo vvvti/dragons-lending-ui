@@ -6,26 +6,21 @@ import {
     StyledButton,
     StyledContainer,
     StyledGrid,
-    StyledHeader,
-    StyledInvest,
-    StyledLoan,
+    StyledNavLink,
     StyledProfile,
     StyledProfileText,
     StyledSummary,
     StyledSummaryNumber,
-    StyledTileTitle,
     StyledTitle,
     StyledUserDetails,
     StyledUserName,
 } from './UserAccount.styled';
-import {OffersGrid} from '../../components/UserDataGrid/OffersGrid/OffersGrid';
 import {AUTHROUTES, NONAUTHROUTES} from '../../helpers/routes';
-import {StyledNavLink} from '../Deposit/Deposit.styled';
 import {useAuthContext} from '../../context/auth-context';
 import {useAccountBalance} from '../../hooks/useAccountBalance';
 import {CURRENCY} from '../../helpers/constants';
-import {AuctionsGrid} from '../../components/UserDataGrid/AuctionsGrid/AuctionsGrid';
 import {useUser} from '../../hooks/useUser';
+import {DataBoard} from '../../components/DataBoard/DataBoard';
 
 export const UserAccount: React.FC = () => {
     const {getAccountValue, accountBalance} = useAccountBalance();
@@ -97,18 +92,7 @@ export const UserAccount: React.FC = () => {
                         </StyledNavLink>
                     </div>
                 </StyledBanking>
-                <StyledInvest>
-                    <StyledHeader>
-                        <StyledTileTitle>Offers</StyledTileTitle>
-                    </StyledHeader>
-                    <OffersGrid />
-                </StyledInvest>
-                <StyledLoan>
-                    <StyledHeader>
-                        <StyledTileTitle>Auctions</StyledTileTitle>
-                    </StyledHeader>
-                    <AuctionsGrid />
-                </StyledLoan>
+                <DataBoard />
             </StyledGrid>
         </PageContainer>
     );

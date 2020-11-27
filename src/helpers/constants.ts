@@ -14,6 +14,13 @@ export enum PAGETYPE {
     AUCTIONS,
 }
 
+export enum DATAGRIDTYPE {
+    OFFERS,
+    AUCTIONS,
+    LOANS,
+    REPAYMENT,
+}
+
 export enum CURRENCY {
     GBP = '£',
 }
