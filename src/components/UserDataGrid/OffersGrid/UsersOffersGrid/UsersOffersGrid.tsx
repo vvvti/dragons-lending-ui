@@ -4,7 +4,7 @@ import {useOffers} from '../../../../hooks/useOffers';
 import {StyledButton, StyledContainer} from './UsersOffersGrid.styled';
 
 export const UsersOffersGrid: React.FC = () => {
-    const {offersList, getOffers, deleteOffer} = useOffers();
+    const {offersList, getOffers} = useOffers();
 
     useEffect(() => {
         getOffers();
@@ -28,7 +28,7 @@ export const UsersOffersGrid: React.FC = () => {
             sortable: false,
             width: 300,
             disableClickEventBubbling: true,
-            renderCell: ({data}) => {
+            renderCell: () => {
                 return (
                     <StyledButton type="submit" size="small" variant="contained" color="primary">
                         Accept
