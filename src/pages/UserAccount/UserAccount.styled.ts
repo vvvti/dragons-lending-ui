@@ -11,15 +11,13 @@ export const PageContainer = styled.div`
 
 export const StyledGrid = styled.div`
     display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px 1fr;
+    align-items: flex-start;
     grid-gap: 10px;
     grid-template-areas:
         'profile banking banking banking'
-        'profile nav nav nav'
-        'profile invest invest invest'
-        'profile invest invest invest'
-        'profile loan loan loan'
-        'profile loan loan loan';
-    grid-template-columns: repeat(4, 1fr);
+        'profile invest invest invest';
     min-height: 90vh;
     margin: 20px 0;
 `;
@@ -30,8 +28,8 @@ export const StyledProfile = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-    padding: 20px 20px;
     box-shadow: 0 4px 12px ${colors.boxShadow};
+    min-height: 90vh;
 `;
 export const StyledBanking = styled.div`
     grid-area: banking;

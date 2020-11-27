@@ -33,18 +33,22 @@ export const useOffers = () => {
     );
 
     //TODO: waiting backend implementation
-    const deleteOffer = useCallback(async () => {
-        const config = {
-            headers: {'x-authorization': tokenStorage},
-        };
+    const deleteOffer = useCallback(
+        async (id: any) => {
+            const config = {
+                headers: {'x-authorization': tokenStorage},
+            };
+            console.log('id hook', id);
 
-        const id = '700d3b8a-7264-44e9-aa9f-0231a65516ac';
+            // const id = '700d3b8a-7264-44e9-aa9f-0231a65516ac';
 
-        if (tokenStorage) {
-            const response = await deleteOfferItem(id, config);
-            setOffersList(response.data);
-        }
-    }, [tokenStorage]);
+            if (tokenStorage) {
+                const response = await deleteOfferItem(id, config);
+                setOffersList(response.data);
+            }
+        },
+        [tokenStorage],
+    );
 
     return {
         offersList,

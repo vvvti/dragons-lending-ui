@@ -11,6 +11,7 @@ export const colors = {
     redBackground: 'hsl(339, 100%, 43%)',
     dragonOrange: 'hsl(33, 97%, 64%)',
     marine: 'hsl(168, 100%, 44%)',
+    green: 'hsl(97, 37%, 50%)',
     white: 'hsl(0, 0%, 100%)',
     grayBackground: 'hsl(240, 2%, 16%)',
 };

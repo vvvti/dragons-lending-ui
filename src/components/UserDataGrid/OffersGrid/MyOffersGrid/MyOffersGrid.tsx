@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
-import {useOffers} from '../../../hooks/useOffers';
-import {StyledContainer} from './OffersGrid.styled';
+import {useOffers} from '../../../../hooks/useOffers';
+import {StyledButton, StyledContainer} from './MyOffersGrid.styled';
 
-export const OffersGrid: React.FC = () => {
-    const {offersList, getOffers} = useOffers();
+export const MyOffersGrid: React.FC = () => {
+    const {offersList, getOffers, deleteOffer} = useOffers();
 
     useEffect(() => {
         getOffers();
@@ -18,10 +18,24 @@ export const OffersGrid: React.FC = () => {
     }));
 
     const columns: ColDef[] = [
-        {field: 'idValue', headerName: 'Auction ID', width: 450},
+        {field: 'idValue', headerName: 'My Offers', width: 450},
         {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 150},
         {field: 'offerAmount', headerName: 'Amount (GBP)', type: 'number', width: 150},
         {field: 'finalValue', headerName: 'Final Value(GBP)', type: 'number', width: 150},
+        {
+            field: '',
+            headerName: '',
+            sortable: false,
+            width: 300,
+            disableClickEventBubbling: true,
+            renderCell: ({data}) => {
+                return (
+                    <StyledButton onClick={() => deleteOffer(data.id)} type="submit" size="small" variant="contained" color="primary">
+                        Remove
+                    </StyledButton>
+                );
+            },
+        },
     ];
 
     return (
