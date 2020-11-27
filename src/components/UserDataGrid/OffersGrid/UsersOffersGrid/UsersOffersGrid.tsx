@@ -4,11 +4,7 @@ import {useOffers} from '../../../../hooks/useOffers';
 import {StyledButton, StyledContainer} from './UsersOffersGrid.styled';
 
 export const UsersOffersGrid: React.FC = () => {
-    const {offersList, getOffers} = useOffers();
-
-    const passId = (id: any) => {
-        console.log(id);
-    };
+    const {offersList, getOffers, deleteOffer} = useOffers();
 
     useEffect(() => {
         getOffers();
@@ -34,7 +30,7 @@ export const UsersOffersGrid: React.FC = () => {
             disableClickEventBubbling: true,
             renderCell: ({data}) => {
                 return (
-                    <StyledButton onClick={() => passId(data.id)} type="submit" size="small" variant="contained" color="primary">
+                    <StyledButton type="submit" size="small" variant="contained" color="primary">
                         Accept
                     </StyledButton>
                 );

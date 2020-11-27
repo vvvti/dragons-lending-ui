@@ -4,7 +4,7 @@ import {useOffers} from '../../../../hooks/useOffers';
 import {StyledButton, StyledContainer} from './MyOffersGrid.styled';
 
 export const MyOffersGrid: React.FC = () => {
-    const {offersList, getOffers} = useOffers();
+    const {offersList, getOffers, deleteOffer} = useOffers();
 
     useEffect(() => {
         getOffers();
@@ -28,9 +28,9 @@ export const MyOffersGrid: React.FC = () => {
             sortable: false,
             width: 300,
             disableClickEventBubbling: true,
-            renderCell: () => {
+            renderCell: ({data}) => {
                 return (
-                    <StyledButton type="submit" size="small" variant="contained" color="primary">
+                    <StyledButton onClick={() => deleteOffer(data.id)} type="submit" size="small" variant="contained" color="primary">
                         Remove
                     </StyledButton>
                 );
