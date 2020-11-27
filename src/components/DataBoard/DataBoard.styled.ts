@@ -13,6 +13,8 @@ export const StyledButton = styled.button.attrs(() => ({
     border: none;
     outline: none;
     margin: 10px 0;
+    text-transform: uppercase;
+    font-weight: 900;
 
     &:focus {
         border-bottom: 2px solid ${colors.darkblue};
@@ -32,6 +34,18 @@ export const StyledContainer = styled.div`
     font-weight: 900;
 `;
 
-export const StyledInvest = styled.div`
+export const StyledGridContainer = styled.div`
     grid-area: invest;
+`;
+
+export const StyledGrid = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    box-shadow: 0 4px 12px ${colors.boxShadow};
+    min-height: 10vh;
+    font-size: 24px;
+    font-weight: 900;
 `;
