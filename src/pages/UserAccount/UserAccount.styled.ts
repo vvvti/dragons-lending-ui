@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {Avatar, Button} from '@material-ui/core';
 import {colors} from '../../styles/theme';
 import NumberFormat from 'react-number-format';
+import {NavLink} from 'react-router-dom';
 
 export const PageContainer = styled.div`
     width: 80%;
@@ -13,6 +14,7 @@ export const StyledGrid = styled.div`
     grid-gap: 10px;
     grid-template-areas:
         'profile banking banking banking'
+        'profile nav nav nav'
         'profile invest invest invest'
         'profile invest invest invest'
         'profile loan loan loan'
@@ -40,17 +42,6 @@ export const StyledBanking = styled.div`
     padding: 20px;
     box-shadow: 0 4px 12px ${colors.boxShadow};
     min-height: 10vh;
-`;
-
-export const StyledInvest = styled.div`
-    grid-area: invest;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px 5px;
-    box-shadow: 0 4px 12px ${colors.boxShadow};
-    min-height: 30vh;
 `;
 
 export const StyledLoan = styled.div`
@@ -141,4 +132,7 @@ export const StyledUserName = styled.div`
     font-size: 24px;
     font-weight: 900;
     margin: 10px 0;
+`;
+export const StyledNavLink = styled(NavLink)`
+    text-decoration: none;
 `;
