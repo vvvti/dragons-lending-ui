@@ -18,15 +18,15 @@ export const MyOffersGrid: React.FC = () => {
     }));
 
     const columns: ColDef[] = [
-        {field: 'idValue', headerName: 'My Offers', width: 450},
-        {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 150},
-        {field: 'offerAmount', headerName: 'Amount (GBP)', type: 'number', width: 150},
-        {field: 'finalValue', headerName: 'Final Value(GBP)', type: 'number', width: 150},
+        {field: 'idValue', headerName: 'My Offers', width: 350},
+        {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 200},
+        {field: 'offerAmount', headerName: 'Amount (GBP)', type: 'number', width: 200},
+        {field: 'finalValue', headerName: 'Final Value(GBP)', type: 'number', width: 247},
         {
             field: '',
-            headerName: '',
+            headerName: 'Actions',
             sortable: false,
-            width: 300,
+            width: 100,
             disableClickEventBubbling: true,
             renderCell: ({data}) => {
                 return (
@@ -40,7 +40,7 @@ export const MyOffersGrid: React.FC = () => {
 
     return (
         <StyledContainer>
-            <DataGrid rows={rowsData} columns={columns} pageSize={3} checkboxSelection />
+            <DataGrid rows={rowsData} columns={columns} pageSize={3} />
         </StyledContainer>
     );
 };
