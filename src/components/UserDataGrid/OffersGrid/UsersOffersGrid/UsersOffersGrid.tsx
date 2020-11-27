@@ -6,6 +6,10 @@ import {StyledButton, StyledContainer} from './UsersOffersGrid.styled';
 export const UsersOffersGrid: React.FC = () => {
     const {offersList, getOffers} = useOffers();
 
+    const passId = (id: any) => {
+        console.log(id);
+    };
+
     useEffect(() => {
         getOffers();
     }, [getOffers]);
@@ -24,13 +28,13 @@ export const UsersOffersGrid: React.FC = () => {
         {field: 'finalValue', headerName: 'Final Value(GBP)', type: 'number', width: 150},
         {
             field: '',
-            headerName: 'Button',
+            headerName: '',
             sortable: false,
             width: 300,
             disableClickEventBubbling: true,
-            renderCell: () => {
+            renderCell: ({data}) => {
                 return (
-                    <StyledButton type="submit" size="small" variant="contained" color="primary">
+                    <StyledButton onClick={() => passId(data.id)} type="submit" size="small" variant="contained" color="primary">
                         Accept
                     </StyledButton>
                 );

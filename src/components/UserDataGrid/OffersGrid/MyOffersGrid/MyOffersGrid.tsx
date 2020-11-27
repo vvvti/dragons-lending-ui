@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
 import {useOffers} from '../../../../hooks/useOffers';
-import {StyledContainer} from './MyOffersGrid.styled';
-import {StyledButton} from '../UsersOffersGrid/UsersOffersGrid.styled';
+import {StyledButton, StyledContainer} from './MyOffersGrid.styled';
 
 export const MyOffersGrid: React.FC = () => {
     const {offersList, getOffers} = useOffers();
@@ -25,7 +24,7 @@ export const MyOffersGrid: React.FC = () => {
         {field: 'finalValue', headerName: 'Final Value(GBP)', type: 'number', width: 150},
         {
             field: '',
-            headerName: 'Button',
+            headerName: '',
             sortable: false,
             width: 300,
             disableClickEventBubbling: true,

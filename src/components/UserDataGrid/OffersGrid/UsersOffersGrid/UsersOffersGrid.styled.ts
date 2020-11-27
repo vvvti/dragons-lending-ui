@@ -14,6 +14,6 @@ export const StyledNavLink = styled(NavLink)`
 `;
 
 export const StyledButton = styled(Button)`
-    background-color: ${colors.dragonRed};
+    background-color: ${colors.green};
     color: white;
 `;
