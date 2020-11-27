@@ -21,7 +21,7 @@ export const SubmittedOffersGrid: React.FC = () => {
 
     const columns: ColDef[] = [
         {field: 'idValue', headerName: 'Submitted Offers ID', width: 250},
-        {field: 'username', headerName: 'Username', type: 'string', width: 150},
+        {field: 'auctionOwner', headerName: 'Username', type: 'string', width: 150},
         {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 150},
         {field: 'offerAmount', headerName: 'Amount (GBP)', type: 'number', width: 200},
         {field: 'finalValue', headerName: 'Final Value(GBP)', type: 'number', width: 247},
