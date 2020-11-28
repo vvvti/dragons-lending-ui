@@ -108,7 +108,7 @@ pipeline {
                                 git(
                                         branch: 'master',
                                         credentialsId: 'bitbucket-user-pass',
-                                        url: "https//bitbucket.fintechchallenge.pl:31999/ersa/dragons-lending-e2e.git"
+                                        url: "https://bitbucket.fintechchallenge.pl/scm/ersa/dragons-lending-e2e.git"
                                 )
                                 sh 'yarn install'
                                 sh 'yarn start'
