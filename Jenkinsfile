@@ -95,6 +95,7 @@ pipeline {
             }
         }
         stage('E2E tests') {
+            // when { branch 'master' }
                 agent {
                 docker {
                     image 'cypress/base:10'
@@ -111,7 +112,6 @@ pipeline {
                                         url: "https://bitbucket.fintechchallenge.pl/scm/ersa/dragons-lending-e2e.git"
                                 )
                                 sh 'yarn install'
-                                sh 'npx cypress install'
                                 sh 'yarn start'
                                 
                             }
