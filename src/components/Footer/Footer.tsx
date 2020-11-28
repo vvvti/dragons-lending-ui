@@ -1,7 +1,8 @@
 import React from 'react';
 import {StyledExternalLink, StyledFooter, StyledFooterContainer, StyledHeader, StyledListElement, StyledNavLink} from './Footer.styled';
 import {NONAUTHROUTES} from '../../helpers/routes';
-import {CALCULATORPAGE, FACEBOOK, LINKEDIN, TWITTER} from '../../helpers/constants';
+import {CALCULATORPAGE} from '../../helpers/constants';
+import {FACEBOOK, LINKEDIN, TWITTER} from './Footer.constants';
 
 export const Footer: React.FC = () => {
     return (

@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
 import {StyledContainer} from './AuctionsGrid.styled';
-import {useAuctions} from '../../../hooks/useAuctions';
+import {useGetAuctions} from '../../../hooks/useGetAuctions';
 import {StyledButton} from '../OffersGrid/SubmittedOffersGrid/SubmittedOffersGrid.styled';
+import {deleteAuctionItem} from '../../../api/auctionsApi';
 
 export const AuctionsGrid: React.FC = () => {
-    const {getOwnAuctionsList, ownAuctionsList, deleteAuction} = useAuctions();
+    const {getOwnAuctionsList, ownAuctionsList} = useGetAuctions();
 
     useEffect(() => {
         getOwnAuctionsList();
@@ -24,7 +25,7 @@ export const AuctionsGrid: React.FC = () => {
             disableClickEventBubbling: true,
             renderCell: ({data}) => {
                 return (
-                    <StyledButton onClick={() => deleteAuction(data.id)} type="submit" size="small" variant="contained" color="primary">
+                    <StyledButton onClick={() => deleteAuctionItem(data.id)} type="submit" size="small" variant="contained" color="primary">
                         Remove
                     </StyledButton>
                 );

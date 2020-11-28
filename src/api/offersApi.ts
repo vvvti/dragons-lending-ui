@@ -9,6 +9,6 @@ export const postOffersList = (values: InvestFormValues) => {
     return axios.post(`/offers`, values);
 };
 
-export const deleteOfferItem = (id: string) => {
+export const deleteOfferItem = (id: any) => {
     return axios.delete(`/offers/${id}`);
 };

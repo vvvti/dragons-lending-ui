@@ -28,9 +28,6 @@ export enum CURRENCY {
 export const POSTSPERPAGE = 6;
 
 export const CALCULATORPAGE = 'https://dragons-investments-ui.ersa-team.uat.fintechchallenge.pl/';
-export const FACEBOOK = 'https://facebook.com';
-export const TWITTER = 'https://twitter.com';
-export const LINKEDIN = 'https://linkedin.com';
 
 export const INITIAL_REGISTER_VALUES: RegisterFormValues = {
     username: '',
@@ -46,12 +43,10 @@ export const INITIAL_LOGIN_VALUES: LoginFormValues = {
 };
 
 export const AUCTION_VALUES: AuctionValues = {
-    id: '',
     loanAmount: 500,
     timePeriod: 12,
     interestRate: 7,
     endDate: '',
-    username: '',
 };
 
 export const INITIAL_INVEST_VALUES: InvestFormValues = {
