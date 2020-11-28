@@ -94,26 +94,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy Uat') {
-            when { branch 'master' }
-            agent {
-                docker {
-                    image 'fintech/kubernetes-agent'
-                    reuseNode true
-                }
-            }
-            steps {
-                script {
-                    withCredentials([file(credentialsId: 'kubeconfig-uat', variable: 'KUBECONFIG')]) {
-                        sh "kubectl apply -f ./kubernetes-uat.yaml"
-                        sh "kubectl rollout restart deployment dragons-lending"
-                        sh "kubectl rollout status deployment dragons-lending --timeout=1m"
-                    }
-                }
-            }
-        }
-    }
-    stage('E2E tests') {
+        stage('E2E tests') {
                 agent {
                 docker {
                     image 'node:12.16.1-stretch-slim'
@@ -138,4 +119,24 @@ pipeline {
                 }
             }
         }
+        stage('Deploy Uat') {
+            when { branch 'master' }
+            agent {
+                docker {
+                    image 'fintech/kubernetes-agent'
+                    reuseNode true
+                }
+            }
+            steps {
+                script {
+                    withCredentials([file(credentialsId: 'kubeconfig-uat', variable: 'KUBECONFIG')]) {
+                        sh "kubectl apply -f ./kubernetes-uat.yaml"
+                        sh "kubectl rollout restart deployment dragons-lending"
+                        sh "kubectl rollout status deployment dragons-lending --timeout=1m"
+                    }
+                }
+            }
+        }
+    }
+    
 }
