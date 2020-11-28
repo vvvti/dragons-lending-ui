@@ -1,13 +1,4 @@
-import {
-    AccountBalance,
-    AuctionValues,
-    DepositAmount,
-    InvestFormValues,
-    LoginFormValues,
-    RegisterFormValues,
-    userValues,
-    WithdrawnAmount,
-} from './types';
+import {AccountBalance, AuctionValues, DepositAmount, LoginFormValues, RegisterFormValues, userValues, WithdrawnAmount} from './types';
 
 export enum PAGETYPE {
     INVESTMENTS,
@@ -49,11 +40,6 @@ export const AUCTION_VALUES: AuctionValues = {
     endDate: '',
 };
 
-export const INITIAL_INVEST_VALUES: InvestFormValues = {
-    offerAmount: 500,
-    interestRate: 3,
-    auctionId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-};
 export const INITIAL_WITHDRAW_VALUES: WithdrawnAmount = {
     requestedAccountNumber: '',
     amount: '',
