@@ -12,12 +12,8 @@ export const useAuctions = () => {
     const {goToMain} = useToPage();
 
     const getAuctions = useCallback(async () => {
-        const config = {
-            headers: {'x-authorization': tokenStorage},
-        };
-
         if (tokenStorage) {
-            const response = await getAuctionsList(config);
+            const response = await getAuctionsList();
             setAuctionsList(response.data);
         } else {
             const response = await getAuctionsListWithoutToken();
@@ -28,45 +24,29 @@ export const useAuctions = () => {
     const getOwnAuctionsList = useCallback(async () => {
         const config = {
             params: {yours: true},
-            headers: {'x-authorization': tokenStorage},
         };
 
         const response = await getAuctionsList(config);
         setOwnAuctionsList(response.data);
-    }, [tokenStorage]);
+    }, []);
 
     const postNewAuction = useCallback(
         async values => {
-            const config = {
-                headers: {'x-authorization': tokenStorage},
-            };
-
-            if (tokenStorage) {
-                try {
-                    await postAuction(values, config);
-                    setErrorMessage('');
-                    goToMain();
-                } catch {
-                    setErrorMessage('Something went wrong, please try again');
-                }
+            try {
+                await postAuction(values);
+                setErrorMessage('');
+                goToMain();
+            } catch {
+                setErrorMessage('Something went wrong, please try again');
             }
         },
-        [tokenStorage, goToMain],
+        [goToMain],
     );
 
-    const deleteAuction = useCallback(
-        async (id: any) => {
-            const config = {
-                headers: {'x-authorization': tokenStorage},
-            };
-
-            if (tokenStorage) {
-                const response = await deleteAuctionItem(id, config);
-                setAuctionsList(response.data);
-            }
-        },
-        [tokenStorage],
-    );
+    const deleteAuction = useCallback(async (id: any) => {
+        const response = await deleteAuctionItem(id);
+        setAuctionsList(response.data);
+    }, []);
 
     return {
         auctionsList,

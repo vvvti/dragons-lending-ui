@@ -15,52 +15,36 @@ export const useAccountBalance = () => {
     const {goToUserAccount} = useToPage();
 
     const getAccountValue = useCallback(async () => {
-        const config = {
-            headers: {'x-authorization': tokenStorage},
-        };
-
         if (tokenStorage) {
-            const response = await getAccountBalance(config);
+            const response = await getAccountBalance();
             setAccountBalance(response.data);
         }
     }, [tokenStorage]);
 
     const postDepositAmount = useCallback(
         async values => {
-            const config = {
-                headers: {'x-authorization': tokenStorage},
-            };
-
-            if (tokenStorage) {
-                try {
-                    const response = await postDeposit(values, config);
-                    setDepositAmount(response.data);
-                    goToUserAccount();
-                } catch {
-                    setErrorMessage('Something went wrong, please try again');
-                }
+            try {
+                const response = await postDeposit(values);
+                setDepositAmount(response.data);
+                goToUserAccount();
+            } catch {
+                setErrorMessage('Something went wrong, please try again');
             }
         },
-        [tokenStorage, goToUserAccount],
+        [goToUserAccount],
     );
 
     const postWithdrawAmount = useCallback(
         async values => {
-            const config = {
-                headers: {'x-authorization': tokenStorage},
-            };
-
-            if (tokenStorage) {
-                try {
-                    const response = await postWithdraw(values, config);
-                    setWithdrawAmount(response.data);
-                    goToUserAccount();
-                } catch {
-                    setErrorMessage('Something went wrong, please try again');
-                }
+            try {
+                const response = await postWithdraw(values);
+                setWithdrawAmount(response.data);
+                goToUserAccount();
+            } catch {
+                setErrorMessage('Something went wrong, please try again');
             }
         },
-        [tokenStorage, goToUserAccount],
+        [goToUserAccount],
     );
 
     return {

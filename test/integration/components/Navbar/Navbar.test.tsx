@@ -7,7 +7,6 @@ describe('Navbar', () => {
     it('renders component', async () => {
         renderWithRouter(<Navbar />);
 
-        expect(screen.getByTestId('main-navbar')).toBeInTheDocument();
         expect(screen.getByRole('link', {name: /about/i})).toBeInTheDocument();
         expect(screen.getByRole('link', {name: /rules/i})).toBeInTheDocument();
         expect(screen.getByRole('link', {name: /login/i})).toBeInTheDocument();

@@ -16,8 +16,22 @@ import {WithdrawMoney} from '../pages/WithdrawMoney/WithdrawMoney';
 import {Deposit} from '../pages/Deposit/Deposit';
 import {Repayment} from '../pages/Repayment/Repayment';
 import {AuthRoute} from '../components/AuthRoute/AuthRoute';
+import {useAuthContext} from '../context/auth-context';
+import {axios} from '../api/rest/axios';
 
 export const Routes: React.FC = () => {
+    const {tokenStorage} = useAuthContext();
+    (function() {
+        if (tokenStorage) {
+            axios.defaults.headers.common['x-authorization'] = tokenStorage;
+        } else {
+            axios.defaults.headers.common['x-authorization'] = null;
+            /*if setting null does not remove `Authorization` header then try
+              delete axios.defaults.headers.common['Authorization'];
+            */
+        }
+    })();
+
     return (
         <Switch>
             <AuthRoute path={AUTHROUTES.CREATEAUCTION} Component={CreateAuction} />

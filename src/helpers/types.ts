@@ -74,7 +74,7 @@ export interface AuthRouteProps {
 }
 
 export interface configType {
-    headers: {'x-authorization': string};
+    params: {yours: boolean};
 }
 
 export interface filterValues {

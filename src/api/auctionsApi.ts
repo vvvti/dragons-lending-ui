@@ -1,7 +1,7 @@
 import {axios} from './rest/axios';
 import {AuctionValues, configType} from '../helpers/types';
 
-export const getAuctionsList = (config: configType) => {
+export const getAuctionsList = (config?: configType) => {
     return axios.get(`/auctions`, config);
 };
 
@@ -9,9 +9,9 @@ export const getAuctionsListWithoutToken = () => {
     return axios.get(`/auctions/public`);
 };
 
-export const postAuction = (values: AuctionValues, config: configType) => {
-    return axios.post(`/auctions`, values, config);
+export const postAuction = (values: AuctionValues) => {
+    return axios.post(`/auctions`, values);
 };
-export const deleteAuctionItem = (id: string, config: configType) => {
-    return axios.delete(`/offers/${id}`, config);
+export const deleteAuctionItem = (id: string) => {
+    return axios.delete(`/offers/${id}`);
 };
