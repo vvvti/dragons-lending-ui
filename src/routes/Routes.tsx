@@ -26,15 +26,11 @@ export const Routes: React.FC = () => {
             axios.defaults.headers.common['x-authorization'] = tokenStorage;
         } else {
             axios.defaults.headers.common['x-authorization'] = null;
-            /*if setting null does not remove `Authorization` header then try
-              delete axios.defaults.headers.common['Authorization'];
-            */
         }
     })();
 
     return (
         <Switch>
-            <AuthRoute path={AUTHROUTES.CREATEAUCTION} Component={CreateAuction} />
             <Route exact path={NONAUTHROUTES.HOME}>
                 <Home />
             </Route>
@@ -59,6 +55,7 @@ export const Routes: React.FC = () => {
             <Route path={NONAUTHROUTES.CONTACT}>
                 <Contact />
             </Route>
+            <AuthRoute path={AUTHROUTES.CREATEAUCTION} Component={CreateAuction} />
             <AuthRoute path={AUTHROUTES.USERACCOUNT} Component={UserAccount} />
             <AuthRoute path={AUTHROUTES.WITHDRAWMONEY} Component={WithdrawMoney} />
             <AuthRoute path={AUTHROUTES.DEPOSIT} Component={Deposit} />
