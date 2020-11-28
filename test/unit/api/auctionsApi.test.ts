@@ -4,23 +4,17 @@ import {getAuctionsList, getAuctionsListWithoutToken, postAuction} from '../../.
 
 jest.mock('../../../src/api/rest/axios');
 
-describe.skip('auctionsApi', () => {
-    beforeEach(() => {
-        mocked(axios.get).mockResolvedValue('getMock');
+describe('auctionsApi', () => {
+    afterEach(() => {
+        mocked(axios.get).mockReset();
+        mocked(axios.post).mockReset();
     });
-
     it('get calls request for own auctions list and passes response', async () => {
         mocked(axios.get).mockResolvedValue({data: 'getDataMock'});
-
-        const config = {
-            headers: {'x-authorization': 'tokenStorage'},
-            params: {yours: true},
-        };
 
         const request = await getAuctionsList();
         expect(request.data).toEqual('getDataMock');
         expect(axios.get).toHaveBeenCalledTimes(1);
-        expect(axios.get).toHaveBeenCalledWith('/auctions', config);
     });
 
     it('get calls request for auctions without token and passes response', async () => {
@@ -28,7 +22,7 @@ describe.skip('auctionsApi', () => {
 
         const request = await getAuctionsListWithoutToken();
         expect(request.data).toEqual('getDataMock');
-        expect(axios.get).toHaveBeenCalledTimes(2);
+        expect(axios.get).toHaveBeenCalledTimes(1);
         expect(axios.get).toHaveBeenCalledWith('/auctions/public');
     });
 
@@ -44,13 +38,9 @@ describe.skip('auctionsApi', () => {
             username: 'Max',
         };
 
-        const config = {
-            headers: {'x-authorization': 'tokenStorage'},
-        };
-
         const request = await postAuction(values);
         expect(request.data).toEqual('getDataMock');
         expect(axios.post).toHaveBeenCalledTimes(1);
-        expect(axios.post).toHaveBeenCalledWith('/auctions', values, config);
+        expect(axios.post).toHaveBeenCalledWith('/auctions', values);
     });
 });

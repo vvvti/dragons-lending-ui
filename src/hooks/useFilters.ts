@@ -1,7 +1,7 @@
 import {AuctionValues, filterValues} from '../helpers/types';
 import {useMemo, useState} from 'react';
 
-export const useFilters = (activeAuctions: AuctionValues[]) => {
+export const useFilters = (activeAuctions?: AuctionValues[]) => {
     const [filterConfig, setFilterConfig] = useState<filterValues>({
         sort: false,
         filter: false,
@@ -9,21 +9,24 @@ export const useFilters = (activeAuctions: AuctionValues[]) => {
     });
 
     const sortedItems = useMemo(() => {
-        let sortedUsers = activeAuctions;
+        if (!activeAuctions) {
+            return;
+        }
+        let sortedAuctions = activeAuctions;
         if (filterConfig.active) {
             if (filterConfig.sort) {
-                sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) > Number(b.loanAmount) ? 1 : -1));
+                sortedAuctions = sortedAuctions.sort((a, b) => (Number(a.loanAmount) > Number(b.loanAmount) ? 1 : -1));
             } else {
-                sortedUsers = sortedUsers.sort((a, b) => (Number(a.loanAmount) < Number(b.loanAmount) ? 1 : -1));
+                sortedAuctions = sortedAuctions.sort((a, b) => (Number(a.loanAmount) < Number(b.loanAmount) ? 1 : -1));
             }
             if (filterConfig.filter) {
-                sortedUsers = sortedUsers.filter(({loanAmount}) => loanAmount <= 500);
+                sortedAuctions = sortedAuctions.filter(({loanAmount}) => loanAmount <= 500);
             } else {
-                return sortedUsers;
+                return sortedAuctions;
             }
-            return sortedUsers;
+            return sortedAuctions;
         }
-        return sortedUsers;
+        return sortedAuctions;
     }, [activeAuctions, filterConfig]);
 
     return {

@@ -15,11 +15,12 @@ describe('investApi', () => {
         const values = {
             investAmount: 400,
             investRate: 3,
+            auctionId: '',
         };
 
         const request = await postValuesToInvest(values);
         expect(request.data).toEqual('getDataMock');
         expect(axios.post).toHaveBeenCalledTimes(1);
-        expect(axios.post).toHaveBeenCalledWith('/invest', values);
+        expect(axios.post).toHaveBeenCalledWith('/offers', values);
     });
 });

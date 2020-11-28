@@ -134,3 +134,9 @@ export const StyledUserName = styled.div`
 export const StyledNavLink = styled(NavLink)`
     text-decoration: none;
 `;
+
+export const StyledLoading = styled.div`
+    font-size: 24px;
+    font-weight: 900;
+    margin: 100px 0;
+`;
