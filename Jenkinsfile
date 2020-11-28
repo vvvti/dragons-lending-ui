@@ -95,7 +95,7 @@ pipeline {
             }
         }
         stage('E2E tests') {
-            // when { branch 'master' }
+            when { branch 'master' }
                 agent {
                 docker {
                     image 'cypress/base:10'
