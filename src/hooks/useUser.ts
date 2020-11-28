@@ -5,14 +5,21 @@ import {USERDEFAULT} from '../helpers/constants';
 
 export const useUser = () => {
     const [userDetails, setUserDetails] = useState<userValues>(USERDEFAULT);
+    const [isFetching, setIsFetching] = useState<boolean>(false);
 
     const getUserDetails = useCallback(async () => {
-        const response = await getUserValues();
-        setUserDetails(response.data);
+        setIsFetching(true);
+        try {
+            const response = await getUserValues();
+            setUserDetails(response.data);
+        } finally {
+            setIsFetching(false);
+        }
     }, []);
 
     return {
         userDetails,
+        isFetching,
         getUserDetails,
     };
 };

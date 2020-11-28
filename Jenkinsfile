@@ -116,9 +116,9 @@ pipeline {
                             }
                         }
                     }
-                }
-            }
         }
+   
+        
         stage('Deploy Uat') {
             when { branch 'master' }
             agent {

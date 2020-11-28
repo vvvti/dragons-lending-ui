@@ -6,6 +6,7 @@ import {
     StyledButton,
     StyledContainer,
     StyledGrid,
+    StyledLoading,
     StyledNavLink,
     StyledProfile,
     StyledProfileText,
@@ -24,9 +25,8 @@ import {DataBoard} from '../../components/DataBoard/DataBoard';
 
 export const UserAccount: React.FC = () => {
     const {getAccountValue, accountBalance} = useAccountBalance();
+    const {userDetails, getUserDetails, isFetching} = useUser();
     const {logout} = useAuthContext();
-
-    const {userDetails, getUserDetails} = useUser();
 
     useEffect(() => {
         getAccountValue();
@@ -40,22 +40,28 @@ export const UserAccount: React.FC = () => {
         <PageContainer>
             <StyledGrid>
                 <StyledProfile>
-                    <StyledAvatar />
-                    <StyledUserDetails>
-                        <StyledUserName>
-                            {userDetails.firstName} {userDetails.lastName}
-                        </StyledUserName>
-                        <StyledProfileText>{userDetails.email}</StyledProfileText>
-                        <StyledProfileText>username: {userDetails.username}</StyledProfileText>
-                    </StyledUserDetails>
-                    <StyledButton onClick={handleButtonClick} size="small" variant="contained" color="primary">
-                        Logout
-                    </StyledButton>
-                    <StyledNavLink to={NONAUTHROUTES.PRIVACY}>
-                        <StyledButton type="submit" size="small" variant="contained" color="primary">
-                            Privacy
-                        </StyledButton>
-                    </StyledNavLink>
+                    {!isFetching ? (
+                        <>
+                            <StyledAvatar />
+                            <StyledUserDetails>
+                                <StyledUserName>
+                                    {userDetails.firstName} {userDetails.lastName}
+                                </StyledUserName>
+                                <StyledProfileText>{userDetails.email}</StyledProfileText>
+                                <StyledProfileText>username: {userDetails.username}</StyledProfileText>
+                            </StyledUserDetails>
+                            <StyledButton onClick={handleButtonClick} size="small" variant="contained" color="primary">
+                                Logout
+                            </StyledButton>
+                            <StyledNavLink to={NONAUTHROUTES.PRIVACY}>
+                                <StyledButton type="submit" size="small" variant="contained" color="primary">
+                                    Privacy
+                                </StyledButton>
+                            </StyledNavLink>
+                        </>
+                    ) : (
+                        <StyledLoading>Please wait..</StyledLoading>
+                    )}
                 </StyledProfile>
                 <StyledBanking>
                     <StyledSummary>
