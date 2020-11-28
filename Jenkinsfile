@@ -122,7 +122,7 @@ pipeline {
             }
                 steps {
                     script {
-                        dir('e2e-repo' {
+                        dir('e2e-repo') {
 
                                 git(
                                         branch: 'master',
