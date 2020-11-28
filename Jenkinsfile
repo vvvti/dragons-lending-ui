@@ -112,7 +112,7 @@ pipeline {
                                 )
                                 sh 'yarn install'
                                 sh 'yarn start'
-                                }
+                                
                             }
                         }
                     }
