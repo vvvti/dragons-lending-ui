@@ -95,7 +95,12 @@ pipeline {
             }
         }
         stage('E2E tests') {
-                agent { docker 'cypress/base:10' }
+                agent {
+                docker {
+                    image 'cypress/base:10'
+                    reuseNode true
+                }
+            }
                 steps {
                     script {
                         dir('e2e-repo') {
