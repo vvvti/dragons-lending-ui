@@ -45,7 +45,7 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate,
                 await postInvestValues(values);
             }}
         >
-            {({errors, isValid, handleBlur, isSubmitting, touched}) => (
+            {({isValid, handleBlur, isSubmitting}) => (
                 <StyledInvestForm>
                     <StyledAmount>
                         <Field
@@ -76,7 +76,7 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate,
                         variant="contained"
                         color="primary"
                         onClick={handleClick}
-                        disabled={!tokenStorage || isSubmitting}
+                        disabled={!tokenStorage || isSubmitting || !isValid}
                     >
                         Invest
                     </StyledButton>
@@ -86,15 +86,18 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate,
                         autoHideDuration={3000}
                         onClose={handleClose}
                     >
-                        {isValid && touched && !errorMessage ? (
-                            <Alert onClose={handleClose} severity="success">
-                                Offer submitted!
-                            </Alert>
-                        ) : (
-                            <Alert onClose={handleClose} severity="error">
-                                <div>{errorMessage || errors.offerAmount || errors.interestRate}</div>
-                            </Alert>
-                        )}
+                        <div>
+                            {errorMessage === 'ok' && (
+                                <Alert onClose={handleClose} severity="success">
+                                    Offer submitted!
+                                </Alert>
+                            )}
+                            {errorMessage === 'error' && (
+                                <Alert onClose={handleClose} severity="error">
+                                    Something went wrong, please try again
+                                </Alert>
+                            )}
+                        </div>
                     </Snackbar>
                     {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                 </StyledInvestForm>

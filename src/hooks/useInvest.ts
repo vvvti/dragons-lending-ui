@@ -8,9 +8,9 @@ export const useInvest = () => {
     const postInvestValues = useCallback(async (values: InvestFormValues) => {
         try {
             await postValuesToInvest(values);
-            setErrorMessage('');
+            setErrorMessage('ok');
         } catch {
-            setErrorMessage('Something went wrong, please try again');
+            setErrorMessage('error');
         }
     }, []);
 
