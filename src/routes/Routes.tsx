@@ -26,23 +26,36 @@ export const Routes: React.FC = () => {
             axios.defaults.headers.common['x-authorization'] = tokenStorage;
         } else {
             axios.defaults.headers.common['x-authorization'] = null;
-            /*if setting null does not remove `Authorization` header then try
-              delete axios.defaults.headers.common['Authorization'];
-            */
         }
     })();
 
     return (
         <Switch>
+            <Route exact path={NONAUTHROUTES.HOME}>
+                <Home />
+            </Route>
+            <Route path={NONAUTHROUTES.ABOUT}>
+                <About />
+            </Route>
+            <Route path={NONAUTHROUTES.AUCTIONSGRID}>
+                <AuctionsPage />
+            </Route>
+            <Route path={NONAUTHROUTES.LOGIN}>
+                <Login />
+            </Route>
+            <Route path={NONAUTHROUTES.REGISTRATION}>
+                <Registration />
+            </Route>
+            <Route path={NONAUTHROUTES.RULES}>
+                <Rules />
+            </Route>
+            <Route path={NONAUTHROUTES.PRIVACY}>
+                <Privacy />
+            </Route>
+            <Route path={NONAUTHROUTES.CONTACT}>
+                <Contact />
+            </Route>
             <AuthRoute path={AUTHROUTES.CREATEAUCTION} Component={CreateAuction} />
-            <Route exact path={NONAUTHROUTES.HOME} component={Home} />
-            <Route path={NONAUTHROUTES.ABOUT} component={About} />
-            <Route path={NONAUTHROUTES.AUCTIONSGRID} component={AuctionsPage} />
-            <Route path={NONAUTHROUTES.LOGIN} component={Login} />
-            <Route path={NONAUTHROUTES.REGISTRATION} component={Registration} />
-            <Route path={NONAUTHROUTES.RULES} component={Rules} />
-            <Route path={NONAUTHROUTES.PRIVACY} component={Privacy} />
-            <Route path={NONAUTHROUTES.CONTACT} component={Contact} />
             <AuthRoute path={AUTHROUTES.USERACCOUNT} Component={UserAccount} />
             <AuthRoute path={AUTHROUTES.WITHDRAWMONEY} Component={WithdrawMoney} />
             <AuthRoute path={AUTHROUTES.DEPOSIT} Component={Deposit} />
