@@ -11,7 +11,7 @@ import {CloseButton} from '../../components/CloseButton/CloseButton';
 import {useAuctions} from '../../hooks/useAuctions';
 
 export const CreateAuction: React.FC = () => {
-    const {postNewAuction} = useAuctions();
+    const {postNewAuction, errorMessage} = useAuctions();
 
     return (
         <PageWrapper>
@@ -22,7 +22,7 @@ export const CreateAuction: React.FC = () => {
                     await postNewAuction(values);
                 }}
             >
-                {({values, isValid, setFieldValue, errors, handleBlur, touched}) => (
+                {({values, isValid, isSubmitting, setFieldValue, errors, handleBlur, touched}) => (
                     <StyledForm>
                         <CloseButton />
                         <FormContainer>
@@ -111,9 +111,10 @@ export const CreateAuction: React.FC = () => {
                                     prefix=""
                                     onBlur={handleBlur}
                                 />
-                                <StyledButton type="submit" variant="contained" color="primary" disabled={!isValid}>
+                                <StyledButton type="submit" variant="contained" color="primary" disabled={!isValid || isSubmitting}>
                                     Create an auction
                                 </StyledButton>
+                                <ErrorMessage> {errorMessage}</ErrorMessage>
                                 <ErrorMessage>{touched.endDate && errors.endDate}</ErrorMessage>
                             </StyledInputWrapper>
                         </FormContainer>

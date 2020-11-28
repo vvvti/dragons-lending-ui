@@ -10,7 +10,9 @@ export const Navbar: React.FC = () => {
     return (
         <StyledNavbar data-testid={'main-navbar'}>
             <StyledLogoContainer>
-                <StyledNavLink to={NONAUTHROUTES.HOME}>{<Logo src={dragonImage} alt="" />}</StyledNavLink>
+                <StyledNavLink to={NONAUTHROUTES.HOME}>
+                    <Logo src={dragonImage} alt="" />
+                </StyledNavLink>
             </StyledLogoContainer>
             <StyledMenu>
                 <StyledNavLink to={NONAUTHROUTES.AUCTIONSGRID}>auctions</StyledNavLink>

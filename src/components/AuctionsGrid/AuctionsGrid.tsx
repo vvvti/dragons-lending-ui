@@ -5,8 +5,8 @@ import {useAuctions} from '../../hooks/useAuctions';
 import {POSTSPERPAGE} from '../../helpers/constants';
 import {getImagesUrl} from './AuctionsGrid.helpers';
 import {AuctionsDetails} from './AuctionsDetails/AuctionsDetails';
-import {filterValues} from '../../helpers/types';
 import {Pagination} from '../Pagination/Pagination';
+import {filterValues} from '../../helpers/types';
 
 export const AuctionsGrid: React.FC = () => {
     const {getAuctions, auctionsList} = useAuctions();
@@ -34,59 +34,51 @@ export const AuctionsGrid: React.FC = () => {
         }
     };
 
+    const handleResetClick = () => {
+        setSortState('');
+        setFilterConfig((prevState: any) => ({
+            ...prevState,
+            filter: false,
+            active: false,
+        }));
+    };
+
+    const handleSortByClick = () => {
+        setSortState('ascending');
+        setDisplayedSorting();
+        setFilterConfig((prevState: filterValues) => ({
+            ...prevState,
+            sort: !prevState.sort,
+            active: true,
+        }));
+    };
+
+    const handleFilterClick = () => {
+        setCurrentPage(1);
+        setFilterConfig((prevState: filterValues) => ({
+            ...prevState,
+            filter: !prevState.filter,
+            active: true,
+        }));
+    };
+
     return (
         <>
-            {Number(auctionsList.length) ? (
+            {auctionsList.length > 0 && (
                 <ButtonsGrid>
-                    <StyledButton
-                        variant="contained"
-                        color={!sortState ? 'primary' : 'secondary'}
-                        onClick={() => {
-                            setSortState('ascending');
-                            setDisplayedSorting();
-                            setFilterConfig((prevState: filterValues) => ({
-                                ...prevState,
-                                sort: !prevState.sort,
-                                active: true,
-                            }));
-                        }}
-                    >
+                    <StyledButton variant="contained" color={!sortState ? 'primary' : 'secondary'} onClick={handleSortByClick}>
                         Sort by {sortState} amount
                     </StyledButton>
-                    <StyledButton
-                        variant="contained"
-                        color={!filterConfig.filter ? 'primary' : 'secondary'}
-                        onClick={() => {
-                            setCurrentPage(1);
-                            setFilterConfig((prevState: filterValues) => ({
-                                ...prevState,
-                                filter: !prevState.filter,
-                                active: true,
-                            }));
-                        }}
-                    >
+                    <StyledButton variant="contained" color={!filterConfig.filter ? 'primary' : 'secondary'} onClick={handleFilterClick}>
                         Auctions up to 500 GBP
                     </StyledButton>
-                    <StyledButton
-                        variant="contained"
-                        color="primary"
-                        onClick={() => {
-                            setSortState('');
-                            setFilterConfig((prevState: any) => ({
-                                ...prevState,
-                                filter: false,
-                                active: false,
-                            }));
-                        }}
-                    >
+                    <StyledButton variant="contained" color="primary" onClick={handleResetClick}>
                         Reset
                     </StyledButton>
                 </ButtonsGrid>
-            ) : (
-                ''
             )}
             <AuctionsDetails currentAuctions={currentAuctions} />
-            <Pagination postsPerPage={POSTSPERPAGE} totalPosts={sortedItems.length} paginate={paginate} />
+            <Pagination postsPerPage={POSTSPERPAGE} totalPosts={sortedItems.length} onClick={paginate} />
         </>
     );
 };

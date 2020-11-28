@@ -44,10 +44,10 @@ export const AuthContextProvider: React.FC = ({children}) => {
         async (values: LoginFormValues) => {
             try {
                 const response = await postLoginValues(values);
-                console.log();
                 setLoginError('');
                 localStorage.setItem('token', response.headers['x-authorization']);
                 setTokenStorage(response.headers['x-authorization']);
+                setLoginError('');
                 goToMain();
             } catch {
                 setLoginError('Please check your credentials');

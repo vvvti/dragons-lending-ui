@@ -2,19 +2,34 @@ import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
 import {StyledContainer} from './AuctionsGrid.styled';
 import {useAuctions} from '../../../hooks/useAuctions';
+import {StyledButton} from '../OffersGrid/SubmittedOffersGrid/SubmittedOffersGrid.styled';
 
 export const AuctionsGrid: React.FC = () => {
-    const {getOwnAuctionsList, ownAuctionsList} = useAuctions();
+    const {getOwnAuctionsList, ownAuctionsList, deleteAuction} = useAuctions();
 
     useEffect(() => {
         getOwnAuctionsList();
     }, [getOwnAuctionsList]);
 
     const columns: ColDef[] = [
-        {field: 'idValue', headerName: 'Auction ID', width: 427},
+        {field: 'idValue', headerName: 'Auction ID', width: 397},
         {field: 'timePeriod', headerName: 'Duration (months)', type: 'number', width: 200},
         {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 200},
-        {field: 'loanAmount', headerName: 'Amount (GBP)', type: 'number', width: 270},
+        {field: 'loanAmount', headerName: 'Amount (GBP)', type: 'number', width: 200},
+        {
+            field: '',
+            headerName: 'Actions',
+            sortable: false,
+            width: 100,
+            disableClickEventBubbling: true,
+            renderCell: ({data}) => {
+                return (
+                    <StyledButton onClick={() => deleteAuction(data.id)} type="submit" size="small" variant="contained" color="primary">
+                        Remove
+                    </StyledButton>
+                );
+            },
+        },
     ];
 
     const rowsData = ownAuctionsList.map((obj: any) => ({
