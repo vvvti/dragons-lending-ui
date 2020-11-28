@@ -1,18 +1,21 @@
 import {useCallback, useState} from 'react';
 import {InvestFormValues} from '../helpers/types';
-import {INITIAL_INVEST_VALUES} from '../helpers/constants';
 import {postValuesToInvest} from '../api/investApi';
 
 export const useInvest = () => {
-    const [investValues, setInvestValues] = useState<InvestFormValues>(INITIAL_INVEST_VALUES);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const postInvestValues = useCallback(async (values: InvestFormValues) => {
-        const response = await postValuesToInvest(values);
-        setInvestValues(response.data);
+        try {
+            await postValuesToInvest(values);
+            setErrorMessage('');
+        } catch {
+            setErrorMessage('Something went wrong, please try again');
+        }
     }, []);
 
     return {
-        investValues,
+        errorMessage,
         postInvestValues,
     };
 };

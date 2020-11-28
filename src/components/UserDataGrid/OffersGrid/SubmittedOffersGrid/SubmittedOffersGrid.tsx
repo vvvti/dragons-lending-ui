@@ -2,9 +2,10 @@ import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
 import {useOffers} from '../../../../hooks/useOffers';
 import {StyledButton, StyledContainer} from './SubmittedOffersGrid.styled';
+import {deleteOfferItem} from '../../../../api/offersApi';
 
 export const SubmittedOffersGrid: React.FC = () => {
-    const {offersList, getOffers, deleteOffer} = useOffers();
+    const {offersList, getOffers} = useOffers();
 
     useEffect(() => {
         getOffers();
@@ -31,7 +32,7 @@ export const SubmittedOffersGrid: React.FC = () => {
             disableClickEventBubbling: true,
             renderCell: ({data}) => {
                 return (
-                    <StyledButton onClick={() => deleteOffer(data.id)} type="submit" size="small" variant="contained" color="primary">
+                    <StyledButton onClick={() => deleteOfferItem(data.id)} type="submit" size="small" variant="contained" color="primary">
                         Remove
                     </StyledButton>
                 );

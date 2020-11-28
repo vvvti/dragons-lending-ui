@@ -1,5 +1,5 @@
 import {useCallback, useState} from 'react';
-import {deleteOfferItem, getOffersList, postOffersList} from '../api/offersApi';
+import {getOffersList, postOffersList} from '../api/offersApi';
 import {Offers} from '../helpers/types';
 
 export const useOffers = () => {
@@ -20,16 +20,10 @@ export const useOffers = () => {
         }
     }, []);
 
-    const deleteOffer = useCallback(async (id: any) => {
-        const response = await deleteOfferItem(id);
-        setOffersList(response.data);
-    }, []);
-
     return {
         offersList,
         getOffers,
         errorMessage,
         postOffers,
-        deleteOffer,
     };
 };

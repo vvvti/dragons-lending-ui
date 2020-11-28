@@ -1,17 +1,14 @@
 import {useCallback, useState} from 'react';
-import {AccountBalance, DepositAmount, WithdrawnAmount} from '../helpers/types';
-import {INITIAL_ACCOUNT_BALANCE, INITIAL_DEPOSIT_VALUES} from '../helpers/constants';
+import {AccountBalance} from '../helpers/types';
+import {INITIAL_ACCOUNT_BALANCE} from '../helpers/constants';
 import {getAccountBalance, postDeposit, postWithdraw} from '../api/accountBalanceApi';
 import {useAuthContext} from '../context/auth-context';
 import {useToPage} from './useToPage';
 
 export const useAccountBalance = () => {
-    const [depositAmount, setDepositAmount] = useState<DepositAmount>(INITIAL_DEPOSIT_VALUES);
-    const [withdrawAmount, setWithdrawAmount] = useState<WithdrawnAmount>();
     const [accountBalance, setAccountBalance] = useState<AccountBalance>(INITIAL_ACCOUNT_BALANCE);
     const [errorMessage, setErrorMessage] = useState('');
     const {tokenStorage} = useAuthContext();
-
     const {goToUserAccount} = useToPage();
 
     const getAccountValue = useCallback(async () => {
@@ -24,8 +21,7 @@ export const useAccountBalance = () => {
     const postDepositAmount = useCallback(
         async values => {
             try {
-                const response = await postDeposit(values);
-                setDepositAmount(response.data);
+                await postDeposit(values);
                 goToUserAccount();
             } catch {
                 setErrorMessage('Something went wrong, please try again');
@@ -37,8 +33,7 @@ export const useAccountBalance = () => {
     const postWithdrawAmount = useCallback(
         async values => {
             try {
-                const response = await postWithdraw(values);
-                setWithdrawAmount(response.data);
+                await postWithdraw(values);
                 goToUserAccount();
             } catch {
                 setErrorMessage('Something went wrong, please try again');
@@ -48,8 +43,6 @@ export const useAccountBalance = () => {
     );
 
     return {
-        withdrawAmount,
-        depositAmount,
         accountBalance,
         errorMessage,
         postDepositAmount,

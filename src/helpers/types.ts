@@ -21,12 +21,12 @@ export interface InvestFormValues {
 }
 
 export interface AuctionValues {
-    id: string;
+    id?: string;
     loanAmount: number | '';
     timePeriod: number | '';
     interestRate: number | '';
     endDate: number | '';
-    username: string;
+    username?: string;
     url?: string;
 }
 
