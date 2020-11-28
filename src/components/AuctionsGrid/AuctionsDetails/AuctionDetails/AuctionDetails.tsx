@@ -16,26 +16,27 @@ import format from 'date-fns/format';
 import {InvestForm} from '../../InvestForm/InvestForm';
 import {AuctionValues} from '../../../../helpers/types';
 
-export const AuctionDetails: React.FC<{auction: AuctionValues}> = ({auction}) => {
+export const AuctionDetails: React.FC<{auction: AuctionValues}> = ({
+    auction: {id, timePeriod, url, loanAmount, interestRate, username, endDate},
+}) => {
     return (
-        <ItemContainer key={auction.id}>
+        <ItemContainer key={id}>
             <StyledAvatarContainer>
                 <StyledAvatar>
-                    <StyledImage src={auction.url} alt="" />
+                    <StyledImage src={url} alt="" />
                 </StyledAvatar>
-                {auction.username}
+                {username}
             </StyledAvatarContainer>
             <StyledLoanDetails>
                 <StyledDaysLeft>
                     Expire on:
-                    <StyledSpan>{format(new Date(auction.endDate), 'MM-dd-yyyy')}</StyledSpan>
+                    <StyledSpan>{format(new Date(endDate), 'MM-dd-yyyy')}</StyledSpan>
                 </StyledDaysLeft>
                 <StyledTitle>Want to borrow</StyledTitle>
                 <div>
-                    <StyledSpan>{auction.loanAmount} GBP</StyledSpan> at <StyledSpan>{auction.interestRate} %</StyledSpan>
+                    <StyledSpan>{loanAmount} GBP</StyledSpan> at <StyledSpan>{interestRate} %</StyledSpan>
                     <div>
-                        for{' '}
-                        <StyledSpan>{auction.timePeriod === 1 ? `${auction.timePeriod} month` : `${auction.timePeriod} months`}</StyledSpan>
+                        for <StyledSpan>{timePeriod === 1 ? `${timePeriod} month` : `${timePeriod} months`}</StyledSpan>
                     </div>
                 </div>
             </StyledLoanDetails>
@@ -45,7 +46,7 @@ export const AuctionDetails: React.FC<{auction: AuctionValues}> = ({auction}) =>
                         <Typography>Expand to Invest</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <InvestForm loanAmount={auction.loanAmount} interestRate={auction.interestRate} auctionId={auction.id} />
+                        <InvestForm loanAmount={loanAmount} interestRate={interestRate} auctionId={id} />
                     </AccordionDetails>
                 </Accordion>
             </StyledAccordion>
