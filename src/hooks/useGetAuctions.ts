@@ -4,7 +4,7 @@ import {getAuctionsList, getAuctionsListWithoutToken} from '../api/auctionsApi';
 import {useAuthContext} from '../context/auth-context';
 
 export const useGetAuctions = () => {
-    const [auctionsList, setAuctionsList] = useState<AuctionValues[]>([]);
+    const [auctionsList, setAuctionsList] = useState<AuctionValues[]>();
     const [ownAuctionsList, setOwnAuctionsList] = useState<AuctionValues[]>([]);
     const {tokenStorage} = useAuthContext();
 
