@@ -86,13 +86,13 @@ export const UserAccount: React.FC = () => {
                         </StyledContainer>
                     </StyledSummary>
                     <div>
-                        <StyledNavLink to={AUTHROUTES.DEPOSIT}>
+                        <StyledNavLink data-test-id="deposit-button" to={AUTHROUTES.DEPOSIT}>
                             <StyledButton type="submit" size="small" variant="contained" color="primary">
                                 Deposit
                             </StyledButton>
                         </StyledNavLink>
                         <StyledNavLink to={AUTHROUTES.WITHDRAWMONEY}>
-                            <StyledButton type="submit" size="small" variant="contained" color="primary">
+                            <StyledButton data-test-id="withdrawal-button" type="submit" size="small" variant="contained" color="primary">
                                 Withdrawal
                             </StyledButton>
                         </StyledNavLink>
