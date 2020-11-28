@@ -1,12 +1,13 @@
 import React from 'react';
-import {RouteComponentProps, Route, Redirect} from 'react-router-dom';
+import {Redirect, Route, RouteComponentProps} from 'react-router-dom';
 import {AuthRouteProps} from '../../helpers/types';
 import {NONAUTHROUTES} from '../../helpers/routes';
 import {useAuthContext} from '../../context/auth-context';
 
-export const AuthRoute = ({Component, path, exact = false}: AuthRouteProps): JSX.Element => {
+export const AuthRoute: React.FC<AuthRouteProps> = ({children, Component, path, exact = false}): JSX.Element => {
     const {tokenStorage} = useAuthContext();
     const message = 'Please log in to view this page';
+
     return (
         <Route
             exact={exact}
@@ -26,6 +27,8 @@ export const AuthRoute = ({Component, path, exact = false}: AuthRouteProps): JSX
                     />
                 )
             }
-        />
+        >
+            {children}
+        </Route>
     );
 };
