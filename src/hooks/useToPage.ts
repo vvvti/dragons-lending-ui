@@ -11,13 +11,6 @@ export const useToPage = () => {
         history.push(location);
     };
 
-    const goToLogin = () => {
-        const location = {
-            pathname: NONAUTHROUTES.LOGIN,
-        };
-        history.push(location);
-    };
-
     const goToUserAccount = () => {
         const location = {
             pathname: AUTHROUTES.USERACCOUNT,
@@ -25,5 +18,5 @@ export const useToPage = () => {
         history.push(location);
     };
 
-    return {goToMain, goToLogin, goToUserAccount};
+    return {goToMain, goToUserAccount};
 };

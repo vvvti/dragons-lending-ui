@@ -7,6 +7,7 @@ import {useToPage} from './useToPage';
 export const useAuctions = () => {
     const [auctionsList, setAuctionsList] = useState<AuctionValues[]>([]);
     const [ownAuctionsList, setOwnAuctionsList] = useState<AuctionValues[]>([]);
+    const [errorMessage, setErrorMessage] = useState('');
     const {tokenStorage} = useAuthContext();
     const {goToMain} = useToPage();
 
@@ -41,10 +42,14 @@ export const useAuctions = () => {
             };
 
             if (tokenStorage) {
-                const response = await postAuction(values, config);
-                setAuctionsList(response.data);
+                try {
+                    await postAuction(values, config);
+                    setErrorMessage('');
+                    goToMain();
+                } catch {
+                    setErrorMessage('Something went wrong, please try again');
+                }
             }
-            goToMain();
         },
         [tokenStorage, goToMain],
     );
@@ -54,7 +59,6 @@ export const useAuctions = () => {
             const config = {
                 headers: {'x-authorization': tokenStorage},
             };
-            console.log('id hook', id);
 
             if (tokenStorage) {
                 const response = await deleteAuctionItem(id, config);
@@ -67,6 +71,7 @@ export const useAuctions = () => {
     return {
         auctionsList,
         getAuctions,
+        errorMessage,
         postNewAuction,
         getOwnAuctionsList,
         ownAuctionsList,

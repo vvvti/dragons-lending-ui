@@ -50,7 +50,7 @@ export const AUCTION_VALUES: AuctionValues = {
     loanAmount: 500,
     timePeriod: 12,
     interestRate: 7,
-    endDate: 0,
+    endDate: '',
     username: '',
 };
 

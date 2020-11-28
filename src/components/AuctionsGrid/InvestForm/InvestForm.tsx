@@ -22,7 +22,7 @@ export interface InvestFormProps {
 export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate, auctionId}) => {
     const [open, setOpen] = useState(false);
     const {tokenStorage} = useAuthContext();
-    const {postOffers} = useOffers();
+    const {postOffers, errorMessage} = useOffers();
 
     const handleClick = () => {
         setOpen(true);
@@ -81,13 +81,13 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate,
                         Invest
                     </StyledButton>
                     <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-                        {isValid && touched ? (
+                        {isValid && touched && !errorMessage ? (
                             <Alert onClose={handleClose} severity="success">
                                 Offer submitted!
                             </Alert>
                         ) : (
                             <Alert onClose={handleClose} severity="error">
-                                <div>{errors.offerAmount || errors.interestRate}</div>
+                                <div>{errorMessage}</div>
                             </Alert>
                         )}
                     </Snackbar>

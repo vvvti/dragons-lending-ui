@@ -4,10 +4,10 @@ import {StyledPageNumber, StyledPagination} from './Pagination.styled';
 export interface PaginationProps {
     postsPerPage: number;
     totalPosts: number;
-    paginate: (number: number) => void;
+    onClick: (number: number) => void;
 }
 
-export const Pagination: React.FC<PaginationProps> = ({postsPerPage, totalPosts, paginate}) => {
+export const Pagination: React.FC<PaginationProps> = ({postsPerPage, totalPosts, onClick}) => {
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
@@ -16,7 +16,7 @@ export const Pagination: React.FC<PaginationProps> = ({postsPerPage, totalPosts,
     return (
         <StyledPagination>
             {pageNumbers.map((number: number) => (
-                <StyledPageNumber key={number} onClick={() => paginate(number)}>
+                <StyledPageNumber key={number} onClick={() => onClick(number)}>
                     {number}
                 </StyledPageNumber>
             ))}

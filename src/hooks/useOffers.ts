@@ -5,6 +5,7 @@ import {Offers} from '../helpers/types';
 
 export const useOffers = () => {
     const [offersList, setOffersList] = useState<Offers[]>([]);
+    const [errorMessage, setErrorMessage] = useState('');
     const {tokenStorage} = useAuthContext();
 
     const getOffers = useCallback(async () => {
@@ -25,8 +26,12 @@ export const useOffers = () => {
             };
 
             if (tokenStorage) {
-                const response = await postOffersList(values, config);
-                setOffersList(response.data);
+                try {
+                    await postOffersList(values, config);
+                    setErrorMessage('');
+                } catch {
+                    setErrorMessage('Something went wrong, please try again');
+                }
             }
         },
         [tokenStorage],
@@ -38,7 +43,6 @@ export const useOffers = () => {
             const config = {
                 headers: {'x-authorization': tokenStorage},
             };
-            console.log('id hook', id);
 
             if (tokenStorage) {
                 const response = await deleteOfferItem(id, config);
@@ -51,6 +55,7 @@ export const useOffers = () => {
     return {
         offersList,
         getOffers,
+        errorMessage,
         postOffers,
         deleteOffer,
     };

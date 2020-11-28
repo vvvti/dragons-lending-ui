@@ -25,7 +25,7 @@ export interface AuctionValues {
     loanAmount: number | '';
     timePeriod: number | '';
     interestRate: number | '';
-    endDate: number;
+    endDate: number | '';
     username: string;
     url?: string;
 }
