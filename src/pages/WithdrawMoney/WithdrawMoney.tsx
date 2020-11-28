@@ -61,7 +61,14 @@ export const WithdrawMoney: React.FC = () => {
                                         <ErrorMessage>{touched.requestedAccountNumber && errors.requestedAccountNumber}</ErrorMessage>
                                     </Grid>
                                 </Grid>
-                                <StyledButton type="submit" fullWidth variant="contained" color="primary" disabled={!isValid}>
+                                <StyledButton
+                                    data-test-id="substract-button"
+                                    type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    color="primary"
+                                    disabled={!isValid}
+                                >
                                     Execute
                                 </StyledButton>
                             </StyledForm>

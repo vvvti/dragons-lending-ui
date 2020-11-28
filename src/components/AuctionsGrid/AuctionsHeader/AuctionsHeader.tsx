@@ -14,7 +14,10 @@ export const AuctionsHeader: React.FC = () => {
             ) : (
                 <div>
                     <StyledNavLink to={AUTHROUTES.CREATEAUCTION}>
-                        Add new auction <StyledButton color="primary">+</StyledButton>
+                        Add new auction{' '}
+                        <StyledButton data-test-id="add-auction-button" color="primary">
+                            +
+                        </StyledButton>
                     </StyledNavLink>
                 </div>
             )}

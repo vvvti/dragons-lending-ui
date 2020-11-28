@@ -60,7 +60,14 @@ export const Login: React.FC = () => {
                                         <ErrorMessage>{touched.password && errors.password}</ErrorMessage>
                                     </Grid>
                                 </Grid>
-                                <StyledButton type="submit" fullWidth variant="contained" color="primary" disabled={!isValid}>
+                                <StyledButton
+                                    data-test-id="login-button"
+                                    type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    color="primary"
+                                    disabled={!isValid}
+                                >
                                     Login
                                 </StyledButton>
                             </StyledForm>

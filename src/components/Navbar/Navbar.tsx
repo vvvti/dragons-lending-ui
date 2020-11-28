@@ -21,11 +21,13 @@ export const Navbar: React.FC = () => {
                 <StyledNavLink to={NONAUTHROUTES.ABOUT}>about</StyledNavLink>
 
                 {tokenStorage ? (
-                    <StyledAccount to={AUTHROUTES.USERACCOUNT}>
+                    <StyledAccount data-test-id="account-link" to={AUTHROUTES.USERACCOUNT}>
                         Account <StyledAvatar />
                     </StyledAccount>
                 ) : (
-                    <StyledNavLink to={NONAUTHROUTES.LOGIN}>login</StyledNavLink>
+                    <StyledNavLink data-test-id="login-link" to={NONAUTHROUTES.LOGIN}>
+                        login
+                    </StyledNavLink>
                 )}
             </StyledMenu>
         </StyledNavbar>

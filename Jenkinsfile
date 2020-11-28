@@ -113,4 +113,29 @@ pipeline {
             }
         }
     }
+    stage('E2E tests') {
+                agent {
+                docker {
+                    image 'node:12.16.1-stretch-slim'
+                    reuseNode true
+                }
+            }
+                steps {
+                    script {
+                        dir('e2e-repo' {
+
+                                git(
+                                        branch: 'master',
+                                        credentialsId: 'bitbucket-user-pass',
+                                        url: "https//bitbucket.fintechchallenge.pl:31999/ersa/dragons-lending-e2e.git"
+                                )
+                                sh 'yarn install'
+                                sh 'yarn start'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 }

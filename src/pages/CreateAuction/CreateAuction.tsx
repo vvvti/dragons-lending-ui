@@ -113,7 +113,13 @@ export const CreateAuction: React.FC = () => {
                                         prefix=""
                                         onBlur={handleBlur}
                                     />
-                                    <StyledButton type="submit" variant="contained" color="primary" disabled={!isValid || isSubmitting}>
+                                    <StyledButton
+                                        data-test-id="create-button"
+                                        type="submit"
+                                        variant="contained"
+                                        color="primary"
+                                        disabled={!isValid || isSubmitting}
+                                    >
                                         Create an auction
                                     </StyledButton>
                                     <ErrorMessage> {errorMessage}</ErrorMessage>

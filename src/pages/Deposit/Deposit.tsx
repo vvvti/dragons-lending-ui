@@ -63,7 +63,14 @@ export const Deposit: React.FC = () => {
                                         <ErrorMessage>{touched.amount && errors.amount}</ErrorMessage>
                                     </Grid>
                                 </Grid>
-                                <StyledButton type="submit" fullWidth variant="contained" color="primary" disabled={!isValid}>
+                                <StyledButton
+                                    data-test-id="add-button"
+                                    type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    color="primary"
+                                    disabled={!isValid}
+                                >
                                     Add to your account
                                 </StyledButton>
                             </StyledForm>
