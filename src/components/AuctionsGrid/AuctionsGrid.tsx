@@ -3,7 +3,7 @@ import {ButtonsGrid, StyledButton} from './AuciotnsGrid.styled';
 import {useFilters} from '../../hooks/useFilters';
 import {useGetAuctions} from '../../hooks/useGetAuctions';
 import {POSTSPERPAGE} from '../../helpers/constants';
-import {getImagesUrl, handleFilterClick, handleResetClick, handleSortByClick, slicePage} from './AuctionsGrid.helpers';
+import {handleFilterClick, handleResetClick, handleSortByClick, slicePage} from './AuctionsGrid.helpers';
 import {AuctionsDetails} from './AuctionsDetails/AuctionsDetails';
 import {Pagination} from '../Pagination/Pagination';
 
@@ -16,17 +16,14 @@ export const AuctionsGrid: React.FC = () => {
         getAuctions();
     }, [getAuctions]);
 
-    const urlArray = getImagesUrl(auctionsList);
-
-    const activeAuctions = auctionsList.map((obj, index) => ({...obj, url: urlArray[index]}));
-    const {sortedItems, setFilterConfig, filterConfig} = useFilters(activeAuctions);
+    const {sortedItems, setFilterConfig, filterConfig} = useFilters(auctionsList);
 
     const currentAuctions = slicePage(currentPage, sortedItems);
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
     return (
         <>
-            {auctionsList.length > 0 && (
+            {auctionsList && auctionsList.length > 0 && (
                 <ButtonsGrid>
                     <StyledButton
                         variant="contained"
@@ -48,7 +45,7 @@ export const AuctionsGrid: React.FC = () => {
                 </ButtonsGrid>
             )}
             <AuctionsDetails currentAuctions={currentAuctions} />
-            <Pagination postsPerPage={POSTSPERPAGE} totalPosts={sortedItems.length} onClick={paginate} />
+            {sortedItems && <Pagination postsPerPage={POSTSPERPAGE} totalPosts={sortedItems.length} onClick={paginate} />}
         </>
     );
 };

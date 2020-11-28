@@ -2,6 +2,7 @@ import {useCallback, useState} from 'react';
 import {AuctionValues} from '../helpers/types';
 import {getAuctionsList, getAuctionsListWithoutToken} from '../api/auctionsApi';
 import {useAuthContext} from '../context/auth-context';
+import {getImagesUrl} from '../components/AuctionsGrid/AuctionsGrid.helpers';
 
 export const useGetAuctions = () => {
     const [auctionsList, setAuctionsList] = useState<AuctionValues[]>();
@@ -9,13 +10,18 @@ export const useGetAuctions = () => {
     const {tokenStorage} = useAuthContext();
 
     const getAuctions = useCallback(async () => {
+        let auctions: AuctionValues[];
         if (tokenStorage) {
             const response = await getAuctionsList();
-            setAuctionsList(response.data);
+            auctions = response.data;
         } else {
             const response = await getAuctionsListWithoutToken();
-            setAuctionsList(response.data);
+            auctions = response.data;
         }
+        const urlArray = getImagesUrl(auctions);
+
+        const auctionsWithPhotos = auctions.map((obj, index) => ({...obj, url: urlArray[index]}));
+        setAuctionsList(auctionsWithPhotos);
     }, [tokenStorage]);
 
     const getOwnAuctionsList = useCallback(async () => {

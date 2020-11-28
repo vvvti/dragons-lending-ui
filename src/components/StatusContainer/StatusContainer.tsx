@@ -12,6 +12,10 @@ export const StatusContainer: React.FC = () => {
         validToken = jwtDecode(tokenStorage);
     }
 
+    if (!tokenStorage) {
+        return null;
+    }
+
     return (
         <StyledStatus>
             <StyledText>{tokenStorage && `Logged in as ${validToken.sub}`}</StyledText>

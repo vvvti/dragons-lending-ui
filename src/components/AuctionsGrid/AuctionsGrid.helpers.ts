@@ -28,10 +28,10 @@ export const handleResetClick = (setSortState: any, setFilterConfig: any) => {
     }));
 };
 
-export const slicePage = (currentPage: any, sortedItems: any) => {
+export const slicePage = (currentPage: number, sortedItems?: AuctionValues[]) => {
     const indexOfLastPost = currentPage * POSTSPERPAGE;
     const indexOfFirstPost = indexOfLastPost - POSTSPERPAGE;
-    return sortedItems.slice(indexOfFirstPost, indexOfLastPost);
+    return sortedItems?.slice(indexOfFirstPost, indexOfLastPost);
 };
 
 export const handleSortByClick = (setSortState: any, sortState: any, setFilterConfig: any) => {
