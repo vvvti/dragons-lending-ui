@@ -7,7 +7,7 @@ import {Snackbar} from '@material-ui/core';
 import {StyledAmount, StyledButton, StyledInvestForm, StyledPercentage} from './InvestForm.styled';
 import {InvestFormValues} from '../../../helpers/types';
 import {useAuthContext} from '../../../context/auth-context';
-import {useInvest} from '../../../hooks/useInvest';
+import {useOffers} from '../../../hooks/useOffers';
 
 function Alert(props: AlertProps) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -22,7 +22,7 @@ export interface InvestFormProps {
 export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate, auctionId}) => {
     const [open, setOpen] = useState(false);
     const {tokenStorage} = useAuthContext();
-    const {errorMessage, postInvestValues} = useInvest();
+    const {postOffers} = useOffers();
 
     const handleClick = () => {
         setOpen(true);
@@ -42,10 +42,10 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate,
             }}
             validationSchema={validationSchema}
             onSubmit={async (values: InvestFormValues) => {
-                await postInvestValues(values);
+                await postOffers(values);
             }}
         >
-            {({isValid, handleBlur, isSubmitting, touched}) => (
+            {({errors, isValid, handleBlur, isSubmitting, touched}) => (
                 <StyledInvestForm>
                     <StyledAmount>
                         <Field
@@ -81,13 +81,13 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate,
                         Invest
                     </StyledButton>
                     <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-                        {isValid && touched && !errorMessage ? (
+                        {isValid && touched ? (
                             <Alert onClose={handleClose} severity="success">
                                 Offer submitted!
                             </Alert>
                         ) : (
                             <Alert onClose={handleClose} severity="error">
-                                <div>{errorMessage}</div>
+                                <div>{errors.offerAmount || errors.interestRate}</div>
                             </Alert>
                         )}
                     </Snackbar>
