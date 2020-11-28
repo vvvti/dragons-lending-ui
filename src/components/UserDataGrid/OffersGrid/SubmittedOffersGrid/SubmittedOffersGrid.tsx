@@ -17,8 +17,6 @@ export const SubmittedOffersGrid: React.FC = () => {
         idValue: obj.id.substring(0, 8),
     }));
 
-    console.log('offersList', offersList);
-
     const columns: ColDef[] = [
         {field: 'idValue', headerName: 'Submitted Offers ID', width: 250},
         {field: 'auctionOwner', headerName: 'Username', type: 'string', width: 150},
