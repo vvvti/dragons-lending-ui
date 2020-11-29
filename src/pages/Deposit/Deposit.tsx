@@ -24,7 +24,7 @@ export const Deposit: React.FC = () => {
                     await postDepositAmount(values);
                 }}
             >
-                {({values, isValid, handleBlur, touched, errors}) => (
+                {({isValid, handleBlur, touched, errors}) => (
                     <Container component="main" maxWidth="xs">
                         <StyledPaper>
                             <StyledTitle>
