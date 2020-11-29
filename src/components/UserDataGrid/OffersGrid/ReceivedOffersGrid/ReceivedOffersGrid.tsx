@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
 import {StyledButton, StyledContainer} from './ReceivedOffersGrid.styled';
 import {useReceivedOffers} from '../../../../hooks/useReceivedOffers';
-import {getAcceptLoan} from '../../../../api/offersApi';
+import {postAcceptLoan} from '../../../../api/offersApi';
 
 export const ReceivedOffersGrid: React.FC = () => {
     const {receivedOffersList, getReceivedOffers} = useReceivedOffers();
@@ -12,7 +12,7 @@ export const ReceivedOffersGrid: React.FC = () => {
     }, [getReceivedOffers]);
 
     const handleClick = async (id: any) => {
-        await getAcceptLoan(id);
+        await postAcceptLoan(id);
         await getReceivedOffers();
     };
 

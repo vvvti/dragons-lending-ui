@@ -17,6 +17,6 @@ export const deleteOfferItem = (id: any) => {
     return axios.delete(`/offers/${id}`);
 };
 
-export const getAcceptLoan = (id: any) => {
+export const postAcceptLoan = (id: any) => {
     return axios.post(`/offers/${id}/select`);
 };
