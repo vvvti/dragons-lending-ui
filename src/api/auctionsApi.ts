@@ -1,7 +1,7 @@
 import {axios} from './rest/axios';
-import {AuctionValues, configType} from '../helpers/types';
+import {AuctionValues, ConfigType} from '../helpers/types';
 
-export const getAuctionsList = (config?: configType) => {
+export const getAuctionsList = (config?: ConfigType) => {
     return axios.get(`/auctions`, config);
 };
 

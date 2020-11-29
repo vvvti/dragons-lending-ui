@@ -1,8 +1,8 @@
-import {AuctionValues, filterValues} from '../helpers/types';
+import {AuctionValues, FilterValues} from '../helpers/types';
 import {useMemo, useState} from 'react';
 
 export const useFilters = (activeAuctions?: AuctionValues[]) => {
-    const [filterConfig, setFilterConfig] = useState<filterValues>({
+    const [filterConfig, setFilterConfig] = useState<FilterValues>({
         sort: false,
         filter: false,
         active: false,

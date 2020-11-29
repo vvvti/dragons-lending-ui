@@ -1,4 +1,4 @@
-import {AuctionValues, filterValues} from '../../helpers/types';
+import {AuctionValues, FilterValues} from '../../helpers/types';
 import {POSTSPERPAGE} from '../../helpers/constants';
 
 export const getImagesUrl = (auctionsList: AuctionValues[]) => {
@@ -37,7 +37,7 @@ export const slicePage = (currentPage: number, sortedItems?: AuctionValues[]) =>
 export const handleSortByClick = (setSortState: any, sortState: any, setFilterConfig: any) => {
     setSortState('ascending');
     setDisplayedSorting(sortState, setSortState);
-    setFilterConfig((prevState: filterValues) => ({
+    setFilterConfig((prevState: FilterValues) => ({
         ...prevState,
         sort: !prevState.sort,
         active: true,
@@ -46,7 +46,7 @@ export const handleSortByClick = (setSortState: any, sortState: any, setFilterCo
 
 export const handleFilterClick = (setCurrentPage: any, setFilterConfig: any) => {
     setCurrentPage(1);
-    setFilterConfig((prevState: filterValues) => ({
+    setFilterConfig((prevState: FilterValues) => ({
         ...prevState,
         filter: !prevState.filter,
         active: true,

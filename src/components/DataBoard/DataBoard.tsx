@@ -4,6 +4,8 @@ import {DATAGRIDTYPE} from '../../helpers/constants';
 import {SubmittedOffersGrid} from '../UserDataGrid/OffersGrid/SubmittedOffersGrid/SubmittedOffersGrid';
 import {AuctionsGrid} from '../UserDataGrid/AuctionsGrid/AuctionsGrid';
 import {ReceivedOffersGrid} from '../UserDataGrid/OffersGrid/ReceivedOffersGrid/ReceivedOffersGrid';
+import {GrantedLoansGrid} from '../UserDataGrid/LoansGrid/GrantedLoansGrid/GrantedLoansGrid';
+import {TakenLoansGrid} from '../UserDataGrid/LoansGrid/TakenLoansGrid/TakenLoansGrid';
 
 export const DataBoard: React.FC = () => {
     const [dataGrid, setDataGrid] = useState<DATAGRIDTYPE>(DATAGRIDTYPE.OFFERS);
@@ -24,7 +26,12 @@ export const DataBoard: React.FC = () => {
                     </>
                 )}
                 {dataGrid === DATAGRIDTYPE.AUCTIONS && <AuctionsGrid />}
-                {/*{dataGrid === DATAGRIDTYPE.LOANS && <LoansGrid />}*/}
+                {dataGrid === DATAGRIDTYPE.LOANS && (
+                    <>
+                        <TakenLoansGrid />
+                        <GrantedLoansGrid />
+                    </>
+                )}
                 {/*{dataGrid === DATAGRIDTYPE.REPAYMENT && <AuctionsGrid />}*/}
             </StyledGrid>
         </StyledGridContainer>
