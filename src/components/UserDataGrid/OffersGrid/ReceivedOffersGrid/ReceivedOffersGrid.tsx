@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
 import {StyledButton, StyledContainer} from './ReceivedOffersGrid.styled';
 import {useReceivedOffers} from '../../../../hooks/useReceivedOffers';
-import {getAcceptLoan} from '../../../../api/loansApi';
+import {getAcceptLoan} from '../../../../api/offersApi';
 
 export const ReceivedOffersGrid: React.FC = () => {
     const {receivedOffersList, getReceivedOffers} = useReceivedOffers();

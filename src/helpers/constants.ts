@@ -8,8 +8,8 @@ export enum PAGETYPE {
 export enum DATAGRIDTYPE {
     OFFERS,
     AUCTIONS,
-    LOANS,
-    REPAYMENT,
+    TAKENLOANS,
+    GRANTEDLOANS,
 }
 
 export enum SERVERSTATUS {

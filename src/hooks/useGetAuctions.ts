@@ -11,9 +11,11 @@ export const useGetAuctions = () => {
 
     const getAuctions = useCallback(async () => {
         let auctions: AuctionValues[];
+        console.log('getAuctions');
         if (tokenStorage) {
             const response = await getAuctionsList();
             auctions = response.data;
+            console.log('getAuctions', response.data);
         } else {
             const response = await getAuctionsListWithoutToken();
             auctions = response.data;
