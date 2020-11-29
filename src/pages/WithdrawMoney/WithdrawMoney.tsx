@@ -13,7 +13,7 @@ import {useAccountBalance} from '../../hooks/useAccountBalance';
 import {WithdrawnAmount} from '../../helpers/types';
 
 export const WithdrawMoney: React.FC = () => {
-    const {postWithdrawAmount, errorMessage} = useAccountBalance();
+    const {postWithdrawAmount, serverMessage} = useAccountBalance();
 
     return (
         <>
@@ -31,7 +31,7 @@ export const WithdrawMoney: React.FC = () => {
                             <Typography component="h1" variant="h5">
                                 Withdraw Money
                             </Typography>
-                            <StyledErrorMessage>{errorMessage}</StyledErrorMessage>
+                            <StyledErrorMessage>{serverMessage}</StyledErrorMessage>
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>

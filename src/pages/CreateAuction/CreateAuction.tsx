@@ -12,7 +12,7 @@ import {usePostAuctions} from '../../hooks/usePostAuctions';
 import {Loading} from '../../components/Loading/Loading';
 
 export const CreateAuction: React.FC = () => {
-    const {postNewAuction, errorMessage} = usePostAuctions();
+    const {postNewAuction, serverMessage} = usePostAuctions();
 
     return (
         <PageWrapper>
@@ -122,7 +122,7 @@ export const CreateAuction: React.FC = () => {
                                     >
                                         Create an auction
                                     </StyledButton>
-                                    <ErrorMessage> {errorMessage}</ErrorMessage>
+                                    <ErrorMessage> {serverMessage}</ErrorMessage>
                                     <ErrorMessage>{touched.endDate && errors.endDate}</ErrorMessage>
                                 </StyledInputWrapper>
                             </FormContainer>

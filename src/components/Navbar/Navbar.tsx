@@ -8,7 +8,7 @@ export const Navbar: React.FC = () => {
     const {tokenStorage} = useAuthContext();
 
     return (
-        <StyledNavbar data-testid={'main-navbar'}>
+        <StyledNavbar>
             <StyledLogoContainer>
                 <StyledNavLink to={NONAUTHROUTES.HOME}>
                     <Logo src={dragonImage} alt="" />

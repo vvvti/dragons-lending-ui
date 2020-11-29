@@ -1,21 +1,22 @@
 import {useCallback, useState} from 'react';
 import {InvestFormValues} from '../helpers/types';
 import {postValuesToInvest} from '../api/investApi';
+import {SERVERSTATUS} from '../helpers/constants';
 
 export const useInvest = () => {
-    const [errorMessage, setErrorMessage] = useState<string>();
+    const [serverMessage, setServerMessage] = useState<SERVERSTATUS>();
 
     const postInvestValues = useCallback(async (values: InvestFormValues) => {
         try {
             await postValuesToInvest(values);
-            setErrorMessage('ok');
+            setServerMessage(SERVERSTATUS.OK);
         } catch {
-            setErrorMessage('error');
+            setServerMessage(SERVERSTATUS.ERROR);
         }
     }, []);
 
     return {
-        errorMessage,
+        serverMessage,
         postInvestValues,
     };
 };
