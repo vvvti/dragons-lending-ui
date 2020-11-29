@@ -56,8 +56,8 @@ export const TakenLoansGrid: React.FC = () => {
             {repaymentLoans && (
                 <StyledGrid>
                     <div>Id: {repaymentLoans.id}</div>
-                    <div>Repayment Amount: {repaymentLoans.calculatedRepaymentAmount}GBP</div>
-                    <div>Next Installment Date:{new Date(repaymentLoans.nextInstallmentDate).toLocaleDateString()}</div>
+                    <div>Repayment Amount: {repaymentLoans.calculatedRepaymentAmount} GBP</div>
+                    <div>Next Installment Date: {new Date(repaymentLoans.nextInstallmentDate).toLocaleDateString()}</div>
                     <ul>
                         {repaymentLoans.loanInstallments.map((obj, index) => (
                             <li key={index}>
