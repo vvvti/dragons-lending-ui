@@ -1,10 +1,10 @@
 import {useCallback, useState} from 'react';
 import {getUserValues} from '../api/userApi';
-import {userValues} from '../helpers/types';
+import {UserValues} from '../helpers/types';
 import {USERDEFAULT} from '../helpers/constants';
 
 export const useUser = () => {
-    const [userDetails, setUserDetails] = useState<userValues>(USERDEFAULT);
+    const [userDetails, setUserDetails] = useState<UserValues>(USERDEFAULT);
     const [isFetching, setIsFetching] = useState<boolean>(false);
 
     const getUserDetails = useCallback(async () => {

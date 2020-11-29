@@ -17,6 +17,11 @@ export const AuctionsGrid: React.FC = () => {
         await getOwnAuctionsList();
     };
 
+    const rowsData = ownAuctionsList.map((obj: any) => ({
+        ...obj,
+        idValue: obj.id.substring(0, 8),
+    }));
+
     const columns: ColDef[] = [
         {field: 'idValue', headerName: 'Auction ID', width: 397},
         {field: 'timePeriod', headerName: 'Duration (months)', type: 'number', width: 200},
@@ -37,11 +42,6 @@ export const AuctionsGrid: React.FC = () => {
             },
         },
     ];
-
-    const rowsData = ownAuctionsList.map((obj: any) => ({
-        ...obj,
-        idValue: obj.id.substring(0, 8),
-    }));
 
     return (
         <StyledContainer>

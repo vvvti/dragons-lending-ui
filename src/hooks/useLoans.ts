@@ -1,7 +1,6 @@
 import {useCallback, useState} from 'react';
-import {getOffersList, postOffersList} from '../api/offersApi';
-import {LoansList, Offers} from '../helpers/types';
-import {getAcceptLoan, getLoansList} from '../api/loansApi';
+import {LoansList} from '../helpers/types';
+import {getLoansList} from '../api/loansApi';
 
 export const useLoans = () => {
     const [loansList, setLoansList] = useState<LoansList>();
