@@ -12,6 +12,11 @@ export const AuctionsGrid: React.FC = () => {
         getOwnAuctionsList();
     }, [getOwnAuctionsList]);
 
+    const handleClick = async (id: any) => {
+        await deleteAuctionItem(id);
+        await getOwnAuctionsList();
+    };
+
     const columns: ColDef[] = [
         {field: 'idValue', headerName: 'Auction ID', width: 397},
         {field: 'timePeriod', headerName: 'Duration (months)', type: 'number', width: 200},
@@ -25,7 +30,7 @@ export const AuctionsGrid: React.FC = () => {
             disableClickEventBubbling: true,
             renderCell: ({data}) => {
                 return (
-                    <StyledButton onClick={() => deleteAuctionItem(data.id)} type="submit" size="small" variant="contained" color="primary">
+                    <StyledButton onClick={() => handleClick(data.id)} type="submit" size="small" variant="contained" color="primary">
                         Remove
                     </StyledButton>
                 );
