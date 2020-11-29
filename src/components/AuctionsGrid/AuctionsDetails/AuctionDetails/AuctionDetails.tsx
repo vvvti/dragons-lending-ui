@@ -30,7 +30,7 @@ export const AuctionDetails: React.FC<{auction: AuctionValues}> = ({
             <StyledLoanDetails>
                 <StyledDaysLeft>
                     Expire on:
-                    <StyledSpan>{format(new Date(endDate), 'MM-dd-yyyy')}</StyledSpan>
+                    <StyledSpan>{format(new Date(endDate), 'dd-MM-yyyy')}</StyledSpan>
                 </StyledDaysLeft>
                 <StyledTitle>Want to borrow</StyledTitle>
                 <div>
