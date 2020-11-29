@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
 import {StyledButton, StyledContainer} from './ReceivedOffersGrid.styled';
 import {useReceivedOffers} from '../../../../hooks/useReceivedOffers';
+import {getAcceptLoan} from '../../../../api/loansApi';
 
 export const ReceivedOffersGrid: React.FC = () => {
     const {receivedOffersList, getReceivedOffers} = useReceivedOffers();
@@ -10,6 +11,12 @@ export const ReceivedOffersGrid: React.FC = () => {
         getReceivedOffers();
     }, [getReceivedOffers]);
 
+    const handleClick = async (id: any) => {
+        await getAcceptLoan(id);
+        await getReceivedOffers();
+    };
+
+    console.log('receivedOffersList', receivedOffersList);
     const rowsData = receivedOffersList.map((obj: any) => ({
         ...obj,
         finalValue: obj.calculation.finalValue.toFixed(2),
@@ -18,7 +25,8 @@ export const ReceivedOffersGrid: React.FC = () => {
     }));
 
     const columns: ColDef[] = [
-        {field: 'idValue', headerName: 'Received Offers ID', width: 400},
+        {field: 'idValue', headerName: 'Received Offers ID', width: 250},
+        {field: 'username', headerName: 'Username', type: 'string', width: 150},
         {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 150},
         {field: 'offerAmount', headerName: 'Amount (GBP)', type: 'number', width: 200},
         {field: 'finalValue', headerName: 'Final Value(GBP)', type: 'number', width: 247},
@@ -28,9 +36,9 @@ export const ReceivedOffersGrid: React.FC = () => {
             sortable: false,
             width: 100,
             disableClickEventBubbling: true,
-            renderCell: () => {
+            renderCell: ({data}) => {
                 return (
-                    <StyledButton type="submit" size="small" variant="contained" color="primary">
+                    <StyledButton onClick={() => handleClick(data.id)} type="submit" size="small" variant="contained" color="primary">
                         Accept
                     </StyledButton>
                 );

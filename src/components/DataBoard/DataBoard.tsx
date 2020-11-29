@@ -24,8 +24,8 @@ export const DataBoard: React.FC = () => {
                     </>
                 )}
                 {dataGrid === DATAGRIDTYPE.AUCTIONS && <AuctionsGrid />}
-                {dataGrid === DATAGRIDTYPE.LOANS && <SubmittedOffersGrid />}
-                {dataGrid === DATAGRIDTYPE.REPAYMENT && <AuctionsGrid />}
+                {/*{dataGrid === DATAGRIDTYPE.LOANS && <LoansGrid />}*/}
+                {/*{dataGrid === DATAGRIDTYPE.REPAYMENT && <AuctionsGrid />}*/}
             </StyledGrid>
         </StyledGridContainer>
     );

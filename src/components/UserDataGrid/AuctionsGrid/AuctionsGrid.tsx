@@ -49,22 +49,3 @@ export const AuctionsGrid: React.FC = () => {
         </StyledContainer>
     );
 };
-
-//TODO: Add button after backend implementation
-// {field: 'calculation', headerName: 'Duration (months)', type: 'number', width: 150},
-// {
-//     field: '',
-//     headerName: 'Button',
-//     sortable: false,
-//     width: 300,
-//     disableClickEventBubbling: true,
-//     renderCell: () => {
-//         return (
-//             <StyledNavLink to={ROUTES.USERHISTORY}>
-//                 <StyledButton type="submit" size="small" variant="contained" color="primary">
-//                     History
-//                 </StyledButton>
-//             </StyledNavLink>
-//         );
-//     },
-// },

@@ -11,6 +11,11 @@ export const SubmittedOffersGrid: React.FC = () => {
         getOffers();
     }, [getOffers]);
 
+    const handleClick = async (id: any) => {
+        await deleteOfferItem(id);
+        await getOffers();
+    };
+
     const rowsData = offersList.map((obj: any) => ({
         ...obj,
         finalValue: obj.calculation.finalValue.toFixed(2),
@@ -32,7 +37,7 @@ export const SubmittedOffersGrid: React.FC = () => {
             disableClickEventBubbling: true,
             renderCell: ({data}) => {
                 return (
-                    <StyledButton onClick={() => deleteOfferItem(data.id)} type="submit" size="small" variant="contained" color="primary">
+                    <StyledButton onClick={() => handleClick(data.id)} type="submit" size="small" variant="contained" color="primary">
                         Remove
                     </StyledButton>
                 );
