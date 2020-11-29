@@ -12,17 +12,26 @@ export const TakenLoansGrid: React.FC = () => {
 
     const loansTaken = loansList ? loansList.loansTaken : [];
 
+    const rowsData = loansTaken.map((obj: any) => ({
+        ...obj,
+        idValue: obj.id.substring(0, 8),
+        date: new Date(obj.nextInstallmentDate).toLocaleDateString(),
+    }));
+
+    console.log('loansTaken', loansTaken);
+
     const columns: ColDef[] = [
-        {field: 'idValue', headerName: 'Auction ID', width: 497},
-        {field: 'timePeriod', headerName: 'Duration (months)', type: 'number', width: 200},
-        {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 200},
-        {field: 'loanAmount', headerName: 'Amount (GBP)', type: 'number', width: 200},
+        {field: 'idValue', headerName: 'Taken Loans', width: 347},
+        {field: 'username', headerName: 'Username', type: 'string', width: 150},
+        {field: 'installmentsNumber', headerName: 'Installments ', type: 'number', width: 200},
+        {field: 'amount', headerName: 'Amount (GBP)', type: 'number', width: 200},
+        {field: 'date', headerName: 'Next payment', type: 'date', width: 200},
     ];
 
     return (
         <>
             <StyledContainer>
-                <DataGrid rows={loansTaken} columns={columns} pageSize={3} />
+                <DataGrid rows={rowsData} columns={columns} pageSize={3} />
             </StyledContainer>
         </>
     );

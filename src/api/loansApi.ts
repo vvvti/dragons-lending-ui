@@ -1,5 +1,4 @@
 import {axios} from './rest/axios';
-import {LoansList} from '../helpers/types';
 
 export const getLoansList = () => {
     return axios.get(`/loans/self`);

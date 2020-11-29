@@ -1,13 +1,4 @@
-import {
-    AccountBalance,
-    AuctionValues,
-    DepositAmount,
-    LoansList,
-    LoginFormValues,
-    RegisterFormValues,
-    UserValues,
-    WithdrawnAmount,
-} from './types';
+import {AccountBalance, AuctionValues, DepositAmount, LoginFormValues, RegisterFormValues, UserValues, WithdrawnAmount} from './types';
 
 export enum PAGETYPE {
     INVESTMENTS,

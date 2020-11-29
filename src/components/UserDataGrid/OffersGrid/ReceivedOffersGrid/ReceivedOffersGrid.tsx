@@ -16,7 +16,6 @@ export const ReceivedOffersGrid: React.FC = () => {
         await getReceivedOffers();
     };
 
-    console.log('receivedOffersList', receivedOffersList);
     const rowsData = receivedOffersList.map((obj: any) => ({
         ...obj,
         finalValue: obj.calculation.finalValue.toFixed(2),
@@ -25,7 +24,7 @@ export const ReceivedOffersGrid: React.FC = () => {
     }));
 
     const columns: ColDef[] = [
-        {field: 'idValue', headerName: 'Received Offers ID', width: 250},
+        {field: 'idValue', headerName: 'Received Offers', width: 250},
         {field: 'username', headerName: 'Username', type: 'string', width: 150},
         {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 150},
         {field: 'offerAmount', headerName: 'Amount (GBP)', type: 'number', width: 200},

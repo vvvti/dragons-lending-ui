@@ -23,7 +23,7 @@ export const AuctionsGrid: React.FC = () => {
     }));
 
     const columns: ColDef[] = [
-        {field: 'idValue', headerName: 'Auction ID', width: 397},
+        {field: 'idValue', headerName: 'My Auctions', width: 397},
         {field: 'timePeriod', headerName: 'Duration (months)', type: 'number', width: 200},
         {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 200},
         {field: 'loanAmount', headerName: 'Amount (GBP)', type: 'number', width: 200},

@@ -28,8 +28,8 @@ export const DataBoard: React.FC = () => {
                 {dataGrid === DATAGRIDTYPE.AUCTIONS && <AuctionsGrid />}
                 {dataGrid === DATAGRIDTYPE.LOANS && (
                     <>
-                        <GrantedLoansGrid />
                         <TakenLoansGrid />
+                        <GrantedLoansGrid />
                     </>
                 )}
                 {/*{dataGrid === DATAGRIDTYPE.REPAYMENT && <AuctionsGrid />}*/}
