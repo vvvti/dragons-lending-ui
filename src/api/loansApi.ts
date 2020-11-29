@@ -4,6 +4,6 @@ export const getLoansList = () => {
     return axios.get(`/loans/self`);
 };
 
-export const getAcceptLoan = (id: any) => {
-    return axios.post(`/offers/${id}/select`);
+export const getRepaymentLoan = (id: any) => {
+    return axios.get(`/loans/${id}`);
 };

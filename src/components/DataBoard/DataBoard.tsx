@@ -16,7 +16,7 @@ export const DataBoard: React.FC = () => {
                 <StyledButton onClick={() => setDataGrid(DATAGRIDTYPE.OFFERS)}>Offers</StyledButton>
                 <StyledButton onClick={() => setDataGrid(DATAGRIDTYPE.AUCTIONS)}>Auctions</StyledButton>
                 <StyledButton onClick={() => setDataGrid(DATAGRIDTYPE.LOANS)}>Loans</StyledButton>
-                <StyledButton onClick={() => setDataGrid(DATAGRIDTYPE.REPAYMENT)}>Repayment</StyledButton>
+                {/*<StyledButton onClick={() => setDataGrid(DATAGRIDTYPE.REPAYMENT)}>Repayment</StyledButton>*/}
             </StyledContainer>
             <StyledGrid>
                 {dataGrid === DATAGRIDTYPE.OFFERS && (
@@ -28,8 +28,8 @@ export const DataBoard: React.FC = () => {
                 {dataGrid === DATAGRIDTYPE.AUCTIONS && <AuctionsGrid />}
                 {dataGrid === DATAGRIDTYPE.LOANS && (
                     <>
+                        {/*<GrantedLoansGrid />*/}
                         <TakenLoansGrid />
-                        <GrantedLoansGrid />
                     </>
                 )}
                 {/*{dataGrid === DATAGRIDTYPE.REPAYMENT && <AuctionsGrid />}*/}

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {colors} from '../../../../styles/theme';
+import {Button} from '@material-ui/core';
 
 export const StyledContainer = styled.div`
     min-height: 300px;
@@ -11,4 +12,16 @@ export const StyledContainer = styled.div`
         background-color: ${colors.gray};
         color: white;
     }
+`;
+
+export const StyledGrid = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    font-size: 12px;
+`;
+
+export const StyledButton = styled(Button)`
+    background-color: ${colors.green};
+    color: white;
 `;

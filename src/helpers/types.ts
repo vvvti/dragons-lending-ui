@@ -105,3 +105,20 @@ export interface LoansList {
     loansGranted: LoansGranted[];
     loansTaken: LoansTaken[];
 }
+
+export interface LoanInstallments {
+    repaymentAmount: number;
+    timelyRepaymentTime: string;
+    repaymentTime: string;
+    status: string;
+}
+
+export interface Repayments {
+    id: string;
+    username: string;
+    type: string;
+    creationTime: string;
+    nextInstallmentDate: string;
+    calculatedRepaymentAmount: string;
+    loanInstallments: LoanInstallments[];
+}
