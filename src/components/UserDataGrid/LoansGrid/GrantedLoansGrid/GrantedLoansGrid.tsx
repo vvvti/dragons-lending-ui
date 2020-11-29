@@ -19,7 +19,7 @@ export const GrantedLoansGrid: React.FC = () => {
     }));
 
     const columns: ColDef[] = [
-        {field: 'idValue', headerName: 'Taken Loans', width: 347},
+        {field: 'idValue', headerName: 'Granted Loans', width: 347},
         {field: 'username', headerName: 'Username', type: 'string', width: 150},
         {field: 'installmentsNumber', headerName: 'Installments ', type: 'number', width: 200},
         {field: 'amount', headerName: 'Amount (GBP)', type: 'number', width: 200},
