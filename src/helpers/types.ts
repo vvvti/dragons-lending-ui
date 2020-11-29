@@ -82,3 +82,26 @@ export interface filterValues {
     filter: boolean;
     active: boolean;
 }
+
+export interface LoansGranted {
+    id: string;
+    username: string;
+    amount: number;
+    creationTime: string;
+    nextInstallmentDate: string;
+    installmentsNumber: number;
+}
+
+export interface LoansTaken {
+    id: string;
+    username: string;
+    amount: number;
+    creationTime: string;
+    nextInstallmentDate: string;
+    installmentsNumber: number;
+}
+
+export interface LoansList {
+    LoansGranted: LoansGranted[];
+    LoansTaken: LoansTaken[];
+}

@@ -4,6 +4,7 @@ import {DATAGRIDTYPE} from '../../helpers/constants';
 import {SubmittedOffersGrid} from '../UserDataGrid/OffersGrid/SubmittedOffersGrid/SubmittedOffersGrid';
 import {AuctionsGrid} from '../UserDataGrid/AuctionsGrid/AuctionsGrid';
 import {ReceivedOffersGrid} from '../UserDataGrid/OffersGrid/ReceivedOffersGrid/ReceivedOffersGrid';
+import {LoansGrid} from '../UserDataGrid/LoansGrid/LoansGrid';
 
 export const DataBoard: React.FC = () => {
     const [dataGrid, setDataGrid] = useState<DATAGRIDTYPE>(DATAGRIDTYPE.OFFERS);
@@ -24,8 +25,8 @@ export const DataBoard: React.FC = () => {
                     </>
                 )}
                 {dataGrid === DATAGRIDTYPE.AUCTIONS && <AuctionsGrid />}
-                {dataGrid === DATAGRIDTYPE.LOANS && <SubmittedOffersGrid />}
-                {dataGrid === DATAGRIDTYPE.REPAYMENT && <AuctionsGrid />}
+                {/*{dataGrid === DATAGRIDTYPE.LOANS && <LoansGrid />}*/}
+                {/*{dataGrid === DATAGRIDTYPE.REPAYMENT && <AuctionsGrid />}*/}
             </StyledGrid>
         </StyledGridContainer>
     );

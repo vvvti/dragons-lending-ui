@@ -13,7 +13,7 @@ export const useRegister = () => {
             try {
                 const response = await postRegisterValues(values);
                 setRegisterValues(response.data);
-                await login({email: values.email, password: values.password});
+                login({email: values.email, password: values.password});
             } catch {
                 setRegisterError('Please insert another username and email address');
             }
