@@ -72,7 +72,6 @@ export const WithdrawMoney: React.FC = () => {
                                     Execute
                                 </StyledButton>
                             </StyledForm>
-                            {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                         </StyledPaper>
                     </Container>
                 )}

@@ -18,8 +18,6 @@ export const TakenLoansGrid: React.FC = () => {
         date: new Date(obj.nextInstallmentDate).toLocaleDateString(),
     }));
 
-    console.log('loansTaken', loansTaken);
-
     const columns: ColDef[] = [
         {field: 'idValue', headerName: 'Taken Loans', width: 247},
         {field: 'username', headerName: 'Username', type: 'string', width: 150},
@@ -52,7 +50,6 @@ export const TakenLoansGrid: React.FC = () => {
         getRepayment(id);
     };
 
-    console.log('repaymentLoans', repaymentLoans);
     const repaymentData = repaymentLoans ? repaymentLoans.loanInstallments : [];
 
     const repaymentDetails = repaymentData.map((obj, index) => ({

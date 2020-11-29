@@ -76,7 +76,6 @@ export const Login: React.FC = () => {
                                     <StyledRegisterPage to={NONAUTHROUTES.REGISTRATION}>Don't have an account? Sign Up</StyledRegisterPage>
                                 </Grid>
                             </Grid>
-                            {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                         </StyledPaper>
                     </Container>
                 )}

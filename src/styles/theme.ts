@@ -15,7 +15,3 @@ export const colors = {
     white: 'hsl(0, 0%, 100%)',
     grayBackground: 'hsl(240, 2%, 16%)',
 };
-
-export const defaultBorderRadius = '5px';
-export const defaultVerticalDistance = '10px';
-export const defaultHorizontalDistance = '0';
