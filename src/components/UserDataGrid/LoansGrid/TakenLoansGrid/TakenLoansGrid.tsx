@@ -43,9 +43,9 @@ export const TakenLoansGrid: React.FC = () => {
     ];
 
     const columnsDetails: ColDef[] = [
-        {field: 'repaymentAmount', headerName: 'Repayment Amount (GBP)', width: 310},
-        {field: 'timelyRepaymentTime', headerName: 'Repayment date', type: 'data', width: 250},
-        {field: 'status', headerName: 'Status ', type: 'string', width: 200},
+        {field: 'status', headerName: 'Status ', type: 'string', width: 257},
+        {field: 'repaymentAmount', headerName: 'Repayment Amount (GBP)', width: 200},
+        {field: 'timelyRepaymentTime', headerName: 'Repayment date', type: 'data', width: 200},
     ];
 
     const handleClick = async (id: any) => {

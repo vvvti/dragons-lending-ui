@@ -16,7 +16,7 @@ export const StyledContainer = styled.div`
 
 export const StyledDetails = styled.div`
     min-height: 800px;
-    width: 70%;
+    width: 60%;
     margin: 5px;
 
     .MuiDataGrid-colCell {
