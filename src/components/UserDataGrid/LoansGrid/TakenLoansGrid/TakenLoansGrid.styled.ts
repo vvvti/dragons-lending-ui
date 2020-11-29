@@ -14,6 +14,18 @@ export const StyledContainer = styled.div`
     }
 `;
 
+export const StyledDetails = styled.div`
+    min-height: 800px;
+    width: 60%;
+    margin: 5px;
+
+    .MuiDataGrid-colCell {
+        font-size: 18px;
+        background-color: ${colors.gray};
+        color: white;
+    }
+`;
+
 export const StyledGrid = styled.div`
     display: flex;
     flex-direction: column;
@@ -24,4 +36,8 @@ export const StyledGrid = styled.div`
 export const StyledButton = styled(Button)`
     background-color: ${colors.green};
     color: white;
+`;
+
+export const StyledList = styled.div`
+    list-style: none;
 `;

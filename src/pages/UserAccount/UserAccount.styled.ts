@@ -27,9 +27,8 @@ export const StyledProfile = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
     box-shadow: 0 4px 12px ${colors.boxShadow};
-    min-height: 90vh;
+    min-height: 100%;
 `;
 export const StyledBanking = styled.div`
     grid-area: banking;
@@ -40,17 +39,6 @@ export const StyledBanking = styled.div`
     padding: 20px;
     box-shadow: 0 4px 12px ${colors.boxShadow};
     min-height: 10vh;
-`;
-
-export const StyledLoan = styled.div`
-    grid-area: loan;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px 5px;
-    box-shadow: 0 4px 12px ${colors.boxShadow};
-    min-height: 30vh;
 `;
 
 export const StyledTile = styled.div`

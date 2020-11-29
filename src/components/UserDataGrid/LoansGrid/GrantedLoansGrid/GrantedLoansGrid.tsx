@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
 import {StyledContainer} from './GrantedLoansGrid.styled';
 import {useLoans} from '../../../../hooks/useLoans';
-import {StyledButton, StyledGrid} from '../TakenLoansGrid/TakenLoansGrid.styled';
+import {StyledButton, StyledDetails} from '../TakenLoansGrid/TakenLoansGrid.styled';
 
 export const GrantedLoansGrid: React.FC = () => {
     const {loansList, getLoans, repaymentLoans, getRepayment} = useLoans();
@@ -22,7 +22,7 @@ export const GrantedLoansGrid: React.FC = () => {
     console.log('loansTaken', loansGranted);
 
     const columns: ColDef[] = [
-        {field: 'idValue', headerName: 'Taken Loans', width: 247},
+        {field: 'idValue', headerName: 'Granted Loans', width: 247},
         {field: 'username', headerName: 'Username', type: 'string', width: 150},
         {field: 'installmentsNumber', headerName: 'Installments ', type: 'number', width: 200},
         {field: 'amount', headerName: 'Amount (GBP)', type: 'number', width: 200},
@@ -43,32 +43,30 @@ export const GrantedLoansGrid: React.FC = () => {
         },
     ];
 
+    const columnsDetails: ColDef[] = [
+        {field: 'status', headerName: 'Status ', type: 'string', width: 157},
+        {field: 'repaymentAmount', headerName: 'Repayment Amount (GBP)', width: 300},
+        {field: 'timelyRepaymentTime', headerName: 'Repayment date', type: 'data', width: 200},
+    ];
+
     const handleClick = async (id: any) => {
         getRepayment(id);
     };
 
-    console.log('repaymentLoans', repaymentLoans);
+    const repaymentData = repaymentLoans ? repaymentLoans.loanInstallments : [];
+
+    const repaymentDetails = repaymentData.map((obj, index) => ({
+        ...obj,
+        id: index,
+        timelyRepaymentTime: new Date(obj.timelyRepaymentTime).toLocaleDateString(),
+    }));
 
     return (
         <>
             <StyledContainer>
                 <DataGrid rows={rowsData} columns={columns} pageSize={3} />
             </StyledContainer>
-            {repaymentLoans && (
-                <StyledGrid>
-                    <div>Id: {repaymentLoans.id}</div>
-                    <div>Repayment Amount: {repaymentLoans.calculatedRepaymentAmount}GBP</div>
-                    <div>Next Installment Date:{new Date(repaymentLoans.nextInstallmentDate).toLocaleDateString()}</div>
-                    <ul>
-                        {repaymentLoans.loanInstallments.map((obj, index) => (
-                            <li key={index}>
-                                Repayment Amount:{obj.repaymentAmount}GBP Time:{new Date(obj.timelyRepaymentTime).toLocaleDateString()}
-                                Status: {obj.status}
-                            </li>
-                        ))}
-                    </ul>
-                </StyledGrid>
-            )}
+            <StyledDetails>{repaymentLoans && <DataGrid rows={repaymentDetails} columns={columnsDetails} pageSize={12} />}</StyledDetails>
         </>
     );
 };
