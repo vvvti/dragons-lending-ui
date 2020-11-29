@@ -14,22 +14,23 @@ export const StyledContainer = styled.div`
     }
 `;
 
+export const StyledDetails = styled.div`
+    min-height: 800px;
+    width: 70%;
+    margin: 5px;
+
+    .MuiDataGrid-colCell {
+        font-size: 18px;
+        background-color: ${colors.gray};
+        color: white;
+    }
+`;
+
 export const StyledGrid = styled.div`
     display: flex;
     flex-direction: column;
     margin: 20px;
     font-size: 12px;
-`;
-
-export const StyledFlex = styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin: 20px;
-    font-size: 12px;
-`;
-
-export const StyledWrapper = styled.div`
-    width: 80%;
 `;
 
 export const StyledButton = styled(Button)`
@@ -38,5 +39,5 @@ export const StyledButton = styled(Button)`
 `;
 
 export const StyledList = styled.div`
-    color: green;
+    list-style: none;
 `;
