@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
 import {StyledContainer} from './GrantedLoansGrid.styled';
 import {useLoans} from '../../../../hooks/useLoans';
-import {StyledButton, StyledDetails, StyledGrid} from '../TakenLoansGrid/TakenLoansGrid.styled';
+import {StyledButton, StyledDetails} from '../TakenLoansGrid/TakenLoansGrid.styled';
 
 export const GrantedLoansGrid: React.FC = () => {
     const {loansList, getLoans, repaymentLoans, getRepayment} = useLoans();
