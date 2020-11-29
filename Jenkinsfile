@@ -99,6 +99,7 @@ pipeline {
                 agent {
                 docker {
                     image 'cypress/base:10'
+                    reuseNode true
                 }
             }
                 steps {
