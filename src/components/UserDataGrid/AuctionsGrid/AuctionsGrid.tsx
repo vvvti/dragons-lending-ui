@@ -17,8 +17,13 @@ export const AuctionsGrid: React.FC = () => {
         await getOwnAuctionsList();
     };
 
+    const rowsData = ownAuctionsList.map((obj: any) => ({
+        ...obj,
+        idValue: obj.id.substring(0, 8),
+    }));
+
     const columns: ColDef[] = [
-        {field: 'idValue', headerName: 'Auction ID', width: 397},
+        {field: 'idValue', headerName: 'My Auctions', width: 397},
         {field: 'timePeriod', headerName: 'Duration (months)', type: 'number', width: 200},
         {field: 'interestRate', headerName: 'Return (%)', type: 'number', width: 200},
         {field: 'loanAmount', headerName: 'Amount (GBP)', type: 'number', width: 200},
@@ -38,33 +43,9 @@ export const AuctionsGrid: React.FC = () => {
         },
     ];
 
-    const rowsData = ownAuctionsList.map((obj: any) => ({
-        ...obj,
-        idValue: obj.id.substring(0, 8),
-    }));
-
     return (
         <StyledContainer>
             <DataGrid rows={rowsData} columns={columns} pageSize={3} />
         </StyledContainer>
     );
 };
-
-//TODO: Add button after backend implementation
-// {field: 'calculation', headerName: 'Duration (months)', type: 'number', width: 150},
-// {
-//     field: '',
-//     headerName: 'Button',
-//     sortable: false,
-//     width: 300,
-//     disableClickEventBubbling: true,
-//     renderCell: () => {
-//         return (
-//             <StyledNavLink to={ROUTES.USERHISTORY}>
-//                 <StyledButton type="submit" size="small" variant="contained" color="primary">
-//                     History
-//                 </StyledButton>
-//             </StyledNavLink>
-//         );
-//     },
-// },

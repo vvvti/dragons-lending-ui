@@ -59,7 +59,7 @@ export interface Offers {
     username: string;
 }
 
-export interface userValues {
+export interface UserValues {
     email: string;
     firstName: string;
     id: string;
@@ -73,12 +73,35 @@ export interface AuthRouteProps {
     exact?: boolean;
 }
 
-export interface configType {
+export interface ConfigType {
     params: {yours: boolean};
 }
 
-export interface filterValues {
+export interface FilterValues {
     sort: boolean;
     filter: boolean;
     active: boolean;
+}
+
+export interface LoansGranted {
+    id: string;
+    username: string;
+    amount: number;
+    creationTime: string;
+    nextInstallmentDate: string;
+    installmentsNumber: number;
+}
+
+export interface LoansTaken {
+    id: string;
+    username: string;
+    amount: number;
+    creationTime: string;
+    nextInstallmentDate: string;
+    installmentsNumber: number;
+}
+
+export interface LoansList {
+    loansGranted: LoansGranted[];
+    loansTaken: LoansTaken[];
 }
