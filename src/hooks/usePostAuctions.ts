@@ -3,24 +3,24 @@ import {postAuction} from '../api/auctionsApi';
 import {useToPage} from './useToPage';
 
 export const usePostAuctions = () => {
-    const [errorMessage, setErrorMessage] = useState('');
+    const [serverMessage, setServerMessage] = useState('');
     const {goToMain} = useToPage();
 
     const postNewAuction = useCallback(
         async values => {
             try {
                 await postAuction(values);
-                setErrorMessage('');
+                setServerMessage('');
                 goToMain();
             } catch {
-                setErrorMessage('Something went wrong, please try again');
+                setServerMessage('Something went wrong, please try again');
             }
         },
         [goToMain],
     );
 
     return {
-        errorMessage,
+        serverMessage,
         postNewAuction,
     };
 };

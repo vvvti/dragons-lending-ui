@@ -8,6 +8,7 @@ import {StyledAmount, StyledButton, StyledInvestForm, StyledPercentage} from './
 import {InvestFormValues} from '../../../helpers/types';
 import {useAuthContext} from '../../../context/auth-context';
 import {useInvest} from '../../../hooks/useInvest';
+import {SERVERSTATUS} from '../../../helpers/constants';
 
 function Alert(props: AlertProps) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -21,7 +22,7 @@ export interface InvestFormProps {
 
 export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate, auctionId}) => {
     const [open, setOpen] = useState(false);
-    const {postInvestValues, errorMessage} = useInvest();
+    const {postInvestValues, serverMessage} = useInvest();
     const {tokenStorage} = useAuthContext();
 
     const handleClick = () => {
@@ -87,12 +88,12 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate,
                         onClose={handleClose}
                     >
                         <div>
-                            {errorMessage === 'ok' && (
+                            {serverMessage === SERVERSTATUS.OK && (
                                 <Alert onClose={handleClose} severity="success">
                                     Offer submitted!
                                 </Alert>
                             )}
-                            {errorMessage === 'error' && (
+                            {serverMessage === SERVERSTATUS.ERROR && (
                                 <Alert onClose={handleClose} severity="error">
                                     Something went wrong, please try again
                                 </Alert>

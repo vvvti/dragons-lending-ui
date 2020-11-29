@@ -12,6 +12,11 @@ export enum DATAGRIDTYPE {
     REPAYMENT,
 }
 
+export enum SERVERSTATUS {
+    OK,
+    ERROR,
+}
+
 export enum CURRENCY {
     GBP = '£',
 }

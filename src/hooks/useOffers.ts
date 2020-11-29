@@ -23,7 +23,7 @@ export const useOffers = () => {
     return {
         offersList,
         getOffers,
-        errorMessage,
+        serverMessage: errorMessage,
         postOffers,
     };
 };

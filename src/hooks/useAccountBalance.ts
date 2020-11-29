@@ -7,7 +7,7 @@ import {useToPage} from './useToPage';
 
 export const useAccountBalance = () => {
     const [accountBalance, setAccountBalance] = useState<AccountBalance>(INITIAL_ACCOUNT_BALANCE);
-    const [errorMessage, setErrorMessage] = useState('');
+    const [serverMessage, setServerMessage] = useState('');
     const {tokenStorage} = useAuthContext();
     const {goToUserAccount} = useToPage();
 
@@ -24,7 +24,7 @@ export const useAccountBalance = () => {
                 await postDeposit(values);
                 goToUserAccount();
             } catch {
-                setErrorMessage('Something went wrong, please try again');
+                setServerMessage('Something went wrong, please try again');
             }
         },
         [goToUserAccount],
@@ -36,7 +36,7 @@ export const useAccountBalance = () => {
                 await postWithdraw(values);
                 goToUserAccount();
             } catch {
-                setErrorMessage('Something went wrong, please try again');
+                setServerMessage('Something went wrong, please try again');
             }
         },
         [goToUserAccount],
@@ -44,7 +44,7 @@ export const useAccountBalance = () => {
 
     return {
         accountBalance,
-        errorMessage,
+        serverMessage,
         postDepositAmount,
         getAccountValue,
         postWithdrawAmount,
