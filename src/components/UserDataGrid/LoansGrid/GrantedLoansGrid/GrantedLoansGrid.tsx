@@ -22,7 +22,7 @@ export const GrantedLoansGrid: React.FC = () => {
     console.log('loansTaken', loansGranted);
 
     const columns: ColDef[] = [
-        {field: 'idValue', headerName: 'Taken Loans', width: 247},
+        {field: 'idValue', headerName: 'Granted Loans', width: 247},
         {field: 'username', headerName: 'Username', type: 'string', width: 150},
         {field: 'installmentsNumber', headerName: 'Installments ', type: 'number', width: 200},
         {field: 'amount', headerName: 'Amount (GBP)', type: 'number', width: 200},

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {ColDef, DataGrid} from '@material-ui/data-grid';
-import {StyledContainer, StyledGrid, StyledButton} from './TakenLoansGrid.styled';
+import {StyledContainer, StyledGrid, StyledButton, StyledFlex, StyledWrapper, StyledList} from './TakenLoansGrid.styled';
 import {useLoans} from '../../../../hooks/useLoans';
 
 export const TakenLoansGrid: React.FC = () => {
@@ -55,17 +55,27 @@ export const TakenLoansGrid: React.FC = () => {
             </StyledContainer>
             {repaymentLoans && (
                 <StyledGrid>
-                    <div>Id: {repaymentLoans.id}</div>
-                    <div>Repayment Amount: {repaymentLoans.calculatedRepaymentAmount} GBP</div>
-                    <div>Next Installment Date: {new Date(repaymentLoans.nextInstallmentDate).toLocaleDateString()}</div>
-                    <ul>
+                    <StyledWrapper>
+                        <StyledFlex>
+                            <div>Id:</div>
+                            <div>{repaymentLoans.id}</div>
+                        </StyledFlex>
+                        <StyledFlex>
+                            <div>Repayment Amount:</div>
+                            <div> {repaymentLoans.calculatedRepaymentAmount} GBP</div>
+                        </StyledFlex>
+                        <StyledFlex>
+                            <div>Next Installment Date:</div> <div>{new Date(repaymentLoans.nextInstallmentDate).toLocaleDateString()}</div>
+                        </StyledFlex>
+                    </StyledWrapper>
+                    <StyledList>
                         {repaymentLoans.loanInstallments.map((obj, index) => (
                             <li key={index}>
                                 Repayment Amount:{obj.repaymentAmount}GBP Time:{new Date(obj.timelyRepaymentTime).toLocaleDateString()}
                                 Status: {obj.status}
                             </li>
                         ))}
-                    </ul>
+                    </StyledList>
                 </StyledGrid>
             )}
         </>

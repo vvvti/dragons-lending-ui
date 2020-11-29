@@ -21,7 +21,22 @@ export const StyledGrid = styled.div`
     font-size: 12px;
 `;
 
+export const StyledFlex = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    font-size: 12px;
+`;
+
+export const StyledWrapper = styled.div`
+    width: 80%;
+`;
+
 export const StyledButton = styled(Button)`
     background-color: ${colors.green};
     color: white;
+`;
+
+export const StyledList = styled.div`
+    color: green;
 `;
