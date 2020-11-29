@@ -21,6 +21,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 -   [React hooks](https://reactjs.org/docs/hooks-intro.html)
 -   [Jest](https://jestjs.io/docs/en/getting-started.html)
 -   [React testing library](https://testing-library.com/docs/react-testing-library/intro)
+-   [Cypress](https://www.cypress.io/)
 -   [Material-ui](https://material-ui.com/)
 -   [Axios](https://github.com/axios/axios)
 -   [Formik](https://formik.org/)
@@ -77,7 +78,13 @@ To access to full functionality of the application you have to register or use b
 
 To deposit or withdraw to app account, you can use
 
-`account-id:` eaab8795-6f5d-4bd3-ab34-ac0cf0c889b6
+`account-id:` 135b42cd-e068-4208-b1ec-564944de51bc
+
+Traefik authentication:
+
+`user:` ersa
+<br />
+`password:` 7c8aq9dp
 
 ## Demo
 
