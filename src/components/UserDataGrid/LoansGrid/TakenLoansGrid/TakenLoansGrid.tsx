@@ -43,8 +43,8 @@ export const TakenLoansGrid: React.FC = () => {
     ];
 
     const columnsDetails: ColDef[] = [
-        {field: 'status', headerName: 'Status ', type: 'string', width: 257},
-        {field: 'repaymentAmount', headerName: 'Repayment Amount (GBP)', width: 200},
+        {field: 'status', headerName: 'Status ', type: 'string', width: 157},
+        {field: 'repaymentAmount', headerName: 'Repayment Amount (GBP)', width: 300},
         {field: 'timelyRepaymentTime', headerName: 'Repayment date', type: 'data', width: 200},
     ];
 
@@ -70,33 +70,3 @@ export const TakenLoansGrid: React.FC = () => {
         </>
     );
 };
-
-// {repaymentLoans && (<StyledContainer>
-//     <StyledGrid>
-//         <StyledWrapper>
-//             <StyledFlex>
-//                 <div>Id:</div>
-//                 <div>{repaymentLoans.id}</div>
-//             </StyledFlex>
-//             <StyledFlex>
-//                 <div>Repayment Amount:</div>
-//                 <div> {repaymentLoans.calculatedRepaymentAmount} GBP</div>
-//             </StyledFlex>
-//             <StyledFlex>
-//                 <div>Next Installment Date:</div> <div>{new Date(repaymentLoans.nextInstallmentDate).toLocaleDateString()}</div>
-//             </StyledFlex>
-//         </StyledWrapper>
-//         <StyledList>
-//             <DataGrid rows={repaymentDetails} columns={columnsDetails} pageSize={3} />
-//             {/*{repaymentLoans.loanInstallments.map((obj, index) => (*/}
-//             {/*    <li key={index}>*/}
-//
-//             {/*        Repayment Amount:{obj.repaymentAmount}GBP Time:{new Date(obj.timelyRepaymentTime).toLocaleDateString()}*/}
-//             {/*        Status: {obj.status}*/}
-//             {/*    </li>*/}
-//             {/*))}*/}
-//         </StyledList>
-//
-//     </StyledGrid>
-//
-// )}
