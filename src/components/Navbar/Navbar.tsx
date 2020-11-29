@@ -15,7 +15,9 @@ export const Navbar: React.FC = () => {
                 </StyledNavLink>
             </StyledLogoContainer>
             <StyledMenu>
-                <StyledNavLink to={NONAUTHROUTES.AUCTIONSGRID}>auctions</StyledNavLink>
+                <StyledNavLink data-test-id="auctions-link" to={NONAUTHROUTES.AUCTIONSGRID}>
+                    auctions
+                </StyledNavLink>
                 <StyledNavLink to={NONAUTHROUTES.CONTACT}>contact</StyledNavLink>
                 <StyledNavLink to={NONAUTHROUTES.RULES}>rules</StyledNavLink>
                 <StyledNavLink to={NONAUTHROUTES.ABOUT}>about</StyledNavLink>

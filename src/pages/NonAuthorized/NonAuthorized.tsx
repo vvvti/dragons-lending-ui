@@ -7,7 +7,11 @@ export const NonAuthorized: React.FC = () => {
         <StyledContainer>
             <StyledH1>You are not authorized</StyledH1>
             <p>
-                Let's go <StyledNavLink to={NONAUTHROUTES.LOGIN}>Login</StyledNavLink> and try from there.
+                Let's go{' '}
+                <StyledNavLink data-test-id="unathorized-link" to={NONAUTHROUTES.LOGIN}>
+                    login
+                </StyledNavLink>{' '}
+                and try from there.
             </p>
         </StyledContainer>
     );

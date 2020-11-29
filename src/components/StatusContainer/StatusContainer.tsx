@@ -7,7 +7,7 @@ export const StatusContainer: React.FC = () => {
 
     return (
         <StyledStatus>
-            <StyledText>{tokenStorage && `Logged in as ${validToken.sub}`}</StyledText>
+            <StyledText data-test-id="auth-info">{tokenStorage && `Logged in as ${validToken.sub}`}</StyledText>
         </StyledStatus>
     );
 };
