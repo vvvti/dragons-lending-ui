@@ -111,7 +111,7 @@ pipeline {
                                         url: "https://bitbucket.fintechchallenge.pl/scm/ersa/dragons-lending-e2e.git"
                                 )
                                 sh 'yarn install'
-                                sh 'yarn add cypress'
+                                sh 'npx cypress install'
                                 sh 'yarn start'
                                 
                             }
