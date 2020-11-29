@@ -33,7 +33,7 @@ export const Login: React.FC = () => {
                             <Typography component="h1" variant="h5">
                                 Sign in
                             </Typography>
-                            <ErrorMessage>{loginError}</ErrorMessage>
+                            <ErrorMessage data-test-id="error-message">{loginError}</ErrorMessage>
                             <StyledForm noValidate>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>

@@ -28,7 +28,7 @@ export const AuctionDetails: React.FC<{auction: AuctionValues}> = ({
                 {username}
             </StyledAvatarContainer>
             <StyledLoanDetails>
-                <StyledDaysLeft>
+                <StyledDaysLeft data-test-id="auction">
                     Expire on:
                     <StyledSpan>{format(new Date(endDate), 'dd-MM-yyyy')}</StyledSpan>
                 </StyledDaysLeft>
@@ -43,7 +43,7 @@ export const AuctionDetails: React.FC<{auction: AuctionValues}> = ({
             <StyledAccordion>
                 <Accordion>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-                        <Typography>Expand to Invest</Typography>
+                        <Typography data-test-id="expand-invest">Expand to Invest</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                         <InvestForm loanAmount={loanAmount} interestRate={interestRate} auctionId={id} />

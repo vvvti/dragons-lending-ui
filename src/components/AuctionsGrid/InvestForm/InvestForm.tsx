@@ -73,6 +73,7 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate,
                         />
                     </StyledPercentage>
                     <StyledButton
+                        data-test-id="invest-button"
                         type="submit"
                         variant="contained"
                         color="primary"

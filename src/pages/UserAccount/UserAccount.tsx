@@ -44,13 +44,19 @@ export const UserAccount: React.FC = () => {
                         <>
                             <StyledAvatar />
                             <StyledUserDetails>
-                                <StyledUserName>
+                                <StyledUserName data-test-id="user-details">
                                     {userDetails.firstName} {userDetails.lastName}
                                 </StyledUserName>
                                 <StyledProfileText>{userDetails.email}</StyledProfileText>
-                                <StyledProfileText>username: {userDetails.username}</StyledProfileText>
+                                <StyledProfileText data-test-id="user-name">username: {userDetails.username}</StyledProfileText>
                             </StyledUserDetails>
-                            <StyledButton onClick={handleButtonClick} size="small" variant="contained" color="primary">
+                            <StyledButton
+                                data-test-id="logout-button"
+                                onClick={handleButtonClick}
+                                size="small"
+                                variant="contained"
+                                color="primary"
+                            >
                                 Logout
                             </StyledButton>
                             <StyledNavLink to={NONAUTHROUTES.PRIVACY}>
