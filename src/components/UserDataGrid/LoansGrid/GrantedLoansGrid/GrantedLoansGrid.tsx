@@ -19,8 +19,6 @@ export const GrantedLoansGrid: React.FC = () => {
         date: new Date(obj.nextInstallmentDate).toLocaleDateString(),
     }));
 
-    console.log('loansTaken', loansGranted);
-
     const columns: ColDef[] = [
         {field: 'idValue', headerName: 'Granted Loans', width: 247},
         {field: 'username', headerName: 'Username', type: 'string', width: 150},

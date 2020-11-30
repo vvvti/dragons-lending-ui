@@ -104,7 +104,6 @@ export const Registration: React.FC = () => {
                                     <StyledLoginPage to={NONAUTHROUTES.LOGIN}>Already have an account? Sign in</StyledLoginPage>
                                 </Grid>
                             </Grid>
-                            {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                         </StyledPaper>
                     </Container>
                 )}

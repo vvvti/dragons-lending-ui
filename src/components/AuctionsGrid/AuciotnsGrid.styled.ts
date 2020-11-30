@@ -34,10 +34,6 @@ export const StyledButton = styled(Button)`
     border: none;
 `;
 
-export const StyledPagination = styled.div`
-    display: flex;
-`;
-
 export const StyledPageNumber = styled.button`
     font-size: 20px;
     margin: 20px 10px;

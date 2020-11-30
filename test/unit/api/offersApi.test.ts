@@ -1,7 +1,6 @@
 import {axios} from '../../../src/api/rest/axios';
 import {mocked} from 'ts-jest/utils';
-import {deleteAuctionItem, getAuctionsList, getAuctionsListWithoutToken, postAuction} from '../../../src/api/auctionsApi';
-import {deleteOfferItem, getOffersList, getReceivedOffersList, postOffersList} from '../../../src/api/offersApi';
+import {deleteOfferItem, postAcceptLoan, getOffersList, getReceivedOffersList, postOffersList} from '../../../src/api/offersApi';
 
 jest.mock('../../../src/api/rest/axios');
 
@@ -53,5 +52,16 @@ describe('offersApi', () => {
         expect(request.data).toEqual('getDataMock');
         expect(axios.delete).toHaveBeenCalledTimes(1);
         expect(axios.delete).toHaveBeenCalledWith(`/offers/${id}`);
+    });
+
+    it('get calls request for accept offers and passes response', async () => {
+        mocked(axios.post).mockResolvedValue({data: 'getDataMock'});
+
+        const id = 'b0453655-7b5d-44be-985c-759f6036f87a';
+
+        const request = await postAcceptLoan(id);
+        expect(request.data).toEqual('getDataMock');
+        expect(axios.post).toHaveBeenCalledTimes(1);
+        expect(axios.post).toHaveBeenCalledWith(`/offers/${id}/select`);
     });
 });

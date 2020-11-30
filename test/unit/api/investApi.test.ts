@@ -15,7 +15,7 @@ describe('investApi', () => {
         const values = {
             investAmount: 400,
             investRate: 3,
-            auctionId: '',
+            auctionId: 'b0453655-7b5d-44be-985c-759f6036f87a',
         };
 
         const request = await postValuesToInvest(values);

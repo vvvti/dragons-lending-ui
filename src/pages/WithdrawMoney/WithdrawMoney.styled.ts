@@ -33,10 +33,6 @@ export const StyledTitle = styled.div`
     margin: 10px 0;
 `;
 
-export const StyledColor = styled.span`
-    color: ${colors.marine};
-`;
-
 export const StyledErrorMessage = styled.span`
     color: ${colors.red};
 `;

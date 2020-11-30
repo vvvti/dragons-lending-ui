@@ -13,7 +13,6 @@ export const useLoans = () => {
 
     const getRepayment = useCallback(async id => {
         const response = await getRepaymentLoan(id);
-        console.log('getRepayment down', response.data);
         setRepaymentLoans(response.data);
     }, []);
 

@@ -101,7 +101,6 @@ export const InvestForm: React.FC<InvestFormProps> = ({loanAmount, interestRate,
                             )}
                         </div>
                     </Snackbar>
-                    {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                 </StyledInvestForm>
             )}
         </Formik>

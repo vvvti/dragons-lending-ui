@@ -126,7 +126,6 @@ export const CreateAuction: React.FC = () => {
                                     <ErrorMessage>{touched.endDate && errors.endDate}</ErrorMessage>
                                 </StyledInputWrapper>
                             </FormContainer>
-                            {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                         </StyledForm>
                     ) : (
                         <Loading />

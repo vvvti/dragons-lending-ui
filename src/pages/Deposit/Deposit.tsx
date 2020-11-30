@@ -74,7 +74,6 @@ export const Deposit: React.FC = () => {
                                     Add to your account
                                 </StyledButton>
                             </StyledForm>
-                            {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                         </StyledPaper>
                     </Container>
                 )}
